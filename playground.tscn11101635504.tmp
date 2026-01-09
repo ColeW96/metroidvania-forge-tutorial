@@ -361,4 +361,4 @@ texture = SubResource("GradientTexture2D_rupst")
 shape = SubResource("RectangleShape2D_edjgo")
 
 [node name="Player" parent="." instance=ExtResource("1_rupst")]
-position = Vector2(20, -70)
+position = Vector2(57, -58)

@@ -1,0 +1,65 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg42g8j2magai"]
+
+[ext_resource type="Script" uid="uid://br7voc6rrq01a" path="res://pause_menu/scripts/map_node.gd" id="1_j1ovi"]
+
+[node name="MapNode" type="Control"]
+custom_minimum_size = Vector2(12, 6)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 12.0
+offset_bottom = 6.0
+script = ExtResource("1_j1ovi")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.52156866)
+layout_mode = 0
+offset_left = 1.9999999
+offset_top = 1.9999999
+offset_right = 81.0
+offset_bottom = 17.0
+scale = Vector2(0.1, 0.1)
+text = "level name"
+
+[node name="TransitionBlocks" type="Control" parent="."]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

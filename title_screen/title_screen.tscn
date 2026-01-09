@@ -1,0 +1,225 @@
+[gd_scene load_steps=9 format=4 uid="uid://dcekiwaee71q8"]
+
+[ext_resource type="TileSet" uid="uid://p87hshodqhxn" path="res://levels/tilesets/forgotten_forest.tres" id="1_dxpbd"]
+[ext_resource type="Script" uid="uid://dxausgbpnathm" path="res://title_screen/title_screen.gd" id="1_vbjqi"]
+[ext_resource type="PackedScene" uid="uid://bl8f4woftk8ry" path="res://levels/props/torch.tscn" id="2_2dq6q"]
+[ext_resource type="Texture2D" uid="uid://d32fgghpxvbwd" path="res://title_screen/metroidvania_logo.png" id="3_2dq6q"]
+
+[sub_resource type="Animation" id="Animation_vbjqi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_0m3ch"]
+resource_name = "loop"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.90000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+}
+
+[sub_resource type="Animation" id="Animation_2dq6q"]
+resource_name = "start"
+length = 0.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45000002, 0.5, 0.55),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vbjqi"]
+_data = {
+&"RESET": SubResource("Animation_vbjqi"),
+&"loop": SubResource("Animation_0m3ch"),
+&"start": SubResource("Animation_2dq6q")
+}
+
+[node name="TitleScreen" type="CanvasLayer"]
+layer = 5
+script = ExtResource("1_vbjqi")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TileMapContainer" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="Control/TileMapContainer"]
+tile_map_data = PackedByteArray("AAACAAIAAAAHAAwAAAACAAMAAAAHAA0AAAADAAIAAAAIAAwAAAADAAMAAAAIAA0AAAAEAAIAAAAJAAwAAAAEAAMAAAAJAA0AAAAKAAIAAAAHAAwAAAAKAAMAAAAHAA0AAAALAAIAAAAIAAwAAAALAAMAAAAIAA0AAAAMAAIAAAAJAAwAAAAMAAMAAAAJAA0AAAAKAAQAAAAHAA0AAAALAAQAAAAIAA0AAAAMAAQAAAAJAA0AAAAKAAYAAAAHAA4AAAALAAYAAAAIAA4AAAAMAAYAAAAJAA4AAAAKAAUAAAAHAA0AAAALAAUAAAAIAA0AAAAMAAUAAAAJAA0AAAACAAQAAAAHAA0AAAADAAQAAAAIAA0AAAAEAAQAAAAJAA0AAAACAAUAAAAHAA0AAAADAAUAAAAIAA0AAAAEAAUAAAAJAA0AAAACAAYAAAAHAA4AAAADAAYAAAAIAA4AAAAEAAYAAAAJAA4AAAAMAAEAAAAHAA0AAAALAAEAAAAHAA0AAAAKAAEAAAAHAA0AAAAJAAEAAAAHAA0AAAAIAAEAAAAHAA0AAAAHAAEAAAAHAA0AAAAGAAEAAAAHAA0AAAAFAAEAAAAHAA0AAAAEAAEAAAAHAA0AAAADAAEAAAAHAA0AAAACAAEAAAAHAA0AAAABAAEAAAAHAA0AAAABAAIAAAAHAA0AAAAAAAIAAAAHAA0AAAD//wIAAAAHAA0AAAD+/wIAAAAHAA0AAAD+/wMAAAAHAA0AAAD+/wQAAAAHAA0AAAD+/wUAAAAHAA0AAAD+/wYAAAAHAA0AAAD//wYAAAAHAA0AAAD+/wcAAAAHAA0AAAD//wcAAAAHAA0AAAAAAAcAAAAHAA0AAAABAAcAAAAHAA0AAAACAAcAAAAHAA0AAAADAAcAAAAHAA0AAAAEAAcAAAAHAA0AAAAFAAcAAAAHAA0AAAAGAAcAAAAHAA0AAAAHAAcAAAAHAA0AAAAIAAcAAAAHAA0AAAAJAAcAAAAHAA0AAAAKAAcAAAAHAA0AAAALAAcAAAAHAA0AAAAMAAcAAAAHAA0AAAANAAcAAAAHAA0AAAAOAAcAAAAHAA0AAAAPAAcAAAAHAA0AAAAQAAcAAAAHAA0AAAAQAAYAAAAHAA0AAAAQAAUAAAAHAA0AAAAQAAQAAAAHAA0AAAAQAAMAAAAHAA0AAAAQAAIAAAAHAA0AAAAPAAIAAAAHAA0AAAAOAAIAAAAHAA0AAAANAAIAAAAHAA0AAAANAAEAAAAHAA0AAAAPAAMAAAAHAA0AAAAOAAMAAAAHAA0AAAANAAMAAAAHAA0AAAANAAQAAAAHAA0AAAAOAAQAAAAHAA0AAAAPAAQAAAAHAA0AAAAPAAUAAAAHAA0AAAAOAAUAAAAHAA0AAAANAAUAAAAHAA0AAAANAAYAAAAHAA0AAAAOAAYAAAAHAA0AAAAPAAYAAAAHAA0AAAAFAAIAAAAHAA0AAAAGAAIAAAAHAA0AAAAHAAIAAAAHAA0AAAAIAAIAAAAHAA0AAAAJAAIAAAAHAA0AAAAJAAMAAAAHAA0AAAAIAAMAAAAHAA0AAAAHAAMAAAAHAA0AAAAGAAMAAAAHAA0AAAAFAAMAAAAHAA0AAAAFAAQAAAAHAA0AAAAGAAQAAAAHAA0AAAAHAAQAAAAHAA0AAAAIAAQAAAAHAA0AAAAJAAQAAAAHAA0AAAAJAAUAAAAHAA0AAAAIAAUAAAAHAA0AAAAHAAUAAAAHAA0AAAAGAAUAAAAHAA0AAAAFAAUAAAAHAA0AAAAFAAYAAAAHAA0AAAAGAAYAAAAHAA0AAAAHAAYAAAAHAA0AAAAIAAYAAAAHAA0AAAAJAAYAAAAHAA0AAAD//wMAAAAHAA0AAAD//wQAAAAHAA0AAAD//wUAAAAHAA0AAAAAAAUAAAAHAA0AAAAAAAYAAAAHAA0AAAABAAYAAAAHAA0AAAABAAUAAAAHAA0AAAABAAQAAAAHAA0AAAABAAMAAAAHAA0AAAAAAAMAAAAHAA0AAAAAAAQAAAAHAA0AAAA=")
+tile_set = ExtResource("1_dxpbd")
+rendering_quadrant_size = 32
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Control/TileMapContainer"]
+tile_map_data = PackedByteArray("AAD+////AAACAAoAAAD/////AAACAAoAAAAAAP//AAACAAoAAAABAP//AAACAAoAAAACAP//AAACAAoAAAADAP//AAACAAoAAAAEAP//AAACAAoAAAAFAP//AAACAAoAAAAGAP//AAACAAoAAAAHAP//AAACAAoAAAAIAP//AAACAAoAAAAJAP//AAACAAoAAAAKAP//AAACAAoAAAALAP//AAACAAoAAAAMAP//AAACAAoAAAANAP//AAACAAoAAAAOAP//AAACAAoAAAAPAP//AAACAAoAAAAQAP//AAACAAoAAAAQAAAAAAACAAoAAAAAAAcAAAABAAgAAAABAAcAAAACAAgAAAACAAcAAAADAAgAAAADAAcAAAAEAAgAAAAEAAcAAAABAAgAAAAFAAcAAAACAAgAAAAGAAcAAAADAAgAAAAHAAcAAAAEAAgAAAAIAAcAAAABAAgAAAAJAAcAAAACAAgAAAAKAAcAAAADAAgAAAALAAcAAAABAAgAAAAMAAcAAAACAAgAAAANAAcAAAADAAgAAAAOAAcAAAAEAAgAAAAAAAgAAAACAAkAAAABAAgAAAADAAkAAAACAAgAAAACAAkAAAADAAgAAAADAAkAAAAEAAgAAAACAAkAAAAFAAgAAAADAAkAAAAGAAgAAAACAAkAAAAHAAgAAAADAAkAAAAIAAgAAAACAAkAAAAJAAgAAAADAAkAAAAKAAgAAAACAAkAAAALAAgAAAADAAkAAAAMAAgAAAACAAkAAAANAAgAAAACAAkAAAAOAAgAAAADAAkAAAD+/wcAAAABAAgAAAD//wcAAAACAAgAAAD+/wgAAAACAAkAAAD//wgAAAADAAkAAAAPAAgAAAACAAkAAAAQAAgAAAADAAkAAAAPAAcAAAACAAgAAAAQAAcAAAADAAgAAAABAAIAAAAFAAwAAAAAAAIAAAAEAAwAAAD//wIAAAADAAwAAAD+/wIAAAACAAwAAAD+/wEAAAACAAsAAAD+/wAAAAACAAsAAAD//wEAAAACAAsAAAD//wAAAAACAAsAAAAAAAEAAAAEAA4AAAABAAEAAAAFAA4AAAACAAEAAAACAAwAAAADAAEAAAACAAwAAAAEAAEAAAADAAwAAAAFAAEAAAAEAAwAAAAAAAAAAAACAAsAAAABAAAAAAACAAsAAAACAAAAAAACAAsAAAADAAAAAAACAAsAAAAEAAAAAAACAAsAAAAFAAAAAAACAAsAAAAGAAAAAAACAAsAAAAHAAAAAAACAAsAAAAIAAAAAAACAAsAAAAJAAAAAAACAAsAAAAKAAAAAAACAAsAAAALAAAAAAACAAsAAAAMAAAAAAACAAsAAAANAAAAAAACAAsAAAAOAAAAAAACAAsAAAAPAAAAAAACAAsAAAAQAAEAAAACAAsAAAANAAIAAAAAAAwAAAAOAAIAAAABAAwAAAAOAAEAAAADAA4AAAANAAEAAAACAA4AAAALAAEAAAACAAwAAAAMAAEAAAADAAwAAAAJAAEAAAACAAwAAAAKAAEAAAADAAwAAAAHAAEAAAADAAwAAAAIAAEAAAADAAwAAAAGAAEAAAACAAwAAAAPAAIAAAACAAwAAAAQAAIAAAADAAwAAAAPAAEAAAADAAoAAAD+/wkAAAADAAoAAAD//wkAAAADAAoAAAAAAAkAAAADAAoAAAABAAkAAAADAAoAAAACAAkAAAADAAoAAAADAAkAAAADAAoAAAAEAAkAAAADAAoAAAAFAAkAAAADAAoAAAAGAAkAAAADAAoAAAAHAAkAAAADAAoAAAAIAAkAAAADAAoAAAAJAAkAAAADAAoAAAAKAAkAAAADAAoAAAALAAkAAAADAAoAAAAMAAkAAAADAAoAAAANAAkAAAADAAoAAAAOAAkAAAADAAoAAAAPAAkAAAADAAoAAAAQAAkAAAADAAoAAAA=")
+tile_set = ExtResource("1_dxpbd")
+rendering_quadrant_size = 32
+
+[node name="Props" type="Node2D" parent="Control/TileMapContainer"]
+
+[node name="Torch" parent="Control/TileMapContainer/Props" instance=ExtResource("2_2dq6q")]
+position = Vector2(74, 227)
+
+[node name="Torch2" parent="Control/TileMapContainer/Props" instance=ExtResource("2_2dq6q")]
+position = Vector2(406, 227)
+
+[node name="MainMenu" type="VBoxContainer" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = -111.0
+offset_right = 86.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Logo" type="Control" parent="Control/MainMenu"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/MainMenu/Logo"]
+position = Vector2(0, 70)
+texture = ExtResource("3_2dq6q")
+hframes = 8
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/MainMenu/Logo"]
+libraries = {
+&"": SubResource("AnimationLibrary_vbjqi")
+}
+autoplay = "start"
+
+[node name="NewGameButton" type="Button" parent="Control/MainMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "New Game"
+
+[node name="LoadGameButton" type="Button" parent="Control/MainMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Load Game"
+
+[node name="NewGameMenu" type="VBoxContainer" parent="Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.0
+offset_top = -42.0
+offset_right = 92.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="Control/NewGameMenu"]
+modulate = Color(0.6745098, 0.19607843, 0.19607843, 1)
+layout_mode = 2
+text = "Start a new game..."
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="Control/NewGameMenu"]
+layout_mode = 2
+
+[node name="NewSlot01" type="Button" parent="Control/NewGameMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Begin Slot 01"
+
+[node name="NewSlot02" type="Button" parent="Control/NewGameMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Begin Slot 02"
+
+[node name="NewSlot03" type="Button" parent="Control/NewGameMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Begin Slot 03"
+
+[node name="LoadGameMenu" type="VBoxContainer" parent="Control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.0
+offset_top = -42.0
+offset_right = 92.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="Control/LoadGameMenu"]
+modulate = Color(0.6745098, 0.19607843, 0.19607843, 1)
+layout_mode = 2
+text = "Load a saved game..."
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="Control/LoadGameMenu"]
+layout_mode = 2
+
+[node name="LoadSlot01" type="Button" parent="Control/LoadGameMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Load Slot 01"
+
+[node name="LoadSlot02" type="Button" parent="Control/LoadGameMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Load Slot 02"
+
+[node name="LoadSlot03" type="Button" parent="Control/LoadGameMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Load Slot 03"

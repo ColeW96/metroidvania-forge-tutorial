@@ -1,0 +1,106 @@
+[gd_scene load_steps=15 format=3 uid="uid://bl8f4woftk8ry"]
+
+[ext_resource type="Texture2D" uid="uid://db6cnp2mq76jm" path="res://levels/tilesets/sprites/forgotten_forest_example_tileset.png" id="1_cxyc4"]
+[ext_resource type="Script" uid="uid://brcyuoolauc0k" path="res://general/scripts/light_flicker.gd" id="2_dnf12"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnf12"]
+atlas = ExtResource("1_cxyc4")
+region = Rect2(512, 256, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hl1ks"]
+atlas = ExtResource("1_cxyc4")
+region = Rect2(544, 256, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkwqv"]
+atlas = ExtResource("1_cxyc4")
+region = Rect2(576, 256, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jgic"]
+atlas = ExtResource("1_cxyc4")
+region = Rect2(608, 256, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrye1"]
+atlas = ExtResource("1_cxyc4")
+region = Rect2(640, 256, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cl4he"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnf12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hl1ks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkwqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jgic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrye1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_cxyc4"]
+offsets = PackedFloat32Array(0, 0.30208334, 0.72727275, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.7607843, 0, 1, 0.5137255, 0.078431375, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dnf12"]
+gradient = SubResource("Gradient_cxyc4")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dnf12"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_dnf12"]
+colors = PackedColorArray(1.353256, 0.9386061, 0, 1, 0.9711254, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hl1ks"]
+gradient = SubResource("Gradient_dnf12")
+use_hdr = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dnf12"]
+particle_flag_disable_z = true
+direction = Vector3(0, -20, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 300.0
+angular_velocity_min = -200.00002
+angular_velocity_max = 199.99998
+gravity = Vector3(0, 98, 0)
+color_ramp = SubResource("GradientTexture1D_hl1ks")
+turbulence_enabled = true
+turbulence_influence_max = 0.3
+turbulence_initial_displacement_min = -19.999998
+turbulence_initial_displacement_max = 20.000002
+
+[node name="Torch" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_cl4he")
+autoplay = "default"
+frame_progress = 0.2679653
+offset = Vector2(0, -32)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -34)
+energy = 0.6
+range_layer_max = 5
+texture = SubResource("GradientTexture2D_dnf12")
+script = ExtResource("2_dnf12")
+flicker_intensity = 0.2
+flicker_frequency = 0.1
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_dnf12")
+position = Vector2(1, -33)
+amount = 4
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_dnf12")
