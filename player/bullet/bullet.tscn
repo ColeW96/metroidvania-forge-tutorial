@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://bdoia83dmojob"]
+
+[ext_resource type="Script" uid="uid://xufymkbehv1n" path="res://player/bullet/bullet.gd" id="1_txs3d"]
+[ext_resource type="Texture2D" uid="uid://cbtrg87f1njd2" path="res://player/bullet/bullet.png" id="2_k2a0t"]
+
+[sub_resource type="Gradient" id="Gradient_473kp"]
+offsets = PackedFloat32Array(0, 0.28991598, 0.7478992, 1)
+colors = PackedColorArray(1, 0.85333055, 0.49342346, 1, 1, 0.5789872, 0.072526634, 1, 1, 0.34260076, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_txs3d"]
+gradient = SubResource("Gradient_473kp")
+width = 6
+height = 6
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vq7f"]
+atlas = ExtResource("2_k2a0t")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pppm"]
+atlas = ExtResource("2_k2a0t")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kaopj"]
+atlas = ExtResource("2_k2a0t")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_prnor"]
+animations = [{
+"frames": [{
+"duration": 0.05,
+"texture": SubResource("AtlasTexture_3vq7f")
+}, {
+"duration": 0.1,
+"texture": SubResource("AtlasTexture_3pppm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kaopj")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]
+
+[node name="Bullet" type="Node2D"]
+show_behind_parent = true
+z_as_relative = false
+script = ExtResource("1_txs3d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = SubResource("GradientTexture2D_txs3d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_prnor")
+autoplay = "default"
+frame = 2
+frame_progress = 1.0
