@@ -14,15 +14,17 @@ class_name PauseMenu extends CanvasLayer
 @onready var ui_slider: HSlider = %UISlider
 #endregion
 
-var player : Player
+var player_position : Vector2
 
 
 func _ready() -> void:
-	# grab player
 	show_pause_screen()
 	system_menu_button.pressed.connect( show_system_menu )
-	# audio setup
+	Audio.setup_button_audio( self )
 	setup_sytem_menu()
+	var player : Node2D = get_tree().get_first_node_in_group( "Player" )
+	if player:
+		player_position = player.global_position
 	pass
 
 
@@ -51,7 +53,14 @@ func show_system_menu() -> void:
 
 
 func setup_sytem_menu() -> void:
-	# setup the sliders
+	music_slider.value = AudioServer.get_bus_volume_linear( 2 )
+	sfx_slider.value = AudioServer.get_bus_volume_linear( 3 )
+	ui_slider.value = AudioServer.get_bus_volume_linear( 4 )
+	
+	music_slider.value_changed.connect( _on_music_slider_changed )
+	sfx_slider.value_changed.connect( _on_sfx_slider_changed )
+	ui_slider.value_changed.connect( _on_ui_slider_changed )
+	
 	back_to_title_button.pressed.connect( _on_back_to_title_pressed )
 	back_to_map_button.pressed.connect( show_pause_screen )
 	pass
@@ -63,4 +72,24 @@ func _on_back_to_title_pressed() -> void:
 	get_tree().paused = false
 	Messages.back_to_title_screen.emit()
 	queue_free()
+	pass
+
+
+func _on_music_slider_changed( value : float ) -> void:
+	AudioServer.set_bus_volume_linear( 2, value )
+	SaveManager.save_configuration()
+	pass
+
+
+func _on_sfx_slider_changed( value : float ) -> void:
+	AudioServer.set_bus_volume_linear( 3, value )
+	Audio.play_spatial_sound( Audio.ui_focus_audio, player_position )
+	SaveManager.save_configuration()
+	pass
+
+
+func _on_ui_slider_changed( value : float ) -> void:
+	AudioServer.set_bus_volume_linear( 4, value )
+	Audio.ui_focus_change()
+	SaveManager.save_configuration()
 	pass

@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=4 uid="uid://bhun0qinvswrq"]
+[gd_scene load_steps=7 format=4 uid="uid://bhun0qinvswrq"]
 
 [ext_resource type="TileSet" uid="uid://p87hshodqhxn" path="res://levels/tilesets/forgotten_forest.tres" id="1_rlhhg"]
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="3_vv2jw"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="4_7vwju"]
 [ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="4_r7adf"]
+[ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="5_nqq0o"]
+[ext_resource type="AudioStream" uid="uid://cxhdqvhc0jk57" path="res://music/forest_01.ogg" id="6_c06eb"]
 
 [node name="03" type="Node2D"]
 
@@ -50,3 +52,8 @@ target_area_name = "FF02-3"
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("4_7vwju")]
 position = Vector2(56, 56)
+
+[node name="MusicAutoTrigger" type="Node" parent="."]
+script = ExtResource("5_nqq0o")
+track = ExtResource("6_c06eb")
+metadata/_custom_type_script = "uid://rwwuu7gvxywr"

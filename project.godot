@@ -25,6 +25,7 @@ SceneManager="*res://00_global/scene_manager/scene_manager.tscn"
 SaveManager="*res://00_global/save_manager.gd"
 Messages="*res://00_global/messages.gd"
 PlayerHud="*res://00_global/player_hud/player_hud.tscn"
+Audio="*res://00_global/audio/audio.tscn"
 
 [display]
 
@@ -37,6 +38,15 @@ window/stretch/mode="canvas_items"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/nklbdev.aseprite_importers/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://00_global/": "red",
+"res://general/": "blue",
+"res://levels/": "green",
+"res://player/": "purple"
+}
 
 [global_group]
 
