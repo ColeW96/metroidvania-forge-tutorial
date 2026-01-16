@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://bx34wg1j70fqf"]
+[gd_scene load_steps=8 format=4 uid="uid://bx34wg1j70fqf"]
 
 [ext_resource type="TileSet" uid="uid://p87hshodqhxn" path="res://levels/tilesets/forgotten_forest.tres" id="1_bdmoc"]
 [ext_resource type="PackedScene" uid="uid://bl8f4woftk8ry" path="res://levels/props/torch.tscn" id="2_skfl5"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="4_6qpkb"]
 [ext_resource type="PackedScene" uid="uid://85pdupjx7ewh" path="res://general/save_point/save_point.tscn" id="5_20ooh"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="6_20ooh"]
+[ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="7_juff7"]
 
 [node name="05Save" type="Node2D"]
 
@@ -40,6 +41,8 @@ target_area_name = "05-05_save"
 position = Vector2(480, 224)
 size = 4
 location = 1
+target_level = "uid://due8pydwies2o"
+target_area_name = "06-05_save"
 
 [node name="LevelBounds" type="Node2D" parent="."]
 z_index = 256
@@ -49,3 +52,7 @@ metadata/_custom_type_script = "uid://drqun7tewik8i"
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("6_20ooh")]
 position = Vector2(31, 230)
+
+[node name="MusicAutoTrigger" type="Node" parent="."]
+script = ExtResource("7_juff7")
+metadata/_custom_type_script = "uid://rwwuu7gvxywr"

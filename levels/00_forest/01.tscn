@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://cuhy61b0drxbf"]
+[gd_scene load_steps=22 format=4 uid="uid://cuhy61b0drxbf"]
 
 [ext_resource type="TileSet" uid="uid://p87hshodqhxn" path="res://levels/tilesets/forgotten_forest.tres" id="1_pu3y4"]
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="3_1pu88"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dnqw24c1x1xta" path="res://levels/tilesets/sprites/light_stream.jpg" id="6_chwhs"]
 [ext_resource type="Material" uid="uid://6kaipj68bkd5" path="res://materials_and_shaders/fog_fade_material.tres" id="7_72pnk"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="7_vdj2u"]
+[ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="8_8sv46"]
+[ext_resource type="AudioStream" uid="uid://cxhdqvhc0jk57" path="res://music/forest_01.ogg" id="9_08onm"]
 
 [sub_resource type="Gradient" id="Gradient_vhcel"]
 colors = PackedColorArray(0.5529412, 0.7647059, 0.7294118, 1, 0.28235295, 0.45490196, 0.5254902, 0)
@@ -411,3 +413,8 @@ lifetime = 5.0
 randomness = 0.83
 visibility_rect = Rect2(-250, -100, 500, 200)
 process_material = SubResource("ParticleProcessMaterial_7jd6w")
+
+[node name="MusicAutoTrigger" type="Node" parent="."]
+script = ExtResource("8_8sv46")
+track = ExtResource("9_08onm")
+metadata/_custom_type_script = "uid://rwwuu7gvxywr"
