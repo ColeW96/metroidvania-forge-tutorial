@@ -9,6 +9,8 @@ func init() -> void:
 # What happens when we enter this state?
 func enter() -> void:
 	player.animation_player.play( "idle" )
+	player.jump_count = 0
+	player.dash_count = 0
 	pass
 
 
@@ -19,6 +21,10 @@ func exit() -> void:
 
 # What happens with input?
 func handle_input( _event : InputEvent ) -> PlayerState:
+	if _event.is_action_pressed("dash") and player.can_dash():
+		return dash
+	if _event.is_action_pressed("attack"):
+		return attack
 	if _event.is_action_pressed( "jump" ):
 		return jump
 	if _event.is_action_pressed("shoot"):

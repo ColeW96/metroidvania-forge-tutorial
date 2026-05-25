@@ -32,6 +32,8 @@ func exit() -> void:
 
 # What happens with input?
 func handle_input( _event : InputEvent ) -> PlayerState:
+	if _event.is_action_pressed("dash") and player.can_dash():
+		return dash
 	
 	if _event.is_action_pressed("shoot"):
 		return shoot_up

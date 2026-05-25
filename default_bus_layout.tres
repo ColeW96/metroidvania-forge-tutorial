@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://d0vqj8ryikljn"]
+[gd_resource type="AudioBusLayout" format=3 uid="uid://d0vqj8ryikljn"]
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_j3pel"]
 resource_name = "Reverb"
@@ -14,7 +14,7 @@ bus/1/effect/0/effect = SubResource("AudioEffectReverb_j3pel")
 bus/1/effect/0/enabled = true
 bus/2/name = &"Music"
 bus/2/solo = false
-bus/2/mute = false
+bus/2/mute = true
 bus/2/bypass_fx = false
 bus/2/volume_db = 0.013933182
 bus/2/send = &"EffectPass"

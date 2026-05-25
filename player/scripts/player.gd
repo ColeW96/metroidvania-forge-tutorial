@@ -3,13 +3,22 @@ class_name Player extends CharacterBody2D
 const DEBUG_JUMP_INDICATOR = preload("uid://bqucnd6ugb7r")
 const BULLET = preload("uid://bdoia83dmojob")
 
+#region /// signals
+signal damage_taken
+#endregion
+
 #region /// on ready variables
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var sprite: PlayerSprite = $Sprite2D
 @onready var collision_stand: CollisionShape2D = $CollisionStand
 @onready var collision_crouch: CollisionShape2D = $CollisionCrouch
+@onready var da_stand: CollisionShape2D = %DAStand
+@onready var da_crouch: CollisionShape2D = %DACrouch
 @onready var one_way_platform_shapecast: ShapeCast2D = $OneWayPlatformShapecast
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var bullet_spawn: Node2D = $BulletSpawn
+@onready var attack_area = %AttackArea
+@onready var attack_sprite = %AttackSprite2D
+@onready var damage_area: DamageArea = %DamageArea
 #endregion
 
 
@@ -37,9 +46,11 @@ var max_hp : float = 20 :
 	set( value ):
 		max_hp = value
 		Messages.player_health_changed.emit( hp, max_hp )
-var dash : bool = false
-var double_jump : bool = false
-var ground_slam : bool = false
+var dash : bool = true
+var dash_count : int = 0
+var double_jump : bool = true
+var jump_count : int = 0
+var ground_slam : bool = true
 var morph_roll : bool = false
 #endregion
 
@@ -62,10 +73,14 @@ func _ready() -> void:
 	bullet_spawn_pos = bullet_spawn.position
 	Messages.player_healed.connect( _on_player_healed )
 	Messages.back_to_title_screen.connect( queue_free )
+	damage_area.damage_taken.connect( _on_damage_taken )
+	hp = max_hp
 	pass
 
 
 func _unhandled_input( event: InputEvent ) -> void:
+	if event.is_action_released("jump") and velocity.y < 0:
+		velocity.y *= 0.5
 	if event.is_action_pressed( "action" ):
 		Messages.player_interacted.emit( self )
 	elif event.is_action_pressed( "pause" ):
@@ -152,14 +167,19 @@ func update_direction() -> void:
 	direction = Vector2( x_axis, y_axis )
 	
 	if prev_direction.x != direction.x:
+		attack_area.flip(direction.x)
 		if direction.x < 0:
 			sprite.flip_h = true
 			_cardinal_direction = Vector2.LEFT
 			bullet_spawn.position.x = -bullet_spawn_pos.x
+			attack_sprite.flip_h = true
+			attack_sprite.position.x = -19
 		elif direction.x > 0:
 			sprite.flip_h = false
 			_cardinal_direction = Vector2.RIGHT
 			bullet_spawn.position.x = bullet_spawn_pos.x
+			attack_sprite.flip_h = false
+			attack_sprite.position.x = 19
 	pass
 
 
@@ -206,3 +226,17 @@ func _on_player_healed( amount : float ) -> void:
 	hp += amount
 	# audio/visual
 	pass
+
+
+func _on_damage_taken( attacking_area : AttackArea ) -> void:
+	if current_state == PlayerStateDeath:
+		return
+	hp -= attacking_area.damage
+	damage_taken.emit()
+	pass
+
+
+func can_dash() -> bool:
+	if dash == false or dash_count > 0:
+		return false
+	return true

@@ -7,6 +7,7 @@ var timer : float = 0.0
 var anim_length : float = 0.0
 var anim_length_offset : float = .01
 
+
 # What happens when this is initialized?
 func init() -> void:
 	pass
@@ -22,14 +23,18 @@ func enter() -> void:
 		player.animation_player.play( "crouch" )
 	player.collision_stand.disabled = true
 	player.collision_crouch.disabled = false
+	player.da_stand.disabled = true
+	player.da_crouch.disabled = false
 	player.bullet_spawn.position.y = -8
 	pass
 
 
 # What happens when we exit this state?
 func exit() -> void:
-	player.collision_stand.disabled = false
-	player.collision_crouch.disabled = true
+	player.collision_stand.set_deferred( "disabled", false )
+	player.collision_crouch.set_deferred( "disabled", true )
+	player.da_stand.set_deferred( "disabled", false )
+	player.da_crouch.set_deferred( "disabled", true )
 	can_shoot = false
 	player.bullet_spawn.position.y = player.bullet_spawn_pos.y
 	pass
@@ -37,10 +42,12 @@ func exit() -> void:
 
 # What happens with input?
 func handle_input( _event : InputEvent ) -> PlayerState:
-	
+	if _event.is_action_pressed("dash") and player.can_dash():
+		return dash
+	if _event.is_action_pressed("attack"):
+		return attack
 	if _event.is_action_pressed("shoot"):
 		return crouch_shoot
-	
 	if _event.is_action_pressed( "jump" ):
 		player.one_way_platform_shapecast.force_shapecast_update()
 		if player.one_way_platform_shapecast.is_colliding():

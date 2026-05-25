@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bc6odhoeyrmm4"]
+[gd_scene format=3 uid="uid://bc6odhoeyrmm4"]
 
 [ext_resource type="PackedScene" uid="uid://ds3708cb1jsfb" path="res://player/player.tscn" id="1_rupst"]
 
@@ -22,343 +22,343 @@ width = 32
 height = 32
 fill_to = Vector2(0, 1)
 
-[node name="Playground" type="Node2D"]
+[node name="Playground" type="Node2D" unique_id=1891602109]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2107853299]
 position = Vector2(241, 250.5)
 scale = Vector2(16.03125, 1.53125)
 texture = SubResource("GradientTexture2D_rupst")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D" unique_id=1900091135]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D" unique_id=490371789]
 shape = SubResource("RectangleShape2D_edjgo")
 
-[node name="Sprite2D11" type="Sprite2D" parent="."]
+[node name="Sprite2D11" type="Sprite2D" parent="." unique_id=1608330831]
 position = Vector2(422.25, 969)
 scale = Vector2(28.390623, 1.53125)
 texture = SubResource("GradientTexture2D_rupst")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D11"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D11" unique_id=886818622]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D11/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D11/StaticBody2D" unique_id=1862436390]
 shape = SubResource("RectangleShape2D_edjgo")
 
-[node name="Sprite2D9" type="Sprite2D" parent="."]
+[node name="Sprite2D9" type="Sprite2D" parent="." unique_id=260402036]
 position = Vector2(1864, -19.250002)
 scale = Vector2(118.75, 1.7343751)
 texture = SubResource("GradientTexture2D_rupst")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D9"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D9" unique_id=687674355]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D9/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D9/StaticBody2D" unique_id=1967939003]
 shape = SubResource("RectangleShape2D_edjgo")
 
-[node name="Sprite2D5" type="Sprite2D" parent="."]
+[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=208925319]
 position = Vector2(69.000015, 97.99999)
 scale = Vector2(3.687501, 0.43750125)
 texture = SubResource("GradientTexture2D_rupst")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D5"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D5" unique_id=584712843]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D5/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D5/StaticBody2D" unique_id=1922362724]
 shape = SubResource("RectangleShape2D_edjgo")
 
-[node name="Sprite2D7" type="Sprite2D" parent="."]
+[node name="Sprite2D7" type="Sprite2D" parent="." unique_id=206915063]
 position = Vector2(481, 416)
 scale = Vector2(3.687501, 0.43750125)
 texture = SubResource("GradientTexture2D_rupst")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D7"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D7" unique_id=590994947]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D7/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D7/StaticBody2D" unique_id=1451377176]
 shape = SubResource("RectangleShape2D_edjgo")
 
-[node name="Sprite2D8" type="Sprite2D" parent="."]
+[node name="Sprite2D8" type="Sprite2D" parent="." unique_id=905141268]
 position = Vector2(310.156, 455.2515)
 rotation = -0.3298672
 scale = Vector2(7.495163, 0.43750125)
 texture = SubResource("GradientTexture2D_rupst")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D8"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D8" unique_id=359598572]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D8/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D8/StaticBody2D" unique_id=59525611]
 shape = SubResource("RectangleShape2D_edjgo")
 
-[node name="Sprite2D12" type="Sprite2D" parent="."]
+[node name="Sprite2D12" type="Sprite2D" parent="." unique_id=742883457]
 position = Vector2(83.5387, 493.5)
 scale = Vector2(7.2163315, 0.4687504)
 texture = SubResource("GradientTexture2D_rupst")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D12"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D12" unique_id=331406975]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D12/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D12/StaticBody2D" unique_id=445725740]
 shape = SubResource("RectangleShape2D_edjgo")
 
-[node name="OneWayPlatform" type="Sprite2D" parent="."]
+[node name="OneWayPlatform" type="Sprite2D" parent="." unique_id=1323497801]
 position = Vector2(227.99998, 135)
 scale = Vector2(2.3750005, 0.43750063)
 texture = SubResource("GradientTexture2D_wt17y")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="OneWayPlatform"]
+[node name="StaticBody2D" type="StaticBody2D" parent="OneWayPlatform" unique_id=248164279]
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPlatform/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPlatform/StaticBody2D" unique_id=1510352588]
 shape = SubResource("RectangleShape2D_edjgo")
 one_way_collision = true
 
-[node name="OneWayPlatform14" type="Sprite2D" parent="."]
+[node name="OneWayPlatform14" type="Sprite2D" parent="." unique_id=2008812160]
 position = Vector2(50.999954, 403)
 scale = Vector2(2.3750005, 0.43750063)
 texture = SubResource("GradientTexture2D_wt17y")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="OneWayPlatform14"]
+[node name="StaticBody2D" type="StaticBody2D" parent="OneWayPlatform14" unique_id=1804065374]
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPlatform14/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPlatform14/StaticBody2D" unique_id=44305728]
 shape = SubResource("RectangleShape2D_edjgo")
 one_way_collision = true
 
-[node name="OneWayPlatform2" type="Sprite2D" parent="."]
+[node name="OneWayPlatform2" type="Sprite2D" parent="." unique_id=447446435]
 position = Vector2(559, 172)
 scale = Vector2(2.3750005, 0.43750063)
 texture = SubResource("GradientTexture2D_wt17y")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="OneWayPlatform2"]
+[node name="StaticBody2D" type="StaticBody2D" parent="OneWayPlatform2" unique_id=1278695417]
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPlatform2/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPlatform2/StaticBody2D" unique_id=1995110002]
 shape = SubResource("RectangleShape2D_edjgo")
 one_way_collision = true
 
-[node name="OneWayPlatform3" type="Sprite2D" parent="."]
+[node name="OneWayPlatform3" type="Sprite2D" parent="." unique_id=1766364657]
 position = Vector2(681, 253)
 scale = Vector2(2.3750005, 0.43750063)
 texture = SubResource("GradientTexture2D_wt17y")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="OneWayPlatform3"]
+[node name="StaticBody2D" type="StaticBody2D" parent="OneWayPlatform3" unique_id=378613023]
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPlatform3/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPlatform3/StaticBody2D" unique_id=1100633636]
 shape = SubResource("RectangleShape2D_edjgo")
 one_way_collision = true
 
-[node name="OneWayPlatform4" type="Sprite2D" parent="."]
+[node name="OneWayPlatform4" type="Sprite2D" parent="." unique_id=1734348710]
 position = Vector2(789, 352)
 scale = Vector2(2.3750005, 0.43750063)
 texture = SubResource("GradientTexture2D_wt17y")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="OneWayPlatform4"]
+[node name="StaticBody2D" type="StaticBody2D" parent="OneWayPlatform4" unique_id=1201782964]
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPlatform4/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPlatform4/StaticBody2D" unique_id=670803270]
 shape = SubResource("RectangleShape2D_edjgo")
 one_way_collision = true
 
-[node name="OneWayPlatform5" type="Sprite2D" parent="."]
+[node name="OneWayPlatform5" type="Sprite2D" parent="." unique_id=134047718]
 position = Vector2(631, 572)
 scale = Vector2(2.3750005, 0.43750063)
 texture = SubResource("GradientTexture2D_wt17y")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="OneWayPlatform5"]
+[node name="StaticBody2D" type="StaticBody2D" parent="OneWayPlatform5" unique_id=1472021489]
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPlatform5/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPlatform5/StaticBody2D" unique_id=251542608]
 shape = SubResource("RectangleShape2D_edjgo")
 one_way_collision = true
 
-[node name="OneWayPlatform12" type="Sprite2D" parent="."]
+[node name="OneWayPlatform12" type="Sprite2D" parent="." unique_id=1672847472]
 position = Vector2(790, 510)
 scale = Vector2(2.3750005, 0.43750063)
 texture = SubResource("GradientTexture2D_wt17y")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="OneWayPlatform12"]
+[node name="StaticBody2D" type="StaticBody2D" parent="OneWayPlatform12" unique_id=477343121]
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPlatform12/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPlatform12/StaticBody2D" unique_id=53438336]
 shape = SubResource("RectangleShape2D_edjgo")
 one_way_collision = true
 
-[node name="OneWayPlatform13" type="Sprite2D" parent="."]
+[node name="OneWayPlatform13" type="Sprite2D" parent="." unique_id=774478799]
 position = Vector2(694.99994, 434)
 scale = Vector2(2.3750005, 0.43750063)
 texture = SubResource("GradientTexture2D_wt17y")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="OneWayPlatform13"]
+[node name="StaticBody2D" type="StaticBody2D" parent="OneWayPlatform13" unique_id=1616725601]
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPlatform13/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPlatform13/StaticBody2D" unique_id=1491105510]
 shape = SubResource("RectangleShape2D_edjgo")
 one_way_collision = true
 
-[node name="OneWayPlatform6" type="Sprite2D" parent="."]
+[node name="OneWayPlatform6" type="Sprite2D" parent="." unique_id=887068804]
 position = Vector2(788, 609)
 scale = Vector2(2.3750005, 0.43750063)
 texture = SubResource("GradientTexture2D_wt17y")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="OneWayPlatform6"]
+[node name="StaticBody2D" type="StaticBody2D" parent="OneWayPlatform6" unique_id=1300636497]
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPlatform6/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPlatform6/StaticBody2D" unique_id=1364776499]
 shape = SubResource("RectangleShape2D_edjgo")
 one_way_collision = true
 
-[node name="OneWayPlatform10" type="Sprite2D" parent="."]
+[node name="OneWayPlatform10" type="Sprite2D" parent="." unique_id=1539280982]
 position = Vector2(614, 711)
 scale = Vector2(2.3750005, 0.43750063)
 texture = SubResource("GradientTexture2D_wt17y")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="OneWayPlatform10"]
+[node name="StaticBody2D" type="StaticBody2D" parent="OneWayPlatform10" unique_id=1846349352]
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPlatform10/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPlatform10/StaticBody2D" unique_id=614806452]
 shape = SubResource("RectangleShape2D_edjgo")
 one_way_collision = true
 
-[node name="OneWayPlatform11" type="Sprite2D" parent="."]
+[node name="OneWayPlatform11" type="Sprite2D" parent="." unique_id=1932726188]
 position = Vector2(515, 638)
 scale = Vector2(2.3750005, 0.43750063)
 texture = SubResource("GradientTexture2D_wt17y")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="OneWayPlatform11"]
+[node name="StaticBody2D" type="StaticBody2D" parent="OneWayPlatform11" unique_id=2084389652]
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPlatform11/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPlatform11/StaticBody2D" unique_id=387728481]
 shape = SubResource("RectangleShape2D_edjgo")
 one_way_collision = true
 
-[node name="OneWayPlatform7" type="Sprite2D" parent="."]
+[node name="OneWayPlatform7" type="Sprite2D" parent="." unique_id=448190038]
 position = Vector2(789.99994, 738.00006)
 scale = Vector2(2.3750005, 0.43750063)
 texture = SubResource("GradientTexture2D_wt17y")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="OneWayPlatform7"]
+[node name="StaticBody2D" type="StaticBody2D" parent="OneWayPlatform7" unique_id=145301253]
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPlatform7/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPlatform7/StaticBody2D" unique_id=1300939599]
 shape = SubResource("RectangleShape2D_edjgo")
 one_way_collision = true
 
-[node name="OneWayPlatform8" type="Sprite2D" parent="."]
+[node name="OneWayPlatform8" type="Sprite2D" parent="." unique_id=1237238002]
 position = Vector2(677.99994, 837.00006)
 scale = Vector2(2.3750005, 0.43750063)
 texture = SubResource("GradientTexture2D_wt17y")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="OneWayPlatform8"]
+[node name="StaticBody2D" type="StaticBody2D" parent="OneWayPlatform8" unique_id=1206742232]
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPlatform8/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPlatform8/StaticBody2D" unique_id=1404691040]
 shape = SubResource("RectangleShape2D_edjgo")
 one_way_collision = true
 
-[node name="OneWayPlatform9" type="Sprite2D" parent="."]
+[node name="OneWayPlatform9" type="Sprite2D" parent="." unique_id=1334276131]
 position = Vector2(789, 896)
 scale = Vector2(2.3750005, 0.43750063)
 texture = SubResource("GradientTexture2D_wt17y")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="OneWayPlatform9"]
+[node name="StaticBody2D" type="StaticBody2D" parent="OneWayPlatform9" unique_id=200123040]
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPlatform9/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OneWayPlatform9/StaticBody2D" unique_id=1101913525]
 shape = SubResource("RectangleShape2D_edjgo")
 one_way_collision = true
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=290806882]
 position = Vector2(-12.173568, 490.4988)
 rotation = 1.5707964
 scale = Vector2(31.434328, 1.4795971)
 texture = SubResource("GradientTexture2D_rupst")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D2"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D2" unique_id=1235647071]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D2/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D2/StaticBody2D" unique_id=2058605692]
 position = Vector2(-0.009514809, 0)
 scale = Vector2(1.0000001, 1.0000001)
 shape = SubResource("RectangleShape2D_edjgo")
 
-[node name="Sprite2D4" type="Sprite2D" parent="."]
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=1246205001]
 position = Vector2(143.42484, 225.07545)
 rotation = 0.3926991
 scale = Vector2(4.2139792, 1.598304)
 texture = SubResource("GradientTexture2D_rupst")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D4"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D4" unique_id=145249447]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D4/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D4/StaticBody2D" unique_id=1418842556]
 position = Vector2(-0.07249335, 1.863806e-08)
 shape = SubResource("RectangleShape2D_edjgo")
 
-[node name="Sprite2D6" type="Sprite2D" parent="."]
+[node name="Sprite2D6" type="Sprite2D" parent="." unique_id=590465667]
 position = Vector2(51, 203)
 scale = Vector2(2.4890814, 1.7499999)
 texture = SubResource("GradientTexture2D_rupst")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D6"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D6" unique_id=847330930]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D6/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D6/StaticBody2D" unique_id=649185419]
 position = Vector2(-0.0011539459, 0)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_edjgo")
 
-[node name="Sprite2D13" type="Sprite2D" parent="."]
+[node name="Sprite2D13" type="Sprite2D" parent="." unique_id=1575431042]
 position = Vector2(326.41266, 806)
 scale = Vector2(3.0882912, 3.625)
 texture = SubResource("GradientTexture2D_rupst")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D13"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D13" unique_id=816071233]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D13/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D13/StaticBody2D" unique_id=886026019]
 position = Vector2(-0.0011539459, 0)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_edjgo")
 
-[node name="Sprite2D14" type="Sprite2D" parent="."]
+[node name="Sprite2D14" type="Sprite2D" parent="." unique_id=2140445169]
 position = Vector2(135, 780)
 scale = Vector2(3.0882912, 5.2500005)
 texture = SubResource("GradientTexture2D_rupst")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D14"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D14" unique_id=957353714]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D14/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D14/StaticBody2D" unique_id=2059051215]
 position = Vector2(-0.0011539459, 0)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_edjgo")
 
-[node name="Sprite2D3" type="Sprite2D" parent="."]
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1701669634]
 position = Vector2(852, 473.60257)
 rotation = 1.5707964
 scale = Vector2(32.506584, 1.53125)
 texture = SubResource("GradientTexture2D_rupst")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D3"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D3" unique_id=1860992657]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D3/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D3/StaticBody2D" unique_id=264742795]
 shape = SubResource("RectangleShape2D_edjgo")
 
-[node name="Sprite2D10" type="Sprite2D" parent="."]
+[node name="Sprite2D10" type="Sprite2D" parent="." unique_id=1121990004]
 position = Vector2(409, 202.55374)
 rotation = 1.5707964
 scale = Vector2(1.5167906, 1.53125)
 texture = SubResource("GradientTexture2D_rupst")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D10"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D10" unique_id=26733236]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D10/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D10/StaticBody2D" unique_id=86878641]
 shape = SubResource("RectangleShape2D_edjgo")
 
-[node name="Player" parent="." instance=ExtResource("1_rupst")]
-position = Vector2(20, -70)
+[node name="Player" parent="." unique_id=227822412 instance=ExtResource("1_rupst")]
+position = Vector2(42, 82)

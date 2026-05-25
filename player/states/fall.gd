@@ -10,6 +10,7 @@ var coyote_timer : float = 0.0
 var buffer_timer : float = 0.0
 
 @onready var bullet_spawn: Node2D = $"../../BulletSpawn"
+@onready var land_audio: AudioStreamPlayer2D = %LandAudio
 
 
 # What happens when this is initialized?
@@ -22,8 +23,16 @@ func enter() -> void:
 	player.animation_player.play( "jump" )
 	player.animation_player.pause()
 	player.gravity_multiplier = fall_gravity_multiplier
-	if player.previous_state == jump:
+	
+	if player.jump_count == 0:
+		player.jump_count = 1
+	
+	var prev : PlayerState = player.previous_state
+	if prev == jump or prev == attack or prev == dash:
 		coyote_timer = 0
+	elif prev == crouch:
+		coyote_timer = 0
+		player.jump_count = 1
 	else:
 		coyote_timer = coyote_time
 	pass
@@ -38,11 +47,19 @@ func exit() -> void:
 
 # What happens with input?
 func handle_input( _event : InputEvent ) -> PlayerState:
+	if _event.is_action_pressed("dash") and player.can_dash():
+		return dash
+	if _event.is_action_pressed("attack"):
+		if player.ground_slam and Input.is_action_pressed("down"):
+			return ground_slam
+		return attack
 	if _event.is_action_pressed("shoot"):
 		return fall_shoot
-	
 	if _event.is_action_pressed( "jump" ):
 		if coyote_timer > 0:
+			player.jump_count = 0
+			return jump
+		elif player.jump_count <= 1 and player.double_jump:
 			return jump
 		else:
 			buffer_timer = jump_buffer_time
@@ -62,8 +79,10 @@ func process( _delta: float ) -> PlayerState:
 # What happens each physics process tick in this state?
 func physics_process( _delta: float ) -> PlayerState:
 	if player.is_on_floor():
-		#player.add_debug_indicator()
+		VisualEffects.land_dust( player.global_position )
+		land_audio.play()
 		if buffer_timer > 0:
+			player.jump_count = 0
 			return jump
 		return idle
 	player.velocity.x = player.direction.x * player.move_speed

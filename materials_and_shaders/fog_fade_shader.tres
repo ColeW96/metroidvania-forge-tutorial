@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=6 format=3 uid="uid://bseunbkglog43"]
+[gd_resource type="VisualShader" format=3 uid="uid://bseunbkglog43"]
 
 [sub_resource type="Gradient" id="Gradient_xrp3g"]
 colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
@@ -21,34 +21,6 @@ input_name = "color"
 operator = 2
 
 [resource]
-code = "shader_type canvas_item;
-render_mode blend_mix;
-
-uniform sampler2D tex_frg_2;
-
-
-
-void fragment() {
-// Input:3
-	vec4 n_out3p0 = COLOR;
-	float n_out3p4 = n_out3p0.a;
-
-
-// Texture2D:2
-	vec4 n_out2p0 = texture(tex_frg_2, UV);
-	float n_out2p4 = n_out2p0.a;
-
-
-// FloatOp:4
-	float n_out4p0 = n_out3p4 * n_out2p4;
-
-
-// Output:0
-	COLOR.a = n_out4p0;
-
-
-}
-"
 mode = 1
 flags/light_only = false
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_1gi2e")

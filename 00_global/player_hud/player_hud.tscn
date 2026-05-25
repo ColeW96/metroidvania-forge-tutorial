@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dw18qf2yq53lf"]
+[gd_scene format=3 uid="uid://dw18qf2yq53lf"]
 
 [ext_resource type="Texture2D" uid="uid://hd5065rmhm3f" path="res://00_global/player_hud/health_bar_frame.png" id="1_hv14i"]
 [ext_resource type="Script" uid="uid://dfpvq1dh032wi" path="res://00_global/player_hud/player_hud.gd" id="1_vb1bs"]
+[ext_resource type="Resource" uid="uid://dtpr26uvpykkx" path="res://00_global/visual_effects/hit_particle_settings/hit_magic_blue.tres" id="3_26715"]
 
 [sub_resource type="Gradient" id="Gradient_p3j8y"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -16,12 +17,38 @@ colors = PackedColorArray(0.8627451, 0.34117648, 0.34117648, 1, 0.9073196, 0.471
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_vb1bs"]
 gradient = SubResource("Gradient_hv14i")
 
-[node name="PlayerHud" type="CanvasLayer"]
+[sub_resource type="GDScript" id="GDScript_vb1bs"]
+script/source = "extends Button
+
+@export var particle_settings : HitParticleSettings
+
+func _ready() -> void:
+	pressed.connect( _on_pressed )
+	pass # Replace with function body.
+
+
+func _process(_delta):
+	pass
+
+
+func _on_pressed() -> void:
+	var player : Player = get_tree().get_first_node_in_group(\"Player\")
+	#var pos : Vector2 = get_tree().get_first_node_in_group(\"Player\").global_position
+	#VisualEffects.hit_particles( pos, Vector2(-1, -1), particle_settings )
+	#VisualEffects.camera_shake()
+	#PlayerHud.show_game_over()
+	#player.double_jump = !player.double_jump
+	#player.dash = !player.dash
+	player.ground_slam = !player.ground_slam
+	pass
+"
+
+[node name="PlayerHud" type="CanvasLayer" unique_id=1924201248]
 process_mode = 3
 layer = 2
 script = ExtResource("1_vb1bs")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=465819209]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,7 +57,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="HPMarginContainer" type="MarginContainer" parent="Control"]
+[node name="HPMarginContainer" type="MarginContainer" parent="Control" unique_id=1630393179]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(40, 20)
 layout_mode = 0
@@ -39,14 +66,14 @@ offset_top = 8.0
 offset_right = 84.0
 offset_bottom = 28.0
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Control/HPMarginContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/HPMarginContainer" unique_id=705176080]
 layout_mode = 2
 texture = ExtResource("1_hv14i")
 patch_margin_left = 27
 patch_margin_right = 7
 axis_stretch_horizontal = 1
 
-[node name="HPBar" type="TextureProgressBar" parent="Control/HPMarginContainer/NinePatchRect"]
+[node name="HPBar" type="TextureProgressBar" parent="Control/HPMarginContainer/NinePatchRect" unique_id=1627792552]
 unique_name_in_owner = true
 show_behind_parent = true
 layout_mode = 1
@@ -64,3 +91,75 @@ rounded = true
 nine_patch_stretch = true
 texture_under = SubResource("GradientTexture2D_hv14i")
 texture_progress = SubResource("GradientTexture2D_vb1bs")
+
+[node name="Button2" type="Button" parent="Control" unique_id=2045259695]
+layout_mode = 0
+offset_left = 324.0
+offset_top = 8.0
+offset_right = 422.0
+offset_bottom = 31.0
+text = "Toggle Ground Slam"
+script = SubResource("GDScript_vb1bs")
+particle_settings = ExtResource("3_26715")
+
+[node name="GameOver" type="Control" parent="Control" unique_id=984941665]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control/GameOver" unique_id=830566428]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.78431374)
+
+[node name="Label" type="Label" parent="Control/GameOver" unique_id=360511046]
+modulate = Color(0.47843137, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -19.0
+offset_right = 39.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/GameOver" unique_id=604349007]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = 13.0
+offset_right = 152.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LoadButton" type="Button" parent="Control/GameOver/HBoxContainer" unique_id=586856832]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "load last save"
+
+[node name="QuitButton" type="Button" parent="Control/GameOver/HBoxContainer" unique_id=821941437]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "quit to title"

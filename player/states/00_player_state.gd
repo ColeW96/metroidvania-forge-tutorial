@@ -19,6 +19,11 @@ var next_state : PlayerState
 @onready var idle_shoot_up: PlayerStateIdleShootUp = %Idle_Shoot_Up
 @onready var run_shoot_up: PlayerStateRunShootUp = %Run_Shoot_Up
 @onready var shoot_up: PlayerStateShootUp = %Shoot_Up
+@onready var attack: PlayerStateAttack = %Attack
+@onready var take_damage: PlayerStateTakeDamage = %TakeDamage
+@onready var death: PlayerStateDeath = %Death
+@onready var dash: PlayerStateDash = %Dash
+@onready var ground_slam: PlayerStateGroundSlam = %GroundSlam
 #endregion
 
 
