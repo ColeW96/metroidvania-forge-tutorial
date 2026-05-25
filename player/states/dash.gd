@@ -33,7 +33,7 @@ func enter() -> void:
 	
 	player.dash_count += 1
 	
-	player.sprite.tween_color( duration )
+	player.sprite.tween_color( duration, Color.ORANGE_RED )
 	
 	pass
 
@@ -61,7 +61,7 @@ func process( delta: float ) -> PlayerState:
 	effect_time -= delta
 	if effect_time < 0:
 		effect_time = effect_delay
-		player.sprite.ghost()
+		player.sprite.ghost( Color.ORANGE_RED )
 	return null
 
 
