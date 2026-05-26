@@ -62,6 +62,8 @@ func handle_input( _event : InputEvent ) -> PlayerState:
 			return jump_shoot
 		else:
 			buffer_timer = jump_buffer_time
+	if _event.is_action_pressed("morph") and player.can_morph():
+		return ball
 	return next_state
 
 

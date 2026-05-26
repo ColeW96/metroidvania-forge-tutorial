@@ -53,7 +53,7 @@ position = Vector2(0, -6)
 texture = SubResource("AtlasTexture_qiu83")
 
 [node name="DamageArea" type="Area2D" parent="." unique_id=1074762603]
-collision_layer = 96
+collision_layer = 32
 collision_mask = 0
 script = ExtResource("6_i5llc")
 audio = ExtResource("7_osguj")

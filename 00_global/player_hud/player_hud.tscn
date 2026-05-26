@@ -37,9 +37,91 @@ func _on_pressed() -> void:
 	#VisualEffects.hit_particles( pos, Vector2(-1, -1), particle_settings )
 	#VisualEffects.camera_shake()
 	#PlayerHud.show_game_over()
+	player.double_jump = !player.double_jump
+	#player.dash = !player.dash
+	#player.ground_slam = !player.ground_slam
+	#player.morph_roll = !player.morph_roll
+	pass
+"
+
+[sub_resource type="GDScript" id="GDScript_26715"]
+script/source = "extends Button
+
+@export var particle_settings : HitParticleSettings
+
+func _ready() -> void:
+	pressed.connect( _on_pressed )
+	pass # Replace with function body.
+
+
+func _process(_delta):
+	pass
+
+
+func _on_pressed() -> void:
+	var player : Player = get_tree().get_first_node_in_group(\"Player\")
+	#var pos : Vector2 = get_tree().get_first_node_in_group(\"Player\").global_position
+	#VisualEffects.hit_particles( pos, Vector2(-1, -1), particle_settings )
+	#VisualEffects.camera_shake()
+	#PlayerHud.show_game_over()
+	#player.double_jump = !player.double_jump
+	player.dash = !player.dash
+	#player.ground_slam = !player.ground_slam
+	#player.morph_roll = !player.morph_roll
+	pass
+"
+
+[sub_resource type="GDScript" id="GDScript_tdgrf"]
+script/source = "extends Button
+
+@export var particle_settings : HitParticleSettings
+
+func _ready() -> void:
+	pressed.connect( _on_pressed )
+	pass # Replace with function body.
+
+
+func _process(_delta):
+	pass
+
+
+func _on_pressed() -> void:
+	var player : Player = get_tree().get_first_node_in_group(\"Player\")
+	#var pos : Vector2 = get_tree().get_first_node_in_group(\"Player\").global_position
+	#VisualEffects.hit_particles( pos, Vector2(-1, -1), particle_settings )
+	#VisualEffects.camera_shake()
+	#PlayerHud.show_game_over()
 	#player.double_jump = !player.double_jump
 	#player.dash = !player.dash
 	player.ground_slam = !player.ground_slam
+	#player.morph_roll = !player.morph_roll
+	pass
+"
+
+[sub_resource type="GDScript" id="GDScript_4jtec"]
+script/source = "extends Button
+
+@export var particle_settings : HitParticleSettings
+
+func _ready() -> void:
+	pressed.connect( _on_pressed )
+	pass # Replace with function body.
+
+
+func _process(_delta):
+	pass
+
+
+func _on_pressed() -> void:
+	var player : Player = get_tree().get_first_node_in_group(\"Player\")
+	#var pos : Vector2 = get_tree().get_first_node_in_group(\"Player\").global_position
+	#VisualEffects.hit_particles( pos, Vector2(-1, -1), particle_settings )
+	#VisualEffects.camera_shake()
+	#PlayerHud.show_game_over()
+	#player.double_jump = !player.double_jump
+	#player.dash = !player.dash
+	#player.ground_slam = !player.ground_slam
+	player.morph_roll = !player.morph_roll
 	pass
 "
 
@@ -94,13 +176,40 @@ texture_progress = SubResource("GradientTexture2D_vb1bs")
 
 [node name="Button2" type="Button" parent="Control" unique_id=2045259695]
 layout_mode = 0
-offset_left = 324.0
+offset_left = 312.0
+offset_top = 8.0
+offset_right = 342.0
+offset_bottom = 31.0
+text = "DJ"
+script = SubResource("GDScript_vb1bs")
+particle_settings = ExtResource("3_26715")
+
+[node name="Button3" type="Button" parent="Control" unique_id=777003589]
+layout_mode = 0
+offset_left = 352.0
+offset_top = 8.0
+offset_right = 382.0
+offset_bottom = 31.0
+text = "D"
+script = SubResource("GDScript_26715")
+
+[node name="Button4" type="Button" parent="Control" unique_id=1841288079]
+layout_mode = 0
+offset_left = 392.0
 offset_top = 8.0
 offset_right = 422.0
 offset_bottom = 31.0
-text = "Toggle Ground Slam"
-script = SubResource("GDScript_vb1bs")
-particle_settings = ExtResource("3_26715")
+text = "GS"
+script = SubResource("GDScript_tdgrf")
+
+[node name="Button5" type="Button" parent="Control" unique_id=450926484]
+layout_mode = 0
+offset_left = 431.0
+offset_top = 8.0
+offset_right = 462.0
+offset_bottom = 31.0
+text = "MR"
+script = SubResource("GDScript_4jtec")
 
 [node name="GameOver" type="Control" parent="Control" unique_id=984941665]
 unique_name_in_owner = true

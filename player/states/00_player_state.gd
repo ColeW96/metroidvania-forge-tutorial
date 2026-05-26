@@ -24,6 +24,7 @@ var next_state : PlayerState
 @onready var death: PlayerStateDeath = %Death
 @onready var dash: PlayerStateDash = %Dash
 @onready var ground_slam: PlayerStateGroundSlam = %GroundSlam
+@onready var ball: PlayerStateBall = %Ball
 #endregion
 
 

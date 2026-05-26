@@ -46,7 +46,8 @@ func exit() -> void:
 
 # What happens with input?
 func handle_input( _event : InputEvent ) -> PlayerState:
-	
+	if _event.is_action_pressed("morph") and player.can_morph():
+		return ball
 	return null
 
 

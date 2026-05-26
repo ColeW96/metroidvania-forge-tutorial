@@ -26,6 +26,7 @@
 [ext_resource type="Script" uid="uid://b7abfvhp7l3j4" path="res://player/states/death.gd" id="18_uw77l"]
 [ext_resource type="Script" uid="uid://ciw5vme7xn42r" path="res://player/states/dash.gd" id="19_b8hi5"]
 [ext_resource type="Script" uid="uid://daprjmpot7rpn" path="res://player/states/ground_slam.gd" id="20_1s1yo"]
+[ext_resource type="Script" uid="uid://pnb17ah0t86b" path="res://player/states/ball.gd" id="21_5ejfk"]
 [ext_resource type="Script" uid="uid://vt684ogx76fc" path="res://general/scripts/attack_area.gd" id="21_x7c3f"]
 [ext_resource type="Script" uid="uid://sjljr3vb1fku" path="res://player/scripts/player_sprite.gd" id="22_2uvqg"]
 [ext_resource type="Script" uid="uid://dha53eb7vo0el" path="res://general/scripts/damage_area.gd" id="24_g4c7l"]
@@ -251,6 +252,24 @@ tracks/4/keys = {
 "values": [Color(0.8352941, 0.23529412, 0.22352941, 1), Color(1, 0.7764706, 0.18039216, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_5ejfk"]
+resource_name = "ball"
+length = 0.225
+loop_mode = 1
+step = 0.075
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.07692308, 0.15384616),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [71, 72, 73]
+}
+
 [sub_resource type="Animation" id="Animation_ebec5"]
 resource_name = "crouch"
 length = 0.2
@@ -413,6 +432,23 @@ tracks/0/keys = {
 "values": [51, 52, 53, 54, 55]
 }
 
+[sub_resource type="Animation" id="Animation_jd2rm"]
+resource_name = "morph_in"
+length = 0.06
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.03),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [40, 41]
+}
+
 [sub_resource type="Animation" id="Animation_hg6s5"]
 resource_name = "run"
 length = 0.8
@@ -522,6 +558,7 @@ _data = {
 &"RESET": SubResource("Animation_rgyib"),
 &"attack": SubResource("Animation_s7qer"),
 &"attack_2": SubResource("Animation_bjvpn"),
+&"ball": SubResource("Animation_5ejfk"),
 &"crouch": SubResource("Animation_ebec5"),
 &"crouch_shoot": SubResource("Animation_32hag"),
 &"dash": SubResource("Animation_b8hi5"),
@@ -532,6 +569,7 @@ _data = {
 &"idle_shoot_up": SubResource("Animation_e7oew"),
 &"jump": SubResource("Animation_8t03j"),
 &"jump_shoot": SubResource("Animation_kb6p2"),
+&"morph_in": SubResource("Animation_jd2rm"),
 &"run": SubResource("Animation_hg6s5"),
 &"run_shoot": SubResource("Animation_wodsf"),
 &"run_shoot_up": SubResource("Animation_tqiix"),
@@ -650,6 +688,10 @@ unique_name_in_owner = true
 script = ExtResource("20_1s1yo")
 velocity = 600.0
 
+[node name="Ball" type="Node" parent="States" unique_id=1836584023]
+unique_name_in_owner = true
+script = ExtResource("21_5ejfk")
+
 [node name="BulletSpawn" type="Node2D" parent="." unique_id=765495843]
 z_index = 4
 position = Vector2(17, -27)
@@ -711,6 +753,7 @@ collision_mask = 2
 
 [node name="GroundSlamShapecast" type="ShapeCast2D" parent="." unique_id=1838479520]
 unique_name_in_owner = true
+visible = false
 position = Vector2(0, -3)
 enabled = false
 shape = SubResource("RectangleShape2D_1s1yo")
@@ -758,6 +801,7 @@ debug_color = Color(0.70196074, 0, 0.08511285, 0.41960785)
 
 [node name="GroundSlamAttackArea" type="Area2D" parent="." unique_id=1432092469]
 unique_name_in_owner = true
+visible = false
 collision_layer = 0
 collision_mask = 96
 script = ExtResource("21_x7c3f")
@@ -806,3 +850,22 @@ bus = &"SFX"
 unique_name_in_owner = true
 stream = ExtResource("29_r7pn3")
 bus = &"SFX"
+
+[node name="BallRays" type="Node2D" parent="." unique_id=1464899109]
+
+[node name="BallRayUp" type="RayCast2D" parent="BallRays" unique_id=2000893844]
+unique_name_in_owner = true
+position = Vector2(0, -4)
+enabled = false
+exclude_parent = false
+target_position = Vector2(0, -43)
+hit_from_inside = true
+
+[node name="BallRayDown" type="RayCast2D" parent="BallRays" unique_id=1694724339]
+unique_name_in_owner = true
+position = Vector2(0, -1)
+enabled = false
+exclude_parent = false
+target_position = Vector2(0, 6)
+collision_mask = 3
+hit_from_inside = true

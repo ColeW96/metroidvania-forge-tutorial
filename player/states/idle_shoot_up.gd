@@ -44,6 +44,9 @@ func handle_input( _event : InputEvent ) -> PlayerState:
 			player.position.y += 4
 			return fall
 		return jump
+	
+	if _event.is_action_pressed("morph") and player.can_morph():
+		return ball
 	return next_state
 
 
