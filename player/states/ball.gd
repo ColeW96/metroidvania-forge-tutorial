@@ -21,10 +21,10 @@ func init() -> void:
 
 # What happens when we enter this state?
 func enter() -> void:
-	player.animation_player.play("morph_in")
-	player.animation_player.queue("ball")
+	#player.animation_player.play("morph_in")
+	#player.animation_player.queue("ball")
 	
-	#player.animation_player.play("ball")
+	player.animation_player.play("ball")
 	
 	var shape : CapsuleShape2D = player.collision_stand.get_shape() as CapsuleShape2D
 	shape.radius = 11.0
