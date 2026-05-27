@@ -175,6 +175,7 @@ texture_under = SubResource("GradientTexture2D_hv14i")
 texture_progress = SubResource("GradientTexture2D_vb1bs")
 
 [node name="Button2" type="Button" parent="Control" unique_id=2045259695]
+visible = false
 layout_mode = 0
 offset_left = 312.0
 offset_top = 8.0
@@ -185,6 +186,7 @@ script = SubResource("GDScript_vb1bs")
 particle_settings = ExtResource("3_26715")
 
 [node name="Button3" type="Button" parent="Control" unique_id=777003589]
+visible = false
 layout_mode = 0
 offset_left = 352.0
 offset_top = 8.0
@@ -194,6 +196,7 @@ text = "D"
 script = SubResource("GDScript_26715")
 
 [node name="Button4" type="Button" parent="Control" unique_id=1841288079]
+visible = false
 layout_mode = 0
 offset_left = 392.0
 offset_top = 8.0
@@ -203,6 +206,7 @@ text = "GS"
 script = SubResource("GDScript_tdgrf")
 
 [node name="Button5" type="Button" parent="Control" unique_id=450926484]
+visible = false
 layout_mode = 0
 offset_left = 431.0
 offset_top = 8.0
