@@ -67,6 +67,9 @@ func handle_input( event : InputEvent ) -> PlayerState:
 		if Input.is_action_pressed("down"):
 			player.one_way_platform_shapecast.force_shapecast_update()
 			if player.one_way_platform_shapecast.is_colliding():
+				if player.is_on_wall():
+					Input.action_release("left")
+					Input.action_release("right")
 				player.position.y += 4
 				return null
 		player.velocity.y -= jump_velocity

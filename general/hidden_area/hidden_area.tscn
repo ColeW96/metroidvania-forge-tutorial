@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dg7qvy6vumoft"]
+
+[ext_resource type="Script" uid="uid://f5dvs0p1x446" path="res://general/hidden_area/hidden_area.gd" id="1_n828d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lmb3k"]
+size = Vector2(32, 32)
+
+[node name="HiddenArea" type="Node2D" unique_id=192905483]
+z_index = 1
+script = ExtResource("1_n828d")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1465431731]
+self_modulate = Color(0, 1.5, 0, 0.75)
+z_index = 1
+scale = Vector2(-1, 1)
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+
+[node name="Collision" type="CollisionShape2D" parent="Area2D" unique_id=58813710]
+z_index = 1
+position = Vector2(16, -16)
+shape = SubResource("RectangleShape2D_lmb3k")
+debug_color = Color(0.602, 0, 1.825, 0.42)

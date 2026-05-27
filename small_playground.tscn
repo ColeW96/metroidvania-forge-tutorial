@@ -2,21 +2,429 @@
 
 [ext_resource type="TileSet" uid="uid://p87hshodqhxn" path="res://levels/tilesets/forgotten_forest.tres" id="1_3dgrd"]
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="1_5m01s"]
+[ext_resource type="PackedScene" uid="uid://bew5osvj6ik17" path="res://general/ability_pickup/ability_pickup.tscn" id="1_qb88o"]
 [ext_resource type="PackedScene" uid="uid://com58ivutw73b" path="res://levels/props/slam_breakable.tscn" id="3_i4v56"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="3_jltr3"]
 [ext_resource type="PackedScene" uid="uid://c02dlnypfkr7c" path="res://levels/props/test_dummy/test_dummy.tscn" id="5_bj1ln"]
 [ext_resource type="PackedScene" uid="uid://h20ktogdikrd" path="res://levels/props/crate_wooden.tscn" id="5_qgbgf"]
+[ext_resource type="Texture2D" uid="uid://db6cnp2mq76jm" path="res://levels/tilesets/sprites/forgotten_forest_example_tileset.png" id="6_hnbpa"]
 [ext_resource type="Script" uid="uid://sndrj6tq12yf" path="res://general/scripts/breakable.gd" id="6_uajdn"]
 [ext_resource type="Script" uid="uid://brc344c2o0cfo" path="res://00_global/visual_effects/hit_particle_settings.gd" id="7_hu6bk"]
 [ext_resource type="Script" uid="uid://dha53eb7vo0el" path="res://general/scripts/damage_area.gd" id="7_p2ahk"]
 [ext_resource type="Resource" uid="uid://gjrpwjdumgxp" path="res://00_global/visual_effects/hit_particle_settings/hit_wood_medium.tres" id="8_vyqrg"]
 [ext_resource type="PackedScene" uid="uid://bpbdxq44olmim" path="res://levels/props/test_dummy/spike_dummy.tscn" id="10_vyqrg"]
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="11_glj4h"]
+[ext_resource type="PackedScene" uid="uid://dg7qvy6vumoft" path="res://general/hidden_area/hidden_area.tscn" id="14_pvjku"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uajdn"]
-size = Vector2(128, 106)
+size = Vector2(92, 106)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7j8uv"]
+texture = ExtResource("6_hnbpa")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+16:0/0 = 0
+17:0/0 = 0
+18:0/0 = 0
+19:0/0 = 0
+20:0/0 = 0
+21:0/0 = 0
+22:0/0 = 0
+23:0/0 = 0
+24:0/0 = 0
+25:0/0 = 0
+26:0/0 = 0
+27:0/0 = 0
+28:0/0 = 0
+29:0/0 = 0
+30:0/0 = 0
+31:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+16:1/0 = 0
+17:1/0 = 0
+18:1/0 = 0
+19:1/0 = 0
+20:1/0 = 0
+21:1/0 = 0
+22:1/0 = 0
+23:1/0 = 0
+24:1/0 = 0
+25:1/0 = 0
+26:1/0 = 0
+27:1/0 = 0
+28:1/0 = 0
+29:1/0 = 0
+30:1/0 = 0
+31:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+16:2/0 = 0
+17:2/0 = 0
+18:2/0 = 0
+19:2/0 = 0
+20:2/0 = 0
+21:2/0 = 0
+22:2/0 = 0
+23:2/0 = 0
+24:2/0 = 0
+25:2/0 = 0
+26:2/0 = 0
+27:2/0 = 0
+28:2/0 = 0
+29:2/0 = 0
+30:2/0 = 0
+31:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+17:3/0 = 0
+18:3/0 = 0
+19:3/0 = 0
+20:3/0 = 0
+21:3/0 = 0
+22:3/0 = 0
+23:3/0 = 0
+24:3/0 = 0
+25:3/0 = 0
+26:3/0 = 0
+27:3/0 = 0
+28:3/0 = 0
+29:3/0 = 0
+30:3/0 = 0
+31:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+16:4/0 = 0
+17:4/0 = 0
+18:4/0 = 0
+19:4/0 = 0
+20:4/0 = 0
+21:4/0 = 0
+22:4/0 = 0
+23:4/0 = 0
+24:4/0 = 0
+25:4/0 = 0
+26:4/0 = 0
+27:4/0 = 0
+28:4/0 = 0
+29:4/0 = 0
+30:4/0 = 0
+31:4/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+16:5/0 = 0
+17:5/0 = 0
+18:5/0 = 0
+19:5/0 = 0
+20:5/0 = 0
+21:5/0 = 0
+22:5/0 = 0
+23:5/0 = 0
+24:5/0 = 0
+25:5/0 = 0
+26:5/0 = 0
+27:5/0 = 0
+28:5/0 = 0
+29:5/0 = 0
+30:5/0 = 0
+31:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+16:6/0 = 0
+17:6/0 = 0
+18:6/0 = 0
+19:6/0 = 0
+20:6/0 = 0
+21:6/0 = 0
+22:6/0 = 0
+24:6/0 = 0
+25:6/0 = 0
+26:6/0 = 0
+27:6/0 = 0
+28:6/0 = 0
+29:6/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+16:7/0 = 0
+17:7/0 = 0
+18:7/0 = 0
+19:7/0 = 0
+20:7/0 = 0
+21:7/0 = 0
+25:7/0 = 0
+26:7/0 = 0
+27:7/0 = 0
+28:7/0 = 0
+29:7/0 = 0
+30:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+16:8/0 = 0
+17:8/0 = 0
+18:8/0 = 0
+19:8/0 = 0
+20:8/0 = 0
+21:8/0 = 0
+26:8/0 = 0
+27:8/0 = 0
+29:8/0 = 0
+30:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+16:9/0 = 0
+17:9/0 = 0
+18:9/0 = 0
+19:9/0 = 0
+20:9/0 = 0
+23:9/0 = 0
+24:9/0 = 0
+26:9/0 = 0
+27:9/0 = 0
+29:9/0 = 0
+30:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+9:10/0 = 0
+11:10/0 = 0
+12:10/0 = 0
+13:10/0 = 0
+14:10/0 = 0
+23:10/0 = 0
+24:10/0 = 0
+25:10/0 = 0
+27:10/0 = 0
+29:10/0 = 0
+30:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+11:11/0 = 0
+12:11/0 = 0
+13:11/0 = 0
+14:11/0 = 0
+16:11/0 = 0
+17:11/0 = 0
+18:11/0 = 0
+19:11/0 = 0
+23:11/0 = 0
+24:11/0 = 0
+25:11/0 = 0
+27:11/0 = 0
+29:11/0 = 0
+30:11/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+4:12/0 = 0
+5:12/0 = 0
+7:12/0 = 0
+8:12/0 = 0
+9:12/0 = 0
+11:12/0 = 0
+12:12/0 = 0
+13:12/0 = 0
+14:12/0 = 0
+16:12/0 = 0
+17:12/0 = 0
+18:12/0 = 0
+23:12/0 = 0
+24:12/0 = 0
+25:12/0 = 0
+27:12/0 = 0
+28:12/0 = 0
+29:12/0 = 0
+30:12/0 = 0
+7:13/0 = 0
+8:13/0 = 0
+9:13/0 = 0
+11:13/0 = 0
+12:13/0 = 0
+16:13/0 = 0
+17:13/0 = 0
+18:13/0 = 0
+19:13/0 = 0
+20:13/0 = 0
+21:13/0 = 0
+22:13/0 = 0
+23:13/0 = 0
+24:13/0 = 0
+25:13/0 = 0
+27:13/0 = 0
+29:13/0 = 0
+30:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+4:14/0 = 0
+5:14/0 = 0
+7:14/0 = 0
+8:14/0 = 0
+9:14/0 = 0
+11:14/0 = 0
+12:14/0 = 0
+16:14/0 = 0
+17:14/0 = 0
+19:14/0 = 0
+20:14/0 = 0
+21:14/0 = 0
+22:14/0 = 0
+24:14/0 = 0
+26:14/0 = 0
+27:14/0 = 0
+28:14/0 = 0
+29:14/0 = 0
+30:14/0 = 0
+2:15/0 = 0
+19:15/0 = 0
+20:15/0 = 0
+21:15/0 = 0
+22:15/0 = 0
+24:15/0 = 0
+26:15/0 = 0
+27:15/0 = 0
+28:15/0 = 0
+29:15/0 = 0
+30:15/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_hnbpa"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_7j8uv")
 
 [node name="SmallPlayground" type="Node2D" unique_id=1256983506]
+
+[node name="AbilityPickup" parent="." unique_id=1646825791 instance=ExtResource("1_qb88o")]
+position = Vector2(833, 546)
+
+[node name="AbilityPickup2" parent="." unique_id=1589305182 instance=ExtResource("1_qb88o")]
+position = Vector2(351, -125)
+type = 1
+
+[node name="AbilityPickup3" parent="." unique_id=816442675 instance=ExtResource("1_qb88o")]
+position = Vector2(437, 222)
+type = 2
+
+[node name="AbilityPickup4" parent="." unique_id=1894478963 instance=ExtResource("1_qb88o")]
+z_as_relative = false
+position = Vector2(176, 546)
+type = 3
 
 [node name="LevelBounds" type="Node2D" parent="." unique_id=2037509971]
 z_index = 256
@@ -39,9 +447,15 @@ tile_map_data = PackedByteArray("AAABAAgAAAACAAgAAAACAAgAAAADAAgAAAADAAgAAAAEAAg
 tile_set = ExtResource("1_3dgrd")
 
 [node name="PlayerSpawn" parent="." unique_id=2070126017 instance=ExtResource("3_jltr3")]
-position = Vector2(184, 253)
+position = Vector2(127, 157)
 
 [node name="props" type="Node2D" parent="." unique_id=1678461622]
+
+[node name="SpikeDummy" parent="props" unique_id=153338998 instance=ExtResource("10_vyqrg")]
+position = Vector2(357, 124)
+
+[node name="SpikeDummy2" parent="props" unique_id=1899371596 instance=ExtResource("10_vyqrg")]
+position = Vector2(726, 124)
 
 [node name="TestDummy" parent="props" unique_id=1457156033 instance=ExtResource("5_bj1ln")]
 position = Vector2(536, 254)
@@ -59,11 +473,6 @@ position = Vector2(82, 239)
 shake_decay_rate = 5.0
 max_shake_offset = 20.0
 
-[node name="Breakable3" parent="props" unique_id=1517392958 instance=ExtResource("5_qgbgf")]
-position = Vector2(178, 557)
-shake_decay_rate = 5.0
-max_shake_offset = 20.0
-
 [node name="Breakable4" parent="props" unique_id=1968361196 instance=ExtResource("5_qgbgf")]
 position = Vector2(222, 557)
 shake_decay_rate = 5.0
@@ -76,16 +485,6 @@ max_shake_offset = 20.0
 
 [node name="Breakable6" parent="props" unique_id=1754541224 instance=ExtResource("5_qgbgf")]
 position = Vector2(222, 525)
-shake_decay_rate = 5.0
-max_shake_offset = 20.0
-
-[node name="Breakable7" parent="props" unique_id=440930415 instance=ExtResource("5_qgbgf")]
-position = Vector2(178, 525)
-shake_decay_rate = 5.0
-max_shake_offset = 20.0
-
-[node name="Breakable8" parent="props" unique_id=2145633019 instance=ExtResource("5_qgbgf")]
-position = Vector2(178, 494)
 shake_decay_rate = 5.0
 max_shake_offset = 20.0
 
@@ -110,15 +509,17 @@ script = ExtResource("7_p2ahk")
 metadata/_custom_type_script = "uid://dha53eb7vo0el"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Breakable/DamageArea" unique_id=801721801]
-visible = false
 shape = SubResource("RectangleShape2D_uajdn")
-
-[node name="SpikeDummy" parent="." unique_id=153338998 instance=ExtResource("10_vyqrg")]
-position = Vector2(357, 124)
-
-[node name="SpikeDummy2" parent="." unique_id=1899371596 instance=ExtResource("10_vyqrg")]
-position = Vector2(726, 124)
 
 [node name="MusicAutoTrigger" type="Node" parent="." unique_id=1163518484]
 script = ExtResource("11_glj4h")
 metadata/_custom_type_script = "uid://rwwuu7gvxywr"
+
+[node name="HiddenArea" parent="." unique_id=192905483 instance=ExtResource("14_pvjku")]
+position = Vector2(853, 377)
+location = 3
+
+[node name="TileMapLayer" type="TileMapLayer" parent="HiddenArea" unique_id=591017246]
+tile_map_data = PackedByteArray("AAAAAAAAAAAQAA0AAAAAAAEAAAAAAAoAAAABAAAAAAABAAoAAAABAAEAAAABAAoAAAABAAIAAAABAAoAAAACAAAAAAACAAoAAAACAAEAAAACAAoAAAACAAIAAAACAAoAAAABAP//AAABAAoAAAACAP//AAACAAoAAAADAP//AAACAAoAAAAEAP//AAACAAoAAAADAAAAAAACAAoAAAADAAEAAAACAAoAAAAEAAAAAAACAAoAAAAEAAEAAAACAAoAAAAEAAIAAAACAAoAAAADAAIAAAACAAoAAAADAAMAAAACAAoAAAAEAAMAAAACAAoAAAADAAQAAAACAAoAAAAEAAQAAAACAAoAAAAEAAUAAAACAAoAAAADAAUAAAACAAoAAAADAAYAAAACAAoAAAAEAAYAAAACAAoAAAACAAYAAAACAAoAAAABAAYAAAACAAoAAAAAAAYAAAACAAoAAAD//wYAAAACAAoAAAD9/wMAAAABAAkAAAD9/wQAAAABAAoAAAD9/wUAAAABAAoAAAD+/wMAAAACAAkAAAD//wMAAAACAAkAAAAAAAMAAAACAAkAAAABAAMAAAAAAA4AAAD9/wYAAAABAAoAAAD+/wYAAAACAAoAAAD+/wUAAAACAAoAAAD//wUAAAACAAoAAAAAAAUAAAACAAoAAAABAAUAAAACAAoAAAACAAUAAAACAAoAAAACAAQAAAACAAoAAAABAAQAAAACAAoAAAAAAAQAAAACAAoAAAD//wQAAAACAAoAAAD+/wQAAAACAAoAAAACAAMAAAACAAoAAAA=")
+tile_set = SubResource("TileSet_hnbpa")
+rendering_quadrant_size = 32

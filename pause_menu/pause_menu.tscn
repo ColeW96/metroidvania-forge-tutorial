@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dnv5ffvrxoh8t"]
+[gd_scene format=3 uid="uid://dnv5ffvrxoh8t"]
 
 [ext_resource type="Script" uid="uid://dj8meq1l1rcen" path="res://pause_menu/scripts/pause_menu.gd" id="1_5hbt6"]
 [ext_resource type="PackedScene" uid="uid://cg42g8j2magai" path="res://pause_menu/map_node.tscn" id="2_rd7dy"]
+[ext_resource type="Script" uid="uid://c1bg5i4xslotb" path="res://pause_menu/scripts/abilities_list.gd" id="3_b4s0c"]
+[ext_resource type="Texture2D" uid="uid://bc3p77l87rvqy" path="res://player/sprites/abilities.png" id="3_uwtdo"]
 
 [sub_resource type="FontVariation" id="FontVariation_5hbt6"]
 spacing_glyph = 6
@@ -57,11 +59,27 @@ _data = {
 &"default": SubResource("Animation_rd7dy")
 }
 
-[node name="PauseMenu" type="CanvasLayer"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4s0c"]
+atlas = ExtResource("3_uwtdo")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1glv"]
+atlas = ExtResource("3_uwtdo")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wn31l"]
+atlas = ExtResource("3_uwtdo")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0obc"]
+atlas = ExtResource("3_uwtdo")
+region = Rect2(32, 96, 32, 32)
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1752538219]
 process_mode = 3
 script = ExtResource("1_5hbt6")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=107738006]
 light_mask = 0
 layout_mode = 3
 anchors_preset = 15
@@ -70,7 +88,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=482198175]
 light_mask = 0
 layout_mode = 1
 anchors_preset = 15
@@ -80,7 +98,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.11372549, 0.11372549, 0.11372549, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="Control"]
+[node name="ColorRect2" type="ColorRect" parent="Control" unique_id=957724864]
 light_mask = 0
 custom_minimum_size = Vector2(0, 36)
 layout_mode = 1
@@ -89,7 +107,7 @@ anchor_right = 1.0
 grow_horizontal = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="Control/ColorRect2"]
+[node name="Label" type="Label" parent="Control/ColorRect2" unique_id=1821214126]
 light_mask = 0
 layout_mode = 1
 anchors_preset = 6
@@ -108,7 +126,7 @@ theme_override_fonts/font = SubResource("FontVariation_5hbt6")
 text = "PAUSED"
 horizontal_alignment = 2
 
-[node name="PauseScreen" type="Control" parent="Control"]
+[node name="PauseScreen" type="Control" parent="Control" unique_id=1553036884]
 unique_name_in_owner = true
 light_mask = 0
 layout_mode = 1
@@ -119,7 +137,7 @@ offset_top = 36.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Map" type="Control" parent="Control/PauseScreen"]
+[node name="Map" type="Control" parent="Control/PauseScreen" unique_id=2723014]
 light_mask = 0
 anchors_preset = 0
 offset_left = 112.0
@@ -127,7 +145,7 @@ offset_top = 8.0
 offset_right = 466.0
 offset_bottom = 195.0
 
-[node name="ColorRect" type="ColorRect" parent="Control/PauseScreen/Map"]
+[node name="ColorRect" type="ColorRect" parent="Control/PauseScreen/Map" unique_id=2066367903]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -136,7 +154,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="MapNode" parent="Control/PauseScreen/Map" instance=ExtResource("2_rd7dy")]
+[node name="MapNode" parent="Control/PauseScreen/Map" unique_id=1941766147 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.23529412, 0.4745098, 0.29803923, 1)
 layout_mode = 0
 offset_left = 2.0
@@ -146,7 +164,7 @@ offset_bottom = 51.0
 linked_scene = "uid://cuhy61b0drxbf"
 entrances_right = Array[float]([2.6])
 
-[node name="MapNode6" parent="Control/PauseScreen/Map" instance=ExtResource("2_rd7dy")]
+[node name="MapNode6" parent="Control/PauseScreen/Map" unique_id=426147917 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.23529412, 0.4745098, 0.29803923, 1)
 layout_mode = 0
 offset_left = 76.0
@@ -156,7 +174,7 @@ offset_bottom = 42.0
 linked_scene = "uid://bhun0qinvswrq"
 entrances_left = Array[float]([2.0])
 
-[node name="MapNode4" parent="Control/PauseScreen/Map" instance=ExtResource("2_rd7dy")]
+[node name="MapNode4" parent="Control/PauseScreen/Map" unique_id=817253384 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.23890063, 0.48317358, 0.6154072, 1)
 layout_mode = 0
 offset_left = 68.0
@@ -167,7 +185,7 @@ linked_scene = "uid://chwqnperjwxng"
 entrances_top = Array[float]([2.0])
 entrances_right = Array[float]([5.0])
 
-[node name="MapNode5" parent="Control/PauseScreen/Map" instance=ExtResource("2_rd7dy")]
+[node name="MapNode5" parent="Control/PauseScreen/Map" unique_id=621090468 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.7196835, 0.24297374, 0.7240258, 1)
 layout_mode = 0
 offset_left = 95.0
@@ -178,7 +196,7 @@ linked_scene = "uid://bx34wg1j70fqf"
 entrances_right = Array[float]([2.0])
 entrances_left = Array[float]([2.0])
 
-[node name="MapNode2" parent="Control/PauseScreen/Map" instance=ExtResource("2_rd7dy")]
+[node name="MapNode2" parent="Control/PauseScreen/Map" unique_id=678030312 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.23529412, 0.4745098, 0.29803923, 1)
 layout_mode = 0
 offset_left = 29.0
@@ -190,7 +208,7 @@ entrances_right = Array[float]([3.25])
 entrances_bottom = Array[float]([31.400002])
 entrances_left = Array[float]([16.85])
 
-[node name="MapNode3" parent="Control/PauseScreen/Map" instance=ExtResource("2_rd7dy")]
+[node name="MapNode3" parent="Control/PauseScreen/Map" unique_id=1509060624 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.23529412, 0.4745098, 0.29803923, 1)
 layout_mode = 0
 offset_left = 51.0
@@ -201,7 +219,7 @@ linked_scene = "uid://d0foqcuii0t3v"
 entrances_top = Array[float]([9.0])
 entrances_bottom = Array[float]([19.4])
 
-[node name="MapNode7" parent="Control/PauseScreen/Map" instance=ExtResource("2_rd7dy")]
+[node name="MapNode7" parent="Control/PauseScreen/Map" unique_id=814484654 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.23890063, 0.48317358, 0.6154072, 1)
 layout_mode = 0
 offset_left = 108.0
@@ -211,7 +229,7 @@ offset_bottom = 79.0
 linked_scene = "uid://due8pydwies2o"
 entrances_left = Array[float]([2.0])
 
-[node name="PlayerIndicator" type="Control" parent="Control/PauseScreen/Map"]
+[node name="PlayerIndicator" type="Control" parent="Control/PauseScreen/Map" unique_id=1384045596]
 unique_name_in_owner = true
 light_mask = 0
 layout_mode = 1
@@ -221,7 +239,7 @@ offset_top = 33.0
 offset_right = 14.0
 offset_bottom = 33.0
 
-[node name="TextureRect" type="TextureRect" parent="Control/PauseScreen/Map/PlayerIndicator"]
+[node name="TextureRect" type="TextureRect" parent="Control/PauseScreen/Map/PlayerIndicator" unique_id=1537069256]
 light_mask = 0
 layout_mode = 1
 anchors_preset = 8
@@ -237,13 +255,11 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_uwtdo")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/PauseScreen/Map/PlayerIndicator"]
-libraries = {
-&"": SubResource("AnimationLibrary_uwtdo")
-}
-autoplay = "default"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/PauseScreen/Map/PlayerIndicator" unique_id=2082892662]
+libraries/ = SubResource("AnimationLibrary_uwtdo")
+autoplay = &"default"
 
-[node name="Label" type="Label" parent="Control/PauseScreen"]
+[node name="Label" type="Label" parent="Control/PauseScreen" unique_id=1925085075]
 light_mask = 0
 layout_mode = 0
 offset_left = 8.0
@@ -252,7 +268,7 @@ offset_right = 67.0
 offset_bottom = 23.0
 text = "Abilities"
 
-[node name="Label2" type="Label" parent="Control/PauseScreen"]
+[node name="Label2" type="Label" parent="Control/PauseScreen" unique_id=1886642749]
 light_mask = 0
 layout_mode = 0
 offset_left = 113.0
@@ -261,7 +277,7 @@ offset_right = 153.0
 offset_bottom = 23.0
 text = "Map"
 
-[node name="SystemMenuButton" type="Button" parent="Control/PauseScreen"]
+[node name="SystemMenuButton" type="Button" parent="Control/PauseScreen" unique_id=978917200]
 unique_name_in_owner = true
 light_mask = 0
 layout_mode = 1
@@ -278,7 +294,39 @@ grow_horizontal = 0
 grow_vertical = 0
 text = "System"
 
-[node name="System" type="Control" parent="Control"]
+[node name="AbilitiesList" type="VBoxContainer" parent="Control/PauseScreen" unique_id=295792289]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 28.0
+offset_right = 51.0
+offset_bottom = 168.0
+script = ExtResource("3_b4s0c")
+
+[node name="AbilityDoubleJump" type="TextureRect" parent="Control/PauseScreen/AbilitiesList" unique_id=1376567263]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("AtlasTexture_b4s0c")
+stretch_mode = 3
+
+[node name="AbilityDash" type="TextureRect" parent="Control/PauseScreen/AbilitiesList" unique_id=23670297]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("AtlasTexture_s1glv")
+stretch_mode = 3
+
+[node name="AbilityGroundSlam" type="TextureRect" parent="Control/PauseScreen/AbilitiesList" unique_id=1962181170]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("AtlasTexture_wn31l")
+stretch_mode = 3
+
+[node name="AbilityMorphRoll" type="TextureRect" parent="Control/PauseScreen/AbilitiesList" unique_id=1145928685]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("AtlasTexture_b0obc")
+stretch_mode = 3
+
+[node name="System" type="Control" parent="Control" unique_id=2135429769]
 unique_name_in_owner = true
 visible = false
 light_mask = 0
@@ -290,7 +338,7 @@ offset_top = 36.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/System"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/System" unique_id=1813093350]
 light_mask = 0
 layout_mode = 1
 anchors_preset = 5
@@ -303,40 +351,40 @@ offset_bottom = 196.0
 grow_horizontal = 2
 theme_override_constants/separation = 15
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/System/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/System/VBoxContainer" unique_id=1465767046]
 light_mask = 0
 layout_mode = 2
 
-[node name="BackToMapButton" type="Button" parent="Control/System/VBoxContainer/HBoxContainer"]
+[node name="BackToMapButton" type="Button" parent="Control/System/VBoxContainer/HBoxContainer" unique_id=320111358]
 unique_name_in_owner = true
 light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Back to Map"
 
-[node name="BackToTitleButton" type="Button" parent="Control/System/VBoxContainer/HBoxContainer"]
+[node name="BackToTitleButton" type="Button" parent="Control/System/VBoxContainer/HBoxContainer" unique_id=1126756155]
 unique_name_in_owner = true
 light_mask = 0
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Back to Title"
 
-[node name="Label" type="Label" parent="Control/System/VBoxContainer"]
+[node name="Label" type="Label" parent="Control/System/VBoxContainer" unique_id=1634168754]
 light_mask = 0
 layout_mode = 2
 text = "Audio Levels"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Control/System/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/System/VBoxContainer" unique_id=910885499]
 light_mask = 0
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/System/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="Control/System/VBoxContainer/HBoxContainer2" unique_id=793288607]
 light_mask = 0
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 text = "Music"
 
-[node name="MusicSlider" type="HSlider" parent="Control/System/VBoxContainer/HBoxContainer2"]
+[node name="MusicSlider" type="HSlider" parent="Control/System/VBoxContainer/HBoxContainer2" unique_id=333010851]
 unique_name_in_owner = true
 light_mask = 0
 layout_mode = 2
@@ -345,17 +393,17 @@ max_value = 1.0
 step = 0.05
 value = 0.5
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Control/System/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/System/VBoxContainer" unique_id=1504463003]
 light_mask = 0
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/System/VBoxContainer/HBoxContainer3"]
+[node name="Label" type="Label" parent="Control/System/VBoxContainer/HBoxContainer3" unique_id=1212774402]
 light_mask = 0
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 text = "SFX"
 
-[node name="SFXSlider" type="HSlider" parent="Control/System/VBoxContainer/HBoxContainer3"]
+[node name="SFXSlider" type="HSlider" parent="Control/System/VBoxContainer/HBoxContainer3" unique_id=1637468903]
 unique_name_in_owner = true
 light_mask = 0
 layout_mode = 2
@@ -364,17 +412,17 @@ max_value = 1.0
 step = 0.05
 value = 0.5
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="Control/System/VBoxContainer"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="Control/System/VBoxContainer" unique_id=942620257]
 light_mask = 0
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Control/System/VBoxContainer/HBoxContainer4"]
+[node name="Label" type="Label" parent="Control/System/VBoxContainer/HBoxContainer4" unique_id=687043467]
 light_mask = 0
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 text = "UI"
 
-[node name="UISlider" type="HSlider" parent="Control/System/VBoxContainer/HBoxContainer4"]
+[node name="UISlider" type="HSlider" parent="Control/System/VBoxContainer/HBoxContainer4" unique_id=1741724624]
 unique_name_in_owner = true
 light_mask = 0
 layout_mode = 2
