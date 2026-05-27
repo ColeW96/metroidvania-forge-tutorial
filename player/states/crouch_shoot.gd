@@ -1,5 +1,6 @@
 class_name PlayerStateCrouchShoot extends PlayerState
 
+@export var deceleration_rate : float = 10.0
 
 # What happens when this is initialized?
 func init() -> void:
@@ -48,6 +49,9 @@ func process( _delta: float ) -> PlayerState:
 
 # What happens each physics process tick in this state?
 func physics_process( _delta: float ) -> PlayerState:
+	player.velocity.x -= player.velocity.x * deceleration_rate * _delta
+	if player.is_on_floor() == false:
+		return fall
 	return next_state
 
 

@@ -606,6 +606,7 @@ z_index = 1
 collision_layer = 16
 collision_mask = 3
 floor_constant_speed = true
+floor_block_on_wall = false
 floor_snap_length = 3.0
 script = ExtResource("1_oul6g")
 
@@ -716,13 +717,11 @@ texture = ExtResource("18_bjvpn")
 hframes = 8
 
 [node name="CollisionStand" type="CollisionShape2D" parent="." unique_id=259439301]
-visible = false
 position = Vector2(0, -23)
 shape = SubResource("CapsuleShape2D_boad6")
 debug_color = Color(0, 0.6, 0.69803923, 0.25490198)
 
 [node name="CollisionCrouch" type="CollisionShape2D" parent="." unique_id=1200341302]
-visible = false
 position = Vector2(0, -15)
 shape = SubResource("CapsuleShape2D_rgyib")
 disabled = true
