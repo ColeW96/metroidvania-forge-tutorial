@@ -20,10 +20,9 @@ size = Vector2(36, 31)
 
 [node name="Crate" type="Node2D" unique_id=261099677]
 script = ExtResource("1_6ng2w")
+gravity = null
 hit_particles = Array[ExtResource("2_fpmn4")]([ExtResource("3_jy6sd")])
 destroy_particles = Array[ExtResource("2_fpmn4")]([ExtResource("3_jy6sd"), ExtResource("4_pfiku"), ExtResource("5_1ga2j")])
-shake_decay_rate = null
-max_shake_offset = null
 metadata/_custom_type_script = "uid://sndrj6tq12yf"
 
 [node name="DamageArea" type="Area2D" parent="." unique_id=657788890]
@@ -47,3 +46,11 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=361496309]
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_6ng2w")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=525635746]
+position = Vector2(0, 19)
+exclude_parent = false
+target_position = Vector2(0, 2)
+collision_mask = 3
+hit_from_inside = true
+collide_with_areas = true
