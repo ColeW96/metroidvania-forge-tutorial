@@ -53,14 +53,12 @@ func handle_input( _event : InputEvent ) -> PlayerState:
 # What happens each process tick in this state?
 func process( _delta: float ) -> PlayerState:
 	
-	if player.direction.y > -0.9:
-		return run_shoot_up
+	if player.direction.y > -0.5:
+		return idle_shoot
 	elif Input.is_action_pressed("up") and Input.is_action_just_pressed("right"):
 		return run_shoot_up
 	elif Input.is_action_pressed("up") and Input.is_action_just_pressed("left"):
 		return run_shoot_up
-	elif Input.is_action_just_released("up"):
-		return idle_shoot
 	return next_state
 
 
