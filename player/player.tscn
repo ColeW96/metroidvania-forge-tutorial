@@ -785,8 +785,7 @@ frame = 16
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=1309984596]
 unique_name_in_owner = true
-visible = false
-position = Vector2(0, -27)
+position = Vector2(0, -23)
 collision_layer = 0
 collision_mask = 96
 script = ExtResource("21_x7c3f")

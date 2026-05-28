@@ -43,13 +43,13 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-		for c in get_children():
-			if c is Sprite2D:
-				c.offset = Vector2(
-						randf_range( -shake_strength, shake_strength ),
-						randf_range( -shake_strength, shake_strength )
-					)
-				shake_strength = lerp( shake_strength, 0.0, shake_decay_rate * delta )
+	for c in get_children():
+		if c is Sprite2D:
+			c.offset = Vector2(
+					randf_range( -shake_strength, shake_strength ),
+					randf_range( -shake_strength, shake_strength )
+				)
+			shake_strength = lerp( shake_strength, 0.0, shake_decay_rate * delta )
 
 
 func _physics_process(delta: float) -> void:
