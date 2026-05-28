@@ -2,14 +2,20 @@
 @icon( "res://general/icons/breakable.svg" )
 class_name Breakable extends Node2D
 
+const LAND_AUDIO = preload("uid://bkueq2alnhrv2")
+
 signal destroyed
 signal damage_taken
 
 @export var hp : float = 3.0
 @export var fixed_hit_count : bool = false
+## Offset from position of the Breakable. Use for VisualEffect and Audio functions that require a position.
+@export var shape_offset : float = 17.5
 
 @export var gravity : float = 12.6
 var gravity_increase : float = gravity
+var falling : bool = false
+var hit_ground : bool = false
 
 @export_category( "Particles" )
 @export var emission_offset : Vector2 = Vector2.ZERO
@@ -51,8 +57,17 @@ func _physics_process(delta: float) -> void:
 		if not ray_cast.is_colliding():
 			global_position.y += 1 * gravity * delta
 			gravity += gravity_increase
+			falling = true
+			hit_ground = false
 		else:
 			gravity = gravity_increase
+			
+			if falling and not hit_ground:
+				hit_ground = true
+				falling = false
+				var pos : Vector2 = global_position + Vector2(0,shape_offset)
+				VisualEffects.land_dust( pos )
+				Audio.play_spatial_sound( LAND_AUDIO, pos )
 	pass
 
 
