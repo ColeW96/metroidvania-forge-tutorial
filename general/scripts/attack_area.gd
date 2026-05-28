@@ -1,6 +1,8 @@
 @icon("res://general/icons/attack_area.svg")
 class_name AttackArea extends Area2D
 
+signal damage_done( result : bool )
+
 @export var damage : float = 1.0
 
 
@@ -16,6 +18,7 @@ func _ready() :
 func _on_body_entered( body : Node2D ) -> void:
 	if body is DamageArea:
 		body.take_damage(self)
+		damage_done.emit( true )
 		var pos : Vector2 = global_position
 		pos.x = body.global_position.x
 		VisualEffects.hit_dust( pos )
@@ -31,8 +34,10 @@ func activate( duration : float = 0.1 ) -> void:
 
 
 func set_active( value : bool = true ) -> void:
-	monitoring = value
-	visible = value
+	#monitoring = value
+	#visible = value
+	set_deferred("monitoring", value)
+	set_deferred("visible", value)
 	pass
 
 

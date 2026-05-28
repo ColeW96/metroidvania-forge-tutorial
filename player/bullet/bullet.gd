@@ -6,6 +6,16 @@ var distance_moved : float = 0
 var max_distance : float = 450
 
 @onready var bullet_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var attack_area: AttackArea = %AttackArea
+@onready var area_2d: Area2D = $Area2D
+
+
+
+func _ready() -> void:
+	attack_area.set_active()
+	attack_area.damage_done.connect( _on_damage_done )
+	area_2d.body_entered.connect( _on_body_entered )
+	pass
 
 func _physics_process(delta: float) -> void:
 	if move_direction.x < 0:
@@ -25,4 +35,19 @@ func reset_bullet() -> void:
 	distance_moved = 0.0
 	visible = false
 	set_physics_process( false )
+	pass
+
+
+func _on_damage_done( result : bool ) -> void:
+	if result:
+		queue_free()
+		attack_area.set_active( false )
+	pass
+
+
+func _on_body_entered( node : Node2D ) -> void:
+	if node.get_parent() is Breakable:
+		return
+	elif node is TileMapLayer:
+		queue_free()
 	pass
