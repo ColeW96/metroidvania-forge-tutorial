@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-209.598204,-24)">
+        <g id="loot_drop" transform="matrix(1,0,0,1,209.598204,24)">
+            <rect x="0" y="0" width="16" height="16" style="fill:none;"/>
+            <clipPath id="_clip1">
+                <rect x="0" y="0" width="16" height="16"/>
+            </clipPath>
+            <g clip-path="url(#_clip1)">
+                <g transform="matrix(1.230769,0,0,1,-252.307692,-46)">
+                    <path d="M213.938,52C213.938,52 217.76,58.333 218,60C218.128,60.89 216.188,62 216.188,62L206.723,62C206.723,62 204.867,60.87 205,60C205.254,58.333 209.062,52 209.062,52L213.938,52Z" style="fill:rgb(255,139,0);"/>
+                </g>
+                <g transform="matrix(1,0,0,1,-209.598204,-24)">
+                    <path d="M221,28.25L221,28.75C221,28.888 220.888,29 220.75,29L214.25,29C214.112,29 214,28.888 214,28.75L214,28.25C214,28.112 214.112,28 214.25,28L220.75,28C220.888,28 221,28.112 221,28.25Z" style="fill:rgb(255,139,0);"/>
+                </g>
+                <g transform="matrix(1,0,0,0.5,-210,-10)">
+                    <path d="M214,20L216,26L220,26L222,20L214,20Z" style="fill:rgb(255,139,0);"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

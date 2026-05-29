@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-143,-23.998089)">
+        <g id="edge_sensor" transform="matrix(1,0,0,1,143,23.998089)">
+            <rect x="0" y="0" width="16" height="16" style="fill:none;"/>
+            <clipPath id="_clip1">
+                <rect x="0" y="0" width="16" height="16"/>
+            </clipPath>
+            <g clip-path="url(#_clip1)">
+                <g transform="matrix(1,0,0,1,-143,-23.998089)">
+                    <path d="M153,40L151,40L151,32L159,32L159,34L153,34L153,40Z" style="fill:rgb(195,148,111);"/>
+                </g>
+                <g transform="matrix(2,0,0,0.555556,-291,-6.442534)">
+                    <path d="M148,33.2L149,33.2L147.5,38.6L146,33.2L147,33.2L147,26L148,26L148,33.2Z" style="fill:rgb(81,174,255);"/>
+                </g>
+                <g transform="matrix(1.181818,0,0,1.166667,-170.727273,-27.998089)">
+                    <path d="M158,30L151,30C148.792,30 147,28.208 147,26L147,24L158,24L158,30Z" style="fill:rgb(255,80,95);"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

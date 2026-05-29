@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-165,-45)">
+        <g id="patrol_limit" transform="matrix(1,0,0,1,165,45)">
+            <rect x="0" y="0" width="16" height="16" style="fill:none;"/>
+            <clipPath id="_clip1">
+                <rect x="0" y="0" width="16" height="16"/>
+            </clipPath>
+            <g clip-path="url(#_clip1)">
+                <g transform="matrix(2.8,0,0,2.333333,-491.8,-67.666667)">
+                    <path d="M178.5,29C179.88,29 181,30.344 181,32C181,33.656 179.88,35 178.5,35.857L178.5,29Z" style="fill:rgb(255,80,95);"/>
+                </g>
+                <g transform="matrix(0.875,0,0,0.875,-154.75,-39.375)">
+                    <path d="M186,63.286C181.585,61 178,57.415 178,53C178,48.585 181.585,45 186,45L186,63.286Z" style="fill:rgb(232,232,232);"/>
+                </g>
+                <g transform="matrix(1,0,0,1,-0.338014,0)">
+                    <g transform="matrix(1,0,0,1,-163.260448,-42)">
+                        <g transform="matrix(8.333333,0,0,8.333333,170.623463,51.802174)">
+                        </g>
+                        <text x="167.757px" y="51.802px" style="font-family:'BebasNeue-Regular', 'Bebas Neue', sans-serif;font-size:8.333px;fill:rgb(62,62,62);">L</text>
+                    </g>
+                    <g transform="matrix(1,0,0,1,-158.345896,-42)">
+                        <g transform="matrix(8.333333,0,0,8.333333,171.115129,51.802174)">
+                        </g>
+                        <text x="167.757px" y="51.802px" style="font-family:'BebasNeue-Regular', 'Bebas Neue', sans-serif;font-size:8.333px;fill:rgb(62,62,62);">R</text>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

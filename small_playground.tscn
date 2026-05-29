@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bpbdxq44olmim" path="res://levels/props/test_dummy/spike_dummy.tscn" id="10_vyqrg"]
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="11_glj4h"]
 [ext_resource type="PackedScene" uid="uid://dg7qvy6vumoft" path="res://general/hidden_area/hidden_area.tscn" id="14_pvjku"]
+[ext_resource type="PackedScene" uid="uid://j2ipc4cvtyr6" path="res://enemies/slime/slime.tscn" id="16_7j8uv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uajdn"]
 size = Vector2(92, 106)
@@ -447,7 +448,7 @@ tile_map_data = PackedByteArray("AAABAAgAAAACAAgAAAACAAgAAAADAAgAAAADAAgAAAAEAAg
 tile_set = ExtResource("1_3dgrd")
 
 [node name="PlayerSpawn" parent="." unique_id=2070126017 instance=ExtResource("3_jltr3")]
-position = Vector2(578, -11)
+position = Vector2(407, -101)
 
 [node name="props" type="Node2D" parent="." unique_id=1678461622]
 
@@ -528,3 +529,6 @@ location = 3
 tile_map_data = PackedByteArray("AAAAAAAAAAAQAA0AAAAAAAEAAAAAAAoAAAABAAAAAAABAAoAAAABAAEAAAABAAoAAAABAAIAAAABAAoAAAACAAAAAAACAAoAAAACAAEAAAACAAoAAAACAAIAAAACAAoAAAABAP//AAABAAoAAAACAP//AAACAAoAAAADAP//AAACAAoAAAAEAP//AAACAAoAAAADAAAAAAACAAoAAAADAAEAAAACAAoAAAAEAAAAAAACAAoAAAAEAAEAAAACAAoAAAAEAAIAAAACAAoAAAADAAIAAAACAAoAAAADAAMAAAACAAoAAAAEAAMAAAACAAoAAAADAAQAAAACAAoAAAAEAAQAAAACAAoAAAAEAAUAAAACAAoAAAADAAUAAAACAAoAAAADAAYAAAACAAoAAAAEAAYAAAACAAoAAAACAAYAAAACAAoAAAABAAYAAAACAAoAAAAAAAYAAAACAAoAAAD//wYAAAACAAoAAAD9/wMAAAABAAkAAAD9/wQAAAABAAoAAAD9/wUAAAABAAoAAAD+/wMAAAACAAkAAAD//wMAAAACAAkAAAAAAAMAAAACAAkAAAABAAMAAAAAAA4AAAD9/wYAAAABAAoAAAD+/wYAAAACAAoAAAD+/wUAAAACAAoAAAD//wUAAAACAAoAAAAAAAUAAAACAAoAAAABAAUAAAACAAoAAAACAAUAAAACAAoAAAACAAQAAAACAAoAAAABAAQAAAACAAoAAAAAAAQAAAACAAoAAAD//wQAAAACAAoAAAD+/wQAAAACAAoAAAACAAMAAAACAAoAAAA=")
 tile_set = SubResource("TileSet_hnbpa")
 rendering_quadrant_size = 32
+
+[node name="Slime" parent="." unique_id=756741450 instance=ExtResource("16_7j8uv")]
+position = Vector2(457, -103)
