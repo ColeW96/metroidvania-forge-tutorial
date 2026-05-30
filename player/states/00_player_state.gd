@@ -25,6 +25,7 @@ var next_state : PlayerState
 @onready var dash: PlayerStateDash = %Dash
 @onready var ground_slam: PlayerStateGroundSlam = %GroundSlam
 @onready var ball: PlayerStateBall = %Ball
+@onready var crouch_attack: PlayerStateCrouchAttack = %CrouchAttack
 #endregion
 
 
