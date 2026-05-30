@@ -2,6 +2,8 @@ class_name Player extends CharacterBody2D
 
 const DEBUG_JUMP_INDICATOR = preload("uid://bqucnd6ugb7r")
 const BULLET = preload("uid://bdoia83dmojob")
+const SHOOT_AUDIO = preload("uid://deuo267x6vikh")
+
 
 #region /// signals
 signal damage_taken
@@ -19,6 +21,7 @@ signal damage_taken
 @onready var attack_area = %AttackArea
 @onready var attack_sprite = %AttackSprite2D
 @onready var damage_area: DamageArea = %DamageArea
+@onready var shoot_audio: AudioStreamPlayer2D = %ShootAudio
 #endregion
 
 
@@ -219,6 +222,7 @@ func spawn_bullet() -> void:
 			bullet.bullet_sprite.rotation = deg_to_rad( -43 )
 	
 	bullet.global_position = bullet_spawn.global_position
+	shoot_audio.play()
 	pass
 
 
