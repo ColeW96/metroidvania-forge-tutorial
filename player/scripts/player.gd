@@ -20,6 +20,7 @@ signal damage_taken
 @onready var bullet_spawn: Node2D = $BulletSpawn
 @onready var attack_area = %AttackArea
 @onready var attack_sprite = %AttackSprite2D
+@onready var crouch_attack_sprite: Sprite2D = %CrouchAttackSprite
 @onready var damage_area: DamageArea = %DamageArea
 @onready var shoot_audio: AudioStreamPlayer2D = %ShootAudio
 #endregion
