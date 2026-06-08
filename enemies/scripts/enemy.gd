@@ -10,9 +10,6 @@ signal was_killed()
 @export var affected_by_gravity : bool = true
 @export var face_left_on_start : bool = false
 
-@export_category("Audio")
-@export var death_sound : AudioStream
-
 var sprite : Sprite2D
 var animation : AnimationPlayer
 var damage_area : DamageArea
@@ -93,6 +90,7 @@ func play_animation( anim_name : String ) -> void:
 
 ## Handle taking damage here as central hub
 func _on_damage_taken( a : AttackArea ) -> void:
+	blackboard.damage_source = a
 	blackboard.health -= a.damage
 	if blackboard.health <= 0:
 		damage_area.queue_free()

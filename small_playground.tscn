@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="11_glj4h"]
 [ext_resource type="PackedScene" uid="uid://dg7qvy6vumoft" path="res://general/hidden_area/hidden_area.tscn" id="14_pvjku"]
 [ext_resource type="PackedScene" uid="uid://j2ipc4cvtyr6" path="res://enemies/slime/slime.tscn" id="16_7j8uv"]
+[ext_resource type="PackedScene" uid="uid://ja8lc0n3awhh" path="res://enemies/slime_2/slime_2.tscn" id="17_umtgv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uajdn"]
 size = Vector2(92, 106)
@@ -448,7 +449,7 @@ tile_map_data = PackedByteArray("AAABAAgAAAACAAgAAAACAAgAAAADAAgAAAADAAgAAAAEAAg
 tile_set = ExtResource("1_3dgrd")
 
 [node name="PlayerSpawn" parent="." unique_id=2070126017 instance=ExtResource("3_jltr3")]
-position = Vector2(407, -101)
+position = Vector2(396, -100)
 
 [node name="props" type="Node2D" parent="." unique_id=1678461622]
 
@@ -530,5 +531,8 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAQAA0AAAAAAAEAAAAAAAoAAAABAAAAAAABAAo
 tile_set = SubResource("TileSet_hnbpa")
 rendering_quadrant_size = 32
 
-[node name="Slime" parent="." unique_id=756741450 instance=ExtResource("16_7j8uv")]
-position = Vector2(457, -103)
+[node name="DumbSlime" parent="." unique_id=756741450 instance=ExtResource("16_7j8uv")]
+position = Vector2(478, 119)
+
+[node name="SmartSlime" parent="." unique_id=488761391 instance=ExtResource("17_umtgv")]
+position = Vector2(488, -105)

@@ -1,4 +1,4 @@
-@icon( "res://general/icons/decision_engine.svg" )
+@icon("res://general/icons/decision_engine.svg")
 class_name DecisionEngine extends Node
 
 

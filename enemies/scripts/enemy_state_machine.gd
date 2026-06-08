@@ -1,4 +1,4 @@
-#@icon(  )
+@icon( "res://general/icons/state_machine.svg" )
 class_name EnemyStateMachine extends Node
 
 

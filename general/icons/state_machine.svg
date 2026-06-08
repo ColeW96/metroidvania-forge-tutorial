@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-28.450634,0)">
+        <g id="State-Machine" serif:id="State Machine" transform="matrix(1,0,0,1,-37.549366,0)">
+            <rect x="66" y="0" width="16" height="16" style="fill:none;"/>
+            <g transform="matrix(1,0,0,1,31.5,0)">
+                <circle cx="42.5" cy="3.5" r="3.5" style="fill:rgb(255,80,95);"/>
+            </g>
+            <g transform="matrix(0.661871,1.146394,-1.957716,1.130288,68.688533,-45.900784)">
+                <path d="M35,9.35L35,8.65L37.292,8.65L37.292,8L39,9L37.292,10L37.292,9.35L35,9.35Z" style="fill:rgb(232,232,232);"/>
+            </g>
+            <g transform="matrix(1,0,0,1,36,9)">
+                <circle cx="42.5" cy="3.5" r="3.5" style="fill:rgb(255,80,95);"/>
+            </g>
+            <g transform="matrix(1,0,0,1,27,9)">
+                <circle cx="42.5" cy="3.5" r="3.5" style="fill:rgb(255,80,95);"/>
+            </g>
+            <g transform="matrix(0.642981,-1.113676,2.106545,1.216215,28.83695,39.487438)">
+                <path d="M35,9.35L35,8.65L37.108,8.65L37.108,8L39,9L37.108,10L37.108,9.35L35,9.35Z" style="fill:rgb(232,232,232);"/>
+            </g>
+            <g transform="matrix(-1.073742,0,-0,-2.5,114.425297,35)">
+                <path d="M35,9.35L35,8.65L36.672,8.65L36.672,8L39,9L36.672,10L36.672,9.35L35,9.35Z" style="fill:rgb(232,232,232);"/>
+            </g>
+        </g>
+    </g>
+</svg>

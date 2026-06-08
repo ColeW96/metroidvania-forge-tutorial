@@ -54,7 +54,8 @@ folder_colors={
 "res://00_global/": "red",
 "res://general/": "blue",
 "res://levels/": "green",
-"res://player/": "purple"
+"res://player/": "purple",
+"res://script_templates/": "orange"
 }
 
 [global_group]
