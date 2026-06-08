@@ -743,7 +743,7 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bjvpn"]
-size = Vector2(19, 62)
+size = Vector2(19, 61)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ejfk"]
 size = Vector2(49.5, 28)
@@ -756,6 +756,7 @@ floor_constant_speed = true
 floor_block_on_wall = false
 floor_snap_length = 3.0
 script = ExtResource("1_oul6g")
+metadata/_edit_vertical_guides_ = [62.0]
 
 [node name="States" type="Node" parent="." unique_id=145044917]
 
@@ -946,7 +947,6 @@ frame = 16
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=1309984596]
 unique_name_in_owner = true
-visible = false
 position = Vector2(0, -23)
 collision_layer = 0
 collision_mask = 96
@@ -954,7 +954,7 @@ script = ExtResource("21_x7c3f")
 metadata/_custom_type_script = "uid://vt684ogx76fc"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=519819502]
-position = Vector2(31, 0)
+position = Vector2(30.5, 0)
 rotation = -1.5707964
 shape = SubResource("RectangleShape2D_bjvpn")
 debug_color = Color(0.70196074, 0, 0.08511285, 0.41960785)

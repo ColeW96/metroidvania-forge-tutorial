@@ -16,7 +16,7 @@ func init() -> void:
 # What happens when we enter this state?
 func enter() -> void:
 	var prev_state : PlayerState = player.previous_state
-	if player.previous_state == crouch_shoot or prev_state == crouch_attack:
+	if prev_state == crouch_shoot or prev_state == crouch_attack:
 		player.animation_player.play( "crouch" )
 		anim_length = player.animation_player.current_animation_length
 		player.animation_player.advance(anim_length - anim_length_offset)

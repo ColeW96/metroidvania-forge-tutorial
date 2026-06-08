@@ -18,6 +18,7 @@ func init() -> void:
 
 # What happens when we enter this state?
 func enter() -> void:
+	player.attack_area.position.y = -14
 	do_attack()
 	player.animation_player.animation_finished.connect( _on_animation_finished )
 	pass
@@ -25,6 +26,7 @@ func enter() -> void:
 
 # What happens when we exit this state?
 func exit() -> void:
+	player.attack_area.position.y = -23
 	timer = 0
 	combo = 0
 	crouch_attack_sprite.visible = false
@@ -37,6 +39,8 @@ func exit() -> void:
 func handle_input( _event : InputEvent ) -> PlayerState:
 	if _event.is_action_pressed("attack"):
 		timer = combo_time_window
+	if _event.is_action_released("down"):
+		return idle
 	if _event.is_action_pressed("dash") and player.can_dash():
 		return dash
 	if _event.is_action_pressed("morph") and player.can_morph():

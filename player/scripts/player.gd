@@ -177,13 +177,17 @@ func update_direction() -> void:
 			_cardinal_direction = Vector2.LEFT
 			bullet_spawn.position.x = -bullet_spawn_pos.x
 			attack_sprite.flip_h = true
+			crouch_attack_sprite.flip_h = true
 			attack_sprite.position.x = -19
+			crouch_attack_sprite.position.x = -20
 		elif direction.x > 0:
 			sprite.flip_h = false
 			_cardinal_direction = Vector2.RIGHT
 			bullet_spawn.position.x = bullet_spawn_pos.x
 			attack_sprite.flip_h = false
+			crouch_attack_sprite.flip_h = false
 			attack_sprite.position.x = 19
+			crouch_attack_sprite.position.x = 20
 	pass
 
 
