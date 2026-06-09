@@ -234,6 +234,7 @@ metadata/_custom_type_script = "uid://c1fd8n55hi86u"
 polygon = PackedVector2Array(0, 0, 256, -128, 256, 128)
 
 [node name="Label" type="Label" parent="." unique_id=950599169]
+visible = false
 offset_top = -37.0
 offset_right = 40.0
 offset_bottom = -22.0
