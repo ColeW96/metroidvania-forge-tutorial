@@ -17,11 +17,16 @@ func init() -> void:
 
 # What happens when we enter this state?
 func enter() -> void:
-	player.animation_player.play( "take_damage" )
-	time = player.animation_player.current_animation_length
 	damage_area.make_invulnerable( invulnerable_duration )
 	hurt_audio.play()
 	VisualEffects.camera_shake()
+	
+	if player.previous_state == ball:
+		time = 0.3
+		return
+	
+	player.animation_player.play( "take_damage" )
+	time = player.animation_player.current_animation_length
 	pass
 
 
@@ -41,6 +46,8 @@ func process( delta: float ) -> PlayerState:
 	if time <= 0:
 		if player.hp <= 0:
 			return death
+		elif player.previous_state == ball:
+			return ball
 		else:
 			return idle
 	return null
