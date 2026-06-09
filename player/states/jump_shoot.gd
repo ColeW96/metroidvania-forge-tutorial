@@ -42,7 +42,7 @@ func exit() -> void:
 
 # What happens with input?
 func handle_input( event : InputEvent ) -> PlayerState:
-	if event.is_action_pressed("dash") and player.dash_count == 0:
+	if event.is_action_pressed("dash") and player.can_dash():
 		return dash
 	if event.is_action_pressed("attack"):
 		if player.ground_slam and Input.is_action_pressed("down"):
