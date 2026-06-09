@@ -17,6 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://dg7qvy6vumoft" path="res://general/hidden_area/hidden_area.tscn" id="14_pvjku"]
 [ext_resource type="PackedScene" uid="uid://j2ipc4cvtyr6" path="res://enemies/slime/slime.tscn" id="16_7j8uv"]
 [ext_resource type="PackedScene" uid="uid://ja8lc0n3awhh" path="res://enemies/slime_2/slime_2.tscn" id="17_umtgv"]
+[ext_resource type="Texture2D" uid="uid://dcq0uxwsn8c3i" path="res://enemies/slime/slime.png" id="18_wtccc"]
+[ext_resource type="Script" uid="uid://cawilyvlawwsm" path="res://enemies/scripts/enemy_hit_particles.gd" id="19_1g47y"]
+[ext_resource type="AudioStream" uid="uid://krg2nqtxwvxe" path="res://enemies/slime/slime_hit.wav" id="20_1g47y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uajdn"]
 size = Vector2(92, 106)
@@ -410,6 +413,38 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_7j8uv")
 
+[sub_resource type="Gradient" id="Gradient_dq0sk"]
+offsets = PackedFloat32Array(0.502193, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uucha"]
+gradient = SubResource("Gradient_dq0sk")
+width = 8
+height = 8
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Resource" id="Resource_uucha"]
+script = ExtResource("7_hu6bk")
+count = 12
+color = Color(0, 0.6435714, 1, 1)
+texture = SubResource("GradientTexture2D_uucha")
+metadata/_custom_type_script = "uid://brc344c2o0cfo"
+
+[sub_resource type="Resource" id="Resource_qpicr"]
+script = ExtResource("7_hu6bk")
+count = 24
+color = Color(0, 0.6435714, 1, 1)
+metadata/_custom_type_script = "uid://brc344c2o0cfo"
+
+[sub_resource type="Resource" id="Resource_vpnvx"]
+script = ExtResource("7_hu6bk")
+metadata/_custom_type_script = "uid://brc344c2o0cfo"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4s7xr"]
+size = Vector2(26, 16)
+
 [node name="SmallPlayground" type="Node2D" unique_id=1256983506]
 
 [node name="AbilityPickup" parent="." unique_id=1646825791 instance=ExtResource("1_qb88o")]
@@ -535,5 +570,32 @@ rendering_quadrant_size = 32
 position = Vector2(478, 119)
 
 [node name="SmartSlime" parent="." unique_id=488761391 instance=ExtResource("17_umtgv")]
+process_mode = 4
 position = Vector2(609, 570)
 face_left_on_start = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=325677482]
+modulate = Color(0.95830256, 1, 0.33690244, 1)
+position = Vector2(410.7326, 553.42786)
+texture = ExtResource("18_wtccc")
+hframes = 6
+vframes = 3
+
+[node name="EnemyHitParticles" type="Marker2D" parent="Sprite2D" unique_id=1591915261]
+position = Vector2(0.26739502, -22.427856)
+script = ExtResource("19_1g47y")
+hit_particles = Array[ExtResource("7_hu6bk")]([SubResource("Resource_uucha")])
+death_particels = Array[ExtResource("7_hu6bk")]([SubResource("Resource_qpicr"), SubResource("Resource_vpnvx")])
+metadata/_custom_type_script = "uid://cawilyvlawwsm"
+
+[node name="DamageArea" type="Area2D" parent="Sprite2D" unique_id=2124336436]
+position = Vector2(-0.732605, 13.572144)
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("7_p2ahk")
+audio = ExtResource("20_1g47y")
+metadata/_custom_type_script = "uid://dha53eb7vo0el"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite2D/DamageArea" unique_id=422933759]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_4s7xr")
