@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://b2qdp3bms72og" path="res://enemies/scripts/states/es_death.gd" id="10_3jlja"]
 [ext_resource type="AudioStream" uid="uid://k3p37oqyb0e4" path="res://enemies/slime/slime_death.wav" id="11_ovel5"]
 [ext_resource type="Script" uid="uid://dfg03o7e8cnit" path="res://enemies/scripts/sensors/edge_sensor.gd" id="12_ovel5"]
+[ext_resource type="Script" uid="uid://c1fd8n55hi86u" path="res://enemies/scripts/sensors/player_sensor.gd" id="13_3jlja"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ptp6l"]
 radius = 8.0
@@ -98,6 +99,28 @@ _data = {
 &"walk": SubResource("Animation_482dd")
 }
 
+[sub_resource type="GDScript" id="GDScript_3jlja"]
+script/source = "extends Label
+
+@onready var player_sensor: PlayerSensor = $\"../PlayerSensor\"
+@onready var slime_2: Enemy = $\"..\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _physics_process(delta: float) -> void:
+	text = \"\"
+	text = \"target = \"
+	text += str(slime_2.blackboard.target.name) if slime_2.blackboard.target else \"\"
+	text += \"\\n dist = \"
+	text += str(slime_2.blackboard.distance_to_target)
+	pass
+"
+
 [node name="Slime2" type="CharacterBody2D" unique_id=488761391]
 collision_layer = 0
 collision_mask = 3
@@ -170,3 +193,17 @@ position = Vector2(7, 0)
 target_position = Vector2(0, 8)
 script = ExtResource("12_ovel5")
 metadata/_custom_type_script = "uid://dfg03o7e8cnit"
+
+[node name="PlayerSensor" type="Area2D" parent="." unique_id=2092460160]
+position = Vector2(0, -7)
+script = ExtResource("13_3jlja")
+metadata/_custom_type_script = "uid://c1fd8n55hi86u"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerSensor" unique_id=1566586220]
+polygon = PackedVector2Array(0, 0, 256, -128, 256, 128)
+
+[node name="Label" type="Label" parent="." unique_id=950599169]
+offset_top = -37.0
+offset_right = 40.0
+offset_bottom = -22.0
+script = SubResource("GDScript_3jlja")
