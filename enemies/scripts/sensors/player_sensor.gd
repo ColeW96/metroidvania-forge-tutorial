@@ -35,6 +35,7 @@ func _physics_process(delta: float) -> void:
 func _on_body_entered( n : Node2D ) -> void:
 	player_entered.emit()
 	enemy.blackboard.target = n
+	timer = 0
 	pass
 
 
