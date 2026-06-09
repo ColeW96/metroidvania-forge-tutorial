@@ -1,5 +1,7 @@
 class_name PlayerStateFallShoot extends PlayerState
 
+const LAND = preload("uid://bkueq2alnhrv2")
+
 @export var fall_gravity_multiplier : float = 1.165
 @export var coyote_time : float = 0.125
 @export var jump_buffer_time : float = 0.2
@@ -87,6 +89,7 @@ func process( _delta: float ) -> PlayerState:
 func physics_process( _delta: float ) -> PlayerState:
 	if player.is_on_floor():
 		VisualEffects.land_dust( player.global_position )
+		Audio.play_spatial_sound(LAND, player.global_position, false, true, 0.5)
 		if buffer_timer > 0:
 			return jump_shoot
 		return idle_shoot

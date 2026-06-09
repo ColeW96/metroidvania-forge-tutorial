@@ -26,7 +26,7 @@ func enter() -> void:
 	effect_time = 0
 	get_dash_direction()
 	damage_area.make_invulnerable( duration )
-	Audio.play_spatial_sound( DASH_AUDIO, player.global_position )
+	Audio.play_spatial_sound( DASH_AUDIO, player.global_position, false, true, 0.75 )
 	
 	player.gravity_multiplier = 0
 	player.velocity.y = 0

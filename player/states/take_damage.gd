@@ -1,11 +1,12 @@
 class_name PlayerStateTakeDamage extends PlayerState
 
+const HURT = preload("uid://d0eldpjdmfac8")
+
 @export var move_speed : float = 100.0
 @export var invulnerable_duration : float = 0.5
 var time : float = 0.0
 var dir : float = 1.0
 @onready var damage_area: DamageArea = %DamageArea
-@onready var hurt_audio: AudioStreamPlayer2D = %HurtAudio
 
 
 
@@ -18,7 +19,7 @@ func init() -> void:
 # What happens when we enter this state?
 func enter() -> void:
 	damage_area.make_invulnerable( invulnerable_duration )
-	hurt_audio.play()
+	Audio.play_spatial_sound(HURT, player.global_position, false, true, 0.45)
 	VisualEffects.camera_shake()
 	
 	if player.previous_state == ball:

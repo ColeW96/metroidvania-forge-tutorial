@@ -1,8 +1,9 @@
 # Audio global script
 extends Node
 
-
 enum REVERB_TYPE { NONE, SMALL, MEDIUM, LARGE }
+
+signal player_made_sound( pos : Vector2, volume : float )
 
 @export var ui_focus_audio : AudioStream
 @export var ui_select_audio : AudioStream
@@ -13,6 +14,8 @@ enum REVERB_TYPE { NONE, SMALL, MEDIUM, LARGE }
 var current_track : int = 0
 var music_tweens : Array[ Tween ]
 var ui_audio_player : AudioStreamPlaybackPolyphonic
+var audio_pool : Array[ AudioStreamPlayer2D ]
+var audio_index : int = 0
 
 @onready var music_1: AudioStreamPlayer = %Music1
 @onready var music_2: AudioStreamPlayer = %Music2
@@ -22,6 +25,11 @@ var ui_audio_player : AudioStreamPlaybackPolyphonic
 func _ready() -> void:
 	ui.play()
 	ui_audio_player = ui.get_stream_playback()
+	for i in 32:
+		var audio_player : AudioStreamPlayer2D = AudioStreamPlayer2D.new()
+		add_child( audio_player )
+		audio_player.bus = "SFX"
+		audio_pool.append( audio_player )
 	pass
 
 
@@ -86,14 +94,33 @@ func set_reverb( type : REVERB_TYPE ) -> void:
 	pass
 
 
-func play_spatial_sound( audio : AudioStream, pos : Vector2 ) -> void:
-	var audio_player : AudioStreamPlayer2D = AudioStreamPlayer2D.new()
-	add_child( audio_player )
-	audio_player.bus = "SFX"
-	audio_player.global_position = pos
-	audio_player.stream = audio
-	audio_player.finished.connect( audio_player.queue_free )
-	audio_player.play()
+func play_spatial_sound(
+	audio : AudioStream,
+	pos : Vector2,
+	ignore_pool : bool = false,
+	was_player : bool = false,
+	volume : float = 0.5,
+	ap_volume : float = 1
+	) -> void:
+	if ignore_pool:
+		var ap : AudioStreamPlayer2D = AudioStreamPlayer2D.new()
+		add_child( ap )
+		ap.bus = "SFX"
+		ap.global_position = pos
+		ap.stream = audio
+		ap.volume_linear = ap_volume
+		ap.finished.connect( ap.queue_free )
+		ap.play()
+	else:
+		var ap : AudioStreamPlayer2D = audio_pool[ audio_index ]
+		ap.global_position = pos
+		ap.stream = audio
+		ap.volume_linear = ap_volume
+		ap.play()
+		audio_index = wrapi( audio_index + 1, 0, 32 )
+	
+	if was_player:
+		player_made_sound.emit( pos, volume )
 	pass
 
 

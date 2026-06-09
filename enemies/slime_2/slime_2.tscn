@@ -112,7 +112,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	text = \"\"
 	text = \"target = \"
 	text += str(slime_2.blackboard.target.name) if slime_2.blackboard.target else \"\"
@@ -197,6 +197,7 @@ metadata/_custom_type_script = "uid://dfg03o7e8cnit"
 [node name="PlayerSensor" type="Area2D" parent="." unique_id=2092460160]
 position = Vector2(0, -7)
 script = ExtResource("13_3jlja")
+min_audio_sense = 0.4
 metadata/_custom_type_script = "uid://c1fd8n55hi86u"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerSensor" unique_id=1566586220]

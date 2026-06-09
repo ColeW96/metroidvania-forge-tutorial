@@ -31,11 +31,7 @@
 [ext_resource type="Script" uid="uid://sjljr3vb1fku" path="res://player/scripts/player_sprite.gd" id="22_2uvqg"]
 [ext_resource type="Script" uid="uid://175f1yguq3iv" path="res://player/states/crouch_attack.gd" id="22_ge24q"]
 [ext_resource type="Script" uid="uid://dha53eb7vo0el" path="res://general/scripts/damage_area.gd" id="24_g4c7l"]
-[ext_resource type="AudioStream" uid="uid://d0eldpjdmfac8" path="res://general/audio/aargh.wav" id="26_7pqkx"]
 [ext_resource type="Texture2D" uid="uid://gwjaxsdwnr6c" path="res://player/sprites/crouch_swoosh.png" id="26_q28gw"]
-[ext_resource type="AudioStream" uid="uid://b7y7gfqr173i5" path="res://general/audio/jump.wav" id="28_rptt4"]
-[ext_resource type="AudioStream" uid="uid://bkueq2alnhrv2" path="res://general/audio/land.wav" id="29_r7pn3"]
-[ext_resource type="AudioStream" uid="uid://deuo267x6vikh" path="res://general/audio/shoot.mp3" id="34_jd2rm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wodsf"]
 atlas = ExtResource("13_kb6p2")
@@ -992,30 +988,6 @@ position = Vector2(0, -15)
 shape = SubResource("CapsuleShape2D_rgyib")
 disabled = true
 debug_color = Color(0, 0.6, 0.69803923, 0.25490198)
-
-[node name="Audio" type="Node2D" parent="." unique_id=793375864]
-position = Vector2(0, -23)
-
-[node name="HurtAudio" type="AudioStreamPlayer2D" parent="Audio" unique_id=1558945942]
-unique_name_in_owner = true
-stream = ExtResource("26_7pqkx")
-bus = &"SFX"
-
-[node name="JumpAudio" type="AudioStreamPlayer2D" parent="Audio" unique_id=1527512365]
-unique_name_in_owner = true
-stream = ExtResource("28_rptt4")
-bus = &"SFX"
-
-[node name="LandAudio" type="AudioStreamPlayer2D" parent="Audio" unique_id=2081907585]
-unique_name_in_owner = true
-stream = ExtResource("29_r7pn3")
-bus = &"SFX"
-
-[node name="ShootAudio" type="AudioStreamPlayer2D" parent="Audio" unique_id=434066937]
-unique_name_in_owner = true
-stream = ExtResource("34_jd2rm")
-volume_db = -15.0
-bus = &"SFX"
 
 [node name="BallRays" type="Node2D" parent="." unique_id=1464899109]
 visible = false

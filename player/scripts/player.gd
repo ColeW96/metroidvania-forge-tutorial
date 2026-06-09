@@ -22,7 +22,6 @@ signal damage_taken
 @onready var attack_sprite = %AttackSprite2D
 @onready var crouch_attack_sprite: Sprite2D = %CrouchAttackSprite
 @onready var damage_area: DamageArea = %DamageArea
-@onready var shoot_audio: AudioStreamPlayer2D = %ShootAudio
 #endregion
 
 
@@ -107,6 +106,11 @@ func _unhandled_input( event: InputEvent ) -> void:
 					max_hp += 10
 				else:
 					hp += 2
+			elif event.keycode == KEY_9:
+				dash = !dash
+				double_jump = !double_jump
+				ground_slam = !ground_slam
+				morph_roll = !morph_roll
 	# end DEBUG
 	
 	change_state( current_state.handle_input( event ) )
@@ -232,7 +236,7 @@ func spawn_bullet() -> void:
 			bullet.bullet_sprite.rotation = deg_to_rad( -43 )
 	
 	bullet.global_position = bullet_spawn.global_position
-	shoot_audio.play()
+	Audio.play_spatial_sound(SHOOT_AUDIO, bullet_spawn.global_position, false, true, 0.5, 0.25)
 	pass
 
 
