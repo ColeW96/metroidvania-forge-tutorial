@@ -449,7 +449,7 @@ tile_map_data = PackedByteArray("AAABAAgAAAACAAgAAAACAAgAAAADAAgAAAADAAgAAAAEAAg
 tile_set = ExtResource("1_3dgrd")
 
 [node name="PlayerSpawn" parent="." unique_id=2070126017 instance=ExtResource("3_jltr3")]
-position = Vector2(396, -100)
+position = Vector2(316, 569)
 
 [node name="props" type="Node2D" parent="." unique_id=1678461622]
 
@@ -535,4 +535,5 @@ rendering_quadrant_size = 32
 position = Vector2(478, 119)
 
 [node name="SmartSlime" parent="." unique_id=488761391 instance=ExtResource("17_umtgv")]
-position = Vector2(488, -105)
+position = Vector2(609, 570)
+face_left_on_start = true
