@@ -21,10 +21,10 @@ func init() -> void:
 
 # What happens when we enter this state?
 func enter() -> void:
-	#player.animation_player.play("morph_in")
-	#player.animation_player.queue("ball")
-	
 	player.animation_player.play("ball")
+	
+	if player.previous_state == take_damage:
+		return
 	
 	var shape : CapsuleShape2D = player.collision_stand.get_shape() as CapsuleShape2D
 	shape.radius = 11.0
@@ -42,6 +42,9 @@ func enter() -> void:
 # What happens when we exit this state?
 func exit() -> void:
 	player.animation_player.speed_scale = 1
+	
+	if player.requested_state == take_damage:
+		return
 	
 	var shape : CapsuleShape2D = player.collision_stand.get_shape() as CapsuleShape2D
 	shape.radius = 8.0

@@ -38,6 +38,7 @@ var current_state : PlayerState :
 	get : return states.front()
 var previous_state : PlayerState :
 	get : return states[ 1 ]
+var requested_state : PlayerState = null
 #endregion
 
 
@@ -152,6 +153,8 @@ func change_state( new_state : PlayerState ) -> void:
 	elif new_state == current_state:
 		return
 	
+	requested_state = new_state
+	
 	if current_state:
 		current_state.exit()
 	
@@ -160,6 +163,8 @@ func change_state( new_state : PlayerState ) -> void:
 	
 	states.resize( 3 )
 	$Label.text = current_state.name
+	
+	requested_state = null
 	pass
 
 
