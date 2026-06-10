@@ -15,6 +15,8 @@
 [ext_resource type="Script" uid="uid://c1fd8n55hi86u" path="res://enemies/scripts/sensors/player_sensor.gd" id="13_3jlja"]
 [ext_resource type="Script" uid="uid://cawilyvlawwsm" path="res://enemies/scripts/enemy_hit_particles.gd" id="14_0nqm1"]
 [ext_resource type="Script" uid="uid://brc344c2o0cfo" path="res://00_global/visual_effects/hit_particle_settings.gd" id="15_dq0sk"]
+[ext_resource type="Script" uid="uid://cdqw3u4u16lgo" path="res://general/scripts/loot_dropper.gd" id="16_uucha"]
+[ext_resource type="Script" uid="uid://bfkq1vksotjux" path="res://general/scripts/loot_data.gd" id="17_qpicr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ptp6l"]
 radius = 8.0
@@ -152,10 +154,16 @@ metadata/_custom_type_script = "uid://brc344c2o0cfo"
 script = ExtResource("15_dq0sk")
 metadata/_custom_type_script = "uid://brc344c2o0cfo"
 
+[sub_resource type="Resource" id="Resource_7lkcl"]
+script = ExtResource("17_qpicr")
+item = "uid://3c8hg2lctadd"
+metadata/_custom_type_script = "uid://bfkq1vksotjux"
+
 [node name="Slime2" type="CharacterBody2D" unique_id=488761391]
 collision_layer = 0
 collision_mask = 3
 script = ExtResource("1_7cba3")
+show_vision = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=70568379]
 position = Vector2(0, -14)
@@ -246,3 +254,9 @@ script = ExtResource("14_0nqm1")
 hit_particles = Array[ExtResource("15_dq0sk")]([SubResource("Resource_uucha")])
 death_particels = Array[ExtResource("15_dq0sk")]([SubResource("Resource_qpicr"), SubResource("Resource_vpnvx")])
 metadata/_custom_type_script = "uid://cawilyvlawwsm"
+
+[node name="LootDropper" type="Marker2D" parent="." unique_id=834688629]
+position = Vector2(0, -12)
+script = ExtResource("16_uucha")
+items = Array[ExtResource("17_qpicr")]([SubResource("Resource_7lkcl")])
+metadata/_custom_type_script = "uid://cdqw3u4u16lgo"

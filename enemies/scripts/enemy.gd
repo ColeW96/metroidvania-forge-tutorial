@@ -12,6 +12,10 @@ signal was_killed()
 	set( value ):
 		face_left_on_start = value
 		_update_face_left()
+@export var show_vision : bool = false:
+	set( value ):
+		show_vision = value
+		_update_vision_cone()
 
 var sprite : Sprite2D
 var animation : AnimationPlayer
@@ -130,4 +134,13 @@ func _update_face_left() -> void:
 	for c in get_children():
 		if c is Sprite2D:
 			c.flip_h = face_left_on_start
+	pass
+
+
+func _update_vision_cone() -> void:
+	if not Engine.is_editor_hint():
+		return
+	for c in get_children():
+		if c is PlayerSensor:
+			c.visible = show_vision
 	pass
