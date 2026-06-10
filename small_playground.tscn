@@ -449,7 +449,7 @@ tile_map_data = PackedByteArray("AAABAAgAAAACAAgAAAACAAgAAAADAAgAAAADAAgAAAAEAAg
 tile_set = ExtResource("1_3dgrd")
 
 [node name="PlayerSpawn" parent="." unique_id=2070126017 instance=ExtResource("3_jltr3")]
-position = Vector2(236, 508)
+position = Vector2(542.8316, 113.0867)
 
 [node name="props" type="Node2D" parent="." unique_id=1678461622]
 
