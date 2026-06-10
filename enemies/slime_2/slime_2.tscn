@@ -157,6 +157,7 @@ metadata/_custom_type_script = "uid://brc344c2o0cfo"
 [sub_resource type="Resource" id="Resource_7lkcl"]
 script = ExtResource("17_qpicr")
 item = "uid://3c8hg2lctadd"
+drop_chance = 0.2
 metadata/_custom_type_script = "uid://bfkq1vksotjux"
 
 [node name="Slime2" type="CharacterBody2D" unique_id=488761391]
