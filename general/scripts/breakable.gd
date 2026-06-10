@@ -53,21 +53,22 @@ func _process(delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if ray_cast:
-		if not ray_cast.is_colliding():
-			global_position.y += 1 * gravity * delta
-			gravity += gravity_increase
-			falling = true
-			hit_ground = false
-		else:
-			gravity = gravity_increase
-			
-			if falling and not hit_ground:
-				hit_ground = true
-				falling = false
-				var pos : Vector2 = global_position + Vector2(0,shape_offset)
-				VisualEffects.land_dust( pos )
-				Audio.play_spatial_sound( LAND_AUDIO, pos )
+	if hp > 0:
+		if ray_cast:
+			if not ray_cast.is_colliding():
+				global_position.y += 1 * gravity * delta
+				gravity += gravity_increase
+				falling = true
+				hit_ground = false
+			else:
+				gravity = gravity_increase
+				
+				if falling and not hit_ground:
+					hit_ground = true
+					falling = false
+					var pos : Vector2 = global_position + Vector2(0,shape_offset)
+					VisualEffects.land_dust( pos )
+					Audio.play_spatial_sound( LAND_AUDIO, pos )
 	pass
 
 
