@@ -1,15 +1,17 @@
-class_name ESAttack
+class_name ESFlyAttack
 extends EnemyState
 
-@export var attack_range : float = 100.0
+@export var attack_range : float = 100
 @export var cooldown : float = 3.0
 @export var attack_area : AttackArea
-@export var move_speed : float = 200.0
-@export var move_speed_curve : Curve
+@export var speed : float = 200.0
+@export var speed_curve : Curve
 
+var dir : Vector2
 var timer : float = 0.0
 var duration : float = 0.0
 var on_cooldown : bool = false
+var speed_sample : float = 1.0
 
 
 func enter() -> void:
@@ -18,7 +20,6 @@ func enter() -> void:
 	timer = 0
 	blackboard.can_decide = false
 	on_cooldown = true
-	enemy.velocity.x = move_speed * blackboard.dir
 	if attack_area:
 		attack_area.flip( blackboard.dir )
 	pass
@@ -35,12 +36,14 @@ func exit() -> void:
 
 
 func physics_update( delta : float ) -> void:
-	timer += delta
+	timer -= delta
 	if timer >= duration:
 		blackboard.can_decide = true
-	if move_speed_curve:
-		var sample : float = move_speed_curve.sample( timer / duration )
-		enemy.velocity.x = move_speed * sample * blackboard.dir
+	if speed_curve:
+		speed_sample = speed_curve.sample( timer / duration )
+	dir = enemy.global_position.direction_to( blackboard.target.global_position )
+	enemy.change_dir( sign( dir.x ) )
+	enemy.velocity = dir * speed * speed_sample
 	pass
 
 

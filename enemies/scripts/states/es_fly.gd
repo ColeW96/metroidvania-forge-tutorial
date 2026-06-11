@@ -1,20 +1,15 @@
-class_name ESWalk
+class_name ESFly
 extends EnemyState
 
-
-@export var walk_speed : float = 50.0
+@export var speed : float = 50.0
 
 var left_limit : float
 var right_limit : float
 
 
-func _ready() -> void:
-	_set_limits()
-	pass
-
-
 func enter() -> void:
-	var anim : String = animation_name if animation_name else "walk"
+	_set_limits()
+	var anim : String = animation_name if animation_name else "fly"
 	enemy.play_animation( anim )
 	pass
 
@@ -36,7 +31,7 @@ func physics_update( _delta : float ) -> void:
 		enemy.change_dir( 1.0 )
 	elif enemy.global_position.x >= right_limit and blackboard.dir > 0:
 		enemy.change_dir( -1.0 )
-	enemy.velocity.x = walk_speed * blackboard.dir
+	enemy.velocity = Vector2( speed * blackboard.dir, 0 )
 	pass
 
 

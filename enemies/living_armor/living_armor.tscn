@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://bfkq1vksotjux" path="res://general/scripts/loot_data.gd" id="17_1yt5q"]
 [ext_resource type="Script" uid="uid://d1khwsiclmu4j" path="res://enemies/scripts/decision_engines/decision_engine_basic_attack.gd" id="17_np20x"]
 [ext_resource type="Script" uid="uid://vt684ogx76fc" path="res://general/scripts/attack_area.gd" id="19_qh6hf"]
+[ext_resource type="AudioStream" uid="uid://cvajccfk2oxjq" path="res://general/audio/attack.wav" id="21_gjt4y"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ptp6l"]
 radius = 8.0
@@ -74,6 +75,20 @@ tracks/1/keys = {
 "values": [{
 "args": [0.2],
 "method": &"activate"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
 }]
 }
 
@@ -156,6 +171,10 @@ _data = {
 &"stun": SubResource("Animation_53kym"),
 &"walk": SubResource("Animation_np20x")
 }
+
+[sub_resource type="Curve" id="Curve_bxcqb"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(0.9, 0), -2.5000002, 0.0, 1, 0]
+point_count = 4
 
 [sub_resource type="Gradient" id="Gradient_dq0sk"]
 offsets = PackedFloat32Array(0.502193, 1)
@@ -272,8 +291,8 @@ metadata/_custom_type_script = "uid://b2qdp3bms72og"
 [node name="ESAttack" type="Node" parent="EnemyStateMachine" unique_id=248256872 node_paths=PackedStringArray("attack_area")]
 unique_name_in_owner = true
 script = ExtResource("11_rai4y")
-move_speed = 0.0
 attack_area = NodePath("../../AttackArea")
+move_speed_curve = SubResource("Curve_bxcqb")
 metadata/_custom_type_script = "uid://dkbw4qtkft820"
 
 [node name="ESChase" type="Node" parent="EnemyStateMachine" unique_id=1611567100]
@@ -292,7 +311,6 @@ metadata/_custom_type_script = "uid://dfg03o7e8cnit"
 [node name="PlayerSensor" type="Area2D" parent="." unique_id=2092460160]
 position = Vector2(0, -7)
 script = ExtResource("13_4cgso")
-use_audio_sensor = false
 metadata/_custom_type_script = "uid://c1fd8n55hi86u"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerSensor" unique_id=1566586220]
@@ -328,3 +346,7 @@ metadata/_custom_type_script = "uid://vt684ogx76fc"
 position = Vector2(17.5, -14)
 shape = SubResource("RectangleShape2D_qh6hf")
 debug_color = Color(1, 0, 0.07821226, 0.28627452)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1617562983]
+stream = ExtResource("21_gjt4y")
+bus = &"SFX"
