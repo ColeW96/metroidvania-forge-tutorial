@@ -450,7 +450,7 @@ tile_map_data = PackedByteArray("AAABAAgAAAACAAgAAAACAAgAAAADAAgAAAADAAgAAAAEAAg
 tile_set = ExtResource("1_3dgrd")
 
 [node name="PlayerSpawn" parent="." unique_id=2070126017 instance=ExtResource("3_jltr3")]
-position = Vector2(439, 121)
+position = Vector2(655, 121)
 
 [node name="props" type="Node2D" parent="." unique_id=1678461622]
 
@@ -527,4 +527,4 @@ position = Vector2(609, 570)
 show_vision = false
 
 [node name="LivingArmor" parent="Enemies" unique_id=1404670241 instance=ExtResource("18_t70h8")]
-position = Vector2(620, 124)
+position = Vector2(454, 124)

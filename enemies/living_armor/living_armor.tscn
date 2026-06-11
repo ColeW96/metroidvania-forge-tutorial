@@ -10,12 +10,16 @@
 [ext_resource type="Script" uid="uid://ctqgpa10k4em6" path="res://enemies/scripts/states/es_stun.gd" id="8_2snit"]
 [ext_resource type="Script" uid="uid://b2qdp3bms72og" path="res://enemies/scripts/states/es_death.gd" id="9_vfdjr"]
 [ext_resource type="AudioStream" uid="uid://k3p37oqyb0e4" path="res://enemies/slime/slime_death.wav" id="10_mtdb4"]
+[ext_resource type="Script" uid="uid://dkbw4qtkft820" path="res://enemies/scripts/states/es_attack.gd" id="11_rai4y"]
 [ext_resource type="Script" uid="uid://dfg03o7e8cnit" path="res://enemies/scripts/sensors/edge_sensor.gd" id="12_b5cts"]
+[ext_resource type="Script" uid="uid://1f21jhelvg48" path="res://enemies/scripts/states/es_chase.gd" id="12_bxcqb"]
 [ext_resource type="Script" uid="uid://c1fd8n55hi86u" path="res://enemies/scripts/sensors/player_sensor.gd" id="13_4cgso"]
 [ext_resource type="Script" uid="uid://cawilyvlawwsm" path="res://enemies/scripts/enemy_hit_particles.gd" id="14_v01k6"]
 [ext_resource type="Script" uid="uid://brc344c2o0cfo" path="res://00_global/visual_effects/hit_particle_settings.gd" id="15_3xwrv"]
 [ext_resource type="Script" uid="uid://cdqw3u4u16lgo" path="res://general/scripts/loot_dropper.gd" id="16_wc7mr"]
 [ext_resource type="Script" uid="uid://bfkq1vksotjux" path="res://general/scripts/loot_data.gd" id="17_1yt5q"]
+[ext_resource type="Script" uid="uid://d1khwsiclmu4j" path="res://enemies/scripts/decision_engines/decision_engine_basic_attack.gd" id="17_np20x"]
+[ext_resource type="Script" uid="uid://vt684ogx76fc" path="res://general/scripts/attack_area.gd" id="19_qh6hf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ptp6l"]
 radius = 8.0
@@ -57,6 +61,20 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AttackArea")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.2],
+"method": &"activate"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_iyqwc"]
@@ -180,6 +198,9 @@ item = "uid://3c8hg2lctadd"
 drop_chance = 0.2
 metadata/_custom_type_script = "uid://bfkq1vksotjux"
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qh6hf"]
+size = Vector2(35, 28)
+
 [node name="LivingArmor" type="CharacterBody2D" unique_id=488761391]
 collision_layer = 0
 collision_mask = 3
@@ -247,6 +268,20 @@ knockback_strength = 10.0
 death_audio = ExtResource("10_mtdb4")
 metadata/_custom_type_script = "uid://b2qdp3bms72og"
 
+[node name="ESAttack" type="Node" parent="EnemyStateMachine" unique_id=248256872 node_paths=PackedStringArray("attack_area")]
+unique_name_in_owner = true
+script = ExtResource("11_rai4y")
+move_speed = 0.0
+attack_area = NodePath("../../AttackArea")
+metadata/_custom_type_script = "uid://dkbw4qtkft820"
+
+[node name="ESChase" type="Node" parent="EnemyStateMachine" unique_id=1611567100]
+unique_name_in_owner = true
+script = ExtResource("12_bxcqb")
+chase_speed = 50.0
+animation_name = "walk"
+metadata/_custom_type_script = "uid://1f21jhelvg48"
+
 [node name="EdgeSensor" type="RayCast2D" parent="." unique_id=533344323]
 position = Vector2(7, -3)
 target_position = Vector2(0, 12)
@@ -275,3 +310,20 @@ position = Vector2(0, -12)
 script = ExtResource("16_wc7mr")
 items = Array[ExtResource("17_1yt5q")]([SubResource("Resource_7lkcl")])
 metadata/_custom_type_script = "uid://cdqw3u4u16lgo"
+
+[node name="DecisionEngineBasicAttack" type="Node" parent="." unique_id=1416061141 node_paths=PackedStringArray("attack_state", "chase_state")]
+script = ExtResource("17_np20x")
+attack_state = NodePath("../EnemyStateMachine/ESAttack")
+chase_state = NodePath("../EnemyStateMachine/ESChase")
+metadata/_custom_type_script = "uid://d1khwsiclmu4j"
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=1026226565]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("19_qh6hf")
+metadata/_custom_type_script = "uid://vt684ogx76fc"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=510711833]
+position = Vector2(17.5, -14)
+shape = SubResource("RectangleShape2D_qh6hf")
+debug_color = Color(1, 0, 0.07821226, 0.28627452)
