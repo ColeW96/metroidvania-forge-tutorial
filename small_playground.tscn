@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://j2ipc4cvtyr6" path="res://enemies/slime/slime.tscn" id="16_7j8uv"]
 [ext_resource type="PackedScene" uid="uid://ja8lc0n3awhh" path="res://enemies/slime_2/slime_2.tscn" id="17_umtgv"]
 [ext_resource type="PackedScene" uid="uid://hanqvafhvg88" path="res://enemies/living_armor/living_armor.tscn" id="18_t70h8"]
+[ext_resource type="Script" uid="uid://dnb4iextr4r2g" path="res://general/scripts/patrol_limit.gd" id="19_wtccc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uajdn"]
 size = Vector2(92, 106)
@@ -528,3 +529,15 @@ show_vision = false
 
 [node name="LivingArmor" parent="Enemies" unique_id=1404670241 instance=ExtResource("18_t70h8")]
 position = Vector2(454, 124)
+show_vision = false
+
+[node name="PatrolLimit" type="Node2D" parent="Enemies/LivingArmor" unique_id=698983903]
+position = Vector2(-76, -10)
+script = ExtResource("19_wtccc")
+metadata/_custom_type_script = "uid://dnb4iextr4r2g"
+
+[node name="PatrolLimit2" type="Node2D" parent="Enemies/LivingArmor" unique_id=1104450424]
+position = Vector2(251, -12)
+script = ExtResource("19_wtccc")
+side = 2
+metadata/_custom_type_script = "uid://dnb4iextr4r2g"
