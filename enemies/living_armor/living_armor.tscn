@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://dfg03o7e8cnit" path="res://enemies/scripts/sensors/edge_sensor.gd" id="12_b5cts"]
 [ext_resource type="Script" uid="uid://1f21jhelvg48" path="res://enemies/scripts/states/es_chase.gd" id="12_bxcqb"]
 [ext_resource type="Script" uid="uid://c1fd8n55hi86u" path="res://enemies/scripts/sensors/player_sensor.gd" id="13_4cgso"]
+[ext_resource type="Script" uid="uid://cxtsywihegarm" path="res://player/states/es_idle.gd" id="13_dh8sx"]
 [ext_resource type="Script" uid="uid://cawilyvlawwsm" path="res://enemies/scripts/enemy_hit_particles.gd" id="14_v01k6"]
 [ext_resource type="Script" uid="uid://brc344c2o0cfo" path="res://00_global/visual_effects/hit_particle_settings.gd" id="15_3xwrv"]
 [ext_resource type="Script" uid="uid://cdqw3u4u16lgo" path="res://general/scripts/loot_dropper.gd" id="16_wc7mr"]
@@ -176,23 +177,10 @@ _data = {
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(0.9, 0), -2.5000002, 0.0, 1, 0]
 point_count = 4
 
-[sub_resource type="Gradient" id="Gradient_dq0sk"]
-offsets = PackedFloat32Array(0.502193, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_uucha"]
-gradient = SubResource("Gradient_dq0sk")
-width = 8
-height = 8
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.5, 0)
-
 [sub_resource type="Resource" id="Resource_uucha"]
 script = ExtResource("15_3xwrv")
 count = 12
 color = Color(0.48320764, 0.48320764, 0.853542, 1)
-texture = SubResource("GradientTexture2D_uucha")
 metadata/_custom_type_script = "uid://brc344c2o0cfo"
 
 [sub_resource type="Resource" id="Resource_qpicr"]
@@ -224,6 +212,7 @@ size = Vector2(35, 28)
 collision_layer = 0
 collision_mask = 3
 script = ExtResource("1_v8jak")
+health = 5.0
 show_vision = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=70568379]
@@ -273,12 +262,14 @@ metadata/_custom_type_script = "uid://b5qql3uoxwh0y"
 unique_name_in_owner = true
 script = ExtResource("7_puf1w")
 walk_speed = 25.0
+animation_name = "walk"
 metadata/_custom_type_script = "uid://mcndna2lf2n1"
 
 [node name="ESStun" type="Node" parent="EnemyStateMachine" unique_id=876297423]
 unique_name_in_owner = true
 script = ExtResource("8_2snit")
 knockback_strength = 0.25
+animation_name = "stun"
 metadata/_custom_type_script = "uid://ctqgpa10k4em6"
 
 [node name="ESDeath" type="Node" parent="EnemyStateMachine" unique_id=237334936]
@@ -302,6 +293,12 @@ chase_speed = 50.0
 animation_name = "walk"
 metadata/_custom_type_script = "uid://1f21jhelvg48"
 
+[node name="ESIdle" type="Node" parent="EnemyStateMachine" unique_id=1276203332]
+unique_name_in_owner = true
+script = ExtResource("13_dh8sx")
+animation_name = "idle"
+metadata/_custom_type_script = "uid://cxtsywihegarm"
+
 [node name="EdgeSensor" type="RayCast2D" parent="." unique_id=533344323]
 position = Vector2(7, -3)
 target_position = Vector2(0, 12)
@@ -311,6 +308,7 @@ metadata/_custom_type_script = "uid://dfg03o7e8cnit"
 [node name="PlayerSensor" type="Area2D" parent="." unique_id=2092460160]
 position = Vector2(0, -7)
 script = ExtResource("13_4cgso")
+use_audio_sensor = false
 metadata/_custom_type_script = "uid://c1fd8n55hi86u"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerSensor" unique_id=1566586220]
@@ -330,8 +328,9 @@ script = ExtResource("16_wc7mr")
 items = Array[ExtResource("17_1yt5q")]([SubResource("Resource_7lkcl")])
 metadata/_custom_type_script = "uid://cdqw3u4u16lgo"
 
-[node name="DecisionEngineBasicAttack" type="Node" parent="." unique_id=1416061141 node_paths=PackedStringArray("attack_state", "chase_state")]
+[node name="DecisionEngineBasicAttack" type="Node" parent="." unique_id=1416061141 node_paths=PackedStringArray("idle_state", "attack_state", "chase_state")]
 script = ExtResource("17_np20x")
+idle_state = NodePath("../EnemyStateMachine/ESIdle")
 attack_state = NodePath("../EnemyStateMachine/ESAttack")
 chase_state = NodePath("../EnemyStateMachine/ESChase")
 metadata/_custom_type_script = "uid://d1khwsiclmu4j"

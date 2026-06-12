@@ -529,16 +529,17 @@ position = Vector2(609, 570)
 show_vision = false
 
 [node name="LivingArmor" parent="Enemies" unique_id=1404670241 instance=ExtResource("18_t70h8")]
-position = Vector2(265, -101)
+position = Vector2(663, 123)
+face_left_on_start = true
 show_vision = false
 
 [node name="PatrolLimit" type="Node2D" parent="Enemies/LivingArmor" unique_id=698983903]
-position = Vector2(-76, -10)
+position = Vector2(-280, -10)
 script = ExtResource("19_wtccc")
 metadata/_custom_type_script = "uid://dnb4iextr4r2g"
 
 [node name="PatrolLimit2" type="Node2D" parent="Enemies/LivingArmor" unique_id=1104450424]
-position = Vector2(251, -12)
+position = Vector2(40, -12)
 script = ExtResource("19_wtccc")
 side = 2
 metadata/_custom_type_script = "uid://dnb4iextr4r2g"

@@ -21,6 +21,8 @@ func decide() -> EnemyState:
 		if blackboard.health <= 0:
 			return death_state
 		else:
+			if blackboard.damage_source.get_parent() is Bullet:
+				return null
 			return stun_state
 	
 	if current_state is ESDeath or not blackboard.can_decide:

@@ -6,6 +6,7 @@ extends DecisionEngine
 # var current_state : EnemyState
 # var blackboard : Blackboard
 
+@export var idle_state : ESIdle
 @export var attack_state : ESAttack
 @export var chase_state : EnemyState
 
@@ -22,11 +23,20 @@ func _ready() -> void:
 
 # All the conditions for making decisions go in this function
 func decide() -> EnemyState:
-	# Example decisions
+	
+	if blackboard.edge_detected:
+		return idle_state
+	
 	if blackboard.damage_source:
+		if blackboard.damage_source.owner is Player:
+			blackboard.target = blackboard.damage_source.owner
+		elif blackboard.damage_source.owner is Bullet:
+			blackboard.target = get_tree().get_first_node_in_group("Player")
 		if blackboard.health <= 0:
 			return es_death
 		else:
+			if blackboard.damage_source.owner is Bullet:
+				return null
 			return es_stun
 	
 	if current_state is ESDeath or not blackboard.can_decide:

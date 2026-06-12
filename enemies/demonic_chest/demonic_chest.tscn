@@ -29,7 +29,7 @@ radius = 16.00781
 size = Vector2(54, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5napv"]
-size = Vector2(40, 33)
+size = Vector2(33, 28)
 
 [sub_resource type="Animation" id="Animation_mafwj"]
 length = 0.001
@@ -205,46 +205,33 @@ _data = {
 }
 
 [sub_resource type="Curve" id="Curve_d83ut"]
-_limits = [-0.25, 1.0, 0.0, 1.0]
-_data = [Vector2(0, -0.25), 0.0, 0.0, 0, 0, Vector2(0.36391434, 0.36185133), 4.576197, 4.576197, 0, 0, Vector2(0.5351682, 1), 0.0, 0.0, 0, 0, Vector2(1, -0.25), -3.8940709, 0.0, 0, 0]
+_limits = [-0.25, 2.0, 0.0, 2.0]
+_data = [Vector2(0, -0.25), 0.0, 0.0, 0, 0, Vector2(0.36391434, 0.36185133), 4.576197, 4.576197, 0, 0, Vector2(0.6, 2), 0.0, 0.0, 0, 0, Vector2(1, -0.25), -0.2351108, 0.0, 0, 0]
 point_count = 4
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d83ut"]
 radius = 68.007355
 
-[sub_resource type="Gradient" id="Gradient_dq0sk"]
-offsets = PackedFloat32Array(0.502193, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_uucha"]
-gradient = SubResource("Gradient_dq0sk")
-width = 8
-height = 8
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.5, 0)
-
 [sub_resource type="Resource" id="Resource_uucha"]
 script = ExtResource("16_msfr6")
 count = 12
-color = Color(0.48320764, 0.48320764, 0.853542, 1)
-texture = SubResource("GradientTexture2D_uucha")
+color = Color(0.9019608, 0.28235295, 0.18039216, 1)
 metadata/_custom_type_script = "uid://brc344c2o0cfo"
 
 [sub_resource type="Resource" id="Resource_qpicr"]
 script = ExtResource("16_msfr6")
 count = 16
-color = Color(0.48320764, 0.48320764, 0.853542, 1)
+color = Color(0.9019608, 0.28235295, 0.18039216, 1)
 metadata/_custom_type_script = "uid://brc344c2o0cfo"
 
 [sub_resource type="Resource" id="Resource_vpnvx"]
 script = ExtResource("16_msfr6")
-color = Color(0.34901962, 0.3372549, 0.32156864, 1)
+color = Color(0.6627451, 0.23137255, 0.23137255, 1)
 metadata/_custom_type_script = "uid://brc344c2o0cfo"
 
 [sub_resource type="Resource" id="Resource_np20x"]
 script = ExtResource("16_msfr6")
-color = Color(0.5019608, 0.15294118, 0.15294118, 1)
+color = Color(0.2784314, 0.1764706, 0.23529412, 1)
 metadata/_custom_type_script = "uid://brc344c2o0cfo"
 
 [sub_resource type="Resource" id="Resource_7lkcl"]
@@ -254,7 +241,7 @@ drop_chance = 0.2
 metadata/_custom_type_script = "uid://bfkq1vksotjux"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4aniu"]
-size = Vector2(40, 33)
+size = Vector2(33, 28)
 
 [node name="DemonicChest" type="CharacterBody2D" unique_id=488761391]
 collision_layer = 0
@@ -293,7 +280,7 @@ script = ExtResource("5_hi23h")
 metadata/_custom_type_script = "uid://bvoy8p2v1ao7i"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea" unique_id=515371748]
-position = Vector2(0, -16.5)
+position = Vector2(0.5, -14)
 shape = SubResource("RectangleShape2D_5napv")
 debug_color = Color(0.7019608, 0, 0.06666667, 0)
 
@@ -312,11 +299,13 @@ metadata/_custom_type_script = "uid://dt8dwm7o3kont"
 [node name="ESFlyChase" type="Node" parent="EnemyStateMachine" unique_id=827173709]
 unique_name_in_owner = true
 script = ExtResource("8_3s51u")
+speed = 75.0
 metadata/_custom_type_script = "uid://b530wjglx7vga"
 
 [node name="ESFlyAttack" type="Node" parent="EnemyStateMachine" unique_id=1101753697 node_paths=PackedStringArray("attack_area")]
 unique_name_in_owner = true
 script = ExtResource("9_d83ut")
+cooldown = 1.8
 attack_area = NodePath("../../AttackArea")
 speed_curve = SubResource("Curve_d83ut")
 metadata/_custom_type_script = "uid://bka6qlewnte30"
@@ -370,7 +359,7 @@ script = ExtResource("20_mwoy4")
 metadata/_custom_type_script = "uid://vt684ogx76fc"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1170373808]
-position = Vector2(0, -16.5)
+position = Vector2(0.5, -14)
 shape = SubResource("RectangleShape2D_4aniu")
 debug_color = Color(1, 0, 0.7422366, 0)
 
