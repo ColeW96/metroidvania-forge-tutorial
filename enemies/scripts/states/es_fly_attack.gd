@@ -22,6 +22,7 @@ func enter() -> void:
 	on_cooldown = true
 	if attack_area:
 		attack_area.flip( blackboard.dir )
+	dir = enemy.global_position.direction_to( blackboard.target.global_position )
 	pass
 
 
@@ -36,12 +37,12 @@ func exit() -> void:
 
 
 func physics_update( delta : float ) -> void:
-	timer -= delta
+	timer += delta
 	if timer >= duration:
 		blackboard.can_decide = true
 	if speed_curve:
 		speed_sample = speed_curve.sample( timer / duration )
-	dir = enemy.global_position.direction_to( blackboard.target.global_position )
+	#dir = enemy.global_position.direction_to( blackboard.target.global_position )
 	enemy.change_dir( sign( dir.x ) )
 	enemy.velocity = dir * speed * speed_sample
 	pass

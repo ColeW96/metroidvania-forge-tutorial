@@ -32,7 +32,7 @@ func enter() -> void:
 
 
 func re_enter() -> void:
-	# what happens if the state is called again?
+	start()
 	pass
 
 
