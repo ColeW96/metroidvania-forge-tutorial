@@ -452,7 +452,7 @@ tile_map_data = PackedByteArray("AAABAAgAAAACAAgAAAACAAgAAAADAAgAAAADAAgAAAAEAAg
 tile_set = ExtResource("1_3dgrd")
 
 [node name="PlayerSpawn" parent="." unique_id=2070126017 instance=ExtResource("3_jltr3")]
-position = Vector2(429, 125)
+position = Vector2(280, -100)
 
 [node name="props" type="Node2D" parent="." unique_id=1678461622]
 
@@ -522,13 +522,14 @@ rendering_quadrant_size = 32
 [node name="Enemies" type="Node2D" parent="." unique_id=278247316]
 
 [node name="DumbSlime" parent="Enemies" unique_id=756741450 instance=ExtResource("16_7j8uv")]
-position = Vector2(422, -102)
+position = Vector2(189.79001, 242.2078)
 
 [node name="SmartSlime" parent="Enemies" unique_id=488761391 instance=ExtResource("17_umtgv")]
-position = Vector2(609, 570)
+position = Vector2(453.63507, -102.08064)
 show_vision = false
 
 [node name="LivingArmor" parent="Enemies" unique_id=1404670241 instance=ExtResource("18_t70h8")]
+process_mode = 4
 position = Vector2(663, 123)
 face_left_on_start = true
 show_vision = false
@@ -545,4 +546,5 @@ side = 2
 metadata/_custom_type_script = "uid://dnb4iextr4r2g"
 
 [node name="DemonicChest" parent="Enemies" unique_id=1160163649 instance=ExtResource("20_1g47y")]
+process_mode = 4
 position = Vector2(596.3986, 24.718384)

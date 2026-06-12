@@ -117,11 +117,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
-	text = \"\"
-	text = \"target = \"
-	text += str(slime_2.blackboard.target.name) if slime_2.blackboard.target else \"\"
-	text += \"\\n dist = \"
-	text += str(slime_2.blackboard.distance_to_target)
+	text = \" \"
+	text = str(slime_2.state_machine.current_state.name)
 	pass
 "
 
@@ -229,6 +226,12 @@ script = ExtResource("8_53kym")
 metadata/_custom_type_script = "uid://mwpvu3s3tjr6"
 
 [node name="EdgeSensor" type="RayCast2D" parent="." unique_id=533344323]
+position = Vector2(7, 0)
+target_position = Vector2(0, 8)
+script = ExtResource("12_ovel5")
+metadata/_custom_type_script = "uid://dfg03o7e8cnit"
+
+[node name="EdgeSensor2" type="RayCast2D" parent="." unique_id=1257741130]
 position = Vector2(7, 0)
 target_position = Vector2(0, 8)
 script = ExtResource("12_ovel5")

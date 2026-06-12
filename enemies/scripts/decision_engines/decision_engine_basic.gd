@@ -31,8 +31,4 @@ func decide() -> EnemyState:
 	if blackboard.edge_detected:
 		enemy.change_dir( -blackboard.dir )
 	
-	#if blackboard.target:
-		#if blackboard.distance_to_target < 40:
-			#return attack_state?
-		#return change_state?
 	return es_walk # default state
