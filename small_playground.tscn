@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://hanqvafhvg88" path="res://enemies/living_armor/living_armor.tscn" id="18_t70h8"]
 [ext_resource type="Script" uid="uid://dnb4iextr4r2g" path="res://general/scripts/patrol_limit.gd" id="19_wtccc"]
 [ext_resource type="PackedScene" uid="uid://b8tbf6ebtoi83" path="res://enemies/demonic_chest/demonic_chest.tscn" id="20_1g47y"]
+[ext_resource type="PackedScene" uid="uid://dkyap82b10vdy" path="res://enemies/doom_scribe/doom_scribe.tscn" id="21_4s7xr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uajdn"]
 size = Vector2(92, 106)
@@ -452,7 +453,7 @@ tile_map_data = PackedByteArray("AAABAAgAAAACAAgAAAACAAgAAAADAAgAAAADAAgAAAAEAAg
 tile_set = ExtResource("1_3dgrd")
 
 [node name="PlayerSpawn" parent="." unique_id=2070126017 instance=ExtResource("3_jltr3")]
-position = Vector2(280, -100)
+position = Vector2(561, 120)
 
 [node name="props" type="Node2D" parent="." unique_id=1678461622]
 
@@ -522,10 +523,12 @@ rendering_quadrant_size = 32
 [node name="Enemies" type="Node2D" parent="." unique_id=278247316]
 
 [node name="DumbSlime" parent="Enemies" unique_id=756741450 instance=ExtResource("16_7j8uv")]
-position = Vector2(189.79001, 242.2078)
+process_mode = 4
+position = Vector2(405, 570)
 
 [node name="SmartSlime" parent="Enemies" unique_id=488761391 instance=ExtResource("17_umtgv")]
-position = Vector2(453.63507, -102.08064)
+process_mode = 4
+position = Vector2(87, -5)
 show_vision = false
 
 [node name="LivingArmor" parent="Enemies" unique_id=1404670241 instance=ExtResource("18_t70h8")]
@@ -547,4 +550,9 @@ metadata/_custom_type_script = "uid://dnb4iextr4r2g"
 
 [node name="DemonicChest" parent="Enemies" unique_id=1160163649 instance=ExtResource("20_1g47y")]
 process_mode = 4
-position = Vector2(596.3986, 24.718384)
+position = Vector2(751, -117)
+health = 4.0
+
+[node name="DoomScribe" parent="Enemies" unique_id=1242412444 instance=ExtResource("21_4s7xr")]
+position = Vector2(651, 58)
+face_left_on_start = true
