@@ -24,7 +24,7 @@ func init() -> void:
 # What happens when we enter this state?
 func enter() -> void:
 	player.animation_player.play("ground_slam")
-	player.sprite.tween_color(0.5, Color.ORANGE_RED)
+	player.sprite.tween_color(0.5, Color(1.4, .387, 0, 1))
 	Audio.play_spatial_sound(DASH_AUDIO, player.global_position, false, true, 0.75)
 	damage_area.start_invulnerable()
 	ground_slam_attack_area.set_active()
@@ -53,7 +53,7 @@ func process( delta: float ) -> PlayerState:
 	effect_timer -= delta
 	if effect_timer < 0:
 		effect_timer = effect_delay
-		player.sprite.ghost( Color.ORANGE_RED )
+		player.sprite.ghost( Color(1.4, .387, 0, 1) )
 	return null
 
 

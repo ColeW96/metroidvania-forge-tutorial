@@ -58,10 +58,10 @@ visible = false
 texture = SubResource("GradientTexture2D_txs3d")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1788966345]
+modulate = Color(1.353256, 1.353256, 1.353256, 1)
 sprite_frames = SubResource("SpriteFrames_prnor")
 autoplay = "default"
 frame = 2
-frame_progress = 1.0
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=371120433]
 unique_name_in_owner = true

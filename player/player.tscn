@@ -118,7 +118,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0.8352941, 0.23529412, 0.22352941, 1)]
+"values": [Color(1.1638972, 0.34382322, 0.32570004, 1)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -154,7 +154,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0.8352941, 0.23529412, 0.22352941, 1)]
+"values": [Color(1.1638972, 0.34382322, 0.32570004, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_s7qer"]
@@ -219,7 +219,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(2, -2),
 "update": 0,
-"values": [Color(0.8352941, 0.23529412, 0.22352941, 1), Color(1, 0.7764706, 0.18039216, 0)]
+"values": [Color(1.1638972, 0.33929244, 0.32570004, 1), Color(1.1638972, 0.9056418, 0.21696097, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_bjvpn"]
@@ -284,7 +284,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(2, -2),
 "update": 0,
-"values": [Color(0.8352941, 0.23529412, 0.22352941, 1), Color(1, 0.7764706, 0.18039216, 0)]
+"values": [Color(1.1321815, 0.33023086, 0.31663847, 1), Color(1.1638972, 0.9056418, 0.21696097, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_5ejfk"]
@@ -372,7 +372,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(2, -2),
 "update": 0,
-"values": [Color(0.8352941, 0.23529412, 0.22352941, 1), Color(1, 0.7764706, 0.18039216, 0)]
+"values": [Color(1.1638972, 0.33929244, 0.32570004, 1), Color(1.1638972, 0.9056418, 0.21696097, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_q28gw"]
@@ -425,7 +425,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(2, -2),
 "update": 0,
-"values": [Color(0.8352941, 0.23529412, 0.22352941, 1), Color(1, 0.7764706, 0.18039216, 0)]
+"values": [Color(1.1321815, 0.33023086, 0.31663847, 1), Color(1.1638972, 0.9056418, 0.21696097, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_32hag"]
@@ -744,6 +744,12 @@ size = Vector2(19, 61)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ejfk"]
 size = Vector2(49.5, 28)
 
+[sub_resource type="Environment" id="Environment_1s1yo"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 1.2
+glow_strength = 1.2
+
 [node name="Player" type="CharacterBody2D" unique_id=2112260640 groups=["Player"]]
 z_index = 1
 collision_layer = 16
@@ -846,6 +852,7 @@ z_index = 4
 position = Vector2(17, -27)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BulletSpawn" unique_id=1963609665]
+modulate = Color(1.353256, 1.353256, 1.353256, 1)
 sprite_frames = SubResource("SpriteFrames_32hag")
 frame = 1
 frame_progress = 1.0
@@ -859,14 +866,14 @@ script = ExtResource("22_2uvqg")
 
 [node name="AttackSprite2D" type="Sprite2D" parent="Sprite2D" unique_id=639318678]
 unique_name_in_owner = true
-modulate = Color(0.8352941, 0.23529412, 0.22352941, 1)
+modulate = Color(1.1638972, 0.34382322, 0.32570004, 1)
 position = Vector2(19, 25)
 texture = ExtResource("18_bjvpn")
 hframes = 8
 
 [node name="CrouchAttackSprite" type="Sprite2D" parent="Sprite2D" unique_id=206398597]
 unique_name_in_owner = true
-modulate = Color(0.8352941, 0.23529412, 0.22352941, 1)
+modulate = Color(1.1638972, 0.34382322, 0.32570004, 1)
 position = Vector2(20, 23)
 texture = ExtResource("26_q28gw")
 hframes = 8
@@ -1008,3 +1015,6 @@ exclude_parent = false
 target_position = Vector2(0, 6)
 collision_mask = 3
 hit_from_inside = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=278021369]
+environment = SubResource("Environment_1s1yo")

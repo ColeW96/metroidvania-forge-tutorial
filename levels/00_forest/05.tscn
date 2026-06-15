@@ -48,8 +48,8 @@ position = Vector2(543, 228)
 position = Vector2(925, 324)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=331775035]
-color = Color(0.11764706, 0.14117648, 0.11764706, 1)
-energy = 0.9
+color = Color(0.09949124, 0.11228661, 0.12119275, 1)
+energy = 1.05
 blend_mode = 2
 
 [node name="PlayerSpawn" parent="." unique_id=462078661 instance=ExtResource("5_e8knj")]

@@ -6,7 +6,7 @@ func _ready() -> void:
 	pass
 
 
-func tween_color( duration : float = 0.5, color : Color = Color( 0.0, 1.5, 0.95 ) ) -> void:
+func tween_color( duration : float = 0.5, color : Color = Color(0.0, 2.972, 1.903, 1.0) ) -> void:
 	if tween:
 		tween.kill()
 	self_modulate = color

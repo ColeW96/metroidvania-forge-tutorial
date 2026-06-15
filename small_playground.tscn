@@ -532,7 +532,6 @@ position = Vector2(87, -5)
 show_vision = false
 
 [node name="LivingArmor" parent="Enemies" unique_id=1404670241 instance=ExtResource("18_t70h8")]
-process_mode = 4
 position = Vector2(663, 123)
 face_left_on_start = true
 show_vision = false
@@ -554,5 +553,6 @@ position = Vector2(751, -117)
 health = 4.0
 
 [node name="DoomScribe" parent="Enemies" unique_id=1242412444 instance=ExtResource("21_4s7xr")]
-position = Vector2(651, 58)
+process_mode = 4
+position = Vector2(654, 28)
 face_left_on_start = true

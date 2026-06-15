@@ -22,6 +22,7 @@
 [ext_resource type="Script" uid="uid://d1khwsiclmu4j" path="res://enemies/scripts/decision_engines/decision_engine_basic_attack.gd" id="17_np20x"]
 [ext_resource type="Script" uid="uid://vt684ogx76fc" path="res://general/scripts/attack_area.gd" id="19_qh6hf"]
 [ext_resource type="AudioStream" uid="uid://cvajccfk2oxjq" path="res://general/audio/attack.wav" id="21_gjt4y"]
+[ext_resource type="Script" uid="uid://d12n40tst35rq" path="res://general/scripts/damage_modulate.gd" id="23_7x66f"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ptp6l"]
 radius = 8.0
@@ -349,3 +350,7 @@ debug_color = Color(1, 0, 0.07821226, 0.28627452)
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1617562983]
 stream = ExtResource("21_gjt4y")
 bus = &"SFX"
+
+[node name="DamageModulate" type="Node" parent="." unique_id=629431823]
+script = ExtResource("23_7x66f")
+metadata/_custom_type_script = "uid://d12n40tst35rq"
