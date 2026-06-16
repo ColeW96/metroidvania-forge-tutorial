@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://djaccmvcjqlt3" path="res://general/sprites/props_destructible.png" id="7_eo4gh"]
 [ext_resource type="Script" uid="uid://cdqw3u4u16lgo" path="res://general/scripts/loot_dropper.gd" id="8_jy6sd"]
 [ext_resource type="Script" uid="uid://bfkq1vksotjux" path="res://general/scripts/loot_data.gd" id="9_pfiku"]
+[ext_resource type="Script" uid="uid://d12n40tst35rq" path="res://general/scripts/damage_modulate.gd" id="10_pfiku"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qgbgf"]
 size = Vector2(39, 35)
@@ -28,6 +29,7 @@ metadata/_custom_type_script = "uid://bfkq1vksotjux"
 
 [node name="Crate" type="Node2D" unique_id=261099677]
 script = ExtResource("1_6ng2w")
+fixed_hit_count = true
 hit_particles = Array[ExtResource("2_fpmn4")]([ExtResource("3_jy6sd")])
 destroy_particles = Array[ExtResource("2_fpmn4")]([ExtResource("3_jy6sd"), ExtResource("4_pfiku"), ExtResource("5_1ga2j")])
 metadata/_custom_type_script = "uid://sndrj6tq12yf"
@@ -67,3 +69,8 @@ position = Vector2(0, -12)
 script = ExtResource("8_jy6sd")
 items = Array[ExtResource("9_pfiku")]([SubResource("Resource_7lkcl")])
 metadata/_custom_type_script = "uid://cdqw3u4u16lgo"
+
+[node name="DamageModulate" type="Node" parent="." unique_id=1412847262]
+script = ExtResource("10_pfiku")
+color = Color(2.454227, 2.454227, 2.454227, 1)
+metadata/_custom_type_script = "uid://d12n40tst35rq"

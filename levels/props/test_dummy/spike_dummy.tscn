@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://djaccmvcjqlt3" path="res://general/sprites/props_destructible.png" id="5_83i78"]
 [ext_resource type="Script" uid="uid://dha53eb7vo0el" path="res://general/scripts/damage_area.gd" id="6_i5llc"]
 [ext_resource type="AudioStream" uid="uid://hfouy4mufw1c" path="res://general/audio/hit.wav" id="7_osguj"]
+[ext_resource type="Script" uid="uid://d12n40tst35rq" path="res://general/scripts/damage_modulate.gd" id="9_crtwq"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_04j1k"]
 load_path = "res://.godot/imported/props_destructible.png-f1d05037d5d5fd1767d271e5f5cebf40.ctex"
@@ -63,3 +64,8 @@ metadata/_custom_type_script = "uid://dha53eb7vo0el"
 position = Vector2(0, -32.5)
 shape = SubResource("RectangleShape2D_j8duf")
 debug_color = Color(0, 0.6, 0.69803923, 0)
+
+[node name="DamageModulate" type="Node" parent="." unique_id=1891171714]
+script = ExtResource("9_crtwq")
+color = Color(2.454227, 2.454227, 2.454227, 1)
+metadata/_custom_type_script = "uid://d12n40tst35rq"

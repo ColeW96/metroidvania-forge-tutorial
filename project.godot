@@ -35,6 +35,7 @@ Messages="*res://00_global/messages.gd"
 PlayerHud="*res://00_global/player_hud/player_hud.tscn"
 Audio="*res://00_global/audio/audio.tscn"
 VisualEffects="*uid://61wjy3a326eg"
+GlobalWorldEnvironment="*uid://bwomn82kx0rbk"
 
 [display]
 
