@@ -8,6 +8,8 @@ enum Type { DOUBLE_JUMP, DASH, GROUND_SLAM, MORPH_ROLL }
 		type = value
 		_set_animation()
 
+var tween : Tween
+
 @onready var ability_anim: AnimationPlayer = %AbilityAnim
 @onready var orb_anim: AnimationPlayer = %OrbAnim
 @onready var breakable: Breakable = $Breakable
@@ -31,6 +33,7 @@ func _ready() -> void:
 
 
 func _on_damage_taken() -> void:
+	_modulate_node()
 	orb_sprite.frame += 1
 	pass
 
@@ -38,6 +41,7 @@ func _on_damage_taken() -> void:
 func _on_destroyed() -> void:
 	SaveManager.persistent_data[ get_ability_name() ] = "acquired"
 	_reward_ability()
+	_modulate_node()
 	orb_anim.play("destroy")
 	await orb_anim.animation_finished
 	queue_free()
@@ -76,3 +80,12 @@ func get_ability_name() -> String:
 		Type.MORPH_ROLL:
 			return "morph_roll"
 	return ""
+
+
+func _modulate_node() -> void:
+	if tween:
+		tween.kill()
+	modulate = Color(1.4, 1.4, 1.4)
+	tween = create_tween()
+	tween.tween_property( self, "modulate", Color(1, 1, 1), 0.2 )
+	pass

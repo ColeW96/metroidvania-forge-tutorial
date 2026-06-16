@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://dhrfnkg8xl0lk" path="res://00_global/visual_effects/hit_particle_settings/hit_wood_small.tres" id="3_qiu83"]
 [ext_resource type="Resource" uid="uid://gjrpwjdumgxp" path="res://00_global/visual_effects/hit_particle_settings/hit_wood_medium.tres" id="4_qiu83"]
 [ext_resource type="AudioStream" uid="uid://hfouy4mufw1c" path="res://general/audio/hit.wav" id="7_dr2jp"]
+[ext_resource type="Script" uid="uid://d12n40tst35rq" path="res://general/scripts/damage_modulate.gd" id="8_7nlhi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jfbdl"]
 atlas = ExtResource("3_qitiv")
@@ -43,3 +44,8 @@ metadata/_custom_type_script = "uid://dha53eb7vo0el"
 position = Vector2(0, -32.5)
 shape = SubResource("RectangleShape2D_j8duf")
 debug_color = Color(0, 0.6, 0.69803923, 0)
+
+[node name="DamageModulate" type="Node" parent="." unique_id=143084637]
+script = ExtResource("8_7nlhi")
+color = Color(2.454227, 2.454227, 2.454227, 1)
+metadata/_custom_type_script = "uid://d12n40tst35rq"
