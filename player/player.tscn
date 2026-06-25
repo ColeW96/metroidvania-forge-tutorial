@@ -7,16 +7,11 @@
 [ext_resource type="Script" uid="uid://bb0a4hubh17ox" path="res://player/states/fall.gd" id="5_qjkh3"]
 [ext_resource type="Script" uid="uid://cywv2p1htwq8m" path="res://player/states/crouch.gd" id="6_g6k8r"]
 [ext_resource type="Texture2D" uid="uid://dc1krh1jxlhvl" path="res://player/sprites/mvf_hero_gun.png" id="7_boad6"]
-[ext_resource type="Script" uid="uid://dx6cmcbbbt431" path="res://player/states/shoot.gd" id="7_rgyib"]
 [ext_resource type="Script" uid="uid://vqi2c1q2c57f" path="res://player/states/idle_shoot.gd" id="8_hg6s5"]
 [ext_resource type="Script" uid="uid://b5wrmq83a2h6u" path="res://player/states/run_shoot.gd" id="9_8t03j"]
-[ext_resource type="Script" uid="uid://c1ergs5mba08v" path="res://player/states/crouch_shoot.gd" id="11_ebec5"]
-[ext_resource type="Script" uid="uid://dqql70cnna8y7" path="res://player/states/fall_shoot.gd" id="12_kb6p2"]
-[ext_resource type="Script" uid="uid://drakp228nkpop" path="res://player/states/jump_shoot.gd" id="12_yllr7"]
 [ext_resource type="Texture2D" uid="uid://cbtrg87f1njd2" path="res://player/bullet/bullet.png" id="13_kb6p2"]
 [ext_resource type="Script" uid="uid://ibx5s06y8iyd" path="res://player/states/idle_shoot_up.gd" id="13_wodsf"]
 [ext_resource type="Script" uid="uid://bo1sy44s2s75r" path="res://player/states/run_shoot_up.gd" id="14_32hag"]
-[ext_resource type="Script" uid="uid://500pphvybarr" path="res://player/states/shoot_up.gd" id="15_tqiix"]
 [ext_resource type="Script" uid="uid://cnsxkqpptrrfm" path="res://player/states/attack.gd" id="16_s7qer"]
 [ext_resource type="Script" uid="uid://bknqjjp2ji03c" path="res://player/states/take_damage.gd" id="17_knn7v"]
 [ext_resource type="Script" uid="uid://bipo3m7akrbsh" path="res://player/scripts/player_camera.gd" id="18_65viv"]
@@ -30,6 +25,7 @@
 [ext_resource type="Script" uid="uid://vt684ogx76fc" path="res://general/scripts/attack_area.gd" id="21_x7c3f"]
 [ext_resource type="Script" uid="uid://sjljr3vb1fku" path="res://player/scripts/player_sprite.gd" id="22_2uvqg"]
 [ext_resource type="Script" uid="uid://175f1yguq3iv" path="res://player/states/crouch_attack.gd" id="22_ge24q"]
+[ext_resource type="Script" uid="uid://cvckmjic68ufn" path="res://player/states/shoot_diag.gd" id="23_5ejfk"]
 [ext_resource type="Script" uid="uid://dha53eb7vo0el" path="res://general/scripts/damage_area.gd" id="24_g4c7l"]
 [ext_resource type="Texture2D" uid="uid://gwjaxsdwnr6c" path="res://player/sprites/crouch_swoosh.png" id="26_q28gw"]
 
@@ -171,7 +167,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.05, 0.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [58, 59, 60]
+"values": [60, 61, 62]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -236,7 +232,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.05, 0.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [61, 62, 63]
+"values": [63, 64, 65]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -302,7 +298,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.07692308, 0.15384616),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [71, 72, 73]
+"values": [73, 74, 75]
 }
 
 [sub_resource type="Animation" id="Animation_ebec5"]
@@ -319,7 +315,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [40, 41, 42, 43]
+"values": [42, 43, 44, 45]
 }
 
 [sub_resource type="Animation" id="Animation_ge24q"]
@@ -336,7 +332,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(-3.7252903e-09, 0.049999997, 0.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [64, 65, 66]
+"values": [66, 67, 68]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -389,7 +385,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(-3.7252903e-09, 0.049999997, 0.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [67, 68, 69]
+"values": [69, 70, 71]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -442,7 +438,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.05, 0.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [44, 45, 44]
+"values": [46, 47, 46]
 }
 
 [sub_resource type="Animation" id="Animation_b8hi5"]
@@ -457,7 +453,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [56]
+"values": [58]
 }
 
 [sub_resource type="Animation" id="Animation_7pqkx"]
@@ -474,7 +470,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.90000004, 1, 1.1, 1.2, 1.3000001),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87]
+"values": [76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89]
 }
 
 [sub_resource type="Animation" id="Animation_1s1yo"]
@@ -489,7 +485,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [70]
+"values": [72]
 }
 
 [sub_resource type="Animation" id="Animation_boad6"]
@@ -524,6 +520,23 @@ tracks/0/keys = {
 "values": [12]
 }
 
+[sub_resource type="Animation" id="Animation_1so5t"]
+resource_name = "idle_shoot_diag"
+length = 2.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [16]
+}
+
 [sub_resource type="Animation" id="Animation_e7oew"]
 resource_name = "idle_shoot_up"
 length = 2.0
@@ -554,7 +567,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.3, 0.6, 0.79999995),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [46, 47, 48, 49, 50]
+"values": [48, 49, 50, 51, 52]
 }
 
 [sub_resource type="Animation" id="Animation_kb6p2"]
@@ -570,7 +583,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.3, 0.6, 0.79999995),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [51, 52, 53, 54, 55]
+"values": [53, 54, 55, 56, 57]
 }
 
 [sub_resource type="Animation" id="Animation_jd2rm"]
@@ -587,7 +600,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.03),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [40, 41]
+"values": [42, 43]
 }
 
 [sub_resource type="Animation" id="Animation_hg6s5"]
@@ -605,7 +618,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [16, 17, 18, 19, 20, 21, 22, 23]
+"values": [18, 19, 20, 21, 22, 23, 24, 25]
 }
 
 [sub_resource type="Animation" id="Animation_wodsf"]
@@ -623,7 +636,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [24, 25, 26, 27, 28, 29, 30, 31]
+"values": [26, 27, 28, 29, 30, 31, 32, 33]
 }
 
 [sub_resource type="Animation" id="Animation_tqiix"]
@@ -641,7 +654,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [32, 33, 34, 35, 36, 37, 38, 39]
+"values": [34, 35, 36, 37, 38, 39, 40, 41]
 }
 
 [sub_resource type="Animation" id="Animation_yllr7"]
@@ -659,6 +672,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [12, 13, 12]
+}
+
+[sub_resource type="Animation" id="Animation_pnw6m"]
+resource_name = "shoot_diag"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [16, 17, 16]
 }
 
 [sub_resource type="Animation" id="Animation_c35mf"]
@@ -691,7 +721,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [57]
+"values": [59]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hg6s5"]
@@ -709,6 +739,7 @@ _data = {
 &"ground_slam": SubResource("Animation_1s1yo"),
 &"idle": SubResource("Animation_boad6"),
 &"idle_shoot": SubResource("Animation_2ieo8"),
+&"idle_shoot_diag": SubResource("Animation_1so5t"),
 &"idle_shoot_up": SubResource("Animation_e7oew"),
 &"jump": SubResource("Animation_8t03j"),
 &"jump_shoot": SubResource("Animation_kb6p2"),
@@ -717,6 +748,7 @@ _data = {
 &"run_shoot": SubResource("Animation_wodsf"),
 &"run_shoot_up": SubResource("Animation_tqiix"),
 &"shoot": SubResource("Animation_yllr7"),
+&"shoot_diag": SubResource("Animation_pnw6m"),
 &"shoot_up": SubResource("Animation_c35mf"),
 &"take_damage": SubResource("Animation_knn7v")
 }
@@ -776,10 +808,6 @@ script = ExtResource("5_qjkh3")
 unique_name_in_owner = true
 script = ExtResource("6_g6k8r")
 
-[node name="Shoot" type="Node" parent="States" unique_id=1933971004]
-unique_name_in_owner = true
-script = ExtResource("7_rgyib")
-
 [node name="Idle_Shoot" type="Node" parent="States" unique_id=240362398]
 unique_name_in_owner = true
 script = ExtResource("8_hg6s5")
@@ -788,18 +816,6 @@ script = ExtResource("8_hg6s5")
 unique_name_in_owner = true
 script = ExtResource("9_8t03j")
 
-[node name="Crouch_Shoot" type="Node" parent="States" unique_id=1657155375]
-unique_name_in_owner = true
-script = ExtResource("11_ebec5")
-
-[node name="Jump_shoot" type="Node" parent="States" unique_id=833799920]
-unique_name_in_owner = true
-script = ExtResource("12_yllr7")
-
-[node name="Fall_Shoot" type="Node" parent="States" unique_id=1234883635]
-unique_name_in_owner = true
-script = ExtResource("12_kb6p2")
-
 [node name="Idle_Shoot_Up" type="Node" parent="States" unique_id=1321824646]
 unique_name_in_owner = true
 script = ExtResource("13_wodsf")
@@ -807,10 +823,6 @@ script = ExtResource("13_wodsf")
 [node name="Run_Shoot_Up" type="Node" parent="States" unique_id=1218731599]
 unique_name_in_owner = true
 script = ExtResource("14_32hag")
-
-[node name="Shoot_Up" type="Node" parent="States" unique_id=2012378654]
-unique_name_in_owner = true
-script = ExtResource("15_tqiix")
 
 [node name="Attack" type="Node" parent="States" unique_id=822618404]
 unique_name_in_owner = true
@@ -841,6 +853,10 @@ script = ExtResource("21_5ejfk")
 unique_name_in_owner = true
 script = ExtResource("22_ge24q")
 
+[node name="Shoot_diag" type="Node" parent="States" unique_id=417758426]
+unique_name_in_owner = true
+script = ExtResource("23_5ejfk")
+
 [node name="BulletSpawn" type="Node2D" parent="." unique_id=765495843]
 z_index = 4
 position = Vector2(17, -27)
@@ -854,7 +870,7 @@ frame_progress = 1.0
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=373856475]
 position = Vector2(0, -39)
 texture = ExtResource("7_boad6")
-hframes = 23
+hframes = 24
 vframes = 4
 script = ExtResource("22_2uvqg")
 
@@ -874,20 +890,17 @@ hframes = 8
 frame = 4
 
 [node name="CollisionStand" type="CollisionShape2D" parent="." unique_id=259439301]
-visible = false
 position = Vector2(0, -23)
 shape = SubResource("CapsuleShape2D_boad6")
 debug_color = Color(0, 0.6, 0.69803923, 0.25490198)
 
 [node name="CollisionCrouch" type="CollisionShape2D" parent="." unique_id=1200341302]
-visible = false
 position = Vector2(0, -15)
 shape = SubResource("CapsuleShape2D_rgyib")
 disabled = true
 debug_color = Color(0, 0.6, 0.69803923, 0.25490198)
 
 [node name="Label" type="Label" parent="." unique_id=1902955862]
-visible = false
 offset_left = -30.0
 offset_top = -73.0
 offset_right = 31.0

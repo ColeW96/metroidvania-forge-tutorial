@@ -14,19 +14,18 @@ func init() -> void:
 
 # What happens when we enter this state?
 func enter() -> void:
+	player.aiming_up = true
+	player.update_direction()
+	position_and_rotate_bullet_spawn()
 	player.animation_player.play( "idle_shoot_up" )
-	player.collision_stand.disabled = true
-	player.collision_crouch.disabled = false
-	player.bullet_spawn.position.y = -8
 	pass
 
 
 # What happens when we exit this state?
 func exit() -> void:
-	player.collision_stand.disabled = false
-	player.collision_crouch.disabled = true
+	player.aiming_up = false
+	reset_bullet_spawn()
 	can_shoot = false
-	player.bullet_spawn.position.y = player.bullet_spawn_pos.y
 	pass
 
 
@@ -36,7 +35,9 @@ func handle_input( _event : InputEvent ) -> PlayerState:
 		return dash
 	
 	if _event.is_action_pressed("shoot"):
-		return shoot_up
+		player.animation_player.play("shoot_up")
+		player.spawn_bullet()
+		return null
 	
 	if _event.is_action_pressed( "jump" ):
 		player.one_way_platform_shapecast.force_shapecast_update()
@@ -52,12 +53,15 @@ func handle_input( _event : InputEvent ) -> PlayerState:
 
 # What happens each process tick in this state?
 func process( _delta: float ) -> PlayerState:
-	
+	if not Input.is_action_pressed("up") and Input.is_action_pressed("shoot_diag"):
+		return shoot_diag
 	if player.direction.y > -0.5:
 		return idle_shoot
-	elif Input.is_action_pressed("up") and Input.is_action_just_pressed("right"):
+	elif Input.is_action_pressed("up") and Input.is_action_pressed("right") and Input.is_action_pressed("left"):
+		return null
+	elif Input.is_action_pressed("up") and Input.is_action_pressed("right"):
 		return run_shoot_up
-	elif Input.is_action_pressed("up") and Input.is_action_just_pressed("left"):
+	elif Input.is_action_pressed("up") and Input.is_action_pressed("left"):
 		return run_shoot_up
 	return next_state
 
@@ -72,4 +76,18 @@ func physics_process( _delta: float ) -> PlayerState:
 
 func _on_animation_finished( _new_anim_name : String ) -> void:
 	can_shoot = true
+	pass
+
+
+func position_and_rotate_bullet_spawn() -> void:
+	var rotate_up : float = deg_to_rad( -90 )
+	player.bullet_spawn.rotation = rotate_up
+	player.bullet_spawn.position.x = 0
+	player.bullet_spawn.position.y = -59
+	pass
+
+
+func reset_bullet_spawn() -> void:
+	player.bullet_spawn.rotation = 0
+	player.bullet_spawn.position = player.bullet_spawn_pos
 	pass

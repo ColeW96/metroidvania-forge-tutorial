@@ -28,7 +28,9 @@ func handle_input( _event : InputEvent ) -> PlayerState:
 	if _event.is_action_pressed( "jump" ):
 		return jump
 	if _event.is_action_pressed("shoot"):
-		return shoot
+		return idle_shoot
+	if _event.is_action_pressed("shoot_diag"):
+		return shoot_diag
 	if _event.is_action_pressed("morph") and player.can_morph():
 		return ball
 	return next_state

@@ -16,7 +16,7 @@ func init() -> void:
 # What happens when we enter this state?
 func enter() -> void:
 	var prev_state : PlayerState = player.previous_state
-	if prev_state == crouch_shoot or prev_state == crouch_attack:
+	if prev_state == crouch_attack:
 		player.animation_player.play( "crouch" )
 		anim_length = player.animation_player.current_animation_length
 		player.animation_player.advance(anim_length - anim_length_offset)
@@ -48,7 +48,9 @@ func handle_input( _event : InputEvent ) -> PlayerState:
 	if _event.is_action_pressed("attack"):
 		return crouch_attack
 	if _event.is_action_pressed("shoot"):
-		return crouch_shoot
+		player.animation_player.play("crouch_shoot")
+		player.spawn_bullet()
+		return null
 	if _event.is_action_pressed( "jump" ):
 		player.one_way_platform_shapecast.force_shapecast_update()
 		if player.one_way_platform_shapecast.is_colliding():

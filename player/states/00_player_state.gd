@@ -10,15 +10,10 @@ var next_state : PlayerState
 @onready var jump: PlayerStateJump = %Jump
 @onready var fall: PlayerStateFall = %Fall
 @onready var crouch: PlayerStateCrouch = %Crouch
-@onready var shoot: PlayerStateShoot = %Shoot
-@onready var idle_shoot: PlayerStateIdleShoot = %Idle_Shoot
+@onready var idle_shoot: PlayerStateIdleShoot = %Idle_Shoot           
 @onready var run_shoot: PlayerStateRunShoot = %Run_Shoot
-@onready var crouch_shoot: PlayerStateCrouchShoot = %Crouch_Shoot
-@onready var jump_shoot: PlayerStateJumpShoot = %Jump_shoot
-@onready var fall_shoot: PlayerStateFallShoot = %Fall_Shoot
 @onready var idle_shoot_up: PlayerStateIdleShootUp = %Idle_Shoot_Up
 @onready var run_shoot_up: PlayerStateRunShootUp = %Run_Shoot_Up
-@onready var shoot_up: PlayerStateShootUp = %Shoot_Up
 @onready var attack: PlayerStateAttack = %Attack
 @onready var take_damage: PlayerStateTakeDamage = %TakeDamage
 @onready var death: PlayerStateDeath = %Death
@@ -26,6 +21,7 @@ var next_state : PlayerState
 @onready var ground_slam: PlayerStateGroundSlam = %GroundSlam
 @onready var ball: PlayerStateBall = %Ball
 @onready var crouch_attack: PlayerStateCrouchAttack = %CrouchAttack
+@onready var shoot_diag: PlayerStateShootDiag = %Shoot_diag
 #endregion
 
 

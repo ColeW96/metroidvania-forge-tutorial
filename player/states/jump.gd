@@ -1,6 +1,5 @@
 class_name PlayerStateJump extends PlayerState
 
-const BULLET = preload("uid://bdoia83dmojob")
 const JUMP = preload("uid://b7y7gfqr173i5")
 
 @export var jump_velocity : float = 450.0
@@ -18,6 +17,7 @@ func enter() -> void:
 		VisualEffects.jump_dust( player.global_position )
 	else:
 		VisualEffects.hit_dust( player.global_position )
+	player.bullet_spawn.position.y = -32
 	player.animation_player.play( "jump" )
 	player.animation_player.pause()
 	
@@ -34,6 +34,11 @@ func enter() -> void:
 
 # What happens when we exit this state?
 func exit() -> void:
+	if player._cardinal_direction == Vector2.RIGHT:
+		player.bullet_spawn.position.x = player.bullet_spawn_pos.x
+	elif player._cardinal_direction == Vector2.LEFT:
+		player.bullet_spawn.position.x = -player.bullet_spawn_pos.x
+	player.bullet_spawn.position.y = player.bullet_spawn_pos.y
 	pass
 
 
@@ -46,7 +51,9 @@ func handle_input( event : InputEvent ) -> PlayerState:
 			return ground_slam
 		return attack
 	if event.is_action_pressed("shoot"):
-		return jump_shoot
+		player.animation_player.play("jump_shoot")
+		player.spawn_bullet()
+		return null
 	if event.is_action_released("jump"):
 		#player.velocity.y *= 0.5
 		return fall
@@ -57,8 +64,12 @@ func handle_input( event : InputEvent ) -> PlayerState:
 
 # What happens each process tick in this state?
 func process( _delta: float ) -> PlayerState:
-	if Input.is_action_just_pressed("shoot"):
-		spawn_bullet()
+	player.update_direction()
+	if player._cardinal_direction == Vector2.RIGHT:
+		player.bullet_spawn.position.x = player.bullet_spawn_pos.x + 5
+	if player._cardinal_direction == Vector2.LEFT:
+		player.bullet_spawn.position.x = -player.bullet_spawn_pos.x - 5
+	
 	set_jump_frame()
 	return next_state
 
@@ -87,13 +98,4 @@ func do_jump() -> void:
 func set_jump_frame() -> void:
 	var frame : float = remap( player.velocity.y, -jump_velocity, 0.0, 0.0, 0.5 )
 	player.animation_player.seek( frame, true )
-	pass
-
-
-func spawn_bullet() -> void:
-	var bullet : Bullet = BULLET.instantiate()
-	get_tree().root.add_child( bullet )
-	if player._cardinal_direction == Vector2.LEFT:
-		bullet.move_direction = Vector2.LEFT
-	bullet.global_position = bullet_spawn.global_position
 	pass

@@ -11,9 +11,11 @@
 [ext_resource type="Script" uid="uid://sndrj6tq12yf" path="res://general/scripts/breakable.gd" id="6_uajdn"]
 [ext_resource type="Script" uid="uid://brc344c2o0cfo" path="res://00_global/visual_effects/hit_particle_settings.gd" id="7_hu6bk"]
 [ext_resource type="Script" uid="uid://dha53eb7vo0el" path="res://general/scripts/damage_area.gd" id="7_p2ahk"]
-[ext_resource type="Resource" uid="uid://gjrpwjdumgxp" path="res://00_global/visual_effects/hit_particle_settings/hit_wood_medium.tres" id="8_vyqrg"]
 [ext_resource type="PackedScene" uid="uid://bpbdxq44olmim" path="res://levels/props/test_dummy/spike_dummy.tscn" id="10_vyqrg"]
+[ext_resource type="Texture2D" uid="uid://djaccmvcjqlt3" path="res://general/sprites/props_destructible.png" id="11_4s7xr"]
+[ext_resource type="Resource" uid="uid://c5dcumx36pto8" path="res://00_global/visual_effects/hit_particle_settings/hit_rock_small.tres" id="11_a64fv"]
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="11_glj4h"]
+[ext_resource type="Resource" uid="uid://sgce1vvaokc3" path="res://00_global/visual_effects/hit_particle_settings/hit_rock_medium.tres" id="12_iekve"]
 [ext_resource type="PackedScene" uid="uid://dg7qvy6vumoft" path="res://general/hidden_area/hidden_area.tscn" id="14_pvjku"]
 [ext_resource type="PackedScene" uid="uid://j2ipc4cvtyr6" path="res://enemies/slime/slime.tscn" id="16_7j8uv"]
 [ext_resource type="PackedScene" uid="uid://ja8lc0n3awhh" path="res://enemies/slime_2/slime_2.tscn" id="17_umtgv"]
@@ -21,6 +23,67 @@
 [ext_resource type="Script" uid="uid://dnb4iextr4r2g" path="res://general/scripts/patrol_limit.gd" id="19_wtccc"]
 [ext_resource type="PackedScene" uid="uid://b8tbf6ebtoi83" path="res://enemies/demonic_chest/demonic_chest.tscn" id="20_1g47y"]
 [ext_resource type="PackedScene" uid="uid://dkyap82b10vdy" path="res://enemies/doom_scribe/doom_scribe.tscn" id="21_4s7xr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jtl8"]
+atlas = ExtResource("11_4s7xr")
+region = Rect2(127, 7, 2, 2)
+
+[sub_resource type="Resource" id="Resource_iekve"]
+script = ExtResource("7_hu6bk")
+count = 12
+color = Color(0.21176471, 0.21176471, 0.24705882, 1)
+texture = SubResource("AtlasTexture_0jtl8")
+metadata/_custom_type_script = "uid://brc344c2o0cfo"
+
+[sub_resource type="Resource" id="Resource_2sldr"]
+script = ExtResource("7_hu6bk")
+count = 12
+color = Color(0.27450982, 0.34509805, 0.39215687, 1)
+texture = SubResource("AtlasTexture_0jtl8")
+metadata/_custom_type_script = "uid://brc344c2o0cfo"
+
+[sub_resource type="Resource" id="Resource_7rybr"]
+script = ExtResource("7_hu6bk")
+count = 18
+texture = SubResource("AtlasTexture_0jtl8")
+metadata/_custom_type_script = "uid://brc344c2o0cfo"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_iekve"]
+load_path = "res://.godot/imported/props_destructible.png-f1d05037d5d5fd1767d271e5f5cebf40.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sldr"]
+atlas = SubResource("CompressedTexture2D_iekve")
+region = Rect2(126, 13, 3, 3)
+
+[sub_resource type="Resource" id="Resource_rrssx"]
+script = ExtResource("7_hu6bk")
+color = Color(0.27450982, 0.34509805, 0.39215687, 1)
+texture = SubResource("AtlasTexture_2sldr")
+metadata/_custom_type_script = "uid://brc344c2o0cfo"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7rybr"]
+load_path = "res://.godot/imported/props_destructible.png-f1d05037d5d5fd1767d271e5f5cebf40.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmj1m"]
+atlas = SubResource("CompressedTexture2D_7rybr")
+region = Rect2(127, 7, 2, 2)
+
+[sub_resource type="Resource" id="Resource_agmfb"]
+script = ExtResource("7_hu6bk")
+count = 12
+color = Color(0.27450982, 0.34509805, 0.39215687, 1)
+texture = SubResource("AtlasTexture_wmj1m")
+metadata/_custom_type_script = "uid://brc344c2o0cfo"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25qsg"]
+atlas = ExtResource("11_4s7xr")
+region = Rect2(126, 13, 3, 3)
+
+[sub_resource type="Resource" id="Resource_hmxn7"]
+script = ExtResource("7_hu6bk")
+color = Color(0.4627451, 0.54901963, 0.50980395, 1)
+texture = SubResource("AtlasTexture_25qsg")
+metadata/_custom_type_script = "uid://brc344c2o0cfo"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uajdn"]
 size = Vector2(92, 106)
@@ -487,10 +550,10 @@ position = Vector2(222, 524)
 [node name="Breakable" type="Node2D" parent="." unique_id=385843441]
 position = Vector2(309, 207)
 script = ExtResource("6_uajdn")
-hp = 2.0
+hp = 10.0
 fixed_hit_count = true
-hit_particles = Array[ExtResource("7_hu6bk")]([ExtResource("8_vyqrg")])
-destroy_particles = Array[ExtResource("7_hu6bk")]([ExtResource("8_vyqrg")])
+hit_particles = Array[ExtResource("7_hu6bk")]([ExtResource("11_a64fv"), SubResource("Resource_iekve"), SubResource("Resource_2sldr")])
+destroy_particles = Array[ExtResource("7_hu6bk")]([SubResource("Resource_7rybr"), ExtResource("12_iekve"), SubResource("Resource_rrssx"), SubResource("Resource_agmfb"), SubResource("Resource_hmxn7")])
 metadata/_custom_type_script = "uid://sndrj6tq12yf"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Breakable" unique_id=617282931]
@@ -532,6 +595,7 @@ position = Vector2(87, -5)
 show_vision = false
 
 [node name="LivingArmor" parent="Enemies" unique_id=1404670241 instance=ExtResource("18_t70h8")]
+process_mode = 4
 position = Vector2(663, 123)
 face_left_on_start = true
 show_vision = false

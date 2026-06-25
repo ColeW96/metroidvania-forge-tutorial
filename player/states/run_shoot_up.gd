@@ -1,7 +1,7 @@
 class_name PlayerStateRunShootUp extends PlayerState
 
 var timer : float = 0.0
-var degrees_rotated : float = deg_to_rad( 45 )
+var degrees_rotated : float = deg_to_rad( 40 )
 
 # What happens when this is initialized?
 func init() -> void:
@@ -35,7 +35,7 @@ func handle_input( _event : InputEvent ) -> PlayerState:
 	if _event.is_action_pressed("attack"):
 		return attack
 	if _event.is_action_pressed( "jump" ):
-		return jump_shoot
+		return jump
 	if _event.is_action_pressed( "shoot" ):
 		timer = 2
 	if _event.is_action_pressed("morph") and player.can_morph():

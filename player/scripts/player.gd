@@ -226,14 +226,14 @@ func spawn_bullet() -> void:
 	elif _cardinal_direction == Vector2.RIGHT:
 		bullet_spawn.get_node("AnimatedSprite2D").flip_h = false
 	
-	if animation_player.current_animation == "run_shoot_up":
-		var degrees_rotated : float = deg_to_rad( 25 )
+	if animation_player.current_animation == "run_shoot_up" or animation_player.current_animation == "shoot_diag":
+		var degrees_rotated : float = deg_to_rad( 40 )
 		if _cardinal_direction == Vector2.LEFT:
 			bullet.move_direction = bullet.move_direction.rotated( degrees_rotated )
-			bullet.bullet_sprite.rotation = deg_to_rad( 43 )
+			bullet.bullet_sprite.rotation = deg_to_rad( 40 )
 		elif _cardinal_direction == Vector2.RIGHT:
 			bullet.move_direction = bullet.move_direction.rotated( -degrees_rotated )
-			bullet.bullet_sprite.rotation = deg_to_rad( -43 )
+			bullet.bullet_sprite.rotation = deg_to_rad( -40 )
 	
 	bullet.global_position = bullet_spawn.global_position
 	Audio.play_spatial_sound(SHOOT_AUDIO, bullet_spawn.global_position, false, true, 0.5, 0.25)

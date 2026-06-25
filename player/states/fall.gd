@@ -1,6 +1,5 @@
 class_name PlayerStateFall extends PlayerState
 
-const BULLET = preload("uid://bdoia83dmojob")
 const LAND = preload("uid://bkueq2alnhrv2")
 
 @export var fall_gravity_multiplier : float = 1.165
@@ -20,7 +19,13 @@ func init() -> void:
 
 # What happens when we enter this state?
 func enter() -> void:
-	player.animation_player.play( "jump" )
+	player.bullet_spawn.position.y = -30
+	if player.animation_player.current_animation == "jump_shoot":
+		player.animation_player.play("jump_shoot")
+		set_jump_frame()
+		player.animation_player.pause()
+	else:
+		player.animation_player.play( "jump" )
 	player.animation_player.pause()
 	player.gravity_multiplier = fall_gravity_multiplier
 	
@@ -40,6 +45,14 @@ func enter() -> void:
 
 # What happens when we exit this state?
 func exit() -> void:
+	if player._cardinal_direction == Vector2.RIGHT:
+		player.bullet_spawn.position.x = player.bullet_spawn_pos.x
+	elif player._cardinal_direction == Vector2.LEFT:
+		player.bullet_spawn.position.x = -player.bullet_spawn_pos.x
+	player.bullet_spawn.position.y = player.bullet_spawn_pos.y
+	player.gravity_multiplier = 1.0
+	buffer_timer = 0
+	
 	player.gravity_multiplier = 1.0
 	buffer_timer = 0
 	pass
@@ -54,7 +67,12 @@ func handle_input( _event : InputEvent ) -> PlayerState:
 			return ground_slam
 		return attack
 	if _event.is_action_pressed("shoot"):
-		return fall_shoot
+		if player.animation_player.current_animation != "jump_shoot":
+			player.animation_player.play("jump_shoot")
+			player.animation_player.pause()
+			set_jump_frame()
+		player.spawn_bullet()
+		return null
 	if _event.is_action_pressed( "jump" ):
 		if coyote_timer > 0:
 			player.jump_count = 0
@@ -70,8 +88,12 @@ func handle_input( _event : InputEvent ) -> PlayerState:
 
 # What happens each process tick in this state?
 func process( _delta: float ) -> PlayerState:
-	if Input.is_action_just_pressed("shoot"):
-		spawn_bullet()
+	player.update_direction()
+	if player._cardinal_direction == Vector2.RIGHT:
+		player.bullet_spawn.position.x = player.bullet_spawn_pos.x + 5
+	if player._cardinal_direction == Vector2.LEFT:
+		player.bullet_spawn.position.x = -player.bullet_spawn_pos.x - 5
+	
 	set_jump_frame()
 	coyote_timer -= _delta
 	buffer_timer -= _delta
@@ -94,13 +116,4 @@ func physics_process( _delta: float ) -> PlayerState:
 func set_jump_frame() -> void:
 	var frame : float = remap( player.velocity.y, 0.0, player.max_fall_velocity, 0.5, 1.0 )
 	player.animation_player.seek( frame, true )
-	pass
-
-
-func spawn_bullet() -> void:
-	var bullet : Bullet = BULLET.instantiate()
-	get_tree().root.add_child( bullet )
-	if player._cardinal_direction == Vector2.LEFT:
-		bullet.move_direction = Vector2.LEFT
-	bullet.global_position = bullet_spawn.global_position
 	pass

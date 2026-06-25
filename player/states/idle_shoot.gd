@@ -1,5 +1,6 @@
 class_name PlayerStateIdleShoot extends PlayerState
 
+var timer : float = 0.0
 
 # What happens when this is initialized?
 func init() -> void:
@@ -8,8 +9,13 @@ func init() -> void:
 
 # What happens when we enter this state?
 func enter() -> void:
-	player.animation_player.play( "idle_shoot" )
-	player.animation_player.animation_finished.connect( _animation_finished )
+	if player.previous_state == idle or player.previous_state == idle_shoot:
+		player.spawn_bullet()
+		player.animation_player.play( "shoot" )
+	else:
+		player.animation_player.play("idle_shoot")
+	timer = 2.0
+	#player.animation_player.animation_finished.connect( _animation_finished )
 	player.jump_count = 0
 	player.dash_count = 0
 	pass
@@ -17,7 +23,7 @@ func enter() -> void:
 
 # What happens when we exit this state?
 func exit() -> void:
-	player.animation_player.animation_finished.disconnect( _animation_finished )
+	#player.animation_player.animation_finished.disconnect( _animation_finished )
 	pass
 
 
@@ -28,11 +34,16 @@ func handle_input( _event : InputEvent ) -> PlayerState:
 	if _event.is_action_pressed("attack"):
 		return attack
 	if _event.is_action_pressed("jump"):
-		return jump_shoot
+		return jump
 	if _event.is_action_pressed("shoot"):
 		if player.direction.x != 0:
 			return run_shoot
-		return shoot
+		player.animation_player.play("shoot")
+		player.spawn_bullet()
+		timer = 2
+		return null
+	if _event.is_action_pressed("shoot_diag"):
+		return shoot_diag
 	if _event.is_action_pressed("morph") and player.can_morph():
 		return ball
 	return next_state
@@ -40,6 +51,9 @@ func handle_input( _event : InputEvent ) -> PlayerState:
 
 # What happens each process tick in this state?
 func process( _delta: float ) -> PlayerState:
+	timer -= _delta
+	if timer <= 0:
+		return idle
 	if player.direction.x != 0:
 		return run_shoot
 	elif player.direction.y > 0.5:
