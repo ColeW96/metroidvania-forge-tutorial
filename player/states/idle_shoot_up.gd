@@ -2,7 +2,6 @@ class_name PlayerStateIdleShootUp extends PlayerState
 
 
 @export var deceleration_rate : float = 10.0
-var can_shoot : bool = false
 var timer : float = 0.0
 var anim_length : float = 0.0
 var anim_length_offset : float = .01
@@ -25,7 +24,6 @@ func enter() -> void:
 func exit() -> void:
 	player.aiming_up = false
 	reset_bullet_spawn()
-	can_shoot = false
 	pass
 
 
@@ -72,11 +70,6 @@ func physics_process( _delta: float ) -> PlayerState:
 	if player.is_on_floor() == false:
 		return fall
 	return next_state
-
-
-func _on_animation_finished( _new_anim_name : String ) -> void:
-	can_shoot = true
-	pass
 
 
 func position_and_rotate_bullet_spawn() -> void:
