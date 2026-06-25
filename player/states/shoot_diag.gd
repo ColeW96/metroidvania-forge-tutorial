@@ -11,7 +11,6 @@ func init() -> void:
 func enter() -> void:
 	player.animation_player.play( "idle_shoot_diag" )
 	player.bullet_spawn.position.y = -50
-	#player.animation_player.animation_finished.connect( _animation_finished )
 	player.jump_count = 0
 	player.dash_count = 0
 	pass
@@ -19,7 +18,6 @@ func enter() -> void:
 
 # What happens when we exit this state?
 func exit() -> void:
-	#player.animation_player.animation_finished.disconnect( _animation_finished )
 	if player._cardinal_direction == Vector2.RIGHT:
 		player.bullet_spawn.position.x = player.bullet_spawn_pos.x
 	elif player._cardinal_direction == Vector2.LEFT:
@@ -75,8 +73,3 @@ func physics_process( _delta: float ) -> PlayerState:
 	if player.is_on_floor() == false:
 		return fall
 	return next_state
-
-
-func _animation_finished( _new_anim_name : String ) -> void:
-	player.change_state( idle )
-	pass
