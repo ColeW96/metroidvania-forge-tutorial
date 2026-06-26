@@ -106,7 +106,7 @@ func process( _delta: float ) -> PlayerState:
 
 # What happens each physics process tick in this state?
 func physics_process( _delta: float ) -> PlayerState:
-	if not player.top_check.is_colliding() and player.wall_check.is_colliding():
+	if player.can_grab_ledge():
 		player.ledge_floor_check.force_raycast_update()
 		if player.ledge_floor_check.is_colliding():
 			return ledge_grab

@@ -285,3 +285,11 @@ func can_morph() -> bool:
 	if morph_roll == false:
 		return false
 	return true
+
+
+func can_grab_ledge() -> bool:
+	top_check.force_raycast_update()
+	wall_check.force_raycast_update()
+	ledge_floor_check.force_raycast_update()
+	
+	return not top_check.is_colliding() and wall_check.is_colliding()
