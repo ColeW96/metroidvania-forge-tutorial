@@ -28,6 +28,7 @@ region = Rect2(16, 51, 16, 12)
 size = Vector2(16, 31)
 
 [node name="SpikeDummy" type="Node2D" unique_id=1457156033]
+z_index = 1
 script = ExtResource("1_04j1k")
 particles = Array[ExtResource("2_83dbo")]([ExtResource("3_crtwq"), ExtResource("4_ueigs")])
 base_wobble_angle = 9.0

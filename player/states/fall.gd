@@ -8,6 +8,7 @@ const LAND = preload("uid://bkueq2alnhrv2")
 
 var coyote_timer : float = 0.0
 var buffer_timer : float = 0.0
+var prev_anim : String = ""
 
 @onready var bullet_spawn: Node2D = $"../../BulletSpawn"
 
@@ -22,10 +23,12 @@ func enter() -> void:
 	player.bullet_spawn.position.y = -30
 	if player.animation_player.current_animation == "jump_shoot":
 		player.animation_player.play("jump_shoot")
+		_set_previous_anim_name( player.animation_player.current_animation )
 		set_jump_frame()
 		player.animation_player.pause()
 	else:
 		player.animation_player.play( "jump" )
+		_set_previous_anim_name( player.animation_player.current_animation )
 	player.animation_player.pause()
 	player.gravity_multiplier = fall_gravity_multiplier
 	
@@ -69,6 +72,7 @@ func handle_input( _event : InputEvent ) -> PlayerState:
 	if _event.is_action_pressed("shoot"):
 		if player.animation_player.current_animation != "jump_shoot":
 			player.animation_player.play("jump_shoot")
+			_set_previous_anim_name( player.animation_player.current_animation )
 			player.animation_player.pause()
 			set_jump_frame()
 		player.spawn_bullet()
@@ -102,12 +106,19 @@ func process( _delta: float ) -> PlayerState:
 
 # What happens each physics process tick in this state?
 func physics_process( _delta: float ) -> PlayerState:
+	if not player.top_check.is_colliding() and player.wall_check.is_colliding():
+		player.ledge_floor_check.force_raycast_update()
+		if player.ledge_floor_check.is_colliding():
+			return ledge_grab
+	
 	if player.is_on_floor():
 		VisualEffects.land_dust( player.global_position )
 		Audio.play_spatial_sound(LAND, player.global_position, false, true, 0.5)
 		if buffer_timer > 0:
 			player.jump_count = 0
 			return jump
+		if prev_anim == "jump_shoot":
+			return idle_shoot
 		return idle
 	player.velocity.x = player.direction.x * player.move_speed
 	return next_state
@@ -116,4 +127,9 @@ func physics_process( _delta: float ) -> PlayerState:
 func set_jump_frame() -> void:
 	var frame : float = remap( player.velocity.y, 0.0, player.max_fall_velocity, 0.5, 1.0 )
 	player.animation_player.seek( frame, true )
+	pass
+
+
+func _set_previous_anim_name( anim_name : String ) -> void:
+	prev_anim = anim_name
 	pass

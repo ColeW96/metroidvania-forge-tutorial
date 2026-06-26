@@ -22,6 +22,7 @@ var next_state : PlayerState
 @onready var ball: PlayerStateBall = %Ball
 @onready var crouch_attack: PlayerStateCrouchAttack = %CrouchAttack
 @onready var shoot_diag: PlayerStateShootDiag = %Shoot_diag
+@onready var ledge_grab: PlayerStateLedgeGrab = %LedgeGrab
 #endregion
 
 
