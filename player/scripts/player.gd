@@ -22,6 +22,10 @@ signal damage_taken
 @onready var attack_sprite = %AttackSprite2D
 @onready var crouch_attack_sprite: Sprite2D = %CrouchAttackSprite
 @onready var damage_area: DamageArea = %DamageArea
+@onready var top_check: RayCast2D = %TopCheck
+@onready var wall_check: RayCast2D = %WallCheck
+@onready var ledge_floor_check: RayCast2D = %LedgeFloorCheck
+@onready var ledge_grab_point: Marker2D = %LedgeGrabPoint
 #endregion
 
 
@@ -65,7 +69,10 @@ var _cardinal_direction : Vector2 = Vector2.RIGHT
 var gravity : float = 980.0
 var gravity_multiplier : float = 1.0
 var bullet_spawn_pos : Vector2
+var ledge_check_pos : Vector2
+var ledge_grab_pos : Vector2
 var aiming_up : bool = false
+var grabbing_ledge : bool = false
 #endregion
 
 
@@ -75,6 +82,8 @@ func _ready() -> void:
 	initialize_states()
 	self.call_deferred( "reparent", get_tree().root )
 	bullet_spawn_pos = bullet_spawn.position
+	ledge_check_pos = ledge_floor_check.position
+	ledge_grab_pos = ledge_grab_point.position
 	Messages.player_healed.connect( _on_player_healed )
 	Messages.back_to_title_screen.connect( queue_free )
 	damage_area.damage_taken.connect( _on_damage_taken )
@@ -173,6 +182,9 @@ func change_state( new_state : PlayerState ) -> void:
 
 
 func update_direction() -> void:
+	if grabbing_ledge:
+		return
+	
 	var prev_direction : Vector2 = direction
 	
 	var x_axis = Input.get_axis( "left", "right")
@@ -180,9 +192,14 @@ func update_direction() -> void:
 	direction = Vector2( x_axis, y_axis )
 	
 	if prev_direction.x != direction.x:
+			
 		attack_area.flip(direction.x)
 		if direction.x < 0:
 			sprite.flip_h = true
+			top_check.scale.x = -1
+			wall_check.scale.x = -1
+			ledge_floor_check.position.x = -ledge_check_pos.x
+			ledge_grab_point.position.x = -ledge_grab_pos.x
 			_cardinal_direction = Vector2.LEFT
 			bullet_spawn.position.x = -bullet_spawn_pos.x
 			attack_sprite.flip_h = true
@@ -191,8 +208,12 @@ func update_direction() -> void:
 			crouch_attack_sprite.position.x = -20
 		elif direction.x > 0:
 			sprite.flip_h = false
+			top_check.scale.x = 1
+			wall_check.scale.x = 1
 			_cardinal_direction = Vector2.RIGHT
 			bullet_spawn.position.x = bullet_spawn_pos.x
+			ledge_floor_check.position.x = ledge_check_pos.x
+			ledge_grab_point.position.x = ledge_grab_pos.x
 			attack_sprite.flip_h = false
 			crouch_attack_sprite.flip_h = false
 			attack_sprite.position.x = 19

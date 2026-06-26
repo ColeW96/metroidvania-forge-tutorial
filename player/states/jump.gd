@@ -6,6 +6,7 @@ const JUMP = preload("uid://b7y7gfqr173i5")
 
 @onready var bullet_spawn: Node2D = $"../../BulletSpawn"
 
+
 # What happens when this is initialized?
 func init() -> void:
 	pass
@@ -76,6 +77,12 @@ func process( _delta: float ) -> PlayerState:
 
 # What happens each physics process tick in this state?
 func physics_process( _delta: float ) -> PlayerState:
+	if not player.top_check.is_colliding() and player.wall_check.is_colliding():
+		
+		player.ledge_floor_check.force_raycast_update()
+		if player.ledge_floor_check.is_colliding():
+			return ledge_grab
+	
 	if player.is_on_floor():
 		return idle
 	elif player.velocity.y >= 0:

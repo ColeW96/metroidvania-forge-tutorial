@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://c30j5ysbdc3yt" path="res://player/sprites/input_icons.png" id="18_e7oew"]
 [ext_resource type="Script" uid="uid://b7abfvhp7l3j4" path="res://player/states/death.gd" id="18_uw77l"]
 [ext_resource type="Script" uid="uid://ciw5vme7xn42r" path="res://player/states/dash.gd" id="19_b8hi5"]
+[ext_resource type="Script" uid="uid://b48x3jrrgawwi" path="res://player/states/ledge_grab.gd" id="19_r7pn3"]
 [ext_resource type="Script" uid="uid://daprjmpot7rpn" path="res://player/states/ground_slam.gd" id="20_1s1yo"]
 [ext_resource type="Script" uid="uid://pnb17ah0t86b" path="res://player/states/ball.gd" id="21_5ejfk"]
 [ext_resource type="Script" uid="uid://vt684ogx76fc" path="res://general/scripts/attack_area.gd" id="21_x7c3f"]
@@ -470,7 +471,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.90000004, 1, 1.1, 1.2, 1.3000001),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89]
+"values": [76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 90]
 }
 
 [sub_resource type="Animation" id="Animation_1s1yo"]
@@ -584,6 +585,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [53, 54, 55, 56, 57]
+}
+
+[sub_resource type="Animation" id="Animation_r7pn3"]
+resource_name = "ledge_grab"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [89]
 }
 
 [sub_resource type="Animation" id="Animation_jd2rm"]
@@ -743,6 +760,7 @@ _data = {
 &"idle_shoot_up": SubResource("Animation_e7oew"),
 &"jump": SubResource("Animation_8t03j"),
 &"jump_shoot": SubResource("Animation_kb6p2"),
+&"ledge_grab": SubResource("Animation_r7pn3"),
 &"morph_in": SubResource("Animation_jd2rm"),
 &"run": SubResource("Animation_hg6s5"),
 &"run_shoot": SubResource("Animation_wodsf"),
@@ -857,6 +875,10 @@ script = ExtResource("22_ge24q")
 unique_name_in_owner = true
 script = ExtResource("23_5ejfk")
 
+[node name="LedgeGrab" type="Node" parent="States" unique_id=1405636786]
+unique_name_in_owner = true
+script = ExtResource("19_r7pn3")
+
 [node name="BulletSpawn" type="Node2D" parent="." unique_id=765495843]
 z_index = 4
 position = Vector2(17, -27)
@@ -895,6 +917,7 @@ shape = SubResource("CapsuleShape2D_boad6")
 debug_color = Color(0, 0.6, 0.69803923, 0.25490198)
 
 [node name="CollisionCrouch" type="CollisionShape2D" parent="." unique_id=1200341302]
+visible = false
 position = Vector2(0, -15)
 shape = SubResource("CapsuleShape2D_rgyib")
 disabled = true
@@ -958,6 +981,7 @@ frame = 16
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=1309984596]
 unique_name_in_owner = true
+visible = false
 position = Vector2(0, -23)
 collision_layer = 0
 collision_mask = 96
@@ -1023,3 +1047,26 @@ exclude_parent = false
 target_position = Vector2(0, 6)
 collision_mask = 3
 hit_from_inside = true
+
+[node name="TopCheck" type="RayCast2D" parent="." unique_id=3836025]
+unique_name_in_owner = true
+position = Vector2(0, -40)
+target_position = Vector2(9, 0)
+hit_from_inside = true
+
+[node name="WallCheck" type="RayCast2D" parent="." unique_id=451402241]
+unique_name_in_owner = true
+position = Vector2(0, -32)
+target_position = Vector2(9, 0)
+hit_from_inside = true
+
+[node name="LedgeFloorCheck" type="RayCast2D" parent="." unique_id=1957794]
+unique_name_in_owner = true
+position = Vector2(9, -42)
+enabled = false
+target_position = Vector2(0, 6)
+hit_from_inside = true
+
+[node name="LedgeGrabPoint" type="Marker2D" parent="." unique_id=914588638]
+unique_name_in_owner = true
+position = Vector2(13, -36)

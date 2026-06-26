@@ -516,12 +516,12 @@ tile_map_data = PackedByteArray("AAABAAgAAAACAAgAAAACAAgAAAADAAgAAAADAAgAAAAEAAg
 tile_set = ExtResource("1_3dgrd")
 
 [node name="PlayerSpawn" parent="." unique_id=2070126017 instance=ExtResource("3_jltr3")]
-position = Vector2(561, 120)
+position = Vector2(178.96506, 142.2175)
 
 [node name="props" type="Node2D" parent="." unique_id=1678461622]
 
 [node name="SpikeDummy" parent="props" unique_id=153338998 instance=ExtResource("10_vyqrg")]
-position = Vector2(357, 124)
+position = Vector2(343, 124)
 
 [node name="SpikeDummy2" parent="props" unique_id=1899371596 instance=ExtResource("10_vyqrg")]
 position = Vector2(726, 124)
