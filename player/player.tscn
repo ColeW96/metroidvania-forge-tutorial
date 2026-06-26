@@ -1050,19 +1050,18 @@ hit_from_inside = true
 
 [node name="TopCheck" type="RayCast2D" parent="." unique_id=3836025]
 unique_name_in_owner = true
-position = Vector2(0, -40)
-target_position = Vector2(9, 0)
+position = Vector2(0, -42)
+target_position = Vector2(10, 0)
 hit_from_inside = true
 
-[node name="WallCheck" type="RayCast2D" parent="." unique_id=451402241]
+[node name="WallCheck" type="RayCast2D" parent="." unique_id=1976333966]
 unique_name_in_owner = true
-position = Vector2(0, -32)
-target_position = Vector2(9, 0)
-hit_from_inside = true
+position = Vector2(0, -34)
+target_position = Vector2(10, 0)
 
 [node name="LedgeFloorCheck" type="RayCast2D" parent="." unique_id=1957794]
 unique_name_in_owner = true
-position = Vector2(9, -42)
+position = Vector2(10, -42)
 enabled = false
 target_position = Vector2(0, 6)
 hit_from_inside = true
