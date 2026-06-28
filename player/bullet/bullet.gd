@@ -48,6 +48,5 @@ func _on_damage_done( result : bool ) -> void:
 func _on_body_entered( node : Node2D ) -> void:
 	if node.get_parent() is Breakable:
 		return
-	elif node is TileMapLayer:
-		queue_free()
+	queue_free()
 	pass
