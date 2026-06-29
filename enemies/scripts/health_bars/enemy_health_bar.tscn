@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://owlkrmexwpwt"]
+
+[ext_resource type="Script" uid="uid://clk48qpknrlhu" path="res://enemies/scripts/health_bars/enemy_health_bar.gd" id="1_8xtwn"]
+[ext_resource type="Texture2D" uid="uid://d13lyngrdnpef" path="res://enemies/scripts/health_bars/enemy_health_frame.png" id="2_3hk5h"]
+
+[sub_resource type="Gradient" id="Gradient_p3j8y"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vpnvx"]
+gradient = SubResource("Gradient_p3j8y")
+height = 16
+
+[sub_resource type="Gradient" id="Gradient_hv14i"]
+colors = PackedColorArray(0.8627451, 0.34117648, 0.34117648, 1, 0.9073196, 0.4715608, 0.4715608, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7lkcl"]
+gradient = SubResource("Gradient_hv14i")
+
+[node name="EnemyHealthBar" type="Control" unique_id=22853855]
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 20.0
+script = ExtResource("1_8xtwn")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1642799870]
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+texture = ExtResource("2_3hk5h")
+region_rect = Rect2(0, 0, 40, 20)
+axis_stretch_horizontal = 1
+
+[node name="HPBar" type="TextureProgressBar" parent="NinePatchRect" unique_id=1384908338]
+unique_name_in_owner = true
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 6.0
+offset_right = -3.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 50.0
+rounded = true
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture2D_vpnvx")
+texture_progress = SubResource("GradientTexture2D_7lkcl")

@@ -21,6 +21,7 @@ var sprite : Sprite2D
 var animation : AnimationPlayer
 var damage_area : DamageArea
 var hazard_area : HazardArea
+var enemy_health_bar : EnemyHealthBar
 
 var state_machine : EnemyStateMachine
 var decision_engine : DecisionEngine
@@ -53,6 +54,8 @@ func setup() -> void:
 			state_machine = c
 		elif c is DecisionEngine and not decision_engine:
 			decision_engine = c
+		elif c is EnemyHealthBar and not enemy_health_bar:
+			enemy_health_bar = c
 		pass
 	
 	if state_machine and decision_engine:
@@ -98,9 +101,12 @@ func play_animation( anim_name : String ) -> void:
 
 ## Handle taking damage here as central hub
 func _on_damage_taken( a : AttackArea ) -> void:
+	enemy_health_bar.show_health_bar()
 	blackboard.damage_source = a
 	blackboard.health -= a.damage
+	enemy_health_bar.update_health_bar( blackboard.health, health )
 	if blackboard.health <= 0:
+		enemy_health_bar.queue_free()
 		damage_area.queue_free()
 		hazard_area.queue_free()
 		was_killed.emit()
@@ -124,6 +130,8 @@ func _get_configuration_warnings() -> PackedStringArray:
 		warnings.append( "Requires an EnemyStateMachine node" )
 	if not find_children( "*", "DecisionEngine", false ):
 		warnings.append( "Requires a DecisionEngine node" )
+	if not find_children( "*", "EnemyHealthBar", false ):
+		warnings.append( "Requires an EnemyHealthBar" )
 	
 	return warnings
 

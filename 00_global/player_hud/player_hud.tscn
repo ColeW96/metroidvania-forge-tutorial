@@ -4,18 +4,18 @@
 [ext_resource type="Script" uid="uid://dfpvq1dh032wi" path="res://00_global/player_hud/player_hud.gd" id="1_vb1bs"]
 [ext_resource type="Resource" uid="uid://dtpr26uvpykkx" path="res://00_global/visual_effects/hit_particle_settings/hit_magic_blue.tres" id="3_26715"]
 
-[sub_resource type="Gradient" id="Gradient_p3j8y"]
+[sub_resource type="Gradient" id="Gradient_26715"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_hv14i"]
-gradient = SubResource("Gradient_p3j8y")
+gradient = SubResource("Gradient_26715")
 height = 16
 
-[sub_resource type="Gradient" id="Gradient_hv14i"]
+[sub_resource type="Gradient" id="Gradient_tdgrf"]
 colors = PackedColorArray(0.8627451, 0.34117648, 0.34117648, 1, 0.9073196, 0.4715608, 0.4715608, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_vb1bs"]
-gradient = SubResource("Gradient_hv14i")
+gradient = SubResource("Gradient_tdgrf")
 
 [sub_resource type="GDScript" id="GDScript_vb1bs"]
 script/source = "extends Button
