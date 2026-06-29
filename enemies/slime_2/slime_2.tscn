@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://brc344c2o0cfo" path="res://00_global/visual_effects/hit_particle_settings.gd" id="15_dq0sk"]
 [ext_resource type="Script" uid="uid://cdqw3u4u16lgo" path="res://general/scripts/loot_dropper.gd" id="16_uucha"]
 [ext_resource type="Script" uid="uid://bfkq1vksotjux" path="res://general/scripts/loot_data.gd" id="17_qpicr"]
+[ext_resource type="PackedScene" uid="uid://owlkrmexwpwt" path="res://enemies/scripts/health_bars/enemy_health_bar.tscn" id="18_vpnvx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ptp6l"]
 radius = 8.0
@@ -264,3 +265,10 @@ position = Vector2(0, -12)
 script = ExtResource("16_uucha")
 items = Array[ExtResource("17_qpicr")]([SubResource("Resource_7lkcl")])
 metadata/_custom_type_script = "uid://cdqw3u4u16lgo"
+
+[node name="EnemyHealthBar" parent="." unique_id=22853855 instance=ExtResource("18_vpnvx")]
+unique_name_in_owner = true
+offset_left = -20.0
+offset_top = -36.0
+offset_right = 20.0
+offset_bottom = -16.0
