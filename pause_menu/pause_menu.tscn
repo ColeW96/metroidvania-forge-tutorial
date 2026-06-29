@@ -59,6 +59,10 @@ _data = {
 &"default": SubResource("Animation_rd7dy")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_cux0y"]
+atlas = ExtResource("3_uwtdo")
+region = Rect2(64, 160, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_b4s0c"]
 atlas = ExtResource("3_uwtdo")
 region = Rect2(96, 32, 32, 32)
@@ -301,6 +305,12 @@ offset_top = 28.0
 offset_right = 51.0
 offset_bottom = 168.0
 script = ExtResource("3_b4s0c")
+
+[node name="AbilityLedgeGrab" type="TextureRect" parent="Control/PauseScreen/AbilitiesList" unique_id=661279284]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("AtlasTexture_cux0y")
+stretch_mode = 3
 
 [node name="AbilityDoubleJump" type="TextureRect" parent="Control/PauseScreen/AbilitiesList" unique_id=1376567263]
 unique_name_in_owner = true

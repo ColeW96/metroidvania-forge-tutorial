@@ -495,6 +495,11 @@ z_as_relative = false
 position = Vector2(176, 546)
 type = 3
 
+[node name="AbilityPickup5" parent="." unique_id=1417669168 instance=ExtResource("1_qb88o")]
+z_as_relative = false
+position = Vector2(180, 1223)
+type = 4
+
 [node name="LevelBounds" type="Node2D" parent="." unique_id=2037509971]
 z_index = 256
 position = Vector2(5, -187)

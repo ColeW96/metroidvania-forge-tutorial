@@ -2,7 +2,7 @@
 @icon( "res://general/icons/ability_pickup.svg" )
 class_name AbilityPickup extends Node2D
 
-enum Type { DOUBLE_JUMP, DASH, GROUND_SLAM, MORPH_ROLL }
+enum Type { DOUBLE_JUMP, DASH, GROUND_SLAM, MORPH_ROLL, LEDGE_GRAB }
 @export var type : Type = Type.DOUBLE_JUMP :
 	set( value ):
 		type = value
@@ -59,6 +59,8 @@ func _reward_ability() -> void:
 			player.ground_slam = true
 		Type.MORPH_ROLL:
 			player.morph_roll = true
+		Type.LEDGE_GRAB:
+			player.ledge_grab = true
 	pass
 
 
@@ -79,6 +81,8 @@ func get_ability_name() -> String:
 			return "ground_slam"
 		Type.MORPH_ROLL:
 			return "morph_roll"
+		Type.LEDGE_GRAB:
+			return "ledge_grab"
 	return ""
 
 
