@@ -60,6 +60,7 @@ var double_jump : bool = false
 var jump_count : int = 0
 var ground_slam : bool = false
 var morph_roll : bool = false
+var ledge_grab : bool = false
 #endregion
 
 
@@ -120,6 +121,7 @@ func _unhandled_input( event: InputEvent ) -> void:
 				double_jump = !double_jump
 				ground_slam = !ground_slam
 				morph_roll = !morph_roll
+				ledge_grab = !ledge_grab
 	# end DEBUG
 	
 	change_state( current_state.handle_input( event ) )
@@ -288,6 +290,9 @@ func can_morph() -> bool:
 
 
 func can_grab_ledge() -> bool:
+	if ledge_grab == false:
+		return false
+	
 	top_check.force_raycast_update()
 	wall_check.force_raycast_update()
 	ledge_floor_check.force_raycast_update()

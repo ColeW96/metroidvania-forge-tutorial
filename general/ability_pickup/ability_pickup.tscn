@@ -77,6 +77,24 @@ tracks/0/keys = {
 "values": [10, 11, 12, 13, 14]
 }
 
+[sub_resource type="Animation" id="Animation_fvhao"]
+resource_name = "ledge_grab"
+length = 0.5
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AbilitySprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [25, 26, 27, 28, 29]
+}
+
 [sub_resource type="Animation" id="Animation_wvp8x"]
 resource_name = "morph_roll"
 length = 0.5
@@ -101,11 +119,9 @@ _data = {
 &"dash": SubResource("Animation_xxigd"),
 &"double_jump": SubResource("Animation_q7t65"),
 &"ground_slam": SubResource("Animation_dxffq"),
+&"ledge_grab": SubResource("Animation_fvhao"),
 &"morph_roll": SubResource("Animation_wvp8x")
 }
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1ggl3"]
-load_path = "res://.godot/imported/abilities.png-63196a83fde4f4f8174494127ae437fd.ctex"
 
 [sub_resource type="Animation" id="Animation_ugn6l"]
 length = 0.001
@@ -240,7 +256,7 @@ script = ExtResource("1_xxigd")
 unique_name_in_owner = true
 texture = ExtResource("1_yyg7i")
 hframes = 5
-vframes = 5
+vframes = 6
 
 [node name="AbilityAnim" type="AnimationPlayer" parent="AbilitySprite" unique_id=1270702697]
 unique_name_in_owner = true
@@ -250,9 +266,9 @@ autoplay = &"dash"
 
 [node name="OrbSprite" type="Sprite2D" parent="." unique_id=158454055]
 unique_name_in_owner = true
-texture = SubResource("CompressedTexture2D_1ggl3")
+texture = ExtResource("1_yyg7i")
 hframes = 5
-vframes = 5
+vframes = 6
 frame = 20
 
 [node name="OrbAnim" type="AnimationPlayer" parent="OrbSprite" unique_id=1473169228]
