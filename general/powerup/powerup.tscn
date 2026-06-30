@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://wdmyqu8yln5j"]
+
+[ext_resource type="Script" uid="uid://ckj5a7l1evgpa" path="res://general/powerup/powerup.gd" id="1_nh1rk"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_srsfc"]
+load_path = "res://.godot/imported/health_powerup.png-97031f429931c5335019a82184ceba08.ctex"
+
+[sub_resource type="Animation" id="Animation_nh1rk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PowerupSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PowerupSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hrg6l"]
+resource_name = "health_powerup"
+length = 1.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PowerupSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9999999, 1.05, 1.1, 1.15, 1.2, 1.25, 1.3000001, 1.35, 1.4, 1.45, 1.5, 1.55),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PowerupSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -2), Vector2(0, 0), Vector2(0, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nn186"]
+_data = {
+&"RESET": SubResource("Animation_nh1rk"),
+&"health_powerup": SubResource("Animation_hrg6l")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hrg6l"]
+
+[node name="Powerup" type="Node2D" unique_id=165981682]
+script = ExtResource("1_nh1rk")
+
+[node name="PowerupSprite" type="Sprite2D" parent="." unique_id=1601222932]
+texture = SubResource("CompressedTexture2D_srsfc")
+hframes = 6
+vframes = 2
+
+[node name="PowerupAnim" type="AnimationPlayer" parent="PowerupSprite" unique_id=1870431353]
+unique_name_in_owner = true
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_nn186")
+autoplay = &"health_powerup"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2118701262]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1675820985]
+shape = SubResource("CircleShape2D_hrg6l")
+debug_color = Color(0, 0.6, 0.69803923, 0.023529412)

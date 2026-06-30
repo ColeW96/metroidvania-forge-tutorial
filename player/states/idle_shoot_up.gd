@@ -38,10 +38,6 @@ func handle_input( _event : InputEvent ) -> PlayerState:
 		return null
 	
 	if _event.is_action_pressed( "jump" ):
-		player.one_way_platform_shapecast.force_shapecast_update()
-		if player.one_way_platform_shapecast.is_colliding():
-			player.position.y += 4
-			return fall
 		return jump
 	
 	if _event.is_action_pressed("morph") and player.can_morph():
