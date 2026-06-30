@@ -341,6 +341,7 @@ metadata/_custom_type_script = "uid://d1khwsiclmu4j"
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("19_qh6hf")
+damage = 5.0
 metadata/_custom_type_script = "uid://vt684ogx76fc"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=510711833]

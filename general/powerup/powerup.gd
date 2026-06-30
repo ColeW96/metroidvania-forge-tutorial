@@ -1,6 +1,8 @@
 @tool
 class_name Powerup extends Node2D
 
+const HEALTH_UP_AUDIO = preload("uid://c40kvmm7j4x3h")
+
 enum Type { HEALTH }
 
 @export var amount : float = 10
@@ -29,10 +31,13 @@ func _ready() -> void:
 
 func _on_body_entered( n : Node2D ) -> void:
 	SaveManager.persistent_data[ _get_path() ] = "acquired"
+	var audio : AudioStream
 	match type:
 		Type.HEALTH:
 			n.max_hp += amount
 			n.hp = n.max_hp
+			audio = HEALTH_UP_AUDIO
+	Audio.play_spatial_sound( audio, n.global_position )
 	area_2d.body_entered.disconnect( _on_body_entered )
 	queue_free()
 	pass

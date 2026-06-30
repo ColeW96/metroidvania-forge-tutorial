@@ -26,6 +26,7 @@ func _ready() -> void:
 		body_entered.connect( _on_body_entered )
 		body_exited.connect( _on_body_exited )
 		enemy.direction_changed.connect( _on_direction_changed )
+	Messages.player_died.connect( _on_player_died )
 	pass
 
 
@@ -35,6 +36,9 @@ func _physics_process(delta: float) -> void:
 		if timer <= 0:
 			player_exited.emit()
 			enemy.blackboard.target = null
+	#if enemy.blackboard.target:
+		#if enemy.blackboard.target.hp <= 0:
+			#enemy.blackboard.target = null
 	pass
 
 
@@ -68,3 +72,10 @@ func _on_player_sound( pos : Vector2, volume : float ) -> void:
 		timer = search_duration
 		enemy.blackboard.target = get_tree().get_first_node_in_group("Player")
 	pass
+
+
+func _on_player_died() -> void:
+	player_exited.emit()
+	enemy.blackboard.target = null
+	Messages.player_died.disconnect( _on_player_died )
+	queue_free()
