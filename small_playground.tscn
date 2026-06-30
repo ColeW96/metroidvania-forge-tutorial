@@ -628,5 +628,10 @@ process_mode = 4
 position = Vector2(654, 28)
 face_left_on_start = true
 
-[node name="Powerup" parent="." unique_id=165981682 instance=ExtResource("24_2sldr")]
+[node name="Powerups" type="Node2D" parent="." unique_id=8803831]
+
+[node name="Powerup" parent="Powerups" unique_id=165981682 instance=ExtResource("24_2sldr")]
 position = Vector2(184, 142)
+
+[node name="Powerup2" parent="Powerups" unique_id=579419453 instance=ExtResource("24_2sldr")]
+position = Vector2(806, -117)
