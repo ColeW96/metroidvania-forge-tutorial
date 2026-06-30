@@ -25,14 +25,14 @@ func enter() -> void:
 	if player.jump_count == 0:
 		player.jump_count = 1
 	
-	var prev : PlayerState = player.previous_state
-	if prev == jump_shoot or prev == attack or prev == dash:
-		coyote_timer = 0
-	elif prev == crouch:
-		coyote_timer = 0
-		player.jump_count = 1
-	else:
-		coyote_timer = coyote_time
+	#var prev : PlayerState = player.previous_state
+	#if prev == jump_shoot or prev == attack or prev == dash:
+		#coyote_timer = 0
+	#elif prev == crouch:
+		#coyote_timer = 0
+		#player.jump_count = 1
+	#else:
+		#coyote_timer = coyote_time
 	pass
 
 
@@ -56,14 +56,14 @@ func handle_input( _event : InputEvent ) -> PlayerState:
 		if player.ground_slam and Input.is_action_pressed("down"):
 			return ground_slam
 		return attack
-	if _event.is_action_pressed( "jump" ):
-		if coyote_timer > 0:
-			player.jump_count = 0
-			return jump_shoot
-		elif player.jump_count <= 1 and player.double_jump:
-			return jump_shoot
-		else:
-			buffer_timer = jump_buffer_time
+	#if _event.is_action_pressed( "jump" ):
+		#if coyote_timer > 0:
+			#player.jump_count = 0
+			#return jump_shoot
+		#elif player.jump_count <= 1 and player.double_jump:
+			#return jump_shoot
+		#else:
+			#buffer_timer = jump_buffer_time
 	if _event.is_action_pressed("morph") and player.can_morph():
 		return ball
 	return next_state
@@ -90,8 +90,8 @@ func physics_process( _delta: float ) -> PlayerState:
 	if player.is_on_floor():
 		VisualEffects.land_dust( player.global_position )
 		Audio.play_spatial_sound(LAND, player.global_position, false, true, 0.5)
-		if buffer_timer > 0:
-			return jump_shoot
+		#if buffer_timer > 0:
+			#return jump_shoot
 		return idle_shoot
 	player.velocity.x = player.direction.x * player.move_speed
 	return next_state

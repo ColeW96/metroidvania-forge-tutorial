@@ -23,6 +23,7 @@
 [ext_resource type="Script" uid="uid://dnb4iextr4r2g" path="res://general/scripts/patrol_limit.gd" id="19_wtccc"]
 [ext_resource type="PackedScene" uid="uid://b8tbf6ebtoi83" path="res://enemies/demonic_chest/demonic_chest.tscn" id="20_1g47y"]
 [ext_resource type="PackedScene" uid="uid://dkyap82b10vdy" path="res://enemies/doom_scribe/doom_scribe.tscn" id="21_4s7xr"]
+[ext_resource type="PackedScene" uid="uid://wdmyqu8yln5j" path="res://general/powerup/powerup.tscn" id="24_2sldr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0jtl8"]
 atlas = ExtResource("11_4s7xr")
@@ -626,3 +627,6 @@ health = 4.0
 process_mode = 4
 position = Vector2(654, 28)
 face_left_on_start = true
+
+[node name="Powerup" parent="." unique_id=165981682 instance=ExtResource("24_2sldr")]
+position = Vector2(184, 142)

@@ -23,10 +23,10 @@ func enter() -> void:
 	
 	# check if this is a buffer jump
 	# if it is, handle jump button release condition retroactively
-	if player.previous_state == fall_shoot and not Input.is_action_pressed("jump"):
-		await get_tree().physics_frame
-		player.velocity.y *= 0.5
-		player.change_state( fall_shoot )
+	#if player.previous_state == fall_shoot and not Input.is_action_pressed("jump"):
+		#await get_tree().physics_frame
+		#player.velocity.y *= 0.5
+		#player.change_state( fall_shoot )
 	pass
 
 
@@ -48,9 +48,9 @@ func handle_input( event : InputEvent ) -> PlayerState:
 		if player.ground_slam and Input.is_action_pressed("down"):
 			return ground_slam
 		return attack
-	if event.is_action_released("jump"):
-		#player.velocity.y *= 0.5
-		return fall_shoot
+	#if event.is_action_released("jump"):
+		##player.velocity.y *= 0.5
+		#return fall_shoot
 	if event.is_action_pressed("morph") and player.can_morph():
 		return ball
 	return next_state
@@ -74,8 +74,8 @@ func process( _delta: float ) -> PlayerState:
 func physics_process( _delta: float ) -> PlayerState:
 	if player.is_on_floor():
 		return idle
-	elif player.velocity.y >= 0:
-		return fall_shoot
+	#elif player.velocity.y >= 0:
+		#return fall_shoot
 	player.velocity.x = player.direction.x * player.move_speed
 	return next_state
 

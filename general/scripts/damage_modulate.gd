@@ -15,7 +15,13 @@ func _ready() -> void:
 func _modulate_node( _a : AttackArea ) -> void:
 	if tween:
 		tween.kill()
-	owner.modulate = color
+	var sprite : Sprite2D = null
+	for c in owner.get_children():
+		if c is Sprite2D:
+			sprite = c
+			break
+	sprite.modulate = color
+	#owner.modulate = color
 	tween = create_tween()
-	tween.tween_property( owner, "modulate", Color.WHITE, 0.2 )
+	tween.tween_property( sprite, "modulate", Color.WHITE, 0.2 )
 	pass

@@ -1,5 +1,7 @@
 class_name PlayerStateIdle extends PlayerState
 
+var timer : float = 0.0
+
 
 # What happens when this is initialized?
 func init() -> void:
@@ -8,6 +10,7 @@ func init() -> void:
 
 # What happens when we enter this state?
 func enter() -> void:
+	timer = 3.0
 	player.animation_player.play( "idle" )
 	player.jump_count = 0
 	player.dash_count = 0
@@ -44,6 +47,9 @@ func process( _delta: float ) -> PlayerState:
 		return crouch
 	elif player.direction.y < -0.5:
 		return idle_shoot_up
+	timer -= _delta
+	if timer <= 0:
+		player.animation_player.play("idle_2")
 	return next_state
 
 
