@@ -2,6 +2,18 @@
 
 [ext_resource type="Script" uid="uid://ckj5a7l1evgpa" path="res://general/powerup/powerup.gd" id="1_nh1rk"]
 
+[sub_resource type="Gradient" id="Gradient_srsfc"]
+offsets = PackedFloat32Array(0.9507772, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nh1rk"]
+gradient = SubResource("Gradient_srsfc")
+width = 32
+height = 32
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_srsfc"]
 load_path = "res://.godot/imported/health_powerup.png-97031f429931c5335019a82184ceba08.ctex"
 
@@ -72,6 +84,14 @@ _data = {
 
 [node name="Powerup" type="Node2D" unique_id=165981682]
 script = ExtResource("1_nh1rk")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1820189781]
+unique_name_in_owner = true
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = SubResource("GradientTexture2D_nh1rk")
 
 [node name="PowerupSprite" type="Sprite2D" parent="." unique_id=1601222932]
 texture = SubResource("CompressedTexture2D_srsfc")

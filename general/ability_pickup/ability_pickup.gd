@@ -14,7 +14,7 @@ var tween : Tween
 @onready var orb_anim: AnimationPlayer = %OrbAnim
 @onready var breakable: Breakable = $Breakable
 @onready var orb_sprite: Sprite2D = %OrbSprite
-
+@onready var texture_rect: TextureRect = %TextureRect
 
 
 func _ready() -> void:
@@ -27,6 +27,7 @@ func _ready() -> void:
 		queue_free()
 		return
 	
+	texture_rect.queue_free()
 	breakable.destroyed.connect( _on_destroyed )
 	breakable.damage_taken.connect( _on_damage_taken )
 	pass

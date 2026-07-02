@@ -8,6 +8,18 @@
 [ext_resource type="Script" uid="uid://brc344c2o0cfo" path="res://00_global/visual_effects/hit_particle_settings.gd" id="3_xxigd"]
 [ext_resource type="AudioStream" uid="uid://qhe42f28wqey" path="res://general/audio/ability_acquire.wav" id="4_xxigd"]
 
+[sub_resource type="Gradient" id="Gradient_srsfc"]
+offsets = PackedFloat32Array(0.9507772, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xxigd"]
+gradient = SubResource("Gradient_srsfc")
+width = 32
+height = 32
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
 [sub_resource type="Animation" id="Animation_1ggl3"]
 length = 0.001
 tracks/0/type = "value"
@@ -251,6 +263,14 @@ metadata/_custom_type_script = "uid://brc344c2o0cfo"
 [node name="AbilityPickup" type="Node2D" unique_id=1646825791]
 z_index = 1
 script = ExtResource("1_xxigd")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=521072928]
+unique_name_in_owner = true
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = SubResource("GradientTexture2D_xxigd")
 
 [node name="AbilitySprite" type="Sprite2D" parent="." unique_id=484514741]
 unique_name_in_owner = true
