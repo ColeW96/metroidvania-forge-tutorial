@@ -52,11 +52,11 @@ enabled=PackedStringArray("res://addons/nklbdev.aseprite_importers/plugin.cfg")
 [file_customization]
 
 folder_colors={
-"res://00_global/": "red",
+"res://00_global/": "yellow",
+"res://enemies/": "red",
 "res://general/": "blue",
 "res://levels/": "green",
-"res://player/": "purple",
-"res://script_templates/": "orange"
+"res://player/": "purple"
 }
 
 [global_group]

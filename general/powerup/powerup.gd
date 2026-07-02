@@ -13,7 +13,7 @@ enum Type { HEALTH }
 
 @onready var powerup_anim: AnimationPlayer = %PowerupAnim
 @onready var area_2d: Area2D = $Area2D
-
+@onready var texture_rect: TextureRect = %TextureRect
 
 func _ready() -> void:
 	_set_animation()
@@ -25,6 +25,7 @@ func _ready() -> void:
 		queue_free()
 		return
 	
+	texture_rect.queue_free()
 	area_2d.body_entered.connect( _on_body_entered )
 	pass
 
