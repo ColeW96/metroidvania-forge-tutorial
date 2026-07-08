@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://ja8lc0n3awhh" path="res://enemies/slime_2/slime_2.tscn" id="17_umtgv"]
 [ext_resource type="PackedScene" uid="uid://hanqvafhvg88" path="res://enemies/living_armor/living_armor.tscn" id="18_t70h8"]
 [ext_resource type="Script" uid="uid://dnb4iextr4r2g" path="res://general/scripts/patrol_limit.gd" id="19_wtccc"]
+[ext_resource type="PackedScene" uid="uid://dj5ayp15ys2v8" path="res://enemies/gargoyle_statue/gargoyle_statue.tscn" id="21_a64fv"]
 [ext_resource type="PackedScene" uid="uid://wdmyqu8yln5j" path="res://general/powerup/powerup.tscn" id="24_2sldr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0jtl8"]
@@ -614,6 +615,10 @@ position = Vector2(40, -12)
 script = ExtResource("19_wtccc")
 side = 2
 metadata/_custom_type_script = "uid://dnb4iextr4r2g"
+
+[node name="GargoyleStatue" parent="Enemies" unique_id=248900596 instance=ExtResource("21_a64fv")]
+position = Vector2(270, 125)
+face_left_on_start = true
 
 [node name="Powerups" type="Node2D" parent="." unique_id=8803831]
 

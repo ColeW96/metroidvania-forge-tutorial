@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://wcnyfva4ynir"]
+
+[ext_resource type="Script" uid="uid://ds3royo5j0fwo" path="res://general/projectiles/projectile.gd" id="1_krk3m"]
+[ext_resource type="AudioStream" uid="uid://c16kak02tuqxp" path="res://general/projectiles/Fireball/fire.wav" id="2_iqrif"]
+[ext_resource type="AudioStream" uid="uid://dry108i45i7fn" path="res://general/projectiles/Fireball/explode.wav" id="3_p4p11"]
+[ext_resource type="Texture2D" uid="uid://cw4m2slxt2nrj" path="res://general/projectiles/Fireball/fireball.png" id="4_c5eef"]
+[ext_resource type="Script" uid="uid://bvoy8p2v1ao7i" path="res://general/scripts/hazard_area.gd" id="5_cafiw"]
+[ext_resource type="Script" uid="uid://brcyuoolauc0k" path="res://general/scripts/light_flicker.gd" id="6_iqrif"]
+
+[sub_resource type="Animation" id="Animation_krk3m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_iqrif"]
+resource_name = "default"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_p4p11"]
+resource_name = "destroy"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [4, 5, 6, 7, 8, 9]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p4p11"]
+_data = {
+&"RESET": SubResource("Animation_krk3m"),
+&"default": SubResource("Animation_iqrif"),
+&"destroy": SubResource("Animation_p4p11")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_krk3m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iqrif"]
+
+[sub_resource type="Gradient" id="Gradient_krk3m"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_iqrif"]
+gradient = SubResource("Gradient_krk3m")
+width = 256
+height = 256
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="Fireball" type="CharacterBody2D" unique_id=2093208303]
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_krk3m")
+gravity_strength = 0.1
+spawn_audio = ExtResource("2_iqrif")
+destroy_audio = ExtResource("3_p4p11")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1406962794]
+texture = ExtResource("4_c5eef")
+hframes = 10
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1149718962]
+libraries/ = SubResource("AnimationLibrary_p4p11")
+autoplay = &"default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=781263680]
+shape = SubResource("CircleShape2D_krk3m")
+debug_color = Color(0, 0.6, 0.69803923, 0)
+
+[node name="HazardArea" type="Area2D" parent="." unique_id=523791303]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("5_cafiw")
+metadata/_custom_type_script = "uid://bvoy8p2v1ao7i"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea" unique_id=184762014]
+shape = SubResource("CircleShape2D_iqrif")
+debug_color = Color(0.7019608, 0, 0.003921569, 0)
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=464799442]
+texture = SubResource("GradientTexture2D_iqrif")
+script = ExtResource("6_iqrif")
+flicker_intensity = 0.2
+flicker_frequency = 0.1
