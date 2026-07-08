@@ -468,22 +468,22 @@ script = ExtResource("8_lj4o7")
 track = ExtResource("9_ns032")
 metadata/_custom_type_script = "uid://rwwuu7gvxywr"
 
-[node name="Node2D" type="Node2D" parent="." unique_id=1876149]
+[node name="Enemies" type="Node2D" parent="." unique_id=1876149]
 
-[node name="Slime2" parent="Node2D" unique_id=488761391 instance=ExtResource("10_ns032")]
+[node name="Slime2" parent="Enemies" unique_id=488761391 instance=ExtResource("10_ns032")]
 position = Vector2(278, 538)
 
-[node name="Slime3" parent="Node2D" unique_id=1900643461 instance=ExtResource("10_ns032")]
+[node name="Slime3" parent="Enemies" unique_id=1900643461 instance=ExtResource("10_ns032")]
 position = Vector2(308, 797)
 
-[node name="Slime4" parent="Node2D" unique_id=344846481 instance=ExtResource("10_ns032")]
+[node name="Slime4" parent="Enemies" unique_id=344846481 instance=ExtResource("10_ns032")]
 position = Vector2(590, 218)
 face_left_on_start = true
 
-[node name="Slime5" parent="Node2D" unique_id=1107072393 instance=ExtResource("10_ns032")]
+[node name="Slime5" parent="Enemies" unique_id=1107072393 instance=ExtResource("10_ns032")]
 position = Vector2(1177, 283)
 face_left_on_start = true
 
-[node name="Slime6" parent="Node2D" unique_id=863946078 instance=ExtResource("10_ns032")]
+[node name="Slime6" parent="Enemies" unique_id=863946078 instance=ExtResource("10_ns032")]
 position = Vector2(906, 602)
 face_left_on_start = true
