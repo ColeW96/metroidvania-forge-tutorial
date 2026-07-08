@@ -14,7 +14,7 @@ const SCALE_FACTOR : float = 40
 @export var entrances_bottom : Array[ float ] = []
 @export var entrances_left : Array[ float ] = []
 
-var indicator_offset : Vector2 = Vector2.ZERO
+@export var indicator_offset : Vector2 = Vector2.ZERO
 
 @onready var label: Label = $Label
 @onready var transition_blocks: Control = %TransitionBlocks
