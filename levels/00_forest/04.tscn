@@ -76,7 +76,7 @@ rendering_quadrant_size = 32
 
 [node name="LevelBounds" type="Node2D" parent="." unique_id=628827260]
 z_index = 256
-position = Vector2(-66.37494, 0)
+position = Vector2(-65.37494, 1)
 script = ExtResource("3_c3nrs")
 width = 1120
 height = 622
