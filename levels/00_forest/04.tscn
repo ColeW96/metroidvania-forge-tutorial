@@ -104,19 +104,18 @@ reverb = 1
 metadata/_custom_type_script = "uid://rwwuu7gvxywr"
 
 [node name="Enemies" type="Node2D" parent="." unique_id=947399086]
-visible = false
 
 [node name="Slime2" parent="Enemies" unique_id=488761391 instance=ExtResource("7_k841l")]
-position = Vector2(328, 384)
+position = Vector2(264, 384)
 face_left_on_start = true
 
 [node name="Slime3" parent="Enemies" unique_id=524125710 instance=ExtResource("7_k841l")]
-position = Vector2(144, 512)
+position = Vector2(80, 512)
 face_left_on_start = true
 
 [node name="Slime4" parent="Enemies" unique_id=2043323323 instance=ExtResource("7_k841l")]
-position = Vector2(424, 512)
+position = Vector2(360, 512)
 
 [node name="Slime5" parent="Enemies" unique_id=2018966884 instance=ExtResource("7_k841l")]
-position = Vector2(776, 512)
+position = Vector2(712, 512)
 face_left_on_start = true

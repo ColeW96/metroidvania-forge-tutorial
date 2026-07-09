@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://lyxbnp70gqyy"]
+
+[ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="1_63pvo"]
+[ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="2_d5y3n"]
+
+[node name="05" type="Node2D" unique_id=1247034308]
+
+[node name="LevelTransition" parent="." unique_id=389267975 instance=ExtResource("2_d5y3n")]
+position = Vector2(336, 0)
+size = 3
+location = 2
+
+[node name="LevelTransition2" parent="." unique_id=1376515991 instance=ExtResource("2_d5y3n")]
+position = Vector2(480, 736)
+size = 3
+location = 1
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=712018390]
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=474062035]
+
+[node name="LevelBounds" type="Node2D" parent="." unique_id=1357645583]
+z_index = 256
+script = ExtResource("1_63pvo")
+height = 782
+metadata/_custom_type_script = "uid://drqun7tewik8i"
