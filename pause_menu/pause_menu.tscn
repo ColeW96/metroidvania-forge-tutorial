@@ -167,6 +167,7 @@ offset_right = 28.0
 offset_bottom = 51.0
 linked_scene = "uid://cuhy61b0drxbf"
 entrances_right = Array[float]([2.6])
+indicator_offset = Vector2(-64, -32)
 
 [node name="MapNode6" parent="Control/PauseScreen/Map" unique_id=426147917 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.23529412, 0.4745098, 0.29803923, 1)
@@ -177,6 +178,7 @@ offset_right = 123.0
 offset_bottom = 42.0
 linked_scene = "uid://bhun0qinvswrq"
 entrances_left = Array[float]([3.1999998])
+indicator_offset = Vector2(0, -184)
 
 [node name="MapNode4" parent="Control/PauseScreen/Map" unique_id=817253384 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.23890063, 0.48317358, 0.6154072, 1)
@@ -186,8 +188,9 @@ offset_top = 69.0
 offset_right = 94.0
 offset_bottom = 79.0
 linked_scene = "uid://chwqnperjwxng"
-entrances_top = Array[float]([2.0])
+entrances_top = Array[float]([2.4])
 entrances_right = Array[float]([5.0])
+indicator_offset = Vector2(-64, 0)
 
 [node name="MapNode5" parent="Control/PauseScreen/Map" unique_id=621090468 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.7196835, 0.24297374, 0.7240258, 1)
@@ -199,6 +202,7 @@ offset_bottom = 79.0
 linked_scene = "uid://bx34wg1j70fqf"
 entrances_right = Array[float]([2.0])
 entrances_left = Array[float]([2.0])
+indicator_offset = Vector2(0, 16)
 
 [node name="MapNode2" parent="Control/PauseScreen/Map" unique_id=678030312 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.23529412, 0.4745098, 0.29803923, 1)
@@ -209,19 +213,20 @@ offset_right = 75.0
 offset_bottom = 51.0
 linked_scene = "uid://ng006hg4se8c"
 entrances_right = Array[float]([3.25])
-entrances_bottom = Array[float]([31.400002])
+entrances_bottom = Array[float]([34.4])
 entrances_left = Array[float]([16.85])
+indicator_offset = Vector2(-118.5, 0)
 
 [node name="MapNode3" parent="Control/PauseScreen/Map" unique_id=1509060624 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.23529412, 0.4745098, 0.29803923, 1)
 layout_mode = 0
-offset_left = 51.0
+offset_left = 53.0
 offset_top = 52.0
-offset_right = 79.0
+offset_right = 75.0
 offset_bottom = 68.0
 linked_scene = "uid://d0foqcuii0t3v"
-entrances_top = Array[float]([8.975])
-entrances_bottom = Array[float]([19.375])
+entrances_top = Array[float]([10.4])
+entrances_bottom = Array[float]([17.0])
 
 [node name="MapNode7" parent="Control/PauseScreen/Map" unique_id=814484654 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.23890063, 0.48317358, 0.6154072, 1)
@@ -232,6 +237,7 @@ offset_right = 127.0
 offset_bottom = 79.0
 linked_scene = "uid://due8pydwies2o"
 entrances_left = Array[float]([2.0])
+indicator_offset = Vector2(0, 16)
 
 [node name="PlayerIndicator" type="Control" parent="Control/PauseScreen/Map" unique_id=1384045596]
 unique_name_in_owner = true

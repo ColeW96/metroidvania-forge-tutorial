@@ -933,6 +933,7 @@ hframes = 8
 frame = 4
 
 [node name="CollisionStand" type="CollisionShape2D" parent="." unique_id=259439301]
+visible = false
 position = Vector2(0, -23)
 shape = SubResource("CapsuleShape2D_boad6")
 debug_color = Color(0, 0.6, 0.69803923, 0.25490198)
@@ -1069,24 +1070,34 @@ target_position = Vector2(0, 6)
 collision_mask = 3
 hit_from_inside = true
 
-[node name="TopCheck" type="RayCast2D" parent="." unique_id=3836025]
+[node name="LedgeDetection" type="Node2D" parent="." unique_id=1727764238]
+
+[node name="TopCheck" type="RayCast2D" parent="LedgeDetection" unique_id=3836025]
 unique_name_in_owner = true
 position = Vector2(0, -42)
 target_position = Vector2(10, 0)
 hit_from_inside = true
 
-[node name="WallCheck" type="RayCast2D" parent="." unique_id=1976333966]
+[node name="WallCheck" type="RayCast2D" parent="LedgeDetection" unique_id=1976333966]
 unique_name_in_owner = true
 position = Vector2(0, -34)
 target_position = Vector2(10, 0)
 
-[node name="LedgeFloorCheck" type="RayCast2D" parent="." unique_id=1957794]
+[node name="LedgeFloorCheck" type="RayCast2D" parent="LedgeDetection" unique_id=1957794]
 unique_name_in_owner = true
 position = Vector2(10, -42)
 enabled = false
 target_position = Vector2(0, 6)
 hit_from_inside = true
 
-[node name="LedgeGrabPoint" type="Marker2D" parent="." unique_id=914588638]
+[node name="LedgeGrabPoint" type="Marker2D" parent="LedgeDetection" unique_id=914588638]
 unique_name_in_owner = true
 position = Vector2(13, -36)
+
+[node name="EdgeSensor" type="RayCast2D" parent="." unique_id=241170994]
+unique_name_in_owner = true
+position = Vector2(11, 0)
+enabled = false
+target_position = Vector2(0, 6)
+collision_mask = 3
+hit_from_inside = true
