@@ -29,24 +29,25 @@ tile_map_data = PackedByteArray("AAAEAAAAAAAAAAoAAAAEAAEAAAAAAAsAAAAEAAIAAAAAAAw
 tile_set = ExtResource("1_yb7s2")
 rendering_quadrant_size = 32
 
-[node name="FF05-1" parent="." unique_id=1140452473 instance=ExtResource("4_5iu78")]
+[node name="D01-F04" parent="." unique_id=1140452473 instance=ExtResource("4_5iu78")]
 position = Vector2(32, 0)
 size = 3
 location = 2
 target_level = "uid://d0foqcuii0t3v"
-target_area_name = "FF04-2"
+target_area_name = "F04-D01"
 
-[node name="FF05-2" parent="." unique_id=389267975 instance=ExtResource("4_5iu78")]
+[node name="01-03" parent="." unique_id=389267975 instance=ExtResource("4_5iu78")]
 position = Vector2(800, 0)
 size = 3
 location = 2
-target_area_name = "FF04-2"
+target_level = "uid://dy2hyganoe4yk"
+target_area_name = "03-01"
 
-[node name="05-05_save" parent="." unique_id=1226864796 instance=ExtResource("4_5iu78")]
+[node name="01-save_01" parent="." unique_id=1226864796 instance=ExtResource("4_5iu78")]
 position = Vector2(992, 320)
 location = 1
 target_level = "uid://bx34wg1j70fqf"
-target_area_name = "05_save-05"
+target_area_name = "save_01-01"
 
 [node name="01-05" parent="." unique_id=2002552084 instance=ExtResource("4_5iu78")]
 position = Vector2(-64, 320)

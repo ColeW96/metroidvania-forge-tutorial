@@ -36,18 +36,18 @@ position = Vector2(74, 227)
 [node name="Torch2" parent="Props" unique_id=844725407 instance=ExtResource("3_3dos6")]
 position = Vector2(406, 227)
 
-[node name="05_save-05" parent="." unique_id=1062349495 instance=ExtResource("4_xhug2")]
+[node name="save_01-01" parent="." unique_id=1062349495 instance=ExtResource("4_xhug2")]
 position = Vector2(0, 224)
 size = 4
 target_level = "uid://chwqnperjwxng"
-target_area_name = "05-05_save"
+target_area_name = "01-save_01"
 
-[node name="05_save-06" parent="." unique_id=180559710 instance=ExtResource("4_xhug2")]
+[node name="save_01-02" parent="." unique_id=180559710 instance=ExtResource("4_xhug2")]
 position = Vector2(480, 224)
 size = 4
 location = 1
 target_level = "uid://due8pydwies2o"
-target_area_name = "06-05_save"
+target_area_name = "02-save_01"
 
 [node name="LevelBounds" type="Node2D" parent="." unique_id=2052738644]
 z_index = 256

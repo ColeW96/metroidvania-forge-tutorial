@@ -30,11 +30,11 @@ metadata/_custom_type_script = "uid://drqun7tewik8i"
 [node name="PlayerSpawn" parent="." unique_id=1067153902 instance=ExtResource("3_x7m7c")]
 position = Vector2(257, 226)
 
-[node name="06-05_save" parent="." unique_id=1409583436 instance=ExtResource("4_ukhxm")]
+[node name="02-save_01" parent="." unique_id=1409583436 instance=ExtResource("4_ukhxm")]
 position = Vector2(0, 224)
 size = 4
 target_level = "uid://bx34wg1j70fqf"
-target_area_name = "05_save-06"
+target_area_name = "save_01-02"
 
 [node name="06-05_save3" parent="." unique_id=389267975 instance=ExtResource("4_ukhxm")]
 position = Vector2(768, 224)
@@ -42,11 +42,12 @@ size = 4
 location = 1
 target_area_name = "05_save-06"
 
-[node name="06-05_save2" parent="." unique_id=1403836948 instance=ExtResource("4_ukhxm")]
+[node name="02-11" parent="." unique_id=1403836948 instance=ExtResource("4_ukhxm")]
 position = Vector2(288, 304)
 size = 3
 location = 3
-target_area_name = "05_save-06"
+target_level = "uid://bcvfj7iwkks43"
+target_area_name = "11-02"
 
 [node name="Door" parent="." unique_id=684232604 instance=ExtResource("5_5t1iy")]
 position = Vector2(96, 224)

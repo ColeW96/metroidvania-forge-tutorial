@@ -27,9 +27,11 @@ position = Vector2(0, 352)
 target_level = "uid://dgw8ognsijvyp"
 target_area_name = "06-07"
 
-[node name="LevelTransition2" parent="." unique_id=610800928 instance=ExtResource("2_dim1a")]
+[node name="07-08" parent="." unique_id=610800928 instance=ExtResource("2_dim1a")]
 position = Vector2(1408, 384)
 location = 3
+target_level = "uid://lyxbnp70gqyy"
+target_area_name = "08-07"
 
 [node name="PlayerSpawn" parent="." unique_id=669107664 instance=ExtResource("4_3eluq")]
 position = Vector2(48, 352)

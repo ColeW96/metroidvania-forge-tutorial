@@ -87,12 +87,12 @@ location = 2
 target_level = "uid://ng006hg4se8c"
 target_area_name = "FF02-2"
 
-[node name="FF04-2" parent="." unique_id=740401770 instance=ExtResource("4_hejkf")]
+[node name="F04-D01" parent="." unique_id=740401770 instance=ExtResource("4_hejkf")]
 position = Vector2(720, 624)
 size = 4
 location = 3
 target_level = "uid://chwqnperjwxng"
-target_area_name = "FF05-1"
+target_area_name = "D01-F04"
 
 [node name="PlayerSpawn" parent="." unique_id=1515242660 instance=ExtResource("4_2hhtl")]
 position = Vector2(517.62506, 104)
