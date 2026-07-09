@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="4_r7adf"]
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="5_nqq0o"]
 [ext_resource type="AudioStream" uid="uid://cxhdqvhc0jk57" path="res://music/forest_01.ogg" id="6_c06eb"]
+[ext_resource type="PackedScene" uid="uid://de3w4k411bso3" path="res://general/respawn_trigger/respawn_trigger.tscn" id="7_c06eb"]
 
 [node name="03" type="Node2D" unique_id=249495352]
 
@@ -57,3 +58,8 @@ position = Vector2(56, 56)
 script = ExtResource("5_nqq0o")
 track = ExtResource("6_c06eb")
 metadata/_custom_type_script = "uid://rwwuu7gvxywr"
+
+[node name="RespawnTrigger" parent="." unique_id=1387562290 instance=ExtResource("7_c06eb")]
+position = Vector2(784, 344)
+scale = Vector2(17, 1)
+size = 17

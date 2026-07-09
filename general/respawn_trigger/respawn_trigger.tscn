@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://de3w4k411bso3"]
+
+[ext_resource type="Script" uid="uid://bgsj2t5ctrhl6" path="res://general/respawn_trigger/respawn_trigger.gd" id="1_k4c37"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nqq0o"]
+size = Vector2(32, 32)
+
+[node name="RespawnTrigger" type="Node2D" unique_id=1387562290]
+script = ExtResource("1_k4c37")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1183363117]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1387855503]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_nqq0o")
+debug_color = Color(0.70196074, 0.35859275, 0, 0.41960785)

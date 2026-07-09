@@ -26,6 +26,7 @@ signal damage_taken
 @onready var wall_check: RayCast2D = %WallCheck
 @onready var ledge_floor_check: RayCast2D = %LedgeFloorCheck
 @onready var ledge_grab_point: Marker2D = %LedgeGrabPoint
+@onready var edge_sensor: RayCast2D = %EdgeSensor
 #endregion
 
 
@@ -74,6 +75,10 @@ var ledge_check_pos : Vector2
 var ledge_grab_pos : Vector2
 var aiming_up : bool = false
 var grabbing_ledge : bool = false
+var last_position : Vector2
+var last_floor_dir : Vector2 = Vector2.RIGHT
+var edge_detected : bool = false
+var edge_sensor_pos : Vector2
 #endregion
 
 
@@ -85,6 +90,7 @@ func _ready() -> void:
 	bullet_spawn_pos = bullet_spawn.position
 	ledge_check_pos = ledge_floor_check.position
 	ledge_grab_pos = ledge_grab_point.position
+	edge_sensor_pos = edge_sensor.position
 	Messages.player_healed.connect( _on_player_healed )
 	Messages.back_to_title_screen.connect( queue_free )
 	damage_area.damage_taken.connect( _on_damage_taken )
@@ -139,6 +145,7 @@ func _physics_process( _delta: float ) -> void:
 	velocity.y = clampf( velocity.y, -1000.0, max_fall_velocity )
 	move_and_slide()
 	change_state( current_state.physics_process( _delta ) )
+	get_last_position()
 	pass
 
 
@@ -202,6 +209,7 @@ func update_direction() -> void:
 			wall_check.scale.x = -1
 			ledge_floor_check.position.x = -ledge_check_pos.x
 			ledge_grab_point.position.x = -ledge_grab_pos.x
+			edge_sensor.position.x = -edge_sensor_pos.x
 			_cardinal_direction = Vector2.LEFT
 			bullet_spawn.position.x = -bullet_spawn_pos.x
 			attack_sprite.flip_h = true
@@ -216,6 +224,7 @@ func update_direction() -> void:
 			bullet_spawn.position.x = bullet_spawn_pos.x
 			ledge_floor_check.position.x = ledge_check_pos.x
 			ledge_grab_point.position.x = ledge_grab_pos.x
+			edge_sensor.position.x = edge_sensor_pos.x
 			attack_sprite.flip_h = false
 			crouch_attack_sprite.flip_h = false
 			attack_sprite.position.x = 19
@@ -298,3 +307,18 @@ func can_grab_ledge() -> bool:
 	ledge_floor_check.force_raycast_update()
 	
 	return not top_check.is_colliding() and wall_check.is_colliding()
+
+
+func get_last_position() -> void:
+	if is_on_floor():
+		edge_sensor.force_raycast_update()
+		if not edge_sensor.is_colliding():
+			edge_detected = true
+		else:
+			edge_detected = false
+		last_position = global_position
+		if velocity.x > 0:
+			last_floor_dir = Vector2.RIGHT
+		elif velocity.x < 0:
+			last_floor_dir = Vector2.LEFT
+	pass
