@@ -48,9 +48,10 @@ location = 1
 target_level = "uid://bx34wg1j70fqf"
 target_area_name = "05_save-05"
 
-[node name="05-05_save2" parent="." unique_id=2002552084 instance=ExtResource("4_5iu78")]
+[node name="01-05" parent="." unique_id=2002552084 instance=ExtResource("4_5iu78")]
 position = Vector2(-64, 320)
-target_area_name = "05_save-05"
+target_level = "uid://c6h166hs5xvnj"
+target_area_name = "05-01"
 
 [node name="Props" type="Node2D" parent="." unique_id=724842675]
 
