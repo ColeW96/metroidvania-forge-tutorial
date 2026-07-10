@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://cbsmip8oghhv8"]
+[gd_scene format=3 uid="uid://bn6d0ra8utwfi"]
 
-[ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="1_r83wa"]
+[ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="1_6brm3"]
 
 [node name="14" type="Node2D" unique_id=514909877]
 
@@ -10,7 +10,7 @@
 
 [node name="LevelBounds" type="Node2D" parent="." unique_id=2009832569]
 z_index = 256
-script = ExtResource("1_r83wa")
-width = 1088
+script = ExtResource("1_6brm3")
+width = 1120
 height = 366
 metadata/_custom_type_script = "uid://drqun7tewik8i"

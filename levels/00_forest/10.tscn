@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dkw1v71dtlut4"]
+
+[ext_resource type="TileSet" uid="uid://p87hshodqhxn" path="res://levels/tilesets/forgotten_forest.tres" id="1_npqmj"]
+[ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="2_5aj5t"]
+[ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="3_ww0pl"]
+
+[node name="DS02" type="Node2D" unique_id=396729049]
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1625238915]
+tile_set = ExtResource("1_npqmj")
+rendering_quadrant_size = 32
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1131899136]
+tile_set = ExtResource("1_npqmj")
+rendering_quadrant_size = 32
+
+[node name="LevelBounds" type="Node2D" parent="." unique_id=2052738644]
+z_index = 256
+script = ExtResource("2_5aj5t")
+height = 302
+metadata/_custom_type_script = "uid://drqun7tewik8i"
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=957202772]
+script = ExtResource("3_ww0pl")
+metadata/_custom_type_script = "uid://rwwuu7gvxywr"
