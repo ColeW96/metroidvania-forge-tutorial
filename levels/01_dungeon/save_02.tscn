@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://btolustuhwn8c"]
 
 [ext_resource type="TileSet" uid="uid://p87hshodqhxn" path="res://levels/tilesets/forgotten_forest.tres" id="1_jfgeo"]
+[ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="4_th6l7"]
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="5_o17ed"]
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="7_fd5l0"]
 
@@ -23,3 +24,9 @@ metadata/_custom_type_script = "uid://drqun7tewik8i"
 [node name="MusicAutoTrigger" type="Node" parent="." unique_id=957202772]
 script = ExtResource("7_fd5l0")
 metadata/_custom_type_script = "uid://rwwuu7gvxywr"
+
+[node name="DS02-1" parent="." unique_id=389267975 instance=ExtResource("4_th6l7")]
+position = Vector2(480, 96)
+location = 1
+target_level = "uid://bwvbptg203x7x"
+target_area_name = "D15-2"

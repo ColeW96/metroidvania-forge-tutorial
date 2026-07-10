@@ -3,6 +3,8 @@
 [ext_resource type="TileSet" uid="uid://p87hshodqhxn" path="res://levels/tilesets/forgotten_forest.tres" id="1_npqmj"]
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="2_5aj5t"]
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="3_ww0pl"]
+[ext_resource type="PackedScene" uid="uid://bew5osvj6ik17" path="res://general/ability_pickup/ability_pickup.tscn" id="4_5aj5t"]
+[ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="5_ww0pl"]
 
 [node name="10" type="Node2D" unique_id=396729049]
 
@@ -24,3 +26,12 @@ metadata/_custom_type_script = "uid://drqun7tewik8i"
 [node name="MusicAutoTrigger" type="Node" parent="." unique_id=957202772]
 script = ExtResource("3_ww0pl")
 metadata/_custom_type_script = "uid://rwwuu7gvxywr"
+
+[node name="AbilityPickup" parent="." unique_id=1646825791 instance=ExtResource("4_5aj5t")]
+position = Vector2(283, 135)
+type = 1
+
+[node name="F10-1" parent="." unique_id=389267975 instance=ExtResource("5_ww0pl")]
+position = Vector2(0, 256)
+target_level = "uid://cmboof1n8tw2o"
+target_area_name = "FS01-2"

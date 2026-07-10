@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bmgjtfbs7luu8"]
 
+[ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="1_56wsg"]
 [ext_resource type="TileSet" uid="uid://p87hshodqhxn" path="res://levels/tilesets/forgotten_forest.tres" id="2_jrvbj"]
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="3_xa1rh"]
 
@@ -16,3 +17,23 @@ z_index = 256
 script = ExtResource("3_xa1rh")
 height = 398
 metadata/_custom_type_script = "uid://drqun7tewik8i"
+
+[node name="D17-1" parent="." unique_id=389267975 instance=ExtResource("1_56wsg")]
+position = Vector2(0, 368)
+size = 3
+target_level = "uid://bcvfj7iwkks43"
+target_area_name = "D11-3"
+
+[node name="D17-2" parent="." unique_id=1320540748 instance=ExtResource("1_56wsg")]
+position = Vector2(480, 368)
+size = 3
+location = 1
+target_level = "uid://dx2h0fxi23of4"
+target_area_name = "D18-1"
+
+[node name="D17-3" parent="." unique_id=534832964 instance=ExtResource("1_56wsg")]
+position = Vector2(200, 0)
+size = 3
+location = 2
+target_level = "uid://cgct5fyvx4fge"
+target_area_name = "D24-2"

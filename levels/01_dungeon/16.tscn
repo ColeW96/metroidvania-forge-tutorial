@@ -2,6 +2,8 @@
 
 [ext_resource type="TileSet" uid="uid://p87hshodqhxn" path="res://levels/tilesets/forgotten_forest.tres" id="1_ivkaj"]
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="2_mwh6g"]
+[ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="3_mwh6g"]
+[ext_resource type="PackedScene" uid="uid://bew5osvj6ik17" path="res://general/ability_pickup/ability_pickup.tscn" id="4_dg4u7"]
 
 [node name="16" type="Node2D" unique_id=1247034308]
 
@@ -16,3 +18,13 @@ z_index = 256
 script = ExtResource("2_mwh6g")
 height = 366
 metadata/_custom_type_script = "uid://drqun7tewik8i"
+
+[node name="D16-1" parent="." unique_id=389267975 instance=ExtResource("3_mwh6g")]
+position = Vector2(480, 336)
+location = 1
+target_level = "uid://bwvbptg203x7x"
+target_area_name = "D15-3"
+
+[node name="AbilityPickup" parent="." unique_id=1646825791 instance=ExtResource("4_dg4u7")]
+position = Vector2(240, 176)
+type = 4

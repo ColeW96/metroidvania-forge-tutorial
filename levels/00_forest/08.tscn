@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bn6d0ra8utwfi"]
 
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="1_6brm3"]
+[ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="2_y8vpq"]
 
 [node name="08" type="Node2D" unique_id=514909877]
 
@@ -14,3 +15,14 @@ script = ExtResource("1_6brm3")
 width = 1120
 height = 366
 metadata/_custom_type_script = "uid://drqun7tewik8i"
+
+[node name="F08-1" parent="." unique_id=389267975 instance=ExtResource("2_y8vpq")]
+position = Vector2(1120, 336)
+location = 1
+target_level = "uid://ddmsr3vsfaqj0"
+target_area_name = "F06-2"
+
+[node name="F08-2" parent="." unique_id=1824256580 instance=ExtResource("2_y8vpq")]
+position = Vector2(0, 96)
+target_level = "uid://wcocg2ixyysd"
+target_area_name = "F09-1"

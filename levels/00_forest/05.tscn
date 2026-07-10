@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://phfnfvkggae4"]
 
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="1_yb7s2"]
+[ext_resource type="PackedScene" uid="uid://bew5osvj6ik17" path="res://general/ability_pickup/ability_pickup.tscn" id="2_e5544"]
+[ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="3_xbpcm"]
 
 [node name="05" type="Node2D" unique_id=593574076]
 
@@ -14,3 +16,18 @@ script = ExtResource("1_yb7s2")
 width = 1248
 height = 302
 metadata/_custom_type_script = "uid://drqun7tewik8i"
+
+[node name="AbilityPickup" parent="." unique_id=1646825791 instance=ExtResource("2_e5544")]
+position = Vector2(595, 138)
+type = 3
+
+[node name="F05-1" parent="." unique_id=389267975 instance=ExtResource("3_xbpcm")]
+position = Vector2(1248, 256)
+location = 1
+target_level = "uid://dmaitacv382vc"
+target_area_name = "D28-2"
+
+[node name="F05-2" parent="." unique_id=306829052 instance=ExtResource("3_xbpcm")]
+position = Vector2(0, 128)
+target_level = "uid://ng006hg4se8c"
+target_area_name = "F02-4"

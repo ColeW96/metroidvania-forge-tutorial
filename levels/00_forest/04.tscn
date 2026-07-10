@@ -34,6 +34,11 @@ location = 3
 target_level = "uid://chwqnperjwxng"
 target_area_name = "D01-1"
 
+[node name="F04-3" parent="." unique_id=389267975 instance=ExtResource("4_hejkf")]
+position = Vector2(0, 512)
+target_level = "uid://ddmsr3vsfaqj0"
+target_area_name = "F06-1"
+
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=799618409]
 scroll_scale = Vector2(0.6, 1)
 scroll_offset = Vector2(285.62506, 0)

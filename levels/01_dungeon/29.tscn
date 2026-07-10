@@ -2,6 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://p87hshodqhxn" path="res://levels/tilesets/forgotten_forest.tres" id="1_gfalt"]
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="2_2rwyl"]
+[ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="3_2rwyl"]
 
 [node name="29" type="Node2D" unique_id=1073888737]
 
@@ -17,3 +18,14 @@ script = ExtResource("2_2rwyl")
 width = 992
 height = 398
 metadata/_custom_type_script = "uid://drqun7tewik8i"
+
+[node name="D29-1" parent="." unique_id=389267975 instance=ExtResource("3_2rwyl")]
+position = Vector2(0, 192)
+target_level = "uid://d3ybbj52vx2c4"
+target_area_name = "DS04-2"
+
+[node name="D29-2" parent="." unique_id=1784264093 instance=ExtResource("3_2rwyl")]
+position = Vector2(992, 320)
+location = 1
+target_level = "uid://b1dtetl6gfctv"
+target_area_name = "C10-2"
