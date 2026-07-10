@@ -82,7 +82,6 @@ region = Rect2(32, 96, 32, 32)
 [node name="PauseMenu" type="CanvasLayer" unique_id=1752538219]
 process_mode = 3
 script = ExtResource("1_5hbt6")
-metadata/_edit_horizontal_guides_ = [134.0]
 
 [node name="Control" type="Control" parent="." unique_id=107738006]
 light_mask = 0
@@ -175,7 +174,7 @@ modulate = Color(0.23529412, 0.4745098, 0.29803923, 1)
 layout_mode = 0
 offset_left = 94.0
 offset_top = 29.0
-offset_right = 141.0
+offset_right = 138.0
 offset_bottom = 42.0
 linked_scene = "uid://bhun0qinvswrq"
 entrances_left = Array[float]([3.1999998])
@@ -214,6 +213,24 @@ offset_right = 138.0
 offset_bottom = 70.0
 linked_scene = "uid://cspab55aorti8"
 
+[node name="MapNode48" parent="Control/PauseScreen/Map" unique_id=324022795 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.3424462, 0.3019191, 0.52630603, 1)
+layout_mode = 0
+offset_left = 168.0
+offset_top = 15.0
+offset_right = 196.0
+offset_bottom = 25.0
+linked_scene = "uid://cmjnb3arffkr4"
+
+[node name="MapNode55" parent="Control/PauseScreen/Map" unique_id=408723529 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.3424462, 0.3019191, 0.52630603, 1)
+layout_mode = 0
+offset_left = 191.0
+offset_top = 49.0
+offset_right = 222.0
+offset_bottom = 59.0
+linked_scene = "uid://b1dtetl6gfctv"
+
 [node name="MapNode38" parent="Control/PauseScreen/Map" unique_id=1855518216 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.23890063, 0.48317358, 0.6154072, 1)
 layout_mode = 0
@@ -222,6 +239,15 @@ offset_top = 49.0
 offset_right = 190.0
 offset_bottom = 59.0
 linked_scene = "uid://cacyh6xv4nkn3"
+
+[node name="MapNode46" parent="Control/PauseScreen/Map" unique_id=1875199537 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.3424462, 0.3019191, 0.52630603, 1)
+layout_mode = 0
+offset_left = 139.0
+offset_top = 29.0
+offset_right = 167.0
+offset_bottom = 36.0
+linked_scene = "uid://dmre8akojsnft"
 
 [node name="MapNode10" parent="Control/PauseScreen/Map" unique_id=602667679 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.23890063, 0.48317358, 0.6154072, 1)
@@ -300,6 +326,51 @@ offset_top = 49.0
 offset_right = 151.0
 offset_bottom = 59.0
 linked_scene = "uid://bnt6chav1ewlv"
+
+[node name="MapNode47" parent="Control/PauseScreen/Map" unique_id=470044281 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.3424462, 0.3019191, 0.52630603, 1)
+layout_mode = 0
+offset_left = 168.0
+offset_top = 26.0
+offset_right = 180.0
+offset_bottom = 36.0
+linked_scene = "uid://bwaa3imdi85ft"
+
+[node name="MapNode51" parent="Control/PauseScreen/Map" unique_id=118052554 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.3424462, 0.3019191, 0.52630603, 1)
+layout_mode = 0
+offset_left = 210.0
+offset_top = 15.0
+offset_right = 222.0
+offset_bottom = 25.0
+linked_scene = "uid://c5eyo6tlmvqxy"
+
+[node name="MapNode54" parent="Control/PauseScreen/Map" unique_id=1319067254 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.3424462, 0.3019191, 0.52630603, 1)
+layout_mode = 0
+offset_left = 265.0
+offset_top = 26.0
+offset_right = 277.0
+offset_bottom = 36.0
+linked_scene = "uid://c75f13x5xssv5"
+
+[node name="MapNode53" parent="Control/PauseScreen/Map" unique_id=608262638 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.3424462, 0.3019191, 0.52630603, 1)
+layout_mode = 0
+offset_left = 236.0
+offset_top = 15.0
+offset_right = 264.0
+offset_bottom = 36.0
+linked_scene = "uid://cp4dvywk3xrnx"
+
+[node name="MapNode49" parent="Control/PauseScreen/Map" unique_id=1510403046 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.3424462, 0.3019191, 0.52630603, 1)
+layout_mode = 0
+offset_left = 181.0
+offset_top = 26.0
+offset_right = 196.0
+offset_bottom = 36.0
+linked_scene = "uid://b1yfu3q3hdp4o"
 
 [node name="MapNode26" parent="Control/PauseScreen/Map" unique_id=619871428 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.23890063, 0.48317358, 0.6154072, 1)
@@ -432,6 +503,24 @@ offset_right = 177.0
 offset_bottom = 100.0
 linked_scene = "uid://dx2h0fxi23of4"
 
+[node name="MapNode50" parent="Control/PauseScreen/Map" unique_id=1810068338 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.3424462, 0.3019191, 0.52630603, 1)
+layout_mode = 0
+offset_left = 197.0
+offset_top = 15.0
+offset_right = 209.0
+offset_bottom = 36.0
+linked_scene = "uid://cqc6wxs4prj2y"
+
+[node name="MapNode52" parent="Control/PauseScreen/Map" unique_id=974685370 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.3424462, 0.3019191, 0.52630603, 1)
+layout_mode = 0
+offset_left = 223.0
+offset_top = 15.0
+offset_right = 235.0
+offset_bottom = 59.0
+linked_scene = "uid://cqy653ovcdceb"
+
 [node name="MapNode40" parent="Control/PauseScreen/Map" unique_id=1789834511 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.23529412, 0.4745098, 0.29803923, 1)
 layout_mode = 0
@@ -525,12 +614,10 @@ entrances_left = Array[float]([2.6])
 modulate = Color(0.7196835, 0.24297374, 0.7240258, 1)
 layout_mode = 0
 offset_left = 152.0
-offset_top = 51.0
+offset_top = 49.0
 offset_right = 164.0
 offset_bottom = 59.0
-linked_scene = "uid://bx34wg1j70fqf"
-entrances_right = Array[float]([2.6])
-entrances_left = Array[float]([2.6])
+linked_scene = "uid://d3ybbj52vx2c4"
 
 [node name="MapNode29" parent="Control/PauseScreen/Map" unique_id=1474863137 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.7196835, 0.24297374, 0.7240258, 1)
@@ -538,14 +625,23 @@ layout_mode = 0
 offset_left = 204.0
 offset_top = 101.0
 offset_right = 216.0
-offset_bottom = 109.0
+offset_bottom = 111.0
 linked_scene = "uid://cugjntgtbcpeh"
+
+[node name="MapNode56" parent="Control/PauseScreen/Map" unique_id=1777939524 instance=ExtResource("2_rd7dy")]
+modulate = Color(0.7196835, 0.24297374, 0.7240258, 1)
+layout_mode = 0
+offset_left = 210.0
+offset_top = 26.0
+offset_right = 222.0
+offset_bottom = 36.0
+linked_scene = "uid://buejiwjsvwe7m"
 
 [node name="MapNode21" parent="Control/PauseScreen/Map" unique_id=1473067680 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.7196835, 0.24297374, 0.7240258, 1)
 layout_mode = 0
 offset_left = 45.0
-offset_top = 103.0
+offset_top = 101.0
 offset_right = 57.0
 offset_bottom = 111.0
 linked_scene = "uid://btolustuhwn8c"
@@ -564,7 +660,7 @@ modulate = Color(0.23529412, 0.4745098, 0.29803923, 1)
 layout_mode = 0
 offset_left = 29.0
 offset_top = 91.0
-offset_right = 41.0
+offset_right = 44.0
 offset_bottom = 99.0
 linked_scene = "uid://dkw1v71dtlut4"
 

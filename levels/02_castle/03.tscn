@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cmjnb3arffkr4"]
+
+[ext_resource type="TileSet" uid="uid://p87hshodqhxn" path="res://levels/tilesets/forgotten_forest.tres" id="1_2hpe0"]
+[ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="2_xas14"]
+
+[node name="03" type="Node2D" unique_id=1073888737]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1316226580]
+tile_set = ExtResource("1_2hpe0")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1518160250]
+tile_set = ExtResource("1_2hpe0")
+
+[node name="LevelBounds" type="Node2D" parent="." unique_id=2117821822]
+z_index = 256
+script = ExtResource("2_xas14")
+width = 1120
+height = 398
+metadata/_custom_type_script = "uid://drqun7tewik8i"

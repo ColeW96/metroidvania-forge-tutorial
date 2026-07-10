@@ -47,7 +47,7 @@ rendering_quadrant_size = 32
 z_index = 256
 position = Vector2(0, -184)
 script = ExtResource("3_vv2jw")
-width = 1888
+width = 1760
 height = 526
 metadata/_custom_type_script = "uid://drqun7tewik8i"
 

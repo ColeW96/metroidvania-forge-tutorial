@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="2_freuv"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="4_86olq"]
 
-[node name="05" type="Node2D" unique_id=1247034308]
+[node name="06" type="Node2D" unique_id=1247034308]
 
 [node name="D06-1" parent="." unique_id=1346027879 instance=ExtResource("2_freuv")]
 position = Vector2(64, 0)

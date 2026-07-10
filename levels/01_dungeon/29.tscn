@@ -3,7 +3,7 @@
 [ext_resource type="TileSet" uid="uid://p87hshodqhxn" path="res://levels/tilesets/forgotten_forest.tres" id="1_gfalt"]
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="2_2rwyl"]
 
-[node name="05" type="Node2D" unique_id=1073888737]
+[node name="29" type="Node2D" unique_id=1073888737]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1316226580]
 tile_set = ExtResource("1_gfalt")

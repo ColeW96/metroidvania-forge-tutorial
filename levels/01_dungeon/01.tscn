@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://p8hxrxlmlcnc" path="res://music/dungeon_01.ogg" id="7_6o5dd"]
 [ext_resource type="PackedScene" uid="uid://ja8lc0n3awhh" path="res://enemies/slime_2/slime_2.tscn" id="8_6o5dd"]
 
-[node name="05" type="Node2D" unique_id=1073888737]
+[node name="01" type="Node2D" unique_id=1073888737]
 
 [node name="LevelBounds" type="Node2D" parent="." unique_id=2117821822]
 z_index = 256

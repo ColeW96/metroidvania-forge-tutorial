@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="1_i3mha"]
 [ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="2_dejyv"]
 
-[node name="03" type="Node2D" unique_id=940042686]
+[node name="04" type="Node2D" unique_id=940042686]
 
 [node name="D04-1" parent="." unique_id=1107691128 instance=ExtResource("2_dejyv")]
 position = Vector2(0, 160)

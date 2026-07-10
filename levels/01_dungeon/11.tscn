@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://p87hshodqhxn" path="res://levels/tilesets/forgotten_forest.tres" id="2_ryr1l"]
 [ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="3_36fo2"]
 
-[node name="05" type="Node2D" unique_id=1073888737]
+[node name="11" type="Node2D" unique_id=1073888737]
 
 [node name="D11-1" parent="." unique_id=389267975 instance=ExtResource("3_36fo2")]
 position = Vector2(768, 400)

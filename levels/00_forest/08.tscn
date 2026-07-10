@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="1_6brm3"]
 
-[node name="14" type="Node2D" unique_id=514909877]
+[node name="08" type="Node2D" unique_id=514909877]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1421425702]
 
