@@ -16,6 +16,12 @@ size = 6
 target_level = "uid://ng006hg4se8c"
 target_area_name = "F02-3"
 
+[node name="F03-2" parent="." unique_id=389267975 instance=ExtResource("4_r7adf")]
+position = Vector2(1760, -64)
+location = 1
+target_level = "uid://dmre8akojsnft"
+target_area_name = "C01-1"
+
 [node name="SkyBox" type="Parallax2D" parent="." unique_id=207601105]
 z_index = -10
 scroll_scale = Vector2(0, 0)
