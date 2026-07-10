@@ -20,6 +20,20 @@ fill_to = Vector2(0, 0)
 
 [node name="04" type="Node2D" unique_id=1724234608]
 
+[node name="F04-1" parent="." unique_id=601076293 instance=ExtResource("4_hejkf")]
+position = Vector2(416, 0)
+size = 4
+location = 2
+target_level = "uid://ng006hg4se8c"
+target_area_name = "D02-2"
+
+[node name="F04-2" parent="." unique_id=740401770 instance=ExtResource("4_hejkf")]
+position = Vector2(720, 624)
+size = 4
+location = 3
+target_level = "uid://chwqnperjwxng"
+target_area_name = "D01-1"
+
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=799618409]
 scroll_scale = Vector2(0.6, 1)
 scroll_offset = Vector2(285.62506, 0)
@@ -79,20 +93,6 @@ script = ExtResource("3_c3nrs")
 width = 896
 height = 622
 metadata/_custom_type_script = "uid://drqun7tewik8i"
-
-[node name="FF04-1" parent="." unique_id=601076293 instance=ExtResource("4_hejkf")]
-position = Vector2(416, 0)
-size = 4
-location = 2
-target_level = "uid://ng006hg4se8c"
-target_area_name = "FF02-2"
-
-[node name="F04-D01" parent="." unique_id=740401770 instance=ExtResource("4_hejkf")]
-position = Vector2(720, 624)
-size = 4
-location = 3
-target_level = "uid://chwqnperjwxng"
-target_area_name = "D01-F04"
 
 [node name="PlayerSpawn" parent="." unique_id=1515242660 instance=ExtResource("4_2hhtl")]
 position = Vector2(517.62506, 104)

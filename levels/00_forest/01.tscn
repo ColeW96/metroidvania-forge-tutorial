@@ -91,12 +91,12 @@ metadata/_custom_type_script = "uid://drqun7tewik8i"
 [node name="PlayerSpawn" parent="." unique_id=1519308061 instance=ExtResource("7_vdj2u")]
 position = Vector2(22, 229)
 
-[node name="FF01-1" parent="." unique_id=1417031562 instance=ExtResource("4_vhcel")]
+[node name="F01-1" parent="." unique_id=1417031562 instance=ExtResource("4_vhcel")]
 position = Vector2(992, 192)
 size = 10
 location = 1
 target_level = "uid://ng006hg4se8c"
-target_area_name = "FF02-1"
+target_area_name = "F02-1"
 
 [node name="BackgroundParallaxLayers" type="Node2D" parent="." unique_id=1449720626]
 

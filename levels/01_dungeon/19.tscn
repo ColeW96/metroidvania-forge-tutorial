@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://djk3kg7ymmf2i"]
+
+[ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="1_g57hs"]
+
+[node name="12" type="Node2D" unique_id=514909877]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1421425702]
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=2093645523]
+
+[node name="LevelBounds" type="Node2D" parent="." unique_id=2009832569]
+z_index = 256
+script = ExtResource("1_g57hs")
+width = 992
+height = 398
+metadata/_custom_type_script = "uid://drqun7tewik8i"
