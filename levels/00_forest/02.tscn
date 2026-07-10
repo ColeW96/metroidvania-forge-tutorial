@@ -57,6 +57,26 @@ seamless_blend_skirt = 0.3
 [node name="PlayerSpawn" parent="." unique_id=79817006 instance=ExtResource("7_152a0")]
 position = Vector2(-70.5, 794)
 
+[node name="F02-1" parent="." unique_id=232681895 instance=ExtResource("4_s2tn3")]
+position = Vector2(-118.5, 794)
+size = 20
+target_level = "uid://cuhy61b0drxbf"
+target_area_name = "F01-1"
+
+[node name="F02-2" parent="." unique_id=27852040 instance=ExtResource("4_s2tn3")]
+position = Vector2(1257.5, 889)
+size = 4
+location = 3
+target_level = "uid://d0foqcuii0t3v"
+target_area_name = "F04-1"
+
+[node name="F02-3" parent="." unique_id=2021956633 instance=ExtResource("4_s2tn3")]
+position = Vector2(1705.5, 250)
+size = 6
+location = 1
+target_level = "uid://bhun0qinvswrq"
+target_area_name = "F03-1"
+
 [node name="SkyBox" type="Parallax2D" parent="." unique_id=1503113538]
 z_index = -10
 scroll_scale = Vector2(0, 0)
@@ -182,26 +202,6 @@ script = ExtResource("3_epyyu")
 width = 1824
 height = 878
 metadata/_custom_type_script = "uid://drqun7tewik8i"
-
-[node name="FF02-1" parent="." unique_id=232681895 instance=ExtResource("4_s2tn3")]
-position = Vector2(-118.5, 794)
-size = 20
-target_level = "uid://cuhy61b0drxbf"
-target_area_name = "FF01-1"
-
-[node name="FF02-2" parent="." unique_id=27852040 instance=ExtResource("4_s2tn3")]
-position = Vector2(1257.5, 889)
-size = 4
-location = 3
-target_level = "uid://d0foqcuii0t3v"
-target_area_name = "FF04-1"
-
-[node name="FF02-3" parent="." unique_id=2021956633 instance=ExtResource("4_s2tn3")]
-position = Vector2(1705.5, 250)
-size = 6
-location = 1
-target_level = "uid://bhun0qinvswrq"
-target_area_name = "FF03-1"
 
 [node name="Foreground" type="Parallax2D" parent="." unique_id=642774506]
 modulate = Color(0.05812233, 0.07830472, 0.062158804, 1)
