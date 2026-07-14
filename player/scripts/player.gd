@@ -302,6 +302,9 @@ func can_grab_ledge() -> bool:
 	if ledge_grab == false:
 		return false
 	
+	if Input.is_action_pressed("jump"):
+		return false
+	
 	top_check.force_raycast_update()
 	wall_check.force_raycast_update()
 	ledge_floor_check.force_raycast_update()
