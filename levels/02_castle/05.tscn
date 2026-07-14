@@ -28,3 +28,9 @@ position = Vector2(480, 320)
 location = 1
 target_level = "uid://c5eyo6tlmvqxy"
 target_area_name = "C06-1"
+
+[node name="C05-3" parent="." unique_id=6853780 instance=ExtResource("3_wfttp")]
+position = Vector2(64, 0)
+location = 2
+target_level = "uid://b3du4upxvk7li"
+target_area_name = "C11-1"

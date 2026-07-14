@@ -23,9 +23,3 @@ metadata/_custom_type_script = "uid://drqun7tewik8i"
 position = Vector2(0, 320)
 target_level = "uid://cqy653ovcdceb"
 target_area_name = "C07-2"
-
-[node name="C08-2" parent="." unique_id=1607760068 instance=ExtResource("3_l0yxd")]
-position = Vector2(1120, 768)
-location = 1
-target_level = "uid://c75f13x5xssv5"
-target_area_name = "C09-1"

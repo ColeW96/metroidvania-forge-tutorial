@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://drlgwlndak0h6"]
+
+[ext_resource type="TileSet" uid="uid://p87hshodqhxn" path="res://levels/tilesets/forgotten_forest.tres" id="1_8jj8m"]
+[ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="2_vwde8"]
+[ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="3_vwde8"]
+
+[node name="06" type="Node2D" unique_id=1247034308]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=712018390]
+tile_set = ExtResource("1_8jj8m")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=474062035]
+tile_set = ExtResource("1_8jj8m")
+
+[node name="LevelBounds" type="Node2D" parent="." unique_id=1357645583]
+z_index = 256
+script = ExtResource("2_vwde8")
+height = 398
+metadata/_custom_type_script = "uid://drqun7tewik8i"
+
+[node name="C16-1" parent="." unique_id=389267975 instance=ExtResource("3_vwde8")]
+position = Vector2(0, 128)
+target_level = "uid://syuxai3wklse"
+target_area_name = "C15-3"
+
+[node name="C16-2" parent="." unique_id=492415051 instance=ExtResource("3_vwde8")]
+position = Vector2(192, 0)
+location = 2
+target_level = "uid://bb7am0u681q5e"
+target_area_name = "C18-1"
+
+[node name="C16-3" parent="." unique_id=979087243 instance=ExtResource("3_vwde8")]
+position = Vector2(480, 368)
+location = 1
+target_level = "uid://cvj7flmqp1ktl"
+target_area_name = "C17-1"

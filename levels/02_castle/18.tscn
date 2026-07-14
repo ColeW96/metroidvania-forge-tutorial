@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bb7am0u681q5e"]
+
+[ext_resource type="TileSet" uid="uid://p87hshodqhxn" path="res://levels/tilesets/forgotten_forest.tres" id="1_8h6pd"]
+[ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="2_du44f"]
+[ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="3_du44f"]
+
+[node name="04" type="Node2D" unique_id=1247034308]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=712018390]
+tile_set = ExtResource("1_8h6pd")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=474062035]
+tile_set = ExtResource("1_8h6pd")
+
+[node name="LevelBounds" type="Node2D" parent="." unique_id=1357645583]
+z_index = 256
+script = ExtResource("2_du44f")
+width = 800
+height = 398
+metadata/_custom_type_script = "uid://drqun7tewik8i"
+
+[node name="LevelTransition" parent="." unique_id=389267975 instance=ExtResource("3_du44f")]
+position = Vector2(192, 400)
+location = 3
+target_level = "uid://drlgwlndak0h6"
+target_area_name = "C16-2"
