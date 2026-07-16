@@ -79,7 +79,8 @@ func handle_input( _event : InputEvent ) -> PlayerState:
 		return null
 	if _event.is_action_pressed( "jump" ):
 		if coyote_timer > 0:
-			player.jump_count = 0
+			if player.previous_state is not PlayerStateBall:
+				player.jump_count = 0
 			return jump
 		elif player.jump_count <= 1 and player.double_jump:
 			return jump
