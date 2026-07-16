@@ -249,6 +249,7 @@ metadata/_custom_type_script = "uid://b2qdp3bms72og"
 unique_name_in_owner = true
 script = ExtResource("11_30geg")
 attack_range = 380.0
+cooldown = 1.5
 move_speed = 0.0
 animation_name = "attack"
 metadata/_custom_type_script = "uid://dkbw4qtkft820"

@@ -556,7 +556,7 @@ offset_top = 133.0
 offset_right = 140.0
 offset_bottom = 143.0
 linked_scene = "uid://b63tax4hyjk0a"
-entrances_top = Array[float]([7.0])
+entrances_top = Array[float]([7.2])
 entrances_right = Array[float]([5.0])
 
 [node name="MapNode25" parent="Control/PauseScreen/Map" unique_id=829844467 instance=ExtResource("2_rd7dy")]
@@ -852,10 +852,10 @@ modulate = Color(0.23890063, 0.48317358, 0.6154072, 1)
 layout_mode = 0
 offset_left = 154.0
 offset_top = 103.0
-offset_right = 179.0
+offset_right = 166.0
 offset_bottom = 111.0
 linked_scene = "uid://due8pydwies2o"
-entrances_bottom = Array[float]([7.2])
+entrances_bottom = Array[float]([7.0])
 entrances_left = Array[float]([2.6])
 
 [node name="PlayerIndicator" type="Control" parent="Control/PauseScreen/Map" unique_id=1384045596]
