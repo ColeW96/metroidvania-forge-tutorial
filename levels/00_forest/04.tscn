@@ -25,7 +25,7 @@ position = Vector2(416, 0)
 size = 4
 location = 2
 target_level = "uid://ng006hg4se8c"
-target_area_name = "D02-2"
+target_area_name = "F02-2"
 
 [node name="F04-2" parent="." unique_id=740401770 instance=ExtResource("4_hejkf")]
 position = Vector2(720, 624)
