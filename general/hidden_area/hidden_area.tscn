@@ -8,6 +8,7 @@ size = Vector2(32, 32)
 [node name="HiddenArea" type="Node2D" unique_id=192905483]
 z_index = 1
 script = ExtResource("1_n828d")
+show_collision = true
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1465431731]
 self_modulate = Color(0, 1.5, 0, 0.75)

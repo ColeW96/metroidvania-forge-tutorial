@@ -214,7 +214,7 @@ offset_top = 92.0
 offset_right = 166.0
 offset_bottom = 102.0
 linked_scene = "uid://cspab55aorti8"
-entrances_top = Array[float]([3.8])
+entrances_top = Array[float]([4.0])
 entrances_right = Array[float]([5.0])
 
 [node name="MapNode48" parent="Control/PauseScreen/Map" unique_id=324022795 instance=ExtResource("2_rd7dy")]

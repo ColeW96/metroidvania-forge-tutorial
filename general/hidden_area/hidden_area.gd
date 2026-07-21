@@ -14,6 +14,10 @@ enum SIDE { LEFT, RIGHT, TOP, BOTTOM }
 		location = value
 		apply_area_settings()
 
+@export var show_area : bool = true :
+	set(value):
+		show_area = value
+		update_area_visibility()
 
 @onready var area_2d: Area2D = $Area2D
 
@@ -53,4 +57,10 @@ func apply_area_settings() -> void:
 			area_2d.scale.y = 1
 		else:
 			area_2d.scale.y = -1
+	pass
+
+
+func update_area_visibility() -> void:
+	if Engine.is_editor_hint():
+		area_2d.visible = show_area
 	pass
