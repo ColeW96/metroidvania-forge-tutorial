@@ -109,7 +109,6 @@ reverb = 1
 metadata/_custom_type_script = "uid://rwwuu7gvxywr"
 
 [node name="Enemies" type="Node2D" parent="." unique_id=947399086]
-visible = false
 
 [node name="Slime2" parent="Enemies" unique_id=488761391 instance=ExtResource("7_k841l")]
 position = Vector2(264, 384)
