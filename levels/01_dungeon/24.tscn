@@ -3,6 +3,17 @@
 [ext_resource type="TileSet" uid="uid://p87hshodqhxn" path="res://levels/tilesets/forgotten_forest.tres" id="1_sywid"]
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="2_6phkq"]
 [ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="3_6phkq"]
+[ext_resource type="PackedScene" uid="uid://bpu85f86p0afb" path="res://bosses/cobalt_knight/placeholder_boss.tscn" id="4_hikmn"]
+[ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="5_hikmn"]
+
+[sub_resource type="GDScript" id="GDScript_hikmn"]
+resource_name = "remove"
+script/source = "extends TileMapLayer
+
+func destroy() -> void:
+	queue_free()
+	pass
+"
 
 [node name="24" type="Node2D" unique_id=1247034308]
 
@@ -32,3 +43,17 @@ position = Vector2(192, 744)
 location = 3
 target_level = "uid://bmgjtfbs7luu8"
 target_area_name = "D17-3"
+
+[node name="PlaceholderBoss" parent="." unique_id=852029037 instance=ExtResource("4_hikmn")]
+position = Vector2(400, 646)
+hp = 20.0
+
+[node name="PlayerSpawn" parent="." unique_id=168231582 instance=ExtResource("5_hikmn")]
+position = Vector2(944, 704)
+
+[node name="TileMapLayer3" type="TileMapLayer" parent="." unique_id=1432627322]
+tile_map_data = PackedByteArray("AAAGABYAAAACAAYAAAAHABYAAAADAAYAAAA=")
+tile_set = ExtResource("1_sywid")
+script = SubResource("GDScript_hikmn")
+
+[connection signal="boss_defeated" from="PlaceholderBoss" to="TileMapLayer3" method="destroy"]

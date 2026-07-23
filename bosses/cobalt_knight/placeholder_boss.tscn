@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://bpu85f86p0afb"]
+
+[ext_resource type="Texture2D" uid="uid://1cxetibhexys" path="res://bosses/cobalt_knight/cobalt_knight.png" id="1_svaxo"]
+[ext_resource type="Script" uid="uid://b51jex7mx0vi5" path="res://bosses/cobalt_knight/placeholder_boss.gd" id="2_8dwmd"]
+[ext_resource type="Script" uid="uid://bvoy8p2v1ao7i" path="res://general/scripts/hazard_area.gd" id="3_77oyn"]
+[ext_resource type="Script" uid="uid://dha53eb7vo0el" path="res://general/scripts/damage_area.gd" id="4_vjkoh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1qc1p"]
+size = Vector2(45, 112)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1qc1p"]
+radius = 14.0
+height = 102.0
+
+[sub_resource type="Gradient" id="Gradient_svaxo"]
+offsets = PackedFloat32Array(0.52072537, 0.7797927)
+colors = PackedColorArray(0.25765622, 0.07267809, 0.30007392, 1, 0.5359452, 0.23012358, 0.6157466, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8dwmd"]
+gradient = SubResource("Gradient_svaxo")
+width = 24
+height = 48
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="PlaceholderBoss" type="Sprite2D" unique_id=852029037]
+texture = ExtResource("1_svaxo")
+script = ExtResource("2_8dwmd")
+
+[node name="HazardArea" type="Area2D" parent="." unique_id=1005502255]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("3_77oyn")
+damage = 3.0
+metadata/_custom_type_script = "uid://bvoy8p2v1ao7i"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea" unique_id=1668095347]
+position = Vector2(-7.5, 7)
+shape = SubResource("RectangleShape2D_1qc1p")
+debug_color = Color(1, 0.08627451, 0, 0)
+
+[node name="DamageArea" type="Area2D" parent="." unique_id=478586356]
+unique_name_in_owner = true
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("4_vjkoh")
+metadata/_custom_type_script = "uid://dha53eb7vo0el"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=1135727026]
+position = Vector2(-4, 12)
+shape = SubResource("CapsuleShape2D_1qc1p")
+debug_color = Color(0, 1, 0.105882354, 0)
+
+[node name="SpikeSpawn1" type="Marker2D" parent="." unique_id=1205538062]
+unique_name_in_owner = true
+position = Vector2(25.5, -24)
+
+[node name="SpikeSpawn2" type="Marker2D" parent="." unique_id=1388820451]
+unique_name_in_owner = true
+position = Vector2(25.5, 14.5)
+
+[node name="SpikeSpawn3" type="Marker2D" parent="." unique_id=281590307]
+unique_name_in_owner = true
+position = Vector2(25.5, 51)
+
+[node name="SpikeSpawnSprite" type="Sprite2D" parent="." unique_id=1322125768]
+unique_name_in_owner = true
+texture = SubResource("GradientTexture2D_8dwmd")

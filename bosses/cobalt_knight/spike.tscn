@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://k3rxlygqvubs"]
+
+[ext_resource type="Texture2D" uid="uid://cub2rwa5wk75j" path="res://bosses/cobalt_knight/spike.aseprite" id="1_5o813"]
+[ext_resource type="Script" uid="uid://blrry81yvmyf" path="res://bosses/cobalt_knight/spike.gd" id="1_sy2up"]
+[ext_resource type="Script" uid="uid://bvoy8p2v1ao7i" path="res://general/scripts/hazard_area.gd" id="2_0e4h7"]
+
+[node name="Spike" type="Node2D" unique_id=471946081]
+script = ExtResource("1_sy2up")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1198791263]
+texture = ExtResource("1_5o813")
+
+[node name="HazardArea" type="Area2D" parent="." unique_id=1358915309]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("2_0e4h7")
+damage = 5.0
+metadata/_custom_type_script = "uid://bvoy8p2v1ao7i"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HazardArea" unique_id=1688351097]
+polygon = PackedVector2Array(-24, -10, 21, 0, -24, 10)
