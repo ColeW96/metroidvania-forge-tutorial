@@ -6,15 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bpu85f86p0afb" path="res://bosses/cobalt_knight/placeholder_boss.tscn" id="4_hikmn"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="5_hikmn"]
 
-[sub_resource type="GDScript" id="GDScript_hikmn"]
-resource_name = "remove"
-script/source = "extends TileMapLayer
-
-func destroy() -> void:
-	queue_free()
-	pass
-"
-
 [node name="24" type="Node2D" unique_id=1247034308]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=712018390]
@@ -54,6 +45,5 @@ position = Vector2(944, 704)
 [node name="TileMapLayer3" type="TileMapLayer" parent="." unique_id=1432627322]
 tile_map_data = PackedByteArray("AAAGABYAAAACAAYAAAAHABYAAAADAAYAAAA=")
 tile_set = ExtResource("1_sywid")
-script = SubResource("GDScript_hikmn")
 
-[connection signal="boss_defeated" from="PlaceholderBoss" to="TileMapLayer3" method="destroy"]
+[connection signal="boss_defeated" from="PlaceholderBoss" to="TileMapLayer3" method="queue_free"]

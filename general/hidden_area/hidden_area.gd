@@ -62,5 +62,6 @@ func apply_area_settings() -> void:
 
 func update_area_visibility() -> void:
 	if Engine.is_editor_hint():
-		area_2d.visible = show_area
+		if area_2d:
+			area_2d.visible = show_area
 	pass
