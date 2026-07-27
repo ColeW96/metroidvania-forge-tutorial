@@ -1,3 +1,4 @@
+@icon( "res://general/icons/enemy.svg" )
 class_name PlaceholderBoss extends Sprite2D
 
 signal boss_defeated
