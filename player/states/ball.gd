@@ -36,6 +36,9 @@ func enter() -> void:
 		player.velocity.y -= 100
 	# maybe tween color on morph
 	Audio.play_spatial_sound(MORPH_AUDIO, player.global_position, false, true, 0.5)
+	
+	if player.previous_state == ledge_grab:
+		_ease_ledge_grab_morph()
 	pass
 
 
@@ -108,3 +111,21 @@ func can_stand() -> bool:
 	if ball_ray_down.is_colliding() and ball_ray_up.is_colliding():
 		return false
 	return true
+
+
+func _ease_ledge_grab_morph() -> void:
+	var target_x : float = player.global_position.x
+	var target_y : float = player.global_position.y - 36
+	var target_pos : Vector2 = Vector2( target_x, target_y )
+	var tween : Tween = player.create_tween()
+	tween.set_trans(Tween.TRANS_SINE)
+	tween.set_ease(Tween.EASE_OUT)
+	if player._cardinal_direction == Vector2.LEFT:
+		tween.tween_property(player, "global_position", target_pos, 0.1)
+		target_pos.x -= 18
+		tween.tween_property(player, "global_position", target_pos, 0.1)
+	elif player._cardinal_direction == Vector2.RIGHT:
+		tween.tween_property(player, "global_position", target_pos, 0.1)
+		target_pos.x += 18
+		tween.tween_property(player, "global_position", target_pos, 0.1)
+	pass
