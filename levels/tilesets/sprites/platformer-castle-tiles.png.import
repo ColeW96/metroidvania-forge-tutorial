@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvpcvjxpi8pdb"
-path="res://.godot/imported/platformer-forest.png-862f0c0135afac35292ee1a91e1348da.ctex"
+uid="uid://df46a550vr7d2"
+path="res://.godot/imported/platformer-castle-tiles.png-b361932cdc4552a8c12e1aa2bcb7b61b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tilemaps/sprites/platformer-forest.png"
-dest_files=["res://.godot/imported/platformer-forest.png-862f0c0135afac35292ee1a91e1348da.ctex"]
+source_file="res://levels/tilesets/sprites/platformer-castle-tiles.png"
+dest_files=["res://.godot/imported/platformer-castle-tiles.png-b361932cdc4552a8c12e1aa2bcb7b61b.ctex"]
 
 [params]
 

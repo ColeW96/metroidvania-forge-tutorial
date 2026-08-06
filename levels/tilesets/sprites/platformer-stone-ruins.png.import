@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dr3pov7ssui5t"
-path="res://.godot/imported/platformer-dungeon-tiles.png-4b6b0a504f39e9eeda9017015ebb8810.ctex"
+uid="uid://ciethx2iu7ek5"
+path="res://.godot/imported/platformer-stone-ruins.png-ac43cef7c6685bfd5a574c85989ba44e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tilemaps/sprites/platformer-dungeon-tiles.png"
-dest_files=["res://.godot/imported/platformer-dungeon-tiles.png-4b6b0a504f39e9eeda9017015ebb8810.ctex"]
+source_file="res://levels/tilesets/sprites/platformer-stone-ruins.png"
+dest_files=["res://.godot/imported/platformer-stone-ruins.png-ac43cef7c6685bfd5a574c85989ba44e.ctex"]
 
 [params]
 
