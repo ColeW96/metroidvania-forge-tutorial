@@ -77,6 +77,9 @@ func position_and_rotate_bullet_spawn() -> void:
 
 
 func reset_bullet_spawn() -> void:
+	var pos : Vector2 = player.bullet_spawn_pos
 	player.bullet_spawn.rotation = 0
-	player.bullet_spawn.position = player.bullet_spawn_pos
+	if player._cardinal_direction == Vector2.LEFT:
+		pos.x *= -1
+	player.bullet_spawn.position = pos
 	pass
