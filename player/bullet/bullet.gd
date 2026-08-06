@@ -5,9 +5,10 @@ var move_direction : Vector2 = Vector2.RIGHT
 var distance_moved : float = 0
 var max_distance : float = 450
 
-@onready var bullet_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var bullet_sprite: Sprite2D = %Sprite2D
 @onready var attack_area: AttackArea = %AttackArea
 @onready var area_2d: Area2D = $Area2D
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
 
 
 
@@ -40,13 +41,21 @@ func reset_bullet() -> void:
 
 func _on_damage_done( result : bool ) -> void:
 	if result:
-		queue_free()
 		attack_area.set_active( false )
+		destroy()
 	pass
 
 
 func _on_body_entered( node : Node2D ) -> void:
 	if node.get_parent() is Breakable:
 		return
+	destroy()
+	pass
+
+
+func destroy() -> void:
+	bullet_speed = 0
+	animation_player.play("destroy")
+	await animation_player.animation_finished
 	queue_free()
 	pass
