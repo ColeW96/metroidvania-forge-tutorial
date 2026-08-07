@@ -20,6 +20,12 @@ height = 846
 metadata/_custom_type_script = "uid://drqun7tewik8i"
 
 [node name="C08-1" parent="." unique_id=389267975 instance=ExtResource("3_l0yxd")]
-position = Vector2(0, 320)
+position = Vector2(0, 768)
 target_level = "uid://cqy653ovcdceb"
 target_area_name = "C07-2"
+
+[node name="C08-2" parent="." unique_id=490682338 instance=ExtResource("3_l0yxd")]
+position = Vector2(192, 0)
+location = 2
+target_level = "uid://drlgwlndak0h6"
+target_area_name = "C16-4"

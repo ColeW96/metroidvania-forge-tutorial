@@ -25,12 +25,6 @@ location = 2
 target_level = "uid://dwvpfovtri3my"
 target_area_name = "C14-2"
 
-[node name="C15-2" parent="." unique_id=559854810 instance=ExtResource("3_nmj5p")]
-position = Vector2(832, 400)
-location = 3
-target_level = "uid://cqy653ovcdceb"
-target_area_name = "C07-5"
-
 [node name="C15-3" parent="." unique_id=995951324 instance=ExtResource("3_nmj5p")]
 position = Vector2(992, 128)
 location = 1
