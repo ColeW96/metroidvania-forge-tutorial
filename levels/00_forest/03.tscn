@@ -8,6 +8,52 @@
 [ext_resource type="AudioStream" uid="uid://cxhdqvhc0jk57" path="res://music/forest_01.ogg" id="6_c06eb"]
 [ext_resource type="PackedScene" uid="uid://de3w4k411bso3" path="res://general/respawn_trigger/respawn_trigger.tscn" id="7_c06eb"]
 [ext_resource type="TileSet" uid="uid://7nbch84nj8xi" path="res://levels/tilesets/castle.tres" id="8_1pjxa"]
+[ext_resource type="Texture2D" uid="uid://dnqw24c1x1xta" path="res://levels/tilesets/sprites/light_stream.jpg" id="9_b4vbt"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_w05bn"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_b4vbt"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_02v3e"]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_8sv46"]
+colors = PackedColorArray(1.3217006, 1.8247963, 1.0072657, 1, 0.7176471, 1, 0.5411765, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rjo1k"]
+gradient = SubResource("Gradient_8sv46")
+width = 16
+height = 16
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Gradient" id="Gradient_cr1jy"]
+offsets = PackedFloat32Array(0, 0.2644628, 0.78512394, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.2644628, 0.2644628, 0.2644628, 1, 0.6171176, 0.6171176, 0.6171176, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8sv46"]
+gradient = SubResource("Gradient_cr1jy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_eoqfv"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(600, 200, 1)
+direction = Vector3(0, 0, 0)
+initial_velocity_max = 300.0
+gravity = Vector3(0, 10, 0)
+scale_min = 0.75
+scale_max = 1.25
+color_ramp = SubResource("GradientTexture1D_8sv46")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = 0.049999975
+turbulence_enabled = true
+turbulence_influence_max = 0.19000001
 
 [node name="03" type="Node2D" unique_id=249495352]
 
@@ -136,3 +182,129 @@ metadata/_custom_type_script = "uid://rwwuu7gvxywr"
 position = Vector2(784, 344)
 scale = Vector2(17, 1)
 size = 17
+
+[node name="Parallax2D8" type="Parallax2D" parent="." unique_id=1277660940]
+scroll_scale = Vector2(1.1, 1)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Parallax2D8" unique_id=2095392871]
+modulate = Color(0.8172912, 1.1003526, 1.1638972, 0.18431373)
+z_index = 5
+material = SubResource("CanvasItemMaterial_w05bn")
+position = Vector2(477.94467, -625.4104)
+rotation = 0.4541288
+scale = Vector2(0.27543327, 1.9787744)
+texture = ExtResource("9_b4vbt")
+offset = Vector2(0, 256)
+
+[node name="Sprite2D9" type="Sprite2D" parent="Parallax2D8" unique_id=909425425]
+modulate = Color(0.8172912, 1.1003526, 1.1638972, 0.13725491)
+z_index = 5
+material = SubResource("CanvasItemMaterial_w05bn")
+position = Vector2(328.12265, -649.5342)
+rotation = 0.4541288
+scale = Vector2(0.27543327, 1.9787744)
+texture = ExtResource("9_b4vbt")
+offset = Vector2(0, 256)
+
+[node name="Sprite2D3" type="Sprite2D" parent="Parallax2D8" unique_id=1200417446]
+modulate = Color(0.8172912, 1.1003526, 1.1638972, 0.1764706)
+z_index = 5
+material = SubResource("CanvasItemMaterial_w05bn")
+position = Vector2(1228.9447, -626.4104)
+rotation = 0.35126144
+scale = Vector2(0.37424883, 1.9787745)
+texture = ExtResource("9_b4vbt")
+offset = Vector2(0, 256)
+
+[node name="Sprite2D4" type="Sprite2D" parent="Parallax2D8" unique_id=821456736]
+modulate = Color(0.8172912, 1.1003526, 1.1638972, 0.15686275)
+z_index = 5
+material = SubResource("CanvasItemMaterial_w05bn")
+position = Vector2(1051.9445, -630.41034)
+rotation = 0.32427806
+scale = Vector2(0.5575482, 1.9787742)
+texture = ExtResource("9_b4vbt")
+offset = Vector2(0, 256)
+
+[node name="Sprite2D5" type="Sprite2D" parent="Parallax2D8" unique_id=1528570633]
+modulate = Color(0.8172912, 1.1003526, 1.1638972, 0.16862746)
+z_index = 5
+material = SubResource("CanvasItemMaterial_w05bn")
+position = Vector2(794.1227, -594.53406)
+rotation = 0.41443896
+scale = Vector2(0.5856856, 1.9787743)
+texture = ExtResource("9_b4vbt")
+offset = Vector2(0, 256)
+
+[node name="Sprite2D6" type="Sprite2D" parent="Parallax2D8" unique_id=171631253]
+modulate = Color(0.8172912, 1.1003526, 1.1638972, 0.16470589)
+z_index = 5
+material = SubResource("CanvasItemMaterial_w05bn")
+position = Vector2(1426.1226, -587.53406)
+rotation = 0.41443896
+scale = Vector2(0.33306813, 1.9787743)
+texture = ExtResource("9_b4vbt")
+offset = Vector2(0, 256)
+
+[node name="Parallax2D9" type="Parallax2D" parent="." unique_id=1893178312]
+scroll_scale = Vector2(1.2, 1)
+
+[node name="Sprite2D6" type="Sprite2D" parent="Parallax2D9" unique_id=815326036]
+modulate = Color(0.5558814, 0.685701, 0.8843453, 0.067)
+z_index = 5
+material = SubResource("CanvasItemMaterial_b4vbt")
+position = Vector2(508.38245, -663.8035)
+rotation = 0.45236066
+scale = Vector2(0.7542147, 2.0877907)
+texture = ExtResource("9_b4vbt")
+offset = Vector2(0, 256)
+
+[node name="Sprite2D12" type="Sprite2D" parent="Parallax2D9" unique_id=2119252630]
+modulate = Color(0.5558814, 0.685701, 0.8843453, 0.067)
+z_index = 5
+material = SubResource("CanvasItemMaterial_b4vbt")
+position = Vector2(257.3263, -659.9999)
+rotation = 0.38313565
+scale = Vector2(0.2924578, 2.0877907)
+texture = ExtResource("9_b4vbt")
+offset = Vector2(0, 256)
+
+[node name="Sprite2D7" type="Sprite2D" parent="Parallax2D9" unique_id=1137291433]
+modulate = Color(0.5558814, 0.685701, 0.8843453, 0.067)
+z_index = 5
+material = SubResource("CanvasItemMaterial_b4vbt")
+position = Vector2(1173.3824, -678.8036)
+rotation = 0.45236066
+scale = Vector2(0.43698665, 2.0877907)
+texture = ExtResource("9_b4vbt")
+offset = Vector2(0, 256)
+
+[node name="Sprite2D8" type="Sprite2D" parent="Parallax2D9" unique_id=791264349]
+modulate = Color(0.5558814, 0.685701, 0.8843453, 0.067)
+z_index = 5
+material = SubResource("CanvasItemMaterial_b4vbt")
+position = Vector2(759.38245, -658.8036)
+rotation = 0.45236066
+scale = Vector2(0.4567732, 2.0877905)
+texture = ExtResource("9_b4vbt")
+offset = Vector2(0, 256)
+
+[node name="Sprite2D9" type="Sprite2D" parent="Parallax2D9" unique_id=401793494]
+modulate = Color(0.5558814, 0.685701, 0.8843453, 0.067)
+z_index = 5
+material = SubResource("CanvasItemMaterial_b4vbt")
+position = Vector2(1429.3263, -615.9999)
+rotation = 0.45236066
+scale = Vector2(0.5691069, 2.0877905)
+texture = ExtResource("9_b4vbt")
+offset = Vector2(0, 256)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=357945634]
+material = SubResource("CanvasItemMaterial_02v3e")
+position = Vector2(524, 71)
+amount = 50
+texture = SubResource("GradientTexture2D_rjo1k")
+lifetime = 5.0
+randomness = 0.83
+visibility_rect = Rect2(-250, -100, 1025, 200)
+process_material = SubResource("ParticleProcessMaterial_eoqfv")
