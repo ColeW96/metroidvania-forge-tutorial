@@ -55,7 +55,7 @@ height = 526
 metadata/_custom_type_script = "uid://drqun7tewik8i"
 
 [node name="PlayerSpawn" parent="." unique_id=1293733616 instance=ExtResource("4_7vwju")]
-position = Vector2(56, 56)
+position = Vector2(746.6242, 189.90723)
 
 [node name="MusicAutoTrigger" type="Node" parent="." unique_id=1740192093]
 script = ExtResource("5_nqq0o")
