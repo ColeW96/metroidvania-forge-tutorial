@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://ylecj1xha6lf"]
+
+[sub_resource type="Gradient" id="Gradient_a5xcq"]
+colors = PackedColorArray(0.84724, 0.84724, 0.84724, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_f0i3c"]
+gradient = SubResource("Gradient_a5xcq")
+width = 4
+height = 4
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="PowerupMapNode" type="Sprite2D" unique_id=1078222434]
+texture = SubResource("GradientTexture2D_f0i3c")

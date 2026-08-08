@@ -2,7 +2,7 @@
 @icon( "res://general/icons/map_node.svg" )
 class_name MapNode extends Control
 
-
+const POWERUP_MAP_NODE = preload("uid://ylecj1xha6lf")
 const SCALE_FACTOR : float = 40
 
 # variables
