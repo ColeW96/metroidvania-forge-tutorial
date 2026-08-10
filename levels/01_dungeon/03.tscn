@@ -74,7 +74,7 @@ texture = SubResource("AtlasTexture_25qsg")
 metadata/_custom_type_script = "uid://brc344c2o0cfo"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nnfnh"]
-size = Vector2(92, 128)
+size = Vector2(22, 128)
 
 [node name="03" type="Node2D" unique_id=940042686]
 
@@ -127,13 +127,11 @@ tile_map_data = PackedByteArray("AAAJAAUAAAAQAA4AAAAKAAUAAAARAA4AAAAJAAYAAAAQAA4
 tile_set = ExtResource("1_xbs7e")
 
 [node name="DamageArea" type="Area2D" parent="Breakable" unique_id=1267164814]
-visible = false
-position = Vector2(0, 8)
+position = Vector2(52, 16)
 collision_layer = 64
 collision_mask = 0
 script = ExtResource("10_t7cs5")
 metadata/_custom_type_script = "uid://dha53eb7vo0el"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Breakable/DamageArea" unique_id=69361649]
-position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_nnfnh")

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="3_svxg7"]
 [ext_resource type="PackedScene" uid="uid://dg7qvy6vumoft" path="res://general/hidden_area/hidden_area.tscn" id="4_ppqyp"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="5_43i5e"]
+[ext_resource type="PackedScene" uid="uid://wdmyqu8yln5j" path="res://general/powerup/powerup.tscn" id="6_y878t"]
 
 [node name="03" type="Node2D" unique_id=1073888737]
 
@@ -51,3 +52,6 @@ collision_enabled = false
 
 [node name="PlayerSpawn" parent="." unique_id=569005986 instance=ExtResource("5_43i5e")]
 position = Vector2(320, 368)
+
+[node name="Powerup" parent="." unique_id=165981682 instance=ExtResource("6_y878t")]
+position = Vector2(512, 336)
