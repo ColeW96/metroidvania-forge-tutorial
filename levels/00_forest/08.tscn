@@ -60,7 +60,7 @@ target_level = "uid://wcocg2ixyysd"
 target_area_name = "F09-1"
 
 [node name="PlayerSpawn" parent="." unique_id=1749238370 instance=ExtResource("4_6hjtw")]
-position = Vector2(945.09576, 262.2817)
+position = Vector2(440.81674, 103.31412)
 
 [node name="Powerup" parent="." unique_id=165981682 instance=ExtResource("7_ak5gn")]
 position = Vector2(896, 80)

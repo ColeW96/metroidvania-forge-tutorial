@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dj8meq1l1rcen" path="res://pause_menu/scripts/pause_menu.gd" id="1_5hbt6"]
 [ext_resource type="PackedScene" uid="uid://cg42g8j2magai" path="res://pause_menu/map_node.tscn" id="2_rd7dy"]
+[ext_resource type="Script" uid="uid://cro50mhhf5uji" path="res://pause_menu/scripts/map.gd" id="2_wn31l"]
 [ext_resource type="Script" uid="uid://c1bg5i4xslotb" path="res://pause_menu/scripts/abilities_list.gd" id="3_b4s0c"]
+[ext_resource type="PackedScene" uid="uid://ylecj1xha6lf" path="res://pause_menu/powerup_map_node.tscn" id="3_s1glv"]
 [ext_resource type="Texture2D" uid="uid://bc3p77l87rvqy" path="res://player/sprites/abilities.png" id="3_uwtdo"]
 
 [sub_resource type="FontVariation" id="FontVariation_5hbt6"]
@@ -148,6 +150,7 @@ offset_left = 112.0
 offset_top = 8.0
 offset_right = 466.0
 offset_bottom = 195.0
+script = ExtResource("2_wn31l")
 
 [node name="ColorRect" type="ColorRect" parent="Control/PauseScreen/Map" unique_id=2066367903]
 layout_mode = 1
@@ -226,6 +229,9 @@ offset_right = 224.0
 offset_bottom = 57.0
 linked_scene = "uid://cmjnb3arffkr4"
 entrances_bottom = Array[float]([7.2, 23.0])
+
+[node name="PowerupMapNode" parent="Control/PauseScreen/Map/MapNode48" unique_id=1078222434 instance=ExtResource("3_s1glv")]
+position = Vector2(14, 5)
 
 [node name="MapNode59" parent="Control/PauseScreen/Map" unique_id=675728383 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.3424462, 0.3019191, 0.52630603, 1)
@@ -338,6 +344,9 @@ linked_scene = "uid://hjkyar4iiq2"
 entrances_right = Array[float]([5.0])
 entrances_left = Array[float]([5.0])
 
+[node name="PowerupMapNode" parent="Control/PauseScreen/Map/MapNode14" unique_id=2116682659 instance=ExtResource("3_s1glv")]
+position = Vector2(6, 5)
+
 [node name="MapNode23" parent="Control/PauseScreen/Map" unique_id=1266660202 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.23890063, 0.48317358, 0.6154072, 1)
 layout_mode = 0
@@ -360,6 +369,9 @@ offset_bottom = 102.0
 linked_scene = "uid://emgp7erp6nby"
 entrances_top = Array[float]([7.0])
 entrances_left = Array[float]([5.0])
+
+[node name="PowerupMapNode" parent="Control/PauseScreen/Map/MapNode33" unique_id=535487735 instance=ExtResource("3_s1glv")]
+position = Vector2(6, 5)
 
 [node name="MapNode34" parent="Control/PauseScreen/Map" unique_id=1044383927 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.23890063, 0.48317358, 0.6154072, 1)
@@ -483,6 +495,9 @@ offset_bottom = 35.0
 linked_scene = "uid://bb7am0u681q5e"
 entrances_bottom = Array[float]([4.8])
 
+[node name="PowerupMapNode" parent="Control/PauseScreen/Map/MapNode63" unique_id=552847161 instance=ExtResource("3_s1glv")]
+position = Vector2(10, 5)
+
 [node name="MapNode26" parent="Control/PauseScreen/Map" unique_id=619871428 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.23890063, 0.48317358, 0.6154072, 1)
 layout_mode = 0
@@ -593,6 +608,9 @@ linked_scene = "uid://bn6d0ra8utwfi"
 entrances_right = Array[float]([4.0])
 entrances_left = Array[float]([2.0])
 
+[node name="PowerupMapNode" parent="Control/PauseScreen/Map/MapNode41" unique_id=1068482833 instance=ExtResource("3_s1glv")]
+position = Vector2(14, 5)
+
 [node name="MapNode13" parent="Control/PauseScreen/Map" unique_id=1257713864 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.23890063, 0.48317358, 0.6154072, 1)
 layout_mode = 0
@@ -616,6 +634,9 @@ linked_scene = "uid://bwvbptg203x7x"
 entrances_top = Array[float]([2.0])
 entrances_left = Array[float]([2.0, 15.0])
 
+[node name="PowerupMapNode" parent="Control/PauseScreen/Map/MapNode20" unique_id=1961347888 instance=ExtResource("3_s1glv")]
+position = Vector2(6, 10)
+
 [node name="MapNode15" parent="Control/PauseScreen/Map" unique_id=1509387191 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.23890063, 0.48317358, 0.6154072, 1)
 layout_mode = 0
@@ -637,6 +658,9 @@ offset_bottom = 132.0
 linked_scene = "uid://dx2h0fxi23of4"
 entrances_bottom = Array[float]([2.0])
 entrances_left = Array[float]([5.0])
+
+[node name="PowerupMapNode" parent="Control/PauseScreen/Map/MapNode24" unique_id=1963841397 instance=ExtResource("3_s1glv")]
+position = Vector2(6, 10)
 
 [node name="MapNode50" parent="Control/PauseScreen/Map" unique_id=1810068338 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.3424462, 0.3019191, 0.52630603, 1)
@@ -716,6 +740,9 @@ linked_scene = "uid://bhnf28k03n0w0"
 entrances_bottom = Array[float]([34.0])
 entrances_left = Array[float]([5.0])
 
+[node name="PowerupMapNode" parent="Control/PauseScreen/Map/MapNode12" unique_id=65360931 instance=ExtResource("3_s1glv")]
+position = Vector2(20, 5)
+
 [node name="MapNode8" parent="Control/PauseScreen/Map" unique_id=601166024 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.23890063, 0.48317358, 0.6154072, 1)
 layout_mode = 0
@@ -726,6 +753,9 @@ offset_bottom = 100.0
 linked_scene = "uid://dy2hyganoe4yk"
 entrances_right = Array[float]([2.0])
 entrances_bottom = Array[float]([13.0])
+
+[node name="PowerupMapNode" parent="Control/PauseScreen/Map/MapNode8" unique_id=1337881245 instance=ExtResource("3_s1glv")]
+position = Vector2(9, 8)
 
 [node name="MapNode9" parent="Control/PauseScreen/Map" unique_id=818294042 instance=ExtResource("2_rd7dy")]
 modulate = Color(0.23890063, 0.48317358, 0.6154072, 1)
