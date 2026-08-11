@@ -3,9 +3,15 @@
 [ext_resource type="TileSet" uid="uid://7nbch84nj8xi" path="res://levels/tilesets/castle.tres" id="1_l0yxd"]
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="2_l0yxd"]
 [ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="3_l0yxd"]
+[ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="4_egrrs"]
 [ext_resource type="PackedScene" uid="uid://ja8lc0n3awhh" path="res://enemies/slime_2/slime_2.tscn" id="4_j780v"]
+[ext_resource type="AudioStream" uid="uid://p8hxrxlmlcnc" path="res://music/dungeon_01.ogg" id="5_gut50"]
 [ext_resource type="Script" uid="uid://ch0a048ylkibq" path="res://bosses/scripts/boss_battle_orchestrator.gd" id="5_l3j2w"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="6_qayq2"]
+[ext_resource type="AudioStream" uid="uid://c8o0em6mqj12d" path="res://bosses/nega_pink_box/audio/nega_pink_box_boss.wav" id="7_eq85o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6drb7"]
+size = Vector2(88, 518)
 
 [node name="08" type="Node2D" unique_id=1247034308]
 
@@ -35,14 +41,27 @@ location = 2
 target_level = "uid://drlgwlndak0h6"
 target_area_name = "C16-4"
 
-[node name="BossBattleOrchestrator" type="Node" parent="." unique_id=365039576 node_paths=PackedStringArray("boss")]
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=149037823]
+script = ExtResource("4_egrrs")
+track = ExtResource("5_gut50")
+metadata/_custom_type_script = "uid://rwwuu7gvxywr"
+
+[node name="BossBattleOrchestrator" type="Node" parent="." unique_id=365039576 node_paths=PackedStringArray("boss", "trigger_area")]
 script = ExtResource("5_l3j2w")
 boss = NodePath("Slime2")
+trigger_area = NodePath("Area2D")
+boss_track = ExtResource("7_eq85o")
 metadata/_custom_type_script = "uid://ch0a048ylkibq"
 
 [node name="Slime2" parent="BossBattleOrchestrator" unique_id=488761391 instance=ExtResource("4_j780v")]
 position = Vector2(640, 544)
 face_left_on_start = true
+
+[node name="Area2D" type="Area2D" parent="BossBattleOrchestrator" unique_id=1492174002]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossBattleOrchestrator/Area2D" unique_id=886632292]
+position = Vector2(374, 290)
+shape = SubResource("RectangleShape2D_6drb7")
 
 [node name="PlayerSpawn" parent="." unique_id=544684349 instance=ExtResource("6_qayq2")]
 position = Vector2(227, 64)
