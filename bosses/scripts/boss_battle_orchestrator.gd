@@ -7,6 +7,8 @@ signal boss_reward_collected
 
 @export var boss : Node
 @export var trigger_area : Area2D
+@export var boss_tilemaps : Array[ TileMapLayer ]
+@export var reward : Node2D
 
 @export_category("Boss Music")
 @export var boss_track : AudioStream
@@ -20,16 +22,32 @@ func _ready() -> void:
 	if boss:
 		boss.process_mode = Node.PROCESS_MODE_DISABLED
 	
+	for t in boss_tilemaps:
+		t.enabled = false
+	
 	if trigger_area:
 		trigger_area.set_collision_mask_value( 5, true )
 		trigger_area.set_collision_mask_value( 1, false )
 		trigger_area.set_collision_layer_value( 1, false )
 		trigger_area.body_entered.connect( _on_body_entered )
+	
+	if reward:
+		reward.process_mode = Node.PROCESS_MODE_DISABLED
+		reward.visible = false
+	
+	if SaveManager.persistent_data.get_or_add( unique_name(), "" ) == "defeated":
+		queue_free()
 	pass
 
 
 func start_boss_battle() -> void:
 	battle_started.emit()
+	
+	if boss_level_bounds:
+		boss_level_bounds.set_camera_bounds()
+	
+	for t in boss_tilemaps:
+		t.enabled = true
 	
 	Audio.play_music( boss_track )
 	if boss:
@@ -40,10 +58,31 @@ func start_boss_battle() -> void:
 
 func end_boss_battle() -> void:
 	battle_ended.emit()
-	print("Boss battle ended")
+	SaveManager.persistent_data[ unique_name() ] = "defeated"
 	
 	Audio.play_music( post_boss_track )
+	await deliver_reward()
+	
+	if original_level_bounds:
+		original_level_bounds.set_camera_bounds()
+	
+	for t in boss_tilemaps:
+		t.enabled = false
+	
 	pass
+
+
+func deliver_reward() -> bool:
+	if not reward:
+		return false
+	
+	if reward:
+		reward.process_mode = Node.PROCESS_MODE_INHERIT
+		reward.visible = true
+	
+	await reward.tree_exiting
+	boss_reward_collected.emit()
+	return true
 
 
 func _on_body_entered( body : Node2D ) -> void:
@@ -51,3 +90,9 @@ func _on_body_entered( body : Node2D ) -> void:
 		start_boss_battle()
 		trigger_area.body_entered.disconnect( _on_body_entered )
 	pass
+
+
+func unique_name() -> String:
+	var u_name : String = ResourceUID.path_to_uid( owner.scene_file_path )
+	u_name += "/" + get_parent().name + "/" + name
+	return u_name
