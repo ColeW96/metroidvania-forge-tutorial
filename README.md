@@ -1,10 +1,10 @@
-##Metroidvania-Forge-Tutorial Project##
+## Metroidvania-Forge-Tutorial Project ##
 
 This project is for the sole purpose of learning game development from the official [Michael Games](https://www.youtube.com/@MichaelGamesOfficial) youtube channel.
 
 The majority of pixel art in this project was provided by Michael Games from the [Metroidvania-Forge](https://michaelgames.itch.io/metroidvania-forge) itch.io page.
 
-##Other pixel-art from creators:##
+## Other pixel-art from creators: ##
 - Demon Chest asset by Harmless Trust: (https://harmlesstrust.itch.io/demon-chest)
 - Doom Scribe asset by Dr. Dullsville: (https://drdullsville.itch.io/doom-scribe)
 - Living Armor asset by Robzon: (https://robzon.itch.io/metroidvania-forge-living-armor)
