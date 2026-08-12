@@ -4,7 +4,11 @@
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="2_6phkq"]
 [ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="3_6phkq"]
 [ext_resource type="PackedScene" uid="uid://bpu85f86p0afb" path="res://bosses/cobalt_knight/placeholder_boss.tscn" id="4_hikmn"]
+[ext_resource type="Script" uid="uid://ch0a048ylkibq" path="res://bosses/scripts/boss_battle_orchestrator.gd" id="5_agqoh"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="5_hikmn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6drb7"]
+size = Vector2(20, 237)
 
 [node name="24" type="Node2D" unique_id=1247034308]
 
@@ -35,15 +39,27 @@ location = 3
 target_level = "uid://bmgjtfbs7luu8"
 target_area_name = "D17-3"
 
-[node name="PlaceholderBoss" parent="." unique_id=852029037 instance=ExtResource("4_hikmn")]
-position = Vector2(400, 646)
-hp = 20.0
-
 [node name="PlayerSpawn" parent="." unique_id=168231582 instance=ExtResource("5_hikmn")]
 position = Vector2(944, 704)
 
-[node name="TileMapLayer3" type="TileMapLayer" parent="." unique_id=1432627322]
-tile_map_data = PackedByteArray("AAAGABYAAAACAAYAAAAHABYAAAADAAYAAAA=")
-tile_set = ExtResource("1_sywid")
+[node name="BossBattleOrchestrator" type="Node" parent="." unique_id=1573185936 node_paths=PackedStringArray("boss", "trigger_area", "boss_tilemaps")]
+script = ExtResource("5_agqoh")
+boss = NodePath("PlaceholderBoss")
+trigger_area = NodePath("Area2D")
+boss_tilemaps = [NodePath("TileMapLayer3")]
+metadata/_custom_type_script = "uid://ch0a048ylkibq"
 
-[connection signal="boss_defeated" from="PlaceholderBoss" to="TileMapLayer3" method="queue_free"]
+[node name="PlaceholderBoss" parent="BossBattleOrchestrator" unique_id=852029037 instance=ExtResource("4_hikmn")]
+position = Vector2(400, 646)
+hp = 20.0
+
+[node name="Area2D" type="Area2D" parent="BossBattleOrchestrator" unique_id=219634067]
+position = Vector2(656, 680)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossBattleOrchestrator/Area2D" unique_id=696658190]
+position = Vector2(-8, -89.5)
+shape = SubResource("RectangleShape2D_6drb7")
+
+[node name="TileMapLayer3" type="TileMapLayer" parent="BossBattleOrchestrator" unique_id=1432627322]
+tile_map_data = PackedByteArray("AAAGABYAAAACAAYAAAAHABYAAAADAAYAAAAeABQAAAAAAAkAAAAeABUAAAAAAAoAAAAeABYAAAAIAAoAAAA=")
+tile_set = ExtResource("1_sywid")

@@ -9,7 +9,6 @@
 [ext_resource type="Script" uid="uid://ch0a048ylkibq" path="res://bosses/scripts/boss_battle_orchestrator.gd" id="5_l3j2w"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="6_qayq2"]
 [ext_resource type="AudioStream" uid="uid://c8o0em6mqj12d" path="res://bosses/nega_pink_box/audio/nega_pink_box_boss.wav" id="7_eq85o"]
-[ext_resource type="PackedScene" uid="uid://wdmyqu8yln5j" path="res://general/powerup/powerup.tscn" id="9_eq85o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6drb7"]
 size = Vector2(88, 518)
@@ -47,17 +46,17 @@ script = ExtResource("4_egrrs")
 track = ExtResource("5_gut50")
 metadata/_custom_type_script = "uid://rwwuu7gvxywr"
 
-[node name="BossBattleOrchestrator" type="Node" parent="." unique_id=365039576 node_paths=PackedStringArray("boss", "trigger_area", "boss_tilemaps", "reward")]
+[node name="BossBattleOrchestrator" type="Node" parent="." unique_id=365039576 node_paths=PackedStringArray("boss", "trigger_area", "boss_tilemaps")]
 script = ExtResource("5_l3j2w")
 boss = NodePath("Slime2")
 trigger_area = NodePath("Area2D")
 boss_tilemaps = [NodePath("BossTilemap")]
-reward = NodePath("Powerup")
 boss_track = ExtResource("7_eq85o")
 metadata/_custom_type_script = "uid://ch0a048ylkibq"
 
 [node name="Slime2" parent="BossBattleOrchestrator" unique_id=488761391 instance=ExtResource("4_j780v")]
 position = Vector2(640, 544)
+health = 20.0
 face_left_on_start = true
 
 [node name="Area2D" type="Area2D" parent="BossBattleOrchestrator" unique_id=1492174002]
@@ -69,9 +68,6 @@ shape = SubResource("RectangleShape2D_6drb7")
 [node name="BossTilemap" type="TileMapLayer" parent="BossBattleOrchestrator" unique_id=230411526]
 tile_map_data = PackedByteArray("AAAaABEAAAAJAAEAAAAbABEAAAAKAAEAAAAcABEAAAALAAEAAAAdABEAAAAMAAEAAAAeABEAAAALAAEAAAAfABEAAAACAAEAAAA=")
 tile_set = ExtResource("1_l0yxd")
-
-[node name="Powerup" parent="BossBattleOrchestrator" unique_id=165981682 instance=ExtResource("9_eq85o")]
-position = Vector2(560, 528)
 
 [node name="PlayerSpawn" parent="." unique_id=544684349 instance=ExtResource("6_qayq2")]
 position = Vector2(227, 64)
