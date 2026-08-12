@@ -2,6 +2,7 @@
 
 This project is for the sole purpose of learning game development from the official [Michael Games](https://www.youtube.com/@MichaelGamesOfficial) youtube channel.
 
+## Pixel-Art ##
 The majority of pixel art in this project was provided by Michael Games from the [Metroidvania-Forge](https://michaelgames.itch.io/metroidvania-forge) itch.io page.
 
 ## Other pixel-art from creators: ##
