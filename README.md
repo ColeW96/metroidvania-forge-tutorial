@@ -13,4 +13,4 @@ All other pixel-art was my own creation or adaptation from Michael Games and are
 
 Big thanks to Michael and all other creators that assisted in creating this project through the use of their awesome assets!
 
-Note: The castle levels in this project rely on third-party assets from [Michael Games offical Patreon](https://www.patreon.com/c/u26305011/posts). This project may not run correctly due to path dependencies of these files. A paid membership is required to download and use these files.
+Note: Some of this project relies on third-party assets from [Michael Games offical Patreon](https://www.patreon.com/c/u26305011/posts). This project may not run correctly due to path dependencies of these files. A paid membership is required to download and use these files.
