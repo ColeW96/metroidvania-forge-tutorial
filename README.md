@@ -23,4 +23,4 @@ Missing paths:
 - levels/tilesets/sprites/platformer-dungeon-tiles.png
 - levels/tilesets/sprites/platformer-forest.png
 - levels/tilesets/sprites/platformer-stone-ruins.png
-- runes_and_ridges
+- runes_and_ridges/
