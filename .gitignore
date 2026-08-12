@@ -5,7 +5,15 @@
 
 # Third-party tilesets - local use only
 levels/tilesets/sprites/platformer-castle-tiles.png
+levels/tilesets/sprites/platformer-castle-tiles.png.import
+
 levels/tilesets/sprites/platformer-dungeon-tiles.png
+levels/tilesets/sprites/platformer-dungeon-tiles.png.import
+
 levels/tilesets/sprites/platformer-forest.png
+levels/tilesets/sprites/platformer-forest.png.import
+
 levels/tilesets/sprites/platformer-stone-ruins.png
+levels/tilesets/sprites/platformer-stone-ruins.png.import
+
 levels/tilesets/castle.tres
