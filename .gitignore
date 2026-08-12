@@ -2,3 +2,10 @@
 .godot/
 /android/
 /runes_and_ridges/
+
+# Third-party tilesets - local use only
+levels/tilesets/sprites/platformer-castle-tiles.png
+levels/tilesets/sprites/platformer-dungeon-tiles.png
+levels/tilesets/sprites/platformer-forest.png
+levels/tilesets/sprites/platformer-stone-ruins.png
+levels/tilesets/castle.tres
