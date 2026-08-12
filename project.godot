@@ -23,10 +23,6 @@ config/icon="uid://bjyl07jbw54oo"
 
 aseprite_executable_path="C:/Program Files/Aseprite/Aseprite.exe"
 
-[audio]
-
-buses/default_bus_layout="uid://d0vqj8ryikljn"
-
 [autoload]
 
 SceneManager="*res://00_global/scene_manager/scene_manager.tscn"
