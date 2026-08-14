@@ -484,8 +484,6 @@ track = ExtResource("9_ns032")
 metadata/_custom_type_script = "uid://rwwuu7gvxywr"
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1876149]
-process_mode = 4
-visible = false
 
 [node name="Slime2" parent="Enemies" unique_id=488761391 instance=ExtResource("10_ns032")]
 position = Vector2(278, 538)

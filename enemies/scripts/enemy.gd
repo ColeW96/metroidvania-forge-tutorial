@@ -17,6 +17,9 @@ signal was_killed()
 		show_vision = value
 		_update_vision_cone()
 
+@export var edge_sensor : EdgeSensor
+@export var rear_edge_sensor : RayCast2D
+
 var sprite : Sprite2D
 var animation : AnimationPlayer
 var damage_area : DamageArea

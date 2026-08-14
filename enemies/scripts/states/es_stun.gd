@@ -44,6 +44,9 @@ func exit() -> void:
 func physics_update( delta : float ) -> void:
 	timer += delta
 	enemy.velocity.x = vel_x * ( 1 - timer / duration )
+	if enemy.edge_sensor and enemy.rear_edge_sensor:
+		if not enemy.edge_sensor.is_colliding() or not enemy.rear_edge_sensor.is_colliding():
+			enemy.velocity.x = 0
 	if timer >= duration:
 		blackboard.can_decide = true
 	pass

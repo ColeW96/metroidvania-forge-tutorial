@@ -158,11 +158,13 @@ item = "uid://3c8hg2lctadd"
 drop_chance = 0.2
 metadata/_custom_type_script = "uid://bfkq1vksotjux"
 
-[node name="Slime2" type="CharacterBody2D" unique_id=488761391]
+[node name="Slime2" type="CharacterBody2D" unique_id=488761391 node_paths=PackedStringArray("edge_sensor", "rear_edge_sensor")]
 collision_layer = 0
 collision_mask = 3
 script = ExtResource("1_7cba3")
 show_vision = true
+edge_sensor = NodePath("EdgeSensor")
+rear_edge_sensor = NodePath("RearEdgeSensor")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=70568379]
 position = Vector2(0, -14)
@@ -226,17 +228,17 @@ metadata/_custom_type_script = "uid://b2qdp3bms72og"
 script = ExtResource("8_53kym")
 metadata/_custom_type_script = "uid://mwpvu3s3tjr6"
 
-[node name="EdgeSensor" type="RayCast2D" parent="." unique_id=533344323]
+[node name="EdgeSensor" type="RayCast2D" parent="." unique_id=533344323 node_paths=PackedStringArray("rear_edge_sensor")]
 position = Vector2(7, 0)
 target_position = Vector2(0, 8)
 script = ExtResource("12_ovel5")
+rear_edge_sensor = NodePath("../RearEdgeSensor")
 metadata/_custom_type_script = "uid://dfg03o7e8cnit"
 
-[node name="EdgeSensor2" type="RayCast2D" parent="." unique_id=1257741130]
-position = Vector2(7, 0)
+[node name="RearEdgeSensor" type="RayCast2D" parent="." unique_id=742773040]
+position = Vector2(-18, 0)
 target_position = Vector2(0, 8)
-script = ExtResource("12_ovel5")
-metadata/_custom_type_script = "uid://dfg03o7e8cnit"
+collision_mask = 3
 
 [node name="PlayerSensor" type="Area2D" parent="." unique_id=2092460160]
 position = Vector2(0, -7)

@@ -3,6 +3,8 @@ class_name EdgeSensor extends RayCast2D
 
 signal edge_detected
 
+@export var rear_edge_sensor : RayCast2D
+
 var enemy : Enemy
 var colliding : bool = true
 
@@ -37,4 +39,6 @@ func _physics_process(_delta: float) -> void:
 func _on_direction_changed( new_dir : float ) -> void:
 	if new_dir < 0 and position.x > 0 or new_dir > 0 and position.x < 0:
 		position.x *= -1
+		if rear_edge_sensor:
+			rear_edge_sensor.position.x *= -1
 	pass
