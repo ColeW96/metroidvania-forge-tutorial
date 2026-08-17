@@ -46,7 +46,7 @@ height = 398
 metadata/_custom_type_script = "uid://drqun7tewik8i"
 
 [node name="PlayerSpawn" parent="." unique_id=261848699 instance=ExtResource("4_chf21")]
-position = Vector2(157, 357)
+position = Vector2(816, 357)
 
 [node name="RespawnTrigger" parent="." unique_id=1387562290 instance=ExtResource("5_u5j0y")]
 position = Vector2(192.00002, 544)

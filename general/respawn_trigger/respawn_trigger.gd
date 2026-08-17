@@ -22,7 +22,7 @@ func _ready() -> void:
 
 func _on_body_entered( n : Node2D ) -> void:
 	if n is Player:
-		await hazard_area.body_entered
+		await hazard_area.body_exited
 		if n.hp > 0:
 			respawn_player( n )
 	pass
