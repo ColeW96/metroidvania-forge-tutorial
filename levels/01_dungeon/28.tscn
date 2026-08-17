@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="4_vh7se"]
 [ext_resource type="PackedScene" uid="uid://dg7qvy6vumoft" path="res://general/hidden_area/hidden_area.tscn" id="5_phtli"]
 [ext_resource type="TileSet" uid="uid://b337bi8pmvtwx" path="res://levels/tilesets/ff_no_collision.tres" id="6_3uw4e"]
+[ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="7_3uw4e"]
 
 [node name="28" type="Node2D" unique_id=1247034308]
 
@@ -102,3 +103,7 @@ show_area = false
 [node name="TileMapLayer" type="TileMapLayer" parent="HiddenAreas/HiddenArea8" unique_id=424539919]
 tile_map_data = PackedByteArray("AAD/////AAAHAAkAAAD//wAAAAAHAAoAAAA=")
 tile_set = ExtResource("6_3uw4e")
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=730959034]
+script = ExtResource("7_3uw4e")
+metadata/_custom_type_script = "uid://rwwuu7gvxywr"

@@ -5,6 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="3_xlwyp"]
 [ext_resource type="PackedScene" uid="uid://de3w4k411bso3" path="res://general/respawn_trigger/respawn_trigger.tscn" id="4_nmo24"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="5_qimg2"]
+[ext_resource type="PackedScene" uid="uid://dj5ayp15ys2v8" path="res://enemies/gargoyle_statue/gargoyle_statue.tscn" id="6_qimg2"]
+[ext_resource type="PackedScene" uid="uid://ja8lc0n3awhh" path="res://enemies/slime_2/slime_2.tscn" id="7_hu6vf"]
+[ext_resource type="PackedScene" uid="uid://dkyap82b10vdy" path="res://enemies/doom_scribe/doom_scribe.tscn" id="8_14ss0"]
+[ext_resource type="Script" uid="uid://dnb4iextr4r2g" path="res://general/scripts/patrol_limit.gd" id="9_dehoj"]
 
 [node name="23" type="Node2D" unique_id=1247034308]
 
@@ -40,3 +44,30 @@ size = 6
 
 [node name="PlayerSpawn" parent="." unique_id=78883456 instance=ExtResource("5_qimg2")]
 position = Vector2(448, 928)
+
+[node name="Enemies" type="Node2D" parent="." unique_id=1488217082]
+
+[node name="GargoyleStatue" parent="Enemies" unique_id=488761391 instance=ExtResource("6_qimg2")]
+position = Vector2(60, 931)
+
+[node name="GargoyleStatue2" parent="Enemies" unique_id=189644874 instance=ExtResource("6_qimg2")]
+position = Vector2(417, 643)
+face_left_on_start = true
+
+[node name="Slime2" parent="Enemies" unique_id=694589759 instance=ExtResource("7_hu6vf")]
+position = Vector2(303, 419)
+face_left_on_start = true
+
+[node name="DoomScribe" parent="Enemies" unique_id=822043204 instance=ExtResource("8_14ss0")]
+position = Vector2(110, 530)
+
+[node name="PatrolLimit" type="Node2D" parent="Enemies/DoomScribe" unique_id=1173564925]
+position = Vector2(-54, 0)
+script = ExtResource("9_dehoj")
+metadata/_custom_type_script = "uid://dnb4iextr4r2g"
+
+[node name="PatrolLimit2" type="Node2D" parent="Enemies/DoomScribe" unique_id=244960823]
+position = Vector2(61, 0)
+script = ExtResource("9_dehoj")
+side = 2
+metadata/_custom_type_script = "uid://dnb4iextr4r2g"

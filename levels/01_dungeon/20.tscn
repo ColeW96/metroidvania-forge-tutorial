@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="3_jl3uf"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="4_c6fbo"]
 [ext_resource type="PackedScene" uid="uid://dj5ayp15ys2v8" path="res://enemies/gargoyle_statue/gargoyle_statue.tscn" id="5_21rp4"]
+[ext_resource type="PackedScene" uid="uid://h20ktogdikrd" path="res://levels/props/crate_wooden.tscn" id="5_gqybm"]
+[ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="7_nofy0"]
 
 [node name="20" type="Node2D" unique_id=1247034308]
 
@@ -44,7 +46,16 @@ target_area_name = "D21-1"
 [node name="PlayerSpawn" parent="." unique_id=1088432558 instance=ExtResource("4_c6fbo")]
 position = Vector2(64, 352)
 
+[node name="Props" type="Node2D" parent="." unique_id=1503866279]
+
+[node name="Crate" parent="Props" unique_id=261099677 instance=ExtResource("5_gqybm")]
+position = Vector2(394, 149)
+
 [node name="Enemies" type="Node2D" parent="." unique_id=379349172]
 
 [node name="GargoyleStatue" parent="Enemies" unique_id=488761391 instance=ExtResource("5_21rp4")]
 position = Vector2(127, 133)
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=490920379]
+script = ExtResource("7_nofy0")
+metadata/_custom_type_script = "uid://rwwuu7gvxywr"

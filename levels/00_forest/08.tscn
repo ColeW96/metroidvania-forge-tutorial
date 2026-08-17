@@ -7,6 +7,10 @@
 [ext_resource type="Script" uid="uid://sndrj6tq12yf" path="res://general/scripts/breakable.gd" id="5_lybmi"]
 [ext_resource type="Script" uid="uid://dha53eb7vo0el" path="res://general/scripts/damage_area.gd" id="6_ak5gn"]
 [ext_resource type="PackedScene" uid="uid://wdmyqu8yln5j" path="res://general/powerup/powerup.tscn" id="7_ak5gn"]
+[ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="8_40tmj"]
+[ext_resource type="PackedScene" uid="uid://hanqvafhvg88" path="res://enemies/living_armor/living_armor.tscn" id="9_bxo57"]
+[ext_resource type="Script" uid="uid://dnb4iextr4r2g" path="res://general/scripts/patrol_limit.gd" id="10_bxo57"]
+[ext_resource type="PackedScene" uid="uid://b8tbf6ebtoi83" path="res://enemies/demonic_chest/demonic_chest.tscn" id="11_chvb5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ceune"]
 size = Vector2(24, 64)
@@ -60,7 +64,7 @@ target_level = "uid://wcocg2ixyysd"
 target_area_name = "F09-1"
 
 [node name="PlayerSpawn" parent="." unique_id=1749238370 instance=ExtResource("4_6hjtw")]
-position = Vector2(440.81674, 103.31412)
+position = Vector2(1093, 324)
 
 [node name="Powerup" parent="." unique_id=165981682 instance=ExtResource("7_ak5gn")]
 position = Vector2(896, 80)
@@ -84,3 +88,37 @@ metadata/_custom_type_script = "uid://dha53eb7vo0el"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Breakable/DamageArea" unique_id=472502131]
 position = Vector2(-44, 0)
 shape = SubResource("RectangleShape2D_ceune")
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=926155089]
+script = ExtResource("8_40tmj")
+metadata/_custom_type_script = "uid://rwwuu7gvxywr"
+
+[node name="Enemies" type="Node2D" parent="." unique_id=955912871]
+
+[node name="LivingArmor" parent="Enemies" unique_id=488761391 instance=ExtResource("9_bxo57")]
+position = Vector2(352, 324)
+
+[node name="PatrolLimit" type="Node2D" parent="Enemies/LivingArmor" unique_id=1591148388]
+position = Vector2(-128, 0)
+script = ExtResource("10_bxo57")
+metadata/_custom_type_script = "uid://dnb4iextr4r2g"
+
+[node name="PatrolLimit2" type="Node2D" parent="Enemies/LivingArmor" unique_id=489929584]
+position = Vector2(147, 0)
+script = ExtResource("10_bxo57")
+side = 2
+metadata/_custom_type_script = "uid://dnb4iextr4r2g"
+
+[node name="DemonicChest" parent="Enemies" unique_id=1936118480 instance=ExtResource("11_chvb5")]
+position = Vector2(246, 87)
+
+[node name="PatrolLimit" type="Node2D" parent="Enemies/DemonicChest" unique_id=1259363223]
+position = Vector2(-96, 0)
+script = ExtResource("10_bxo57")
+metadata/_custom_type_script = "uid://dnb4iextr4r2g"
+
+[node name="PatrolLimit2" type="Node2D" parent="Enemies/DemonicChest" unique_id=894600555]
+position = Vector2(309, 0)
+script = ExtResource("10_bxo57")
+side = 2
+metadata/_custom_type_script = "uid://dnb4iextr4r2g"

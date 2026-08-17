@@ -11,6 +11,9 @@
 [ext_resource type="Resource" uid="uid://sgce1vvaokc3" path="res://00_global/visual_effects/hit_particle_settings/hit_rock_medium.tres" id="9_j2sle"]
 [ext_resource type="Script" uid="uid://dha53eb7vo0el" path="res://general/scripts/damage_area.gd" id="10_t7cs5"]
 [ext_resource type="PackedScene" uid="uid://wdmyqu8yln5j" path="res://general/powerup/powerup.tscn" id="11_oxp2i"]
+[ext_resource type="PackedScene" uid="uid://h20ktogdikrd" path="res://levels/props/crate_wooden.tscn" id="12_sk4eq"]
+[ext_resource type="PackedScene" uid="uid://bpbdxq44olmim" path="res://levels/props/test_dummy/spike_dummy.tscn" id="13_el0rl"]
+[ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="14_j2sle"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0jtl8"]
 atlas = ExtResource("8_el0rl")
@@ -135,3 +138,24 @@ metadata/_custom_type_script = "uid://dha53eb7vo0el"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Breakable/DamageArea" unique_id=69361649]
 shape = SubResource("RectangleShape2D_nnfnh")
+
+[node name="Props" type="Node2D" parent="." unique_id=1586114002]
+
+[node name="Crate" parent="Props" unique_id=261099677 instance=ExtResource("12_sk4eq")]
+position = Vector2(55, 533)
+
+[node name="Crate2" parent="Props" unique_id=25227202 instance=ExtResource("12_sk4eq")]
+position = Vector2(96, 533)
+
+[node name="Crate3" parent="Props" unique_id=1128911955 instance=ExtResource("12_sk4eq")]
+position = Vector2(66, 501)
+
+[node name="SpikeDummy" parent="Props" unique_id=1457156033 instance=ExtResource("13_el0rl")]
+position = Vector2(384, 546)
+
+[node name="SpikeDummy2" parent="Props" unique_id=251860298 instance=ExtResource("13_el0rl")]
+position = Vector2(169, 546)
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=502182976]
+script = ExtResource("14_j2sle")
+metadata/_custom_type_script = "uid://rwwuu7gvxywr"

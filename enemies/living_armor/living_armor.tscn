@@ -210,12 +210,14 @@ metadata/_custom_type_script = "uid://bfkq1vksotjux"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qh6hf"]
 size = Vector2(35, 28)
 
-[node name="LivingArmor" type="CharacterBody2D" unique_id=488761391]
+[node name="LivingArmor" type="CharacterBody2D" unique_id=488761391 node_paths=PackedStringArray("edge_sensor", "rear_edge_sensor")]
 collision_layer = 0
 collision_mask = 3
 script = ExtResource("1_v8jak")
 health = 5.0
 show_vision = true
+edge_sensor = NodePath("EdgeSensor")
+rear_edge_sensor = NodePath("RearEdgeSensor")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=70568379]
 position = Vector2(0, -31)
@@ -306,6 +308,11 @@ position = Vector2(7, -3)
 target_position = Vector2(0, 12)
 script = ExtResource("12_b5cts")
 metadata/_custom_type_script = "uid://dfg03o7e8cnit"
+
+[node name="RearEdgeSensor" type="RayCast2D" parent="." unique_id=164992545]
+position = Vector2(-18, 0)
+target_position = Vector2(0, 8)
+collision_mask = 3
 
 [node name="PlayerSensor" type="Area2D" parent="." unique_id=2092460160]
 position = Vector2(0, -7)

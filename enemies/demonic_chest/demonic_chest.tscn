@@ -22,6 +22,7 @@
 [ext_resource type="Script" uid="uid://vt684ogx76fc" path="res://general/scripts/attack_area.gd" id="20_mwoy4"]
 [ext_resource type="AudioStream" uid="uid://cvajccfk2oxjq" path="res://general/audio/attack.wav" id="21_30ljn"]
 [ext_resource type="PackedScene" uid="uid://owlkrmexwpwt" path="res://enemies/scripts/health_bars/enemy_health_bar.tscn" id="22_10x50"]
+[ext_resource type="Script" uid="uid://d12n40tst35rq" path="res://general/scripts/damage_modulate.gd" id="23_4aniu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_10x50"]
 radius = 16.00781
@@ -383,3 +384,7 @@ offset_left = -21.0
 offset_top = -56.0
 offset_right = 19.0
 offset_bottom = -36.0
+
+[node name="DamageModulate" type="Node" parent="." unique_id=942904010]
+script = ExtResource("23_4aniu")
+metadata/_custom_type_script = "uid://d12n40tst35rq"

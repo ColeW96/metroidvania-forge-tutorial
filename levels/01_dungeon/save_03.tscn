@@ -5,6 +5,9 @@
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="3_j28v8"]
 [ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="4_jbq45"]
 [ext_resource type="PackedScene" uid="uid://85pdupjx7ewh" path="res://general/save_point/save_point.tscn" id="5_j28v8"]
+[ext_resource type="PackedScene" uid="uid://bpbdxq44olmim" path="res://levels/props/test_dummy/spike_dummy.tscn" id="6_raiqq"]
+[ext_resource type="PackedScene" uid="uid://c02dlnypfkr7c" path="res://levels/props/test_dummy/test_dummy.tscn" id="7_chdfy"]
+[ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="8_5tqjr"]
 
 [node name="S03" type="Node2D" unique_id=396729049]
 
@@ -35,3 +38,14 @@ target_area_name = "D20-2"
 
 [node name="SavePoint" parent="." unique_id=9788487 instance=ExtResource("5_j28v8")]
 position = Vector2(298, 229)
+
+[node name="Props" type="Node2D" parent="." unique_id=499291579]
+
+[node name="SpikeDummy" parent="Props" unique_id=1457156033 instance=ExtResource("6_raiqq")]
+position = Vector2(424, 226)
+
+[node name="TestDummy" parent="Props" unique_id=463541353 instance=ExtResource("7_chdfy")]
+position = Vector2(377, 226)
+
+[node name="PlayerSpawn" parent="." unique_id=546156597 instance=ExtResource("8_5tqjr")]
+position = Vector2(45, 357)

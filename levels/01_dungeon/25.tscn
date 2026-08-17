@@ -4,6 +4,12 @@
 [ext_resource type="TileSet" uid="uid://p87hshodqhxn" path="res://levels/tilesets/forgotten_forest.tres" id="2_vmvs8"]
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="3_35cfn"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="4_vmvs8"]
+[ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="5_ivl3h"]
+[ext_resource type="PackedScene" uid="uid://bpbdxq44olmim" path="res://levels/props/test_dummy/spike_dummy.tscn" id="6_3lck7"]
+[ext_resource type="PackedScene" uid="uid://c02dlnypfkr7c" path="res://levels/props/test_dummy/test_dummy.tscn" id="7_3lck7"]
+[ext_resource type="PackedScene" uid="uid://ja8lc0n3awhh" path="res://enemies/slime_2/slime_2.tscn" id="8_wy5d3"]
+[ext_resource type="PackedScene" uid="uid://b8tbf6ebtoi83" path="res://enemies/demonic_chest/demonic_chest.tscn" id="9_mnl52"]
+[ext_resource type="Script" uid="uid://dnb4iextr4r2g" path="res://general/scripts/patrol_limit.gd" id="10_0p41i"]
 
 [node name="25" type="Node2D" unique_id=1073888737]
 
@@ -37,3 +43,38 @@ target_area_name = "D26-1"
 
 [node name="PlayerSpawn" parent="." unique_id=520391887 instance=ExtResource("4_vmvs8")]
 position = Vector2(208, 96)
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=614413095]
+script = ExtResource("5_ivl3h")
+metadata/_custom_type_script = "uid://rwwuu7gvxywr"
+
+[node name="Props" type="Node2D" parent="." unique_id=63944644]
+
+[node name="SpikeDummy" parent="Props" unique_id=1457156033 instance=ExtResource("6_3lck7")]
+position = Vector2(320, 354)
+
+[node name="TestDummy" parent="Props" unique_id=1777937181 instance=ExtResource("7_3lck7")]
+position = Vector2(360, 354)
+scale = Vector2(-1, 1)
+
+[node name="TestDummy2" parent="Props" unique_id=1153848006 instance=ExtResource("7_3lck7")]
+position = Vector2(551, 354)
+
+[node name="Enemies" type="Node2D" parent="." unique_id=1389590461]
+
+[node name="Slime2" parent="Enemies" unique_id=488761391 instance=ExtResource("8_wy5d3")]
+position = Vector2(450, 355)
+
+[node name="DemonicChest" parent="Enemies" unique_id=564135759 instance=ExtResource("9_mnl52")]
+position = Vector2(806, 114)
+
+[node name="PatrolLimit" type="Node2D" parent="Enemies/DemonicChest" unique_id=123655534]
+position = Vector2(-248, 0)
+script = ExtResource("10_0p41i")
+metadata/_custom_type_script = "uid://dnb4iextr4r2g"
+
+[node name="PatrolLimit2" type="Node2D" parent="Enemies/DemonicChest" unique_id=283412305]
+position = Vector2(117, 0)
+script = ExtResource("10_0p41i")
+side = 2
+metadata/_custom_type_script = "uid://dnb4iextr4r2g"

@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://bew5osvj6ik17" path="res://general/ability_pickup/ability_pickup.tscn" id="2_e5544"]
 [ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="3_xbpcm"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="5_e8knj"]
+[ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="6_ocngb"]
+[ext_resource type="PackedScene" uid="uid://ja8lc0n3awhh" path="res://enemies/slime_2/slime_2.tscn" id="7_6o5dd"]
+[ext_resource type="Script" uid="uid://dnb4iextr4r2g" path="res://general/scripts/patrol_limit.gd" id="8_6o5dd"]
 
 [node name="05" type="Node2D" unique_id=593574076]
 
@@ -62,3 +65,26 @@ target_area_name = "F02-4"
 
 [node name="PlayerSpawn" parent="." unique_id=371612845 instance=ExtResource("5_e8knj")]
 position = Vector2(1224, 256)
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=641014587]
+script = ExtResource("6_ocngb")
+metadata/_custom_type_script = "uid://rwwuu7gvxywr"
+
+[node name="Enemies" type="Node2D" parent="." unique_id=1472588]
+
+[node name="Slime2" parent="Enemies" unique_id=488761391 instance=ExtResource("7_6o5dd")]
+position = Vector2(483, 262)
+
+[node name="Slime3" parent="Enemies" unique_id=1234396271 instance=ExtResource("7_6o5dd")]
+position = Vector2(922, 228)
+
+[node name="PatrolLimit" type="Node2D" parent="Enemies/Slime3" unique_id=1695460409]
+position = Vector2(-81, 0)
+script = ExtResource("8_6o5dd")
+metadata/_custom_type_script = "uid://dnb4iextr4r2g"
+
+[node name="PatrolLimit2" type="Node2D" parent="Enemies/Slime3" unique_id=1413629582]
+position = Vector2(121, 0)
+script = ExtResource("8_6o5dd")
+side = 2
+metadata/_custom_type_script = "uid://dnb4iextr4r2g"
