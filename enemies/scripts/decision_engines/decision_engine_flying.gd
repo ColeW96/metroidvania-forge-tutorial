@@ -18,12 +18,22 @@ func _ready() -> void:
 # All the conditions for making decisions go in this function
 func decide() -> EnemyState:
 	if blackboard.damage_source:
+		if blackboard.damage_source.owner is Player:
+			blackboard.target = blackboard.damage_source.owner
+		elif blackboard.damage_source.owner is Bullet:
+			blackboard.target = get_tree().get_first_node_in_group("Player")
+		
 		if blackboard.health <= 0:
 			return death_state
-		else:
-			if blackboard.damage_source.get_parent() is Bullet:
-				return null
-			return stun_state
+		
+		if blackboard.damage_source.get_parent() is Bullet:
+			return null
+		
+		if current_state is ESFlyAttack:
+			blackboard.damage_source = null
+			return null
+		
+		return stun_state
 	
 	if current_state is ESDeath or not blackboard.can_decide:
 		return null
