@@ -21,6 +21,7 @@
 [ext_resource type="Script" uid="uid://bb4alt0m7va5y" path="res://enemies/scripts/decision_engines/decision_engine_flying.gd" id="18_obha7"]
 [ext_resource type="Script" uid="uid://vt684ogx76fc" path="res://general/scripts/attack_area.gd" id="20_mwoy4"]
 [ext_resource type="AudioStream" uid="uid://cvajccfk2oxjq" path="res://general/audio/attack.wav" id="21_30ljn"]
+[ext_resource type="PackedScene" uid="uid://owlkrmexwpwt" path="res://enemies/scripts/health_bars/enemy_health_bar.tscn" id="22_10x50"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_10x50"]
 radius = 16.00781
@@ -376,3 +377,9 @@ attack_state = NodePath("../EnemyStateMachine/ESFlyAttack")
 stun_state = NodePath("../EnemyStateMachine/ESStun")
 death_state = NodePath("../EnemyStateMachine/ESDeath")
 metadata/_custom_type_script = "uid://bb4alt0m7va5y"
+
+[node name="EnemyHealthBar" parent="." unique_id=22853855 instance=ExtResource("22_10x50")]
+offset_left = -21.0
+offset_top = -56.0
+offset_right = 19.0
+offset_bottom = -36.0

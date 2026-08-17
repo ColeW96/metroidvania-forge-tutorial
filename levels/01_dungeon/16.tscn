@@ -4,6 +4,11 @@
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="2_mwh6g"]
 [ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="3_mwh6g"]
 [ext_resource type="PackedScene" uid="uid://bew5osvj6ik17" path="res://general/ability_pickup/ability_pickup.tscn" id="4_dg4u7"]
+[ext_resource type="PackedScene" uid="uid://h20ktogdikrd" path="res://levels/props/crate_wooden.tscn" id="5_otobn"]
+[ext_resource type="PackedScene" uid="uid://c02dlnypfkr7c" path="res://levels/props/test_dummy/test_dummy.tscn" id="6_fhti0"]
+[ext_resource type="PackedScene" uid="uid://bl8f4woftk8ry" path="res://levels/props/torch.tscn" id="7_l6xjn"]
+[ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="8_wdt5a"]
+[ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="9_amun5"]
 
 [node name="16" type="Node2D" unique_id=1247034308]
 
@@ -30,3 +35,30 @@ target_area_name = "D15-3"
 [node name="AbilityPickup" parent="." unique_id=1646825791 instance=ExtResource("4_dg4u7")]
 position = Vector2(240, 176)
 type = 4
+
+[node name="Props" type="Node2D" parent="." unique_id=786117366]
+
+[node name="Crate" parent="Props" unique_id=261099677 instance=ExtResource("5_otobn")]
+position = Vector2(53, 213)
+
+[node name="Crate2" parent="Props" unique_id=473123766 instance=ExtResource("5_otobn")]
+position = Vector2(93, 213)
+
+[node name="Crate3" parent="Props" unique_id=979175810 instance=ExtResource("5_otobn")]
+position = Vector2(77, 181)
+
+[node name="TestDummy" parent="Props" unique_id=1457156033 instance=ExtResource("6_fhti0")]
+position = Vector2(157, 227)
+
+[node name="Torch" parent="Props" unique_id=453981405 instance=ExtResource("7_l6xjn")]
+position = Vector2(208, 195)
+
+[node name="Torch2" parent="Props" unique_id=732178916 instance=ExtResource("7_l6xjn")]
+position = Vector2(272, 195)
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=1850553402]
+script = ExtResource("8_wdt5a")
+metadata/_custom_type_script = "uid://rwwuu7gvxywr"
+
+[node name="PlayerSpawn" parent="." unique_id=1625678964 instance=ExtResource("9_amun5")]
+position = Vector2(456, 323)

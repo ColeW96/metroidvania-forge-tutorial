@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://bfkq1vksotjux" path="res://general/scripts/loot_data.gd" id="18_22pxu"]
 [ext_resource type="Script" uid="uid://d1khwsiclmu4j" path="res://enemies/scripts/decision_engines/decision_engine_basic_attack.gd" id="18_hh7qf"]
 [ext_resource type="AudioStream" uid="uid://cvajccfk2oxjq" path="res://general/audio/attack.wav" id="20_l3wyp"]
+[ext_resource type="PackedScene" uid="uid://owlkrmexwpwt" path="res://enemies/scripts/health_bars/enemy_health_bar.tscn" id="20_r2i48"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rby3k"]
 height = 52.0
@@ -148,7 +149,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d83ut"]
-radius = 137.23338
+radius = 226.09
 
 [sub_resource type="Resource" id="Resource_uucha"]
 script = ExtResource("16_68mxs")
@@ -230,7 +231,6 @@ metadata/_custom_type_script = "uid://b5qql3uoxwh0y"
 [node name="ESWalk" type="Node" parent="EnemyStateMachine" unique_id=1901468716]
 unique_name_in_owner = true
 script = ExtResource("10_ujdlt")
-walk_speed = 0.0
 animation_name = "idle"
 metadata/_custom_type_script = "uid://mcndna2lf2n1"
 
@@ -294,3 +294,9 @@ script = ExtResource("18_hh7qf")
 attack_state = NodePath("../EnemyStateMachine/ESAttackSpell")
 chase_state = NodePath("../EnemyStateMachine/ESWalk")
 metadata/_custom_type_script = "uid://d1khwsiclmu4j"
+
+[node name="EnemyHealthBar" parent="." unique_id=22853855 instance=ExtResource("20_r2i48")]
+offset_left = -24.0
+offset_top = -69.0
+offset_right = 16.0
+offset_bottom = -49.0

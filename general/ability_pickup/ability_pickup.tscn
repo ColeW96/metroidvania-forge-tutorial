@@ -261,7 +261,6 @@ metadata/_custom_type_script = "uid://brc344c2o0cfo"
 [sub_resource type="CircleShape2D" id="CircleShape2D_1ggl3"]
 
 [node name="AbilityPickup" type="Node2D" unique_id=1646825791]
-z_index = 1
 script = ExtResource("1_xxigd")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=521072928]

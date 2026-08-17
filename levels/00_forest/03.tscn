@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://de3w4k411bso3" path="res://general/respawn_trigger/respawn_trigger.tscn" id="7_c06eb"]
 [ext_resource type="TileSet" uid="uid://7nbch84nj8xi" path="res://levels/tilesets/castle.tres" id="8_1pjxa"]
 [ext_resource type="Texture2D" uid="uid://dnqw24c1x1xta" path="res://levels/tilesets/sprites/light_stream.jpg" id="9_b4vbt"]
+[ext_resource type="PackedScene" uid="uid://h20ktogdikrd" path="res://levels/props/crate_wooden.tscn" id="10_w05bn"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_w05bn"]
 blend_mode = 1
@@ -308,3 +309,14 @@ lifetime = 5.0
 randomness = 0.83
 visibility_rect = Rect2(-250, -100, 1025, 200)
 process_material = SubResource("ParticleProcessMaterial_eoqfv")
+
+[node name="Props" type="Node2D" parent="." unique_id=33671125]
+
+[node name="Crate" parent="Props" unique_id=261099677 instance=ExtResource("10_w05bn")]
+position = Vector2(1599, 179)
+
+[node name="Crate2" parent="Props" unique_id=1722710319 instance=ExtResource("10_w05bn")]
+position = Vector2(1640, 179)
+
+[node name="Crate3" parent="Props" unique_id=2135937869 instance=ExtResource("10_w05bn")]
+position = Vector2(1623, 147)

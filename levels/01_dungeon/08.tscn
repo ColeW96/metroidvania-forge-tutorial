@@ -4,6 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="2_d5y3n"]
 [ext_resource type="TileSet" uid="uid://p87hshodqhxn" path="res://levels/tilesets/forgotten_forest.tres" id="2_ka337"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="4_ka337"]
+[ext_resource type="PackedScene" uid="uid://dj5ayp15ys2v8" path="res://enemies/gargoyle_statue/gargoyle_statue.tscn" id="5_sn6ph"]
+[ext_resource type="PackedScene" uid="uid://h20ktogdikrd" path="res://levels/props/crate_wooden.tscn" id="5_tnree"]
+[ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="7_xc23m"]
 
 [node name="08" type="Node2D" unique_id=1247034308]
 
@@ -42,3 +45,25 @@ metadata/_custom_type_script = "uid://drqun7tewik8i"
 
 [node name="PlayerSpawn" parent="." unique_id=1234761392 instance=ExtResource("4_ka337")]
 position = Vector2(107, 741)
+
+[node name="Props" type="Node2D" parent="." unique_id=1439978229]
+
+[node name="Crate" parent="Props" unique_id=261099677 instance=ExtResource("5_tnree")]
+position = Vector2(53, 180)
+
+[node name="Crate2" parent="Props" unique_id=846122852 instance=ExtResource("5_tnree")]
+position = Vector2(53, 148)
+
+[node name="Enemies" type="Node2D" parent="." unique_id=2027273848]
+
+[node name="GargoyleStatue" parent="Enemies" unique_id=488761391 instance=ExtResource("5_sn6ph")]
+position = Vector2(396, 515)
+face_left_on_start = true
+
+[node name="GargoyleStatue2" parent="Enemies" unique_id=1281608562 instance=ExtResource("5_sn6ph")]
+position = Vector2(396, 323)
+face_left_on_start = true
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=1809630588]
+script = ExtResource("7_xc23m")
+metadata/_custom_type_script = "uid://rwwuu7gvxywr"

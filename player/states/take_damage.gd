@@ -64,6 +64,9 @@ func _on_damage_taken( attack_area : AttackArea ) -> void:
 	if player.current_state == death:
 		return
 	player.change_state( self )
+	if attack_area.get_parent().name == "RespawnTrigger":
+		dir = 0
+		return
 	if attack_area.global_position.x < player.global_position.x:
 		dir = 1.0
 	else:

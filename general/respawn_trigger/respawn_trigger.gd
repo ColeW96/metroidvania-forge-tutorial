@@ -10,7 +10,7 @@ class_name RespawnTrigger extends Node2D
 @export var vertical_offset : float = 4.0
 
 @onready var area_2d: Area2D = %Area2D
-
+@onready var hazard_area: HazardArea = %HazardArea
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
@@ -22,7 +22,9 @@ func _ready() -> void:
 
 func _on_body_entered( n : Node2D ) -> void:
 	if n is Player:
-		respawn_player( n )
+		await hazard_area.body_entered
+		if n.hp > 0:
+			respawn_player( n )
 	pass
 
 

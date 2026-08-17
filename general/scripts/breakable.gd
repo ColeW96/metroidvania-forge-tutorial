@@ -9,6 +9,7 @@ signal damage_taken
 
 @export var hp : float = 3.0
 @export var fixed_hit_count : bool = false
+@export var ray_cast : RayCast2D
 ## Offset from position of the Breakable. Use for VisualEffect and Audio functions that require a position.
 @export var shape_offset : float = 17.5
 
@@ -30,7 +31,6 @@ var shake_strength : float = 0.0
 @export var shake_decay_rate : float = 5.0
 @export var max_shake_offset : float = 20.0
 
-var ray_cast : RayCast2D
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
@@ -38,7 +38,6 @@ func _ready() -> void:
 	for c in get_children():
 		if c is DamageArea:
 			c.damage_taken.connect( _on_damage_taken )
-	ray_cast = get_node_or_null("RayCast2D")
 	pass
 
 
@@ -53,8 +52,12 @@ func _process(delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
+	
 	if hp > 0:
 		if ray_cast:
+			ray_cast.force_raycast_update()
 			if not ray_cast.is_colliding():
 				global_position.y += 1 * gravity * delta
 				gravity += gravity_increase

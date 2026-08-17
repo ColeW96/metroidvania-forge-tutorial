@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dg7qvy6vumoft" path="res://general/hidden_area/hidden_area.tscn" id="5_d0qlc"]
 [ext_resource type="PackedScene" uid="uid://wdmyqu8yln5j" path="res://general/powerup/powerup.tscn" id="5_weytm"]
 [ext_resource type="TileSet" uid="uid://b337bi8pmvtwx" path="res://levels/tilesets/ff_no_collision.tres" id="6_6urep"]
+[ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="8_l0bcf"]
 
 [node name="09" type="Node2D" unique_id=1247034308]
 
@@ -50,3 +51,7 @@ position = Vector2(352, 160)
 visible = false
 tile_map_data = PackedByteArray("AAD+/wAAAAAFAAwAAAD6/wAAAAAAAAwAAAD7/wAAAAABAAwAAAD9/wAAAAAEAAwAAAD8/wAAAAADAAwAAAD+////AAAFAA4AAAD/////AAACAAwAAAAAAP//AAADAAwAAAABAP//AAACAAwAAAACAP//AAADAAwAAAD6////AAACAA4AAAD7////AAADAA4AAAD9////AAAEAA4AAAD4//7/AAADAAoAAAD4//3/AAADAAoAAAD4//z/AAADAAoAAAD4//v/AAADAAoAAAD5//v/AAADAAoAAAD6//v/AAADAAoAAAD7//v/AAADAAoAAAD8//v/AAADAAoAAAD9//v/AAADAAoAAAD+//v/AAADAAoAAAD+//z/AAADAAoAAAD+//3/AAADAAoAAAD///3/AAADAAoAAAAAAP3/AAADAAoAAAAAAP7/AAADAAoAAAD///7/AAADAAoAAAD+//7/AAADAAoAAAD9//7/AAADAAoAAAD8//7/AAADAAoAAAD8////AAADAAoAAAD7//7/AAADAAoAAAD6//7/AAADAAoAAAD5//7/AAADAAoAAAD5//3/AAADAAoAAAD6//3/AAADAAoAAAD7//3/AAADAAoAAAD8//3/AAADAAoAAAD9//3/AAADAAoAAAD9//z/AAADAAoAAAD8//z/AAADAAoAAAD7//z/AAADAAoAAAD6//z/AAADAAoAAAD5//z/AAADAAoAAAD3//7/AAADAAoAAAD3//3/AAADAAoAAAD3//z/AAADAAoAAAD3//v/AAADAAoAAAD///v/AAADAAoAAAD///z/AAADAAoAAAABAP3/AAADAAoAAAABAP7/AAADAAoAAAA=")
 tile_set = ExtResource("6_6urep")
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=890960022]
+script = ExtResource("8_l0bcf")
+metadata/_custom_type_script = "uid://rwwuu7gvxywr"

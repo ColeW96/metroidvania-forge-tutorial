@@ -4,6 +4,9 @@
 [ext_resource type="TileSet" uid="uid://p87hshodqhxn" path="res://levels/tilesets/forgotten_forest.tres" id="2_i7qy2"]
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="3_dpdye"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="4_i7qy2"]
+[ext_resource type="PackedScene" uid="uid://h20ktogdikrd" path="res://levels/props/crate_wooden.tscn" id="5_dpdye"]
+[ext_resource type="PackedScene" uid="uid://bl8f4woftk8ry" path="res://levels/props/torch.tscn" id="6_qvjfp"]
+[ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="7_601cd"]
 
 [node name="13" type="Node2D" unique_id=1247034308]
 
@@ -35,3 +38,24 @@ target_area_name = "D14-1"
 
 [node name="PlayerSpawn" parent="." unique_id=1174988451 instance=ExtResource("4_i7qy2")]
 position = Vector2(56, 304)
+
+[node name="Props" type="Node2D" parent="." unique_id=1197414905]
+
+[node name="Crate" parent="Props" unique_id=261099677 instance=ExtResource("5_dpdye")]
+position = Vector2(202, 149)
+
+[node name="Crate2" parent="Props" unique_id=2057342866 instance=ExtResource("5_dpdye")]
+position = Vector2(242, 149)
+
+[node name="Crate3" parent="Props" unique_id=318152655 instance=ExtResource("5_dpdye")]
+position = Vector2(219, 117)
+
+[node name="Torch" parent="Props" unique_id=789022674 instance=ExtResource("6_qvjfp")]
+position = Vector2(124, 163)
+
+[node name="Torch2" parent="Props" unique_id=1565013907 instance=ExtResource("6_qvjfp")]
+position = Vector2(324, 163)
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=1512829241]
+script = ExtResource("7_601cd")
+metadata/_custom_type_script = "uid://rwwuu7gvxywr"

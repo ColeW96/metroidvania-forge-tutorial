@@ -4,6 +4,8 @@
 [ext_resource type="TileSet" uid="uid://p87hshodqhxn" path="res://levels/tilesets/forgotten_forest.tres" id="1_60vks"]
 [ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="2_sqvcd"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="4_2r41f"]
+[ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="5_tfqsn"]
+[ext_resource type="PackedScene" uid="uid://ja8lc0n3awhh" path="res://enemies/slime_2/slime_2.tscn" id="6_hrtbl"]
 
 [node name="05" type="Node2D" unique_id=1247034308]
 
@@ -36,3 +38,16 @@ metadata/_custom_type_script = "uid://drqun7tewik8i"
 
 [node name="PlayerSpawn" parent="." unique_id=828771597 instance=ExtResource("4_2r41f")]
 position = Vector2(448, 352)
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=1189743710]
+script = ExtResource("5_tfqsn")
+metadata/_custom_type_script = "uid://rwwuu7gvxywr"
+
+[node name="Enemies" type="Node2D" parent="." unique_id=1113803433]
+
+[node name="Slime2" parent="Enemies" unique_id=488761391 instance=ExtResource("6_hrtbl")]
+position = Vector2(216, 96)
+
+[node name="Slime3" parent="Enemies" unique_id=831922590 instance=ExtResource("6_hrtbl")]
+position = Vector2(424, 192)
+face_left_on_start = true

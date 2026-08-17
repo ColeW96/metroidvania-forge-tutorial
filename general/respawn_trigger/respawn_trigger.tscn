@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://de3w4k411bso3"]
 
 [ext_resource type="Script" uid="uid://bgsj2t5ctrhl6" path="res://general/respawn_trigger/respawn_trigger.gd" id="1_k4c37"]
+[ext_resource type="Script" uid="uid://bvoy8p2v1ao7i" path="res://general/scripts/hazard_area.gd" id="2_wear3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nqq0o"]
 size = Vector2(32, 32)
@@ -17,3 +18,15 @@ collision_mask = 16
 position = Vector2(16, 16)
 shape = SubResource("RectangleShape2D_nqq0o")
 debug_color = Color(0.70196074, 0.35859275, 0, 0.41960785)
+
+[node name="HazardArea" type="Area2D" parent="." unique_id=1557658981]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("2_wear3")
+metadata/_custom_type_script = "uid://bvoy8p2v1ao7i"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea" unique_id=203275853]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_nqq0o")
+debug_color = Color(0.70196074, 0.0042158104, 0, 0.41960785)

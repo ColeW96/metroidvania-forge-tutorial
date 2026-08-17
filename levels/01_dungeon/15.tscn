@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="3_k14ja"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="4_y2vuc"]
 [ext_resource type="PackedScene" uid="uid://wdmyqu8yln5j" path="res://general/powerup/powerup.tscn" id="5_k14ja"]
+[ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="6_fo27w"]
+[ext_resource type="PackedScene" uid="uid://h20ktogdikrd" path="res://levels/props/crate_wooden.tscn" id="7_krhfq"]
 
 [node name="15" type="Node2D" unique_id=1247034308]
 
@@ -44,3 +46,18 @@ position = Vector2(102, 195)
 
 [node name="Powerup" parent="." unique_id=165981682 instance=ExtResource("5_k14ja")]
 position = Vector2(256, 80)
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=49862021]
+script = ExtResource("6_fo27w")
+metadata/_custom_type_script = "uid://rwwuu7gvxywr"
+
+[node name="Props" type="Node2D" parent="." unique_id=1473147663]
+
+[node name="Crate" parent="Props" unique_id=261099677 instance=ExtResource("7_krhfq")]
+position = Vector2(333, 725)
+
+[node name="Crate2" parent="Props" unique_id=1028686393 instance=ExtResource("7_krhfq")]
+position = Vector2(293, 725)
+
+[node name="Crate3" parent="Props" unique_id=192149062 instance=ExtResource("7_krhfq")]
+position = Vector2(316, 694)

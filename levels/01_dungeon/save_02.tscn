@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="5_o17ed"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="6_eq5w2"]
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="7_fd5l0"]
+[ext_resource type="PackedScene" uid="uid://c02dlnypfkr7c" path="res://levels/props/test_dummy/test_dummy.tscn" id="7_jfgeo"]
 
 [node name="S02" type="Node2D" unique_id=396729049]
 
@@ -40,3 +41,9 @@ position = Vector2(129, 261)
 
 [node name="PlayerSpawn" parent="." unique_id=291371087 instance=ExtResource("6_eq5w2")]
 position = Vector2(439, 100)
+
+[node name="Props" type="Node2D" parent="." unique_id=1319719643]
+
+[node name="TestDummy" parent="Props" unique_id=1457156033 instance=ExtResource("7_jfgeo")]
+position = Vector2(62, 258)
+scale = Vector2(-1, 1)

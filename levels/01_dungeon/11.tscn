@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="3_36fo2"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="4_chf21"]
 [ext_resource type="PackedScene" uid="uid://de3w4k411bso3" path="res://general/respawn_trigger/respawn_trigger.tscn" id="5_u5j0y"]
+[ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="6_lusie"]
 
 [node name="11" type="Node2D" unique_id=1073888737]
 
@@ -45,9 +46,13 @@ height = 398
 metadata/_custom_type_script = "uid://drqun7tewik8i"
 
 [node name="PlayerSpawn" parent="." unique_id=261848699 instance=ExtResource("4_chf21")]
-position = Vector2(696, 352)
+position = Vector2(157, 357)
 
 [node name="RespawnTrigger" parent="." unique_id=1387562290 instance=ExtResource("5_u5j0y")]
 position = Vector2(192.00002, 544)
 scale = Vector2(7, 1)
 size = 7
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=212477691]
+script = ExtResource("6_lusie")
+metadata/_custom_type_script = "uid://rwwuu7gvxywr"
