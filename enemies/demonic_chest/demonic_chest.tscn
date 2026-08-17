@@ -334,6 +334,7 @@ metadata/_custom_type_script = "uid://dfg03o7e8cnit"
 [node name="PlayerSensor" type="Area2D" parent="." unique_id=2092460160]
 position = Vector2(0, -7)
 script = ExtResource("14_igs2k")
+use_audio_sensor = false
 metadata/_custom_type_script = "uid://c1fd8n55hi86u"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerSensor" unique_id=1159559759]

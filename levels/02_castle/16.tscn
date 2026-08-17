@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="2_vwde8"]
 [ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="3_vwde8"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="5_abdj1"]
+[ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="6_roemh"]
+[ext_resource type="PackedScene" uid="uid://dj5ayp15ys2v8" path="res://enemies/gargoyle_statue/gargoyle_statue.tscn" id="7_w7r7c"]
 
 [node name="06" type="Node2D" unique_id=1247034308]
 
@@ -50,3 +52,15 @@ target_area_name = "C08-2"
 
 [node name="PlayerSpawn" parent="." unique_id=1414190919 instance=ExtResource("5_abdj1")]
 position = Vector2(56, 128)
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=28875485]
+script = ExtResource("6_roemh")
+metadata/_custom_type_script = "uid://rwwuu7gvxywr"
+
+[node name="Props" type="Node2D" parent="." unique_id=859904007]
+
+[node name="Enemies" type="Node2D" parent="." unique_id=47636139]
+
+[node name="GargoyleStatue" parent="Enemies" unique_id=488761391 instance=ExtResource("7_w7r7c")]
+position = Vector2(425, 163)
+face_left_on_start = true

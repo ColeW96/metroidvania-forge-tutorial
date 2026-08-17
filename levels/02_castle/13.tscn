@@ -5,6 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="3_644da"]
 [ext_resource type="PackedScene" uid="uid://dg7qvy6vumoft" path="res://general/hidden_area/hidden_area.tscn" id="4_alfny"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="5_alfny"]
+[ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="6_go3wf"]
+[ext_resource type="PackedScene" uid="uid://hanqvafhvg88" path="res://enemies/living_armor/living_armor.tscn" id="7_4jk8t"]
+[ext_resource type="PackedScene" uid="uid://h20ktogdikrd" path="res://levels/props/crate_wooden.tscn" id="7_bnlpp"]
+[ext_resource type="Script" uid="uid://dnb4iextr4r2g" path="res://general/scripts/patrol_limit.gd" id="8_4jk8t"]
 
 [node name="06" type="Node2D" unique_id=1247034308]
 
@@ -52,3 +56,46 @@ collision_enabled = false
 
 [node name="PlayerSpawn" parent="." unique_id=1600318682 instance=ExtResource("5_alfny")]
 position = Vector2(352, 368)
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=568072138]
+script = ExtResource("6_go3wf")
+metadata/_custom_type_script = "uid://rwwuu7gvxywr"
+
+[node name="Props" type="Node2D" parent="." unique_id=1999174711]
+
+[node name="Crate" parent="Props" unique_id=261099677 instance=ExtResource("7_bnlpp")]
+position = Vector2(425, 341)
+
+[node name="Crate2" parent="Props" unique_id=1304664879 instance=ExtResource("7_bnlpp")]
+position = Vector2(426, 309)
+
+[node name="Enemies" type="Node2D" parent="." unique_id=1077522846]
+
+[node name="LivingArmor" parent="Enemies" unique_id=488761391 instance=ExtResource("7_4jk8t")]
+position = Vector2(87, 355)
+
+[node name="PatrolLimit" type="Node2D" parent="Enemies/LivingArmor" unique_id=1067280567]
+position = Vector2(-38, 0)
+script = ExtResource("8_4jk8t")
+metadata/_custom_type_script = "uid://dnb4iextr4r2g"
+
+[node name="PatrolLimit2" type="Node2D" parent="Enemies/LivingArmor" unique_id=481633508]
+position = Vector2(183, 0)
+script = ExtResource("8_4jk8t")
+side = 2
+metadata/_custom_type_script = "uid://dnb4iextr4r2g"
+
+[node name="LivingArmor2" parent="Enemies" unique_id=1421502143 instance=ExtResource("7_4jk8t")]
+position = Vector2(393, 132)
+face_left_on_start = true
+
+[node name="PatrolLimit" type="Node2D" parent="Enemies/LivingArmor2" unique_id=881518707]
+position = Vector2(-200, 0)
+script = ExtResource("8_4jk8t")
+metadata/_custom_type_script = "uid://dnb4iextr4r2g"
+
+[node name="PatrolLimit2" type="Node2D" parent="Enemies/LivingArmor2" unique_id=1721157752]
+position = Vector2(51, 0)
+script = ExtResource("8_4jk8t")
+side = 2
+metadata/_custom_type_script = "uid://dnb4iextr4r2g"

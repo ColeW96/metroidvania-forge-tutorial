@@ -4,6 +4,10 @@
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="2_d6lr7"]
 [ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="3_wfttp"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="4_aug1m"]
+[ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="5_cb84e"]
+[ext_resource type="PackedScene" uid="uid://dj5ayp15ys2v8" path="res://enemies/gargoyle_statue/gargoyle_statue.tscn" id="6_06vru"]
+[ext_resource type="PackedScene" uid="uid://hanqvafhvg88" path="res://enemies/living_armor/living_armor.tscn" id="7_06vru"]
+[ext_resource type="Script" uid="uid://dnb4iextr4r2g" path="res://general/scripts/patrol_limit.gd" id="8_37blq"]
 
 [node name="05" type="Node2D" unique_id=1247034308]
 
@@ -41,3 +45,31 @@ target_area_name = "C11-1"
 
 [node name="PlayerSpawn" parent="." unique_id=1335346255 instance=ExtResource("4_aug1m")]
 position = Vector2(32, 800)
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=571362989]
+script = ExtResource("5_cb84e")
+metadata/_custom_type_script = "uid://rwwuu7gvxywr"
+
+[node name="Enemies" type="Node2D" parent="." unique_id=1911218535]
+
+[node name="GargoyleStatue" parent="Enemies" unique_id=488761391 instance=ExtResource("6_06vru")]
+position = Vector2(416, 611)
+face_left_on_start = true
+
+[node name="GargoyleStatue2" parent="Enemies" unique_id=1239276801 instance=ExtResource("6_06vru")]
+position = Vector2(63.961407, 450.77454)
+
+[node name="LivingArmor" parent="Enemies" unique_id=1868805655 instance=ExtResource("7_06vru")]
+position = Vector2(298, 803)
+face_left_on_start = true
+
+[node name="PatrolLimit" type="Node2D" parent="Enemies/LivingArmor" unique_id=1842240454]
+position = Vector2(-186, 0)
+script = ExtResource("8_37blq")
+metadata/_custom_type_script = "uid://dnb4iextr4r2g"
+
+[node name="PatrolLimit2" type="Node2D" parent="Enemies/LivingArmor" unique_id=1972767186]
+position = Vector2(37, 0)
+script = ExtResource("8_37blq")
+side = 2
+metadata/_custom_type_script = "uid://dnb4iextr4r2g"

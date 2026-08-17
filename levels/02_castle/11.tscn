@@ -4,6 +4,13 @@
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="2_fcep8"]
 [ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="3_x5ibp"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="4_fcep8"]
+[ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="5_n83u2"]
+[ext_resource type="PackedScene" uid="uid://h20ktogdikrd" path="res://levels/props/crate_wooden.tscn" id="6_0ye6h"]
+[ext_resource type="PackedScene" uid="uid://b8tbf6ebtoi83" path="res://enemies/demonic_chest/demonic_chest.tscn" id="7_0ye6h"]
+[ext_resource type="Script" uid="uid://dnb4iextr4r2g" path="res://general/scripts/patrol_limit.gd" id="8_fo3lo"]
+[ext_resource type="PackedScene" uid="uid://ja8lc0n3awhh" path="res://enemies/slime_2/slime_2.tscn" id="9_v8nj3"]
+[ext_resource type="PackedScene" uid="uid://dj5ayp15ys2v8" path="res://enemies/gargoyle_statue/gargoyle_statue.tscn" id="10_vfm0h"]
+[ext_resource type="PackedScene" uid="uid://dkyap82b10vdy" path="res://enemies/doom_scribe/doom_scribe.tscn" id="11_8d4lg"]
 
 [node name="04" type="Node2D" unique_id=1247034308]
 
@@ -46,3 +53,55 @@ target_area_name = "C13-1"
 
 [node name="PlayerSpawn" parent="." unique_id=1816431958 instance=ExtResource("4_fcep8")]
 position = Vector2(448, 376)
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=776988827]
+script = ExtResource("5_n83u2")
+metadata/_custom_type_script = "uid://rwwuu7gvxywr"
+
+[node name="Props" type="Node2D" parent="." unique_id=844977812]
+
+[node name="Crate" parent="Props" unique_id=261099677 instance=ExtResource("6_0ye6h")]
+position = Vector2(88, 340)
+
+[node name="Crate2" parent="Props" unique_id=662982903 instance=ExtResource("6_0ye6h")]
+position = Vector2(128, 340)
+
+[node name="Crate3" parent="Props" unique_id=548492820 instance=ExtResource("6_0ye6h")]
+position = Vector2(101, 308)
+
+[node name="Enemies" type="Node2D" parent="." unique_id=458200370]
+
+[node name="DemonicChest" parent="Enemies" unique_id=488761391 instance=ExtResource("7_0ye6h")]
+position = Vector2(242, 105)
+
+[node name="PatrolLimit" type="Node2D" parent="Enemies/DemonicChest" unique_id=290339272]
+position = Vector2(-182, 0)
+script = ExtResource("8_fo3lo")
+metadata/_custom_type_script = "uid://dnb4iextr4r2g"
+
+[node name="PatrolLimit2" type="Node2D" parent="Enemies/DemonicChest" unique_id=1964533653]
+position = Vector2(200, 0)
+script = ExtResource("8_fo3lo")
+side = 2
+metadata/_custom_type_script = "uid://dnb4iextr4r2g"
+
+[node name="Slime2" parent="Enemies" unique_id=887602983 instance=ExtResource("9_v8nj3")]
+position = Vector2(559, 353)
+
+[node name="GargoyleStatue" parent="Enemies" unique_id=452727992 instance=ExtResource("10_vfm0h")]
+position = Vector2(745, 99)
+face_left_on_start = true
+
+[node name="DoomScribe" parent="Enemies" unique_id=1968056672 instance=ExtResource("11_8d4lg")]
+position = Vector2(181, 328)
+
+[node name="PatrolLimit" type="Node2D" parent="Enemies/DoomScribe" unique_id=991366002]
+position = Vector2(-21, 0)
+script = ExtResource("8_fo3lo")
+metadata/_custom_type_script = "uid://dnb4iextr4r2g"
+
+[node name="PatrolLimit2" type="Node2D" parent="Enemies/DoomScribe" unique_id=898631124]
+position = Vector2(22, 0)
+script = ExtResource("8_fo3lo")
+side = 2
+metadata/_custom_type_script = "uid://dnb4iextr4r2g"

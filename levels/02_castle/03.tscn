@@ -6,6 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://dg7qvy6vumoft" path="res://general/hidden_area/hidden_area.tscn" id="4_ppqyp"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="5_43i5e"]
 [ext_resource type="PackedScene" uid="uid://wdmyqu8yln5j" path="res://general/powerup/powerup.tscn" id="6_y878t"]
+[ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="7_uif8c"]
+[ext_resource type="PackedScene" uid="uid://h20ktogdikrd" path="res://levels/props/crate_wooden.tscn" id="8_fn5oa"]
+[ext_resource type="PackedScene" uid="uid://b8tbf6ebtoi83" path="res://enemies/demonic_chest/demonic_chest.tscn" id="9_fn5oa"]
+[ext_resource type="Script" uid="uid://dnb4iextr4r2g" path="res://general/scripts/patrol_limit.gd" id="10_reqyr"]
+[ext_resource type="PackedScene" uid="uid://hanqvafhvg88" path="res://enemies/living_armor/living_armor.tscn" id="11_lq032"]
 
 [node name="03" type="Node2D" unique_id=1073888737]
 
@@ -55,3 +60,68 @@ position = Vector2(320, 368)
 
 [node name="Powerup" parent="." unique_id=165981682 instance=ExtResource("6_y878t")]
 position = Vector2(512, 336)
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=2050383248]
+script = ExtResource("7_uif8c")
+metadata/_custom_type_script = "uid://rwwuu7gvxywr"
+
+[node name="Props" type="Node2D" parent="." unique_id=877221267]
+
+[node name="Crate" parent="Props" unique_id=261099677 instance=ExtResource("8_fn5oa")]
+position = Vector2(1055, 149)
+
+[node name="Crate2" parent="Props" unique_id=1590404886 instance=ExtResource("8_fn5oa")]
+position = Vector2(1014, 149)
+
+[node name="Crate3" parent="Props" unique_id=2021382816 instance=ExtResource("8_fn5oa")]
+position = Vector2(1042, 117)
+
+[node name="Crate4" parent="Props" unique_id=1377143032 instance=ExtResource("8_fn5oa")]
+position = Vector2(952, 149)
+
+[node name="Crate5" parent="Props" unique_id=249507226 instance=ExtResource("8_fn5oa")]
+position = Vector2(1063, 341)
+
+[node name="Enemies" type="Node2D" parent="." unique_id=525677886]
+
+[node name="DemonicChest" parent="Enemies" unique_id=488761391 instance=ExtResource("9_fn5oa")]
+position = Vector2(888, 93)
+
+[node name="PatrolLimit" type="Node2D" parent="Enemies/DemonicChest" unique_id=1220098078]
+position = Vector2(-165, 0)
+script = ExtResource("10_reqyr")
+metadata/_custom_type_script = "uid://dnb4iextr4r2g"
+
+[node name="PatrolLimit2" type="Node2D" parent="Enemies/DemonicChest" unique_id=1978114733]
+position = Vector2(107, 0)
+script = ExtResource("10_reqyr")
+side = 2
+metadata/_custom_type_script = "uid://dnb4iextr4r2g"
+
+[node name="DemonicChest2" parent="Enemies" unique_id=509370250 instance=ExtResource("9_fn5oa")]
+position = Vector2(208, 219)
+
+[node name="PatrolLimit" type="Node2D" parent="Enemies/DemonicChest2" unique_id=94002288]
+position = Vector2(-121, 0)
+script = ExtResource("10_reqyr")
+metadata/_custom_type_script = "uid://dnb4iextr4r2g"
+
+[node name="PatrolLimit2" type="Node2D" parent="Enemies/DemonicChest2" unique_id=2038911597]
+position = Vector2(123, 0)
+script = ExtResource("10_reqyr")
+side = 2
+metadata/_custom_type_script = "uid://dnb4iextr4r2g"
+
+[node name="LivingArmor" parent="Enemies" unique_id=1499952471 instance=ExtResource("11_lq032")]
+position = Vector2(775, 355)
+
+[node name="PatrolLimit" type="Node2D" parent="Enemies/LivingArmor" unique_id=1122506010]
+position = Vector2(-126, 0)
+script = ExtResource("10_reqyr")
+metadata/_custom_type_script = "uid://dnb4iextr4r2g"
+
+[node name="PatrolLimit2" type="Node2D" parent="Enemies/LivingArmor" unique_id=678444344]
+position = Vector2(129, 0)
+script = ExtResource("10_reqyr")
+side = 2
+metadata/_custom_type_script = "uid://dnb4iextr4r2g"

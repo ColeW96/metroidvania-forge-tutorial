@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://cba7dqnr4ivnb" path="res://general/door_and_switch/door.tscn" id="4_j102a"]
 [ext_resource type="PackedScene" uid="uid://dhdmssi7fm3ru" path="res://general/door_and_switch/switch.tscn" id="5_6pner"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="7_j6yno"]
+[ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="8_buaw6"]
+[ext_resource type="PackedScene" uid="uid://dj5ayp15ys2v8" path="res://enemies/gargoyle_statue/gargoyle_statue.tscn" id="9_75xdl"]
+[ext_resource type="PackedScene" uid="uid://ja8lc0n3awhh" path="res://enemies/slime_2/slime_2.tscn" id="10_p8lmq"]
 
 [node name="07" type="Node2D" unique_id=1247034308]
 
@@ -56,3 +59,21 @@ position = Vector2(48, 3)
 
 [node name="PlayerSpawn" parent="." unique_id=920153163 instance=ExtResource("7_j6yno")]
 position = Vector2(72, 320)
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=2030237965]
+script = ExtResource("8_buaw6")
+metadata/_custom_type_script = "uid://rwwuu7gvxywr"
+
+[node name="Props" type="Node2D" parent="." unique_id=757871094]
+
+[node name="Enemies" type="Node2D" parent="." unique_id=107640765]
+
+[node name="GargoyleStatue" parent="Enemies" unique_id=488761391 instance=ExtResource("9_75xdl")]
+position = Vector2(284, 292)
+
+[node name="GargoyleStatue2" parent="Enemies" unique_id=913214336 instance=ExtResource("9_75xdl")]
+position = Vector2(422.6428, 866.5299)
+face_left_on_start = true
+
+[node name="Slime2" parent="Enemies" unique_id=2093154602 instance=ExtResource("10_p8lmq")]
+position = Vector2(113, 609)

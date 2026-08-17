@@ -4,6 +4,13 @@
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="2_3niki"]
 [ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="3_acxpx"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="4_3niki"]
+[ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="5_acxpx"]
+[ext_resource type="PackedScene" uid="uid://h20ktogdikrd" path="res://levels/props/crate_wooden.tscn" id="6_56ojg"]
+[ext_resource type="PackedScene" uid="uid://dkyap82b10vdy" path="res://enemies/doom_scribe/doom_scribe.tscn" id="6_b7fao"]
+[ext_resource type="Script" uid="uid://dnb4iextr4r2g" path="res://general/scripts/patrol_limit.gd" id="7_86atv"]
+[ext_resource type="PackedScene" uid="uid://b8tbf6ebtoi83" path="res://enemies/demonic_chest/demonic_chest.tscn" id="8_eolap"]
+[ext_resource type="PackedScene" uid="uid://hanqvafhvg88" path="res://enemies/living_armor/living_armor.tscn" id="9_175wx"]
+[ext_resource type="PackedScene" uid="uid://ja8lc0n3awhh" path="res://enemies/slime_2/slime_2.tscn" id="10_21wul"]
 
 [node name="03" type="Node2D" unique_id=1073888737]
 
@@ -40,3 +47,65 @@ target_area_name = "C15-1"
 
 [node name="PlayerSpawn" parent="." unique_id=961115082 instance=ExtResource("4_3niki")]
 position = Vector2(32, 128)
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=814336309]
+script = ExtResource("5_acxpx")
+metadata/_custom_type_script = "uid://rwwuu7gvxywr"
+
+[node name="Props" type="Node2D" parent="." unique_id=1884631355]
+
+[node name="Crate" parent="Props" unique_id=261099677 instance=ExtResource("6_56ojg")]
+position = Vector2(933.23413, 340.8463)
+
+[node name="Crate2" parent="Props" unique_id=2138900260 instance=ExtResource("6_56ojg")]
+position = Vector2(939.23413, 212.84631)
+
+[node name="Crate3" parent="Props" unique_id=593844624 instance=ExtResource("6_56ojg")]
+position = Vector2(938.23413, 180.84631)
+
+[node name="Enemies" type="Node2D" parent="." unique_id=1587973835]
+
+[node name="DoomScribe" parent="Enemies" unique_id=488761391 instance=ExtResource("6_b7fao")]
+position = Vector2(888, 136)
+
+[node name="PatrolLimit" type="Node2D" parent="Enemies/DoomScribe" unique_id=1761132847]
+position = Vector2(-104, 0)
+script = ExtResource("7_86atv")
+metadata/_custom_type_script = "uid://dnb4iextr4r2g"
+
+[node name="PatrolLimit2" type="Node2D" parent="Enemies/DoomScribe" unique_id=1518643359]
+position = Vector2(48, 0)
+script = ExtResource("7_86atv")
+side = 2
+metadata/_custom_type_script = "uid://dnb4iextr4r2g"
+
+[node name="DemonicChest" parent="Enemies" unique_id=1721662139 instance=ExtResource("8_eolap")]
+position = Vector2(440, 320)
+
+[node name="PatrolLimit" type="Node2D" parent="Enemies/DemonicChest" unique_id=1898496460]
+position = Vector2(-80, 0)
+script = ExtResource("7_86atv")
+metadata/_custom_type_script = "uid://dnb4iextr4r2g"
+
+[node name="PatrolLimit2" type="Node2D" parent="Enemies/DemonicChest" unique_id=1445396160]
+position = Vector2(352, 0)
+script = ExtResource("7_86atv")
+side = 2
+metadata/_custom_type_script = "uid://dnb4iextr4r2g"
+
+[node name="LivingArmor" parent="Enemies" unique_id=552233210 instance=ExtResource("9_175wx")]
+position = Vector2(730, 356)
+
+[node name="PatrolLimit" type="Node2D" parent="Enemies/LivingArmor" unique_id=1870205840]
+position = Vector2(-198, 0)
+script = ExtResource("7_86atv")
+metadata/_custom_type_script = "uid://dnb4iextr4r2g"
+
+[node name="PatrolLimit2" type="Node2D" parent="Enemies/LivingArmor" unique_id=1716320835]
+position = Vector2(159, 0)
+script = ExtResource("7_86atv")
+side = 2
+metadata/_custom_type_script = "uid://dnb4iextr4r2g"
+
+[node name="Slime2" parent="Enemies" unique_id=717882685 instance=ExtResource("10_21wul")]
+position = Vector2(504, 227)

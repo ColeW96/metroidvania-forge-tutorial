@@ -3,6 +3,8 @@
 [ext_resource type="TileSet" uid="uid://7nbch84nj8xi" path="res://levels/tilesets/castle.tres" id="1_cx5ns"]
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="2_cx5ns"]
 [ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="3_cx5ns"]
+[ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="4_64o5q"]
+[ext_resource type="PackedScene" uid="uid://h20ktogdikrd" path="res://levels/props/crate_wooden.tscn" id="5_reuax"]
 
 [node name="06" type="Node2D" unique_id=1247034308]
 
@@ -30,3 +32,15 @@ position = Vector2(480, 352)
 location = 1
 target_level = "uid://cqy653ovcdceb"
 target_area_name = "C07-1"
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=1620773938]
+script = ExtResource("4_64o5q")
+metadata/_custom_type_script = "uid://rwwuu7gvxywr"
+
+[node name="Props" type="Node2D" parent="." unique_id=1460103848]
+
+[node name="Crate" parent="Props" unique_id=261099677 instance=ExtResource("5_reuax")]
+position = Vector2(186, 277)
+
+[node name="Crate2" parent="Props" unique_id=1128529708 instance=ExtResource("5_reuax")]
+position = Vector2(302, 277)
