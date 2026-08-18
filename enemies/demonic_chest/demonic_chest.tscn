@@ -12,7 +12,6 @@
 [ext_resource type="Script" uid="uid://b2qdp3bms72og" path="res://enemies/scripts/states/es_death.gd" id="9_4qe87"]
 [ext_resource type="Script" uid="uid://bka6qlewnte30" path="res://enemies/scripts/states/es_fly_attack.gd" id="9_d83ut"]
 [ext_resource type="AudioStream" uid="uid://k3p37oqyb0e4" path="res://enemies/slime/slime_death.wav" id="10_1nev4"]
-[ext_resource type="Script" uid="uid://dfg03o7e8cnit" path="res://enemies/scripts/sensors/edge_sensor.gd" id="13_6ka4c"]
 [ext_resource type="Script" uid="uid://c1fd8n55hi86u" path="res://enemies/scripts/sensors/player_sensor.gd" id="14_igs2k"]
 [ext_resource type="Script" uid="uid://cawilyvlawwsm" path="res://enemies/scripts/enemy_hit_particles.gd" id="15_tx4mv"]
 [ext_resource type="Script" uid="uid://brc344c2o0cfo" path="res://00_global/visual_effects/hit_particle_settings.gd" id="16_msfr6"]
@@ -248,6 +247,7 @@ size = Vector2(33, 28)
 [node name="DemonicChest" type="CharacterBody2D" unique_id=488761391]
 collision_layer = 0
 script = ExtResource("1_gjk24")
+health = 4.0
 affected_by_gravity = false
 show_vision = true
 
@@ -324,12 +324,6 @@ script = ExtResource("9_4qe87")
 knockback_strength = 10.0
 death_audio = ExtResource("10_1nev4")
 metadata/_custom_type_script = "uid://b2qdp3bms72og"
-
-[node name="EdgeSensor" type="RayCast2D" parent="." unique_id=533344323]
-position = Vector2(7, -3)
-target_position = Vector2(0, 12)
-script = ExtResource("13_6ka4c")
-metadata/_custom_type_script = "uid://dfg03o7e8cnit"
 
 [node name="PlayerSensor" type="Area2D" parent="." unique_id=2092460160]
 position = Vector2(0, -7)

@@ -183,7 +183,7 @@ metadata/_custom_type_script = "uid://bfkq1vksotjux"
 collision_layer = 0
 collision_mask = 3
 script = ExtResource("1_o7ehu")
-health = 2.0
+health = 4.0
 affected_by_gravity = false
 show_vision = true
 

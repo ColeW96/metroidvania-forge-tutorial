@@ -104,6 +104,7 @@ debug_color = Color(0, 0.6, 0.69803923, 0)
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("5_cafiw")
+damage = 3.0
 metadata/_custom_type_script = "uid://bvoy8p2v1ao7i"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea" unique_id=184762014]
