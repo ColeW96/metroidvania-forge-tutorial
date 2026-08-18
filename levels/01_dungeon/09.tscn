@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://wdmyqu8yln5j" path="res://general/powerup/powerup.tscn" id="5_weytm"]
 [ext_resource type="TileSet" uid="uid://b337bi8pmvtwx" path="res://levels/tilesets/ff_no_collision.tres" id="6_6urep"]
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="8_l0bcf"]
+[ext_resource type="AudioStream" uid="uid://p8hxrxlmlcnc" path="res://music/dungeon_01.ogg" id="9_g7uk8"]
 
 [node name="09" type="Node2D" unique_id=1247034308]
 
@@ -54,4 +55,6 @@ tile_set = ExtResource("6_6urep")
 
 [node name="MusicAutoTrigger" type="Node" parent="." unique_id=890960022]
 script = ExtResource("8_l0bcf")
+track = ExtResource("9_g7uk8")
+reverb = 1
 metadata/_custom_type_script = "uid://rwwuu7gvxywr"

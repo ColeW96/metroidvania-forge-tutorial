@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bpu85f86p0afb" path="res://bosses/cobalt_knight/placeholder_boss.tscn" id="4_hikmn"]
 [ext_resource type="Script" uid="uid://ch0a048ylkibq" path="res://bosses/scripts/boss_battle_orchestrator.gd" id="5_agqoh"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="5_hikmn"]
+[ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="7_5tpny"]
+[ext_resource type="AudioStream" uid="uid://p8hxrxlmlcnc" path="res://music/dungeon_01.ogg" id="8_02f1h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6drb7"]
 size = Vector2(20, 237)
@@ -63,3 +65,9 @@ shape = SubResource("RectangleShape2D_6drb7")
 [node name="TileMapLayer3" type="TileMapLayer" parent="BossBattleOrchestrator" unique_id=1432627322]
 tile_map_data = PackedByteArray("AAAGABYAAAACAAYAAAAHABYAAAADAAYAAAAeABQAAAAAAAkAAAAeABUAAAAAAAoAAAAeABYAAAAIAAoAAAA=")
 tile_set = ExtResource("1_sywid")
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=205975133]
+script = ExtResource("7_5tpny")
+track = ExtResource("8_02f1h")
+reverb = 3
+metadata/_custom_type_script = "uid://rwwuu7gvxywr"

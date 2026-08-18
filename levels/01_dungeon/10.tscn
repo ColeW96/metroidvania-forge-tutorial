@@ -5,6 +5,8 @@
 [ext_resource type="TileSet" uid="uid://p87hshodqhxn" path="res://levels/tilesets/forgotten_forest.tres" id="2_e6ctb"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="4_sh6o1"]
 [ext_resource type="PackedScene" uid="uid://dj5ayp15ys2v8" path="res://enemies/gargoyle_statue/gargoyle_statue.tscn" id="5_cu838"]
+[ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="6_fx4od"]
+[ext_resource type="AudioStream" uid="uid://p8hxrxlmlcnc" path="res://music/dungeon_01.ogg" id="7_k7q2x"]
 
 [node name="10" type="Node2D" unique_id=1247034308]
 
@@ -49,3 +51,9 @@ position = Vector2(63, 323)
 
 [node name="GargoyleStatue3" parent="Enemies" unique_id=599787931 instance=ExtResource("5_cu838")]
 position = Vector2(64, 163)
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=1265797990]
+script = ExtResource("6_fx4od")
+track = ExtResource("7_k7q2x")
+reverb = 2
+metadata/_custom_type_script = "uid://rwwuu7gvxywr"

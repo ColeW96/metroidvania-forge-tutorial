@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bl8f4woftk8ry" path="res://levels/props/torch.tscn" id="7_l6xjn"]
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="8_wdt5a"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="9_amun5"]
+[ext_resource type="AudioStream" uid="uid://p8hxrxlmlcnc" path="res://music/dungeon_01.ogg" id="9_eqn7c"]
 
 [node name="16" type="Node2D" unique_id=1247034308]
 
@@ -58,6 +59,8 @@ position = Vector2(272, 195)
 
 [node name="MusicAutoTrigger" type="Node" parent="." unique_id=1850553402]
 script = ExtResource("8_wdt5a")
+track = ExtResource("9_eqn7c")
+reverb = 1
 metadata/_custom_type_script = "uid://rwwuu7gvxywr"
 
 [node name="PlayerSpawn" parent="." unique_id=1625678964 instance=ExtResource("9_amun5")]

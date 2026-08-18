@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="3_xa1rh"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="4_jrvbj"]
 [ext_resource type="PackedScene" uid="uid://de3w4k411bso3" path="res://general/respawn_trigger/respawn_trigger.tscn" id="5_xa1rh"]
+[ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="6_5e6sv"]
+[ext_resource type="AudioStream" uid="uid://p8hxrxlmlcnc" path="res://music/dungeon_01.ogg" id="7_66hqp"]
 
 [node name="17" type="Node2D" unique_id=1247034308]
 
@@ -49,3 +51,9 @@ position = Vector2(32, 352)
 position = Vector2(128, 480)
 scale = Vector2(7, 1)
 size = 7
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=1710387469]
+script = ExtResource("6_5e6sv")
+track = ExtResource("7_66hqp")
+reverb = 1
+metadata/_custom_type_script = "uid://rwwuu7gvxywr"

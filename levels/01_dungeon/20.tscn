@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dj5ayp15ys2v8" path="res://enemies/gargoyle_statue/gargoyle_statue.tscn" id="5_21rp4"]
 [ext_resource type="PackedScene" uid="uid://h20ktogdikrd" path="res://levels/props/crate_wooden.tscn" id="5_gqybm"]
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="7_nofy0"]
+[ext_resource type="AudioStream" uid="uid://p8hxrxlmlcnc" path="res://music/dungeon_01.ogg" id="8_j0iof"]
 
 [node name="20" type="Node2D" unique_id=1247034308]
 
@@ -58,4 +59,6 @@ position = Vector2(127, 133)
 
 [node name="MusicAutoTrigger" type="Node" parent="." unique_id=490920379]
 script = ExtResource("7_nofy0")
+track = ExtResource("8_j0iof")
+reverb = 1
 metadata/_custom_type_script = "uid://rwwuu7gvxywr"

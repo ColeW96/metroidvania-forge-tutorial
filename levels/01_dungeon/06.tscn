@@ -3,6 +3,7 @@
 [ext_resource type="TileSet" uid="uid://p87hshodqhxn" path="res://levels/tilesets/forgotten_forest.tres" id="1_freuv"]
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="1_riror"]
 [ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="2_freuv"]
+[ext_resource type="AudioStream" uid="uid://p8hxrxlmlcnc" path="res://music/dungeon_01.ogg" id="3_47hco"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="4_86olq"]
 [ext_resource type="PackedScene" uid="uid://hanqvafhvg88" path="res://enemies/living_armor/living_armor.tscn" id="5_q7wrn"]
 [ext_resource type="Script" uid="uid://dnb4iextr4r2g" path="res://general/scripts/patrol_limit.gd" id="6_hdrwu"]
@@ -26,6 +27,8 @@ target_area_name = "D07-1"
 
 [node name="MusicAutoTrigger" type="Node" parent="." unique_id=1740875768]
 script = ExtResource("7_quowb")
+track = ExtResource("3_47hco")
+reverb = 1
 metadata/_custom_type_script = "uid://rwwuu7gvxywr"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=712018390]

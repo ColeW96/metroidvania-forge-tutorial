@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://wdmyqu8yln5j" path="res://general/powerup/powerup.tscn" id="5_mu57p"]
 [ext_resource type="PackedScene" uid="uid://dg7qvy6vumoft" path="res://general/hidden_area/hidden_area.tscn" id="6_irtaa"]
 [ext_resource type="TileSet" uid="uid://b337bi8pmvtwx" path="res://levels/tilesets/ff_no_collision.tres" id="7_swehg"]
+[ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="8_y7cwq"]
+[ext_resource type="AudioStream" uid="uid://p8hxrxlmlcnc" path="res://music/dungeon_01.ogg" id="9_ka32x"]
 
 [node name="18" type="Node2D" unique_id=1247034308]
 
@@ -50,3 +52,9 @@ position = Vector2(128, 160)
 visible = false
 tile_map_data = PackedByteArray("AAD//wAAAAADAAwAAAAAAAAAAAACAA4AAAABAAAAAAADAA4AAAD+/wAAAAAFAA4AAAD9/wAAAAAEAA4AAAACAAAAAAADAAoAAAADAAAAAAADAAoAAAAEAAAAAAADAAoAAAAFAAAAAAADAAoAAAAGAAAAAAADAAoAAAAHAAAAAAADAAoAAAAIAAAAAAADAAoAAAAJAAAAAAADAAoAAAAJAP//AAADAAoAAAAJAP7/AAADAAoAAAAJAP3/AAADAAoAAAAJAPz/AAADAAoAAAAJAPv/AAADAAoAAAAIAPv/AAADAAoAAAAHAPv/AAADAAoAAAAGAPv/AAADAAoAAAAFAPv/AAADAAoAAAAEAPv/AAADAAoAAAADAPv/AAADAAoAAAACAPv/AAADAAoAAAABAPv/AAADAAoAAAAAAPv/AAADAAoAAAD///v/AAADAAoAAAD+//v/AAADAAoAAAD+//z/AAADAAoAAAD9//v/AAADAAoAAAD9//z/AAADAAoAAAD9//3/AAADAAoAAAD9//7/AAADAAoAAAD9////AAADAAoAAAD+////AAADAAoAAAD/////AAADAAoAAAAAAP//AAADAAoAAAABAP//AAADAAoAAAACAP//AAADAAoAAAADAP//AAADAAoAAAAEAP//AAADAAoAAAAFAP//AAADAAoAAAAGAP//AAADAAoAAAAHAP//AAADAAoAAAAIAP//AAADAAoAAAAIAP7/AAADAAoAAAAIAP3/AAADAAoAAAAIAPz/AAADAAoAAAAHAPz/AAADAAoAAAAGAPz/AAADAAoAAAAFAPz/AAADAAoAAAAEAPz/AAADAAoAAAADAPz/AAADAAoAAAACAPz/AAADAAoAAAABAPz/AAADAAoAAAAAAPz/AAADAAoAAAD///z/AAADAAoAAAD+//3/AAADAAoAAAD///3/AAADAAoAAAAAAP3/AAADAAoAAAABAP3/AAADAAoAAAACAP3/AAADAAoAAAADAP3/AAADAAoAAAAEAP3/AAADAAoAAAAFAP3/AAADAAoAAAAGAP3/AAADAAoAAAAHAP3/AAADAAoAAAAHAP7/AAADAAoAAAAGAP7/AAADAAoAAAAFAP7/AAADAAoAAAAEAP7/AAADAAoAAAADAP7/AAADAAoAAAACAP7/AAADAAoAAAABAP7/AAADAAoAAAAAAP7/AAADAAoAAAD///7/AAADAAoAAAD+//7/AAADAAoAAAA=")
 tile_set = ExtResource("7_swehg")
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=1532614061]
+script = ExtResource("8_y7cwq")
+track = ExtResource("9_ka32x")
+reverb = 2
+metadata/_custom_type_script = "uid://rwwuu7gvxywr"

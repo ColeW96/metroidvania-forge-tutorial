@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="4_x430l"]
 [ext_resource type="PackedScene" uid="uid://cba7dqnr4ivnb" path="res://general/door_and_switch/door.tscn" id="5_nqj4a"]
 [ext_resource type="PackedScene" uid="uid://dhdmssi7fm3ru" path="res://general/door_and_switch/switch.tscn" id="6_lc476"]
+[ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="7_oy76y"]
+[ext_resource type="AudioStream" uid="uid://cxhdqvhc0jk57" path="res://music/forest_01.ogg" id="8_sii6v"]
 
 [node name="07" type="Node2D" unique_id=1247034308]
 
@@ -52,3 +54,9 @@ position = Vector2(240, 800)
 
 [node name="Switch" parent="Door" unique_id=983637097 instance=ExtResource("6_lc476")]
 position = Vector2(-93, 3)
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=1833794889]
+script = ExtResource("7_oy76y")
+track = ExtResource("8_sii6v")
+reverb = 2
+metadata/_custom_type_script = "uid://rwwuu7gvxywr"

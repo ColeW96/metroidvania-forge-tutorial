@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://h20ktogdikrd" path="res://levels/props/crate_wooden.tscn" id="5_dpdye"]
 [ext_resource type="PackedScene" uid="uid://bl8f4woftk8ry" path="res://levels/props/torch.tscn" id="6_qvjfp"]
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="7_601cd"]
+[ext_resource type="AudioStream" uid="uid://p8hxrxlmlcnc" path="res://music/dungeon_01.ogg" id="8_likb4"]
 
 [node name="13" type="Node2D" unique_id=1247034308]
 
@@ -58,4 +59,6 @@ position = Vector2(324, 163)
 
 [node name="MusicAutoTrigger" type="Node" parent="." unique_id=1512829241]
 script = ExtResource("7_601cd")
+track = ExtResource("8_likb4")
+reverb = 1
 metadata/_custom_type_script = "uid://rwwuu7gvxywr"

@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dnb4iextr4r2g" path="res://general/scripts/patrol_limit.gd" id="6_wse41"]
 [ext_resource type="PackedScene" uid="uid://ja8lc0n3awhh" path="res://enemies/slime_2/slime_2.tscn" id="7_s8yrt"]
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="8_mbsgp"]
+[ext_resource type="AudioStream" uid="uid://p8hxrxlmlcnc" path="res://music/dungeon_01.ogg" id="9_b4d74"]
 
 [node name="12" type="Node2D" unique_id=514909877]
 
@@ -79,4 +80,6 @@ position = Vector2(260, 193)
 
 [node name="MusicAutoTrigger" type="Node" parent="." unique_id=1584333061]
 script = ExtResource("8_mbsgp")
+track = ExtResource("9_b4d74")
+reverb = 2
 metadata/_custom_type_script = "uid://rwwuu7gvxywr"

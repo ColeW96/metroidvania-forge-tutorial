@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://wdmyqu8yln5j" path="res://general/powerup/powerup.tscn" id="7_ak5gn"]
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="8_40tmj"]
 [ext_resource type="PackedScene" uid="uid://hanqvafhvg88" path="res://enemies/living_armor/living_armor.tscn" id="9_bxo57"]
+[ext_resource type="AudioStream" uid="uid://cxhdqvhc0jk57" path="res://music/forest_01.ogg" id="9_dalde"]
 [ext_resource type="Script" uid="uid://dnb4iextr4r2g" path="res://general/scripts/patrol_limit.gd" id="10_bxo57"]
 [ext_resource type="PackedScene" uid="uid://b8tbf6ebtoi83" path="res://enemies/demonic_chest/demonic_chest.tscn" id="11_chvb5"]
 
@@ -91,6 +92,8 @@ shape = SubResource("RectangleShape2D_ceune")
 
 [node name="MusicAutoTrigger" type="Node" parent="." unique_id=926155089]
 script = ExtResource("8_40tmj")
+track = ExtResource("9_dalde")
+reverb = 2
 metadata/_custom_type_script = "uid://rwwuu7gvxywr"
 
 [node name="Enemies" type="Node2D" parent="." unique_id=955912871]

@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://hanqvafhvg88" path="res://enemies/living_armor/living_armor.tscn" id="8_28dw6"]
 [ext_resource type="PackedScene" uid="uid://ja8lc0n3awhh" path="res://enemies/slime_2/slime_2.tscn" id="9_0lghe"]
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="11_uyiq7"]
+[ext_resource type="AudioStream" uid="uid://p8hxrxlmlcnc" path="res://music/dungeon_01.ogg" id="12_588xr"]
 
 [node name="07" type="Node2D" unique_id=1247034308]
 
@@ -87,4 +88,6 @@ position = Vector2(1436, 257)
 
 [node name="MusicAutoTrigger" type="Node" parent="." unique_id=797548913]
 script = ExtResource("11_uyiq7")
+track = ExtResource("12_588xr")
+reverb = 3
 metadata/_custom_type_script = "uid://rwwuu7gvxywr"

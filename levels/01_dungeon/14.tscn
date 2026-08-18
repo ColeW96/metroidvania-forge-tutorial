@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="2_4tmun"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="4_yq3oo"]
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="5_yq3oo"]
+[ext_resource type="AudioStream" uid="uid://p8hxrxlmlcnc" path="res://music/dungeon_01.ogg" id="6_lojii"]
 [ext_resource type="PackedScene" uid="uid://b8tbf6ebtoi83" path="res://enemies/demonic_chest/demonic_chest.tscn" id="6_o613t"]
 [ext_resource type="Script" uid="uid://dnb4iextr4r2g" path="res://general/scripts/patrol_limit.gd" id="7_hbctf"]
 [ext_resource type="PackedScene" uid="uid://ja8lc0n3awhh" path="res://enemies/slime_2/slime_2.tscn" id="8_xxvyw"]
@@ -44,6 +45,8 @@ position = Vector2(1048, 320)
 
 [node name="MusicAutoTrigger" type="Node" parent="." unique_id=1257375683]
 script = ExtResource("5_yq3oo")
+track = ExtResource("6_lojii")
+reverb = 2
 metadata/_custom_type_script = "uid://rwwuu7gvxywr"
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1945569554]

@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="5_e8knj"]
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="6_ocngb"]
 [ext_resource type="PackedScene" uid="uid://ja8lc0n3awhh" path="res://enemies/slime_2/slime_2.tscn" id="7_6o5dd"]
+[ext_resource type="AudioStream" uid="uid://cxhdqvhc0jk57" path="res://music/forest_01.ogg" id="7_wma0d"]
 [ext_resource type="Script" uid="uid://dnb4iextr4r2g" path="res://general/scripts/patrol_limit.gd" id="8_6o5dd"]
 
 [node name="05" type="Node2D" unique_id=593574076]
@@ -68,6 +69,8 @@ position = Vector2(1224, 256)
 
 [node name="MusicAutoTrigger" type="Node" parent="." unique_id=641014587]
 script = ExtResource("6_ocngb")
+track = ExtResource("7_wma0d")
+reverb = 2
 metadata/_custom_type_script = "uid://rwwuu7gvxywr"
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1472588]

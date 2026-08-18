@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://h20ktogdikrd" path="res://levels/props/crate_wooden.tscn" id="12_sk4eq"]
 [ext_resource type="PackedScene" uid="uid://bpbdxq44olmim" path="res://levels/props/test_dummy/spike_dummy.tscn" id="13_el0rl"]
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="14_j2sle"]
+[ext_resource type="AudioStream" uid="uid://p8hxrxlmlcnc" path="res://music/dungeon_01.ogg" id="15_t7cs5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0jtl8"]
 atlas = ExtResource("8_el0rl")
@@ -158,4 +159,6 @@ position = Vector2(169, 546)
 
 [node name="MusicAutoTrigger" type="Node" parent="." unique_id=502182976]
 script = ExtResource("14_j2sle")
+track = ExtResource("15_t7cs5")
+reverb = 2
 metadata/_custom_type_script = "uid://rwwuu7gvxywr"

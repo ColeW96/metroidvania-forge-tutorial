@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="2_hsr36"]
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="3_rumm7"]
 [ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="4_kta62"]
+[ext_resource type="AudioStream" uid="uid://cxhdqvhc0jk57" path="res://music/forest_01.ogg" id="4_oqyd2"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="5_vm3fu"]
 [ext_resource type="PackedScene" uid="uid://85pdupjx7ewh" path="res://general/save_point/save_point.tscn" id="6_ojtv1"]
 
@@ -38,6 +39,8 @@ metadata/_custom_type_script = "uid://drqun7tewik8i"
 
 [node name="MusicAutoTrigger" type="Node" parent="." unique_id=957202772]
 script = ExtResource("3_rumm7")
+track = ExtResource("4_oqyd2")
+reverb = 1
 metadata/_custom_type_script = "uid://rwwuu7gvxywr"
 
 [node name="FS01-1" parent="." unique_id=389267975 instance=ExtResource("4_kta62")]

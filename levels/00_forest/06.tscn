@@ -4,6 +4,8 @@
 [ext_resource type="TileSet" uid="uid://p87hshodqhxn" path="res://levels/tilesets/forgotten_forest.tres" id="2_w2chx"]
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="3_jpial"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="4_cnoxp"]
+[ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="5_wogbc"]
+[ext_resource type="AudioStream" uid="uid://cxhdqvhc0jk57" path="res://music/forest_01.ogg" id="6_b26w5"]
 
 [node name="06" type="Node2D" unique_id=1247034308]
 
@@ -55,3 +57,9 @@ target_area_name = "F07-2"
 
 [node name="PlayerSpawn" parent="." unique_id=63622061 instance=ExtResource("4_cnoxp")]
 position = Vector2(408, 264)
+
+[node name="MusicAutoTrigger" type="Node" parent="." unique_id=505404241]
+script = ExtResource("5_wogbc")
+track = ExtResource("6_b26w5")
+reverb = 1
+metadata/_custom_type_script = "uid://rwwuu7gvxywr"

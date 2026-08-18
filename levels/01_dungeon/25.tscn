@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="4_vmvs8"]
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="5_ivl3h"]
 [ext_resource type="PackedScene" uid="uid://bpbdxq44olmim" path="res://levels/props/test_dummy/spike_dummy.tscn" id="6_3lck7"]
+[ext_resource type="AudioStream" uid="uid://p8hxrxlmlcnc" path="res://music/dungeon_01.ogg" id="6_qiso3"]
 [ext_resource type="PackedScene" uid="uid://c02dlnypfkr7c" path="res://levels/props/test_dummy/test_dummy.tscn" id="7_3lck7"]
 [ext_resource type="PackedScene" uid="uid://ja8lc0n3awhh" path="res://enemies/slime_2/slime_2.tscn" id="8_wy5d3"]
 [ext_resource type="PackedScene" uid="uid://b8tbf6ebtoi83" path="res://enemies/demonic_chest/demonic_chest.tscn" id="9_mnl52"]
@@ -46,6 +47,8 @@ position = Vector2(208, 96)
 
 [node name="MusicAutoTrigger" type="Node" parent="." unique_id=614413095]
 script = ExtResource("5_ivl3h")
+track = ExtResource("6_qiso3")
+reverb = 2
 metadata/_custom_type_script = "uid://rwwuu7gvxywr"
 
 [node name="Props" type="Node2D" parent="." unique_id=63944644]
