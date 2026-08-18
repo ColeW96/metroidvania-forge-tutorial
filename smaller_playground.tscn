@@ -2,7 +2,6 @@
 
 [ext_resource type="TileSet" uid="uid://p87hshodqhxn" path="res://levels/tilesets/forgotten_forest.tres" id="1_8du1n"]
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="2_83xbm"]
-[ext_resource type="PackedScene" uid="uid://hanqvafhvg88" path="res://enemies/living_armor/living_armor.tscn" id="4_cjmus"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="4_sxnha"]
 
 [node name="SmallerPlayground" type="Node2D" unique_id=775118826]
@@ -22,6 +21,3 @@ metadata/_custom_type_script = "uid://drqun7tewik8i"
 
 [node name="PlayerSpawn" parent="." unique_id=325813504 instance=ExtResource("4_sxnha")]
 position = Vector2(184, 224)
-
-[node name="LivingArmor" parent="." unique_id=488761391 instance=ExtResource("4_cjmus")]
-position = Vector2(304, 224)

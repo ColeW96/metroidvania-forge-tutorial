@@ -4,10 +4,15 @@ const MORPH_AUDIO = preload("uid://dqd7dlshyeseu")
 const MORPH_OUT_AUDIO = preload("uid://b03xvcklnp5ja")
 const JUMP = preload("uid://b7y7gfqr173i5")
 const LAND = preload("uid://bkueq2alnhrv2")
+const MORPH_BOMB = preload("uid://cq1rb51id5w8m")
+
 
 @export var jump_velocity : float = 400.0
 
 var on_floor : bool = true
+var bomb_count : int = 0
+var bomb_timer : float = 0
+var bomb_buffer : float = 0
 
 @onready var ball_ray_up: RayCast2D = %BallRayUp
 @onready var ball_ray_down: RayCast2D = %BallRayDown
@@ -78,6 +83,16 @@ func handle_input( event : InputEvent ) -> PlayerState:
 		player.velocity.y -= jump_velocity
 		Audio.play_spatial_sound(JUMP, player.global_position, false, true, 0.25)
 		VisualEffects.jump_dust( player.global_position )
+	if event.is_action_pressed("attack") and bomb_timer <= 0:
+		if bomb_count < 3:
+			var bomb : MorphBomb = MORPH_BOMB.instantiate()
+			get_tree().root.add_child( bomb )
+			bomb.global_position = player.global_position
+			bomb_count += 1
+			bomb_buffer = 0.2
+		
+		if bomb_count > 2:
+			bomb_timer = 1.2
 	return null
 
 
@@ -91,8 +106,18 @@ func process( _delta: float ) -> PlayerState:
 
 
 # What happens each physics process tick in this state?
-func physics_process( _delta: float ) -> PlayerState:
+func physics_process( delta: float ) -> PlayerState:
 	player.velocity.x = player.direction.x * player.move_speed
+	
+	
+	if bomb_timer > 0:
+		bomb_timer -= delta
+		if bomb_timer <= 0:
+			bomb_count = 0
+	elif bomb_buffer > 0:
+		bomb_buffer -= delta
+		if bomb_buffer <= 0:
+			bomb_count = 0
 	
 	if on_floor:
 		if not player.is_on_floor():
