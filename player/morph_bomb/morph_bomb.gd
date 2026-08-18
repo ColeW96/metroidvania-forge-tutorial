@@ -19,7 +19,6 @@ func _process(delta: float) -> void:
 
 func destroy() -> void:
 	animation_player.play("explode")
-	attack_area.activate( animation_player.current_animation_length )
 	await animation_player.animation_finished
 	queue_free()
 	pass
