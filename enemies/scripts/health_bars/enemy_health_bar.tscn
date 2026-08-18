@@ -22,6 +22,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 20.0
+mouse_filter = 2
 script = ExtResource("1_8xtwn")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1642799870]
