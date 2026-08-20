@@ -61,7 +61,6 @@ func set_close_texture() -> void:
 			break
 	
 	var controller : String = input_hints.controller_type
-	controller = "playstation"
 	var atlas_texture : AtlasTexture = texture_rect.texture as AtlasTexture
 	if atlas_texture:
 		atlas_texture.region = Rect2( get_region_x( controller ), 0, 13, 0 )
