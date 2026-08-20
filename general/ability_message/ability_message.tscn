@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://cl3j7dn1nb4bq"]
+
+[ext_resource type="Script" uid="uid://b1px7lgm0b4ye" path="res://general/ability_message/ability_message.gd" id="1_3qecv"]
+
+[sub_resource type="Gradient" id="Gradient_3qecv"]
+colors = PackedColorArray(0, 0, 0, 0.91764706, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3qecv"]
+gradient = SubResource("Gradient_3qecv")
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="AbilityMessage" type="CanvasLayer" unique_id=1539982044]
+process_mode = 2
+script = ExtResource("1_3qecv")
+
+[node name="Control" type="Control" parent="." unique_id=475718544]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1711807986]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = -40.0
+offset_right = 61.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_3qecv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1834473727]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -19.0
+offset_right = 40.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AbilityNameLabel" type="Label" parent="Control/VBoxContainer" unique_id=289074215]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Ability Acquired"
+horizontal_alignment = 1
+
+[node name="AbilityDescLabel" type="Label" parent="Control/VBoxContainer" unique_id=450941784]
+unique_name_in_owner = true
+custom_maximum_size = Vector2(80, -1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Description"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer" unique_id=608924683]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/HBoxContainer" unique_id=459483556]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Press \"attack\" to close"

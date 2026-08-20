@@ -93,6 +93,7 @@ func _ready() -> void:
 	edge_sensor_pos = edge_sensor.position
 	Messages.player_healed.connect( _on_player_healed )
 	Messages.back_to_title_screen.connect( queue_free )
+	Messages.ability_acquired.connect( _on_ability_acquired )
 	damage_area.damage_taken.connect( _on_damage_taken )
 	hp = max_hp
 	pass
@@ -324,4 +325,11 @@ func get_last_position() -> void:
 			last_floor_dir = Vector2.RIGHT
 		elif velocity.x < 0:
 			last_floor_dir = Vector2.LEFT
+	pass
+
+
+func _on_ability_acquired( ability_name : String ) -> void:
+	var ability_message : AbilityMessage = load("res://general/ability_message/ability_message.tscn").instantiate()
+	add_child(ability_message)
+	ability_message.set_ability_message_text(ability_name)
 	pass

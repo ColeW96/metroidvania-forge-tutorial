@@ -19,3 +19,6 @@ signal back_to_title_screen
 
 @warning_ignore("unused_signal")
 signal player_died
+
+@warning_ignore("unused_signal")
+signal ability_acquired( ability_name : String )

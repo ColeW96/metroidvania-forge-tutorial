@@ -45,7 +45,8 @@ func _on_destroyed() -> void:
 	_modulate_node()
 	orb_anim.play("destroy")
 	await orb_anim.animation_finished
-	queue_free()
+	Messages.ability_acquired.emit( get_ability_name() )
+	queue_free() 
 	pass
 
 

@@ -2,6 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://p87hshodqhxn" path="res://levels/tilesets/forgotten_forest.tres" id="1_8du1n"]
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="2_83xbm"]
+[ext_resource type="PackedScene" uid="uid://bew5osvj6ik17" path="res://general/ability_pickup/ability_pickup.tscn" id="4_cjmus"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="4_sxnha"]
 
 [node name="SmallerPlayground" type="Node2D" unique_id=775118826]
@@ -20,4 +21,23 @@ script = ExtResource("2_83xbm")
 metadata/_custom_type_script = "uid://drqun7tewik8i"
 
 [node name="PlayerSpawn" parent="." unique_id=325813504 instance=ExtResource("4_sxnha")]
-position = Vector2(184, 224)
+position = Vector2(56, 224)
+
+[node name="AbilityPickup" parent="." unique_id=1646825791 instance=ExtResource("4_cjmus")]
+position = Vector2(104, 208)
+type = 4
+
+[node name="AbilityPickup2" parent="." unique_id=1439876482 instance=ExtResource("4_cjmus")]
+position = Vector2(160, 208)
+
+[node name="AbilityPickup3" parent="." unique_id=727488175 instance=ExtResource("4_cjmus")]
+position = Vector2(216, 208)
+type = 1
+
+[node name="AbilityPickup4" parent="." unique_id=1167791323 instance=ExtResource("4_cjmus")]
+position = Vector2(272, 208)
+type = 2
+
+[node name="AbilityPickup5" parent="." unique_id=564426312 instance=ExtResource("4_cjmus")]
+position = Vector2(328, 208)
+type = 3
