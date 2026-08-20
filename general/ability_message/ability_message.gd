@@ -1,5 +1,12 @@
 class_name AbilityMessage extends CanvasLayer
 
+const CONTROLLERS : Dictionary = {
+	"keyboard" : 273,
+	"playstation" : 26,
+	"xbox" : 91,
+	"switch" : 260
+}
+
 var descriptions : Dictionary = {
 	"double_jump" : "Perform a second jump mid-air. Useful for reaching new heights!",
 	"dash" : "Dash forward to avoid harm. Can be used in the air or on the ground!",
@@ -52,8 +59,15 @@ func set_close_texture() -> void:
 		if c is InputHints:
 			input_hints = c
 			break
-	if input_hints.controller_type == "keyboard":
-		var atlas_texture : AtlasTexture = texture_rect.texture as AtlasTexture
-		if atlas_texture:
-			atlas_texture.region = Rect2( 39, 0, 13, 0 )
+	
+	var controller : String = input_hints.controller_type
+	controller = "playstation"
+	var atlas_texture : AtlasTexture = texture_rect.texture as AtlasTexture
+	if atlas_texture:
+		atlas_texture.region = Rect2( get_region_x( controller ), 0, 13, 0 )
 	pass
+
+
+func get_region_x( controller_name : String ) -> int:
+	var x : int = CONTROLLERS.get(controller_name, 39)
+	return x

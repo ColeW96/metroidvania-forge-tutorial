@@ -1,15 +1,8 @@
 [gd_scene format=3 uid="uid://cl3j7dn1nb4bq"]
 
 [ext_resource type="Script" uid="uid://b1px7lgm0b4ye" path="res://general/ability_message/ability_message.gd" id="1_3qecv"]
+[ext_resource type="Texture2D" uid="uid://dhtcq4hakey3t" path="res://general/ability_message/ability_message_frame.png" id="3_5pb1n"]
 [ext_resource type="Texture2D" uid="uid://c30j5ysbdc3yt" path="res://player/sprites/input_icons.png" id="3_unotc"]
-
-[sub_resource type="Gradient" id="Gradient_3qecv"]
-colors = PackedColorArray(0, 0, 0, 0.91764706, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_3qecv"]
-gradient = SubResource("Gradient_3qecv")
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.5, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6drb7"]
 atlas = ExtResource("3_unotc")
@@ -19,69 +12,70 @@ region = Rect2(0, 0, 13, 0)
 process_mode = 2
 script = ExtResource("1_3qecv")
 
-[node name="Control" type="Control" parent="." unique_id=475718544]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1711807986]
-layout_mode = 1
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2072438770]
+custom_minimum_size = Vector2(92, 72)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -61.0
-offset_top = -40.0
-offset_right = 61.0
-offset_bottom = 41.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("GradientTexture2D_3qecv")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1834473727]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -19.0
-offset_right = 40.0
-offset_bottom = 19.0
+offset_left = -67.0
+offset_top = -36.0
+offset_right = 67.0
+offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="AbilityNameLabel" type="Label" parent="Control/VBoxContainer" unique_id=289074215]
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer" unique_id=1405207234]
+layout_mode = 2
+texture = ExtResource("3_5pb1n")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer" unique_id=267380477]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer" unique_id=1834473727]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="AbilityNameLabel" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=289074215]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "Ability Acquired"
 horizontal_alignment = 1
 
-[node name="AbilityDescLabel" type="Label" parent="Control/VBoxContainer" unique_id=450941784]
+[node name="AbilityDescLabel" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=450941784]
 unique_name_in_owner = true
-custom_maximum_size = Vector2(80, -1)
+custom_minimum_size = Vector2(122, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Description"
 horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer" unique_id=608924683]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=608924683]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="Control/VBoxContainer/HBoxContainer" unique_id=459483556]
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=459483556]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Close:"
 
-[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer" unique_id=1256643096]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1256643096]
 unique_name_in_owner = true
 layout_mode = 2
 texture = SubResource("AtlasTexture_6drb7")
