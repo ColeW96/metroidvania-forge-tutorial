@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cl3j7dn1nb4bq"]
 
 [ext_resource type="Script" uid="uid://b1px7lgm0b4ye" path="res://general/ability_message/ability_message.gd" id="1_3qecv"]
+[ext_resource type="Texture2D" uid="uid://c30j5ysbdc3yt" path="res://player/sprites/input_icons.png" id="3_unotc"]
 
 [sub_resource type="Gradient" id="Gradient_3qecv"]
 colors = PackedColorArray(0, 0, 0, 0.91764706, 0, 0, 0, 1)
@@ -9,6 +10,10 @@ colors = PackedColorArray(0, 0, 0, 0.91764706, 0, 0, 0, 1)
 gradient = SubResource("Gradient_3qecv")
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6drb7"]
+atlas = ExtResource("3_unotc")
+region = Rect2(0, 0, 13, 0)
 
 [node name="AbilityMessage" type="CanvasLayer" unique_id=1539982044]
 process_mode = 2
@@ -74,4 +79,9 @@ alignment = 1
 [node name="Label" type="Label" parent="Control/VBoxContainer/HBoxContainer" unique_id=459483556]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
-text = "Press \"attack\" to close"
+text = "Close:"
+
+[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer" unique_id=1256643096]
+unique_name_in_owner = true
+layout_mode = 2
+texture = SubResource("AtlasTexture_6drb7")

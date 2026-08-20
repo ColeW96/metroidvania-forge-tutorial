@@ -10,9 +10,11 @@ var descriptions : Dictionary = {
 
 @onready var ability_name_label: Label = %AbilityNameLabel
 @onready var ability_desc_label: Label = %AbilityDescLabel
+@onready var texture_rect: TextureRect = %TextureRect
 
 func _ready() -> void:
 	get_tree().paused = true
+	set_close_texture()
 	pass
 
 func _input(event: InputEvent) -> void:
@@ -40,4 +42,18 @@ func set_ability_message_text( ability_name : String ) -> void:
 		"ledge_grab":
 			ability_name_label.text = "Ledge Grab"
 			ability_desc_label.text = descriptions.get(ability_name)
+	pass
+
+
+func set_close_texture() -> void:
+	var p : Player = get_tree().get_first_node_in_group("Player")
+	var input_hints : InputHints
+	for c in p.get_children():
+		if c is InputHints:
+			input_hints = c
+			break
+	if input_hints.controller_type == "keyboard":
+		var atlas_texture : AtlasTexture = texture_rect.texture as AtlasTexture
+		if atlas_texture:
+			atlas_texture.region = Rect2( 39, 0, 13, 0 )
 	pass
