@@ -6,8 +6,9 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_6drb7"]
 resource_local_to_scene = true
 atlas = ExtResource("1_auaor")
-region = Rect2(273, 0, 13, 0)
+region = Rect2(195, 0, 13, 0)
 
 [node name="GuiInputHints" type="TextureRect" unique_id=1255076187]
+light_mask = 0
 texture = SubResource("AtlasTexture_6drb7")
 script = ExtResource("2_vm0b5")
