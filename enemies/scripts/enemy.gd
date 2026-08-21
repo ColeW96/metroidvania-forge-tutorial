@@ -16,6 +16,7 @@ signal was_killed()
 	set( value ):
 		show_vision = value
 		_update_vision_cone()
+@export var show_hp : bool = true
 
 @export var edge_sensor : EdgeSensor
 @export var rear_edge_sensor : RayCast2D
@@ -104,7 +105,8 @@ func play_animation( anim_name : String ) -> void:
 
 ## Handle taking damage here as central hub
 func _on_damage_taken( a : AttackArea ) -> void:
-	enemy_health_bar.show_health_bar()
+	if show_hp:
+		enemy_health_bar.show_health_bar()
 	blackboard.damage_source = a
 	blackboard.health -= a.damage
 	enemy_health_bar.update_health_bar( blackboard.health, health )

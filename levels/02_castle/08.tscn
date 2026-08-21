@@ -48,6 +48,7 @@ metadata/_custom_type_script = "uid://rwwuu7gvxywr"
 
 [node name="BossBattleOrchestrator" type="Node" parent="." unique_id=365039576 node_paths=PackedStringArray("boss", "trigger_area", "boss_tilemaps")]
 script = ExtResource("5_l3j2w")
+boss_name = "MEGA Slime"
 boss = NodePath("Slime2")
 trigger_area = NodePath("Area2D")
 boss_tilemaps = [NodePath("BossTilemap")]
@@ -68,6 +69,7 @@ shape = SubResource("RectangleShape2D_6drb7")
 position = Vector2(640, 544)
 health = 20.0
 face_left_on_start = true
+show_hp = false
 
 [node name="PlayerSpawn" parent="." unique_id=544684349 instance=ExtResource("6_qayq2")]
 position = Vector2(227, 64)

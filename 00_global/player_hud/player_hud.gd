@@ -8,11 +8,18 @@ extends CanvasLayer
 @onready var load_button: Button = %LoadButton
 @onready var quit_button: Button = %QuitButton
 
+@onready var boss_hp: Control = %BossHP
+@onready var boss_hp_bar: ProgressBar = %BossHPBar
+@onready var boss_hp_highlight: ProgressBar = %BossHPHighlight
+@onready var boss_name: Label = %BossName
+@onready var boss_hp_animation_player: AnimationPlayer = %BossHPAnimationPlayer
+
+var boss_hp_tween : Tween
 
 
 func _ready() -> void:
 	Messages.player_health_changed.connect( update_health_bar )
-	
+	boss_hp.visible = false
 	game_over.visible = false
 	load_button.pressed.connect( _on_load_pressed )
 	quit_button.pressed.connect( _on_quit_pressed )
@@ -51,6 +58,38 @@ func clear_game_over() -> void:
 	game_over.visible = false
 	var player : Player = get_tree().get_first_node_in_group("Player")
 	player.queue_free()
+	pass
+
+
+func show_boss_hp( _n : String ) -> void:
+	boss_hp_bar.value = 1.0
+	boss_hp_highlight.value = 1.0
+	boss_name.text = _n
+	boss_hp_animation_player.play("show")
+	pass
+
+
+func update_boss_hp( hp : float, max_hp : float ) -> void:
+	var new_value : float = hp / max_hp
+	boss_hp_bar.value = new_value
+	tween_hp_highlight( new_value )
+	pass
+
+
+func tween_hp_highlight( target_value : float ) -> void:
+	if boss_hp_tween:
+		boss_hp_tween.kill()
+	
+	boss_hp_tween = create_tween()
+	boss_hp_tween.set_ease(Tween.EASE_OUT)
+	boss_hp_tween.set_trans(Tween.TRANS_EXPO)
+	boss_hp_tween.tween_interval( 0.5 )
+	boss_hp_tween.tween_property( boss_hp_highlight, "value", target_value, 0.5 )
+	pass
+
+
+func hide_boss_hp() -> void:
+	boss_hp_animation_player.play("hide")
 	pass
 
 

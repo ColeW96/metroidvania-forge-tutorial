@@ -5,6 +5,7 @@ signal battle_started
 signal battle_ended
 signal boss_reward_collected
 
+@export var boss_name : String = "Boss Name"
 @export var boss : Node
 @export var trigger_area : Area2D
 @export var boss_tilemaps : Array[ TileMapLayer ]
@@ -50,9 +51,14 @@ func start_boss_battle() -> void:
 		t.enabled = true
 	
 	Audio.play_music( boss_track )
+	PlayerHud.show_boss_hp( boss_name )
+	
 	if boss:
 		boss.process_mode = Node.PROCESS_MODE_INHERIT
 		boss.tree_exiting.connect( end_boss_battle )
+		
+		if boss is Enemy:
+			boss.was_hit.connect( _on_boss_enemy_hit )
 	pass
 
 
@@ -61,6 +67,9 @@ func end_boss_battle() -> void:
 	SaveManager.persistent_data[ unique_name() ] = "defeated"
 	
 	Audio.play_music( post_boss_track )
+	
+	PlayerHud.hide_boss_hp()
+	
 	await deliver_reward()
 	
 	if original_level_bounds:
@@ -96,3 +105,9 @@ func unique_name() -> String:
 	var u_name : String = ResourceUID.path_to_uid( owner.scene_file_path )
 	u_name += "/" + get_parent().name + "/" + name
 	return u_name
+
+
+func _on_boss_enemy_hit( _a : AttackArea ) -> void:
+	if boss is Enemy:
+		PlayerHud.update_boss_hp( boss.blackboard.health, boss.health )
+	pass
