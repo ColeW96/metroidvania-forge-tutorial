@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b1px7lgm0b4ye" path="res://general/ability_message/ability_message.gd" id="1_3qecv"]
 [ext_resource type="Texture2D" uid="uid://dhtcq4hakey3t" path="res://general/ability_message/ability_message_frame.png" id="3_5pb1n"]
-[ext_resource type="Texture2D" uid="uid://c30j5ysbdc3yt" path="res://player/sprites/input_icons.png" id="3_unotc"]
+[ext_resource type="PackedScene" uid="uid://doln5e7j65ibw" path="res://general/gui_input_hints/gui_input_hints.tscn" id="3_unotc"]
+[ext_resource type="Texture2D" uid="uid://c30j5ysbdc3yt" path="res://player/sprites/input_icons.png" id="4_unotc"]
 
 [sub_resource type="Gradient" id="Gradient_5pb1n"]
 colors = PackedColorArray(0.58431375, 0.5764706, 0.58431375, 1, 0.58431375, 0.5764706, 0.58431375, 1)
@@ -11,9 +12,10 @@ colors = PackedColorArray(0.58431375, 0.5764706, 0.58431375, 1, 0.58431375, 0.57
 gradient = SubResource("Gradient_5pb1n")
 width = 120
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6drb7"]
-atlas = ExtResource("3_unotc")
-region = Rect2(0, 0, 13, 0)
+[sub_resource type="AtlasTexture" id="AtlasTexture_77qgn"]
+resource_local_to_scene = true
+atlas = ExtResource("4_unotc")
+region = Rect2(39, 0, 13, 0)
 
 [node name="AbilityMessage" type="CanvasLayer" unique_id=1539982044]
 process_mode = 2
@@ -58,10 +60,13 @@ alignment = 1
 
 [node name="AbilityNameLabel" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=289074215]
 unique_name_in_owner = true
+modulate = Color(0.8, 0.96862745, 0.90588236, 1)
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 10
 text = "Ability Acquired"
 horizontal_alignment = 1
+uppercase = true
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=1631119648]
 custom_minimum_size = Vector2(120, 0)
@@ -72,22 +77,41 @@ texture = SubResource("GradientTexture1D_5pb1n")
 unique_name_in_owner = true
 custom_minimum_size = Vector2(122, 0)
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 8
 text = "Description"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=608924683]
+[node name="ActionContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=21089183]
+unique_name_in_owner = true
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=459483556]
-layout_mode = 2
-theme_override_font_sizes/font_size = 8
-text = "Close:"
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1256643096]
+[node name="ActionLabel" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/ActionContainer" unique_id=548109080]
 unique_name_in_owner = true
 layout_mode = 2
-texture = SubResource("AtlasTexture_6drb7")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "Action:"
+
+[node name="NoteContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=1501741220]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer" unique_id=608924683]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=459483556]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 7
+text = "Close:"
+
+[node name="GuiInputHints" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1255076187 instance=ExtResource("3_unotc")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_77qgn")
+hint = 4

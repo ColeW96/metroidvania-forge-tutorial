@@ -1,5 +1,7 @@
 class_name AbilityMessage extends CanvasLayer
 
+const GUI_INPUT_HINTS = preload("uid://doln5e7j65ibw")
+
 const CONTROLLERS : Dictionary = {
 	"keyboard" : 273,
 	"playstation" : 26,
@@ -17,15 +19,16 @@ var descriptions : Dictionary = {
 
 @onready var ability_name_label: Label = %AbilityNameLabel
 @onready var ability_desc_label: Label = %AbilityDescLabel
-@onready var texture_rect: TextureRect = %TextureRect
+@onready var action_container: HBoxContainer = %ActionContainer
+@onready var note_container: HBoxContainer = %NoteContainer
+@onready var action_label: Label = %ActionLabel
 
 func _ready() -> void:
 	get_tree().paused = true
-	set_close_texture()
 	pass
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("attack"):
+	if event.is_action_pressed("shoot"):
 		get_viewport().set_input_as_handled()
 		get_tree().paused = false
 		queue_free()
@@ -52,21 +55,100 @@ func set_ability_message_text( ability_name : String ) -> void:
 	pass
 
 
-func set_close_texture() -> void:
-	var p : Player = get_tree().get_first_node_in_group("Player")
-	var input_hints : InputHints
-	for c in p.get_children():
-		if c is InputHints:
-			input_hints = c
-			break
-	
-	var controller : String = input_hints.controller_type
-	var atlas_texture : AtlasTexture = texture_rect.texture as AtlasTexture
-	if atlas_texture:
-		atlas_texture.region = Rect2( get_region_x( controller ), 0, 13, 0 )
+func set_action( ability_name : String ) -> void:
+	match ability_name:
+		"double_jump":
+			set_double_jump()
+		"dash":
+			set_dash()
+		"ground_slam":
+			set_ground_slam()
+		"morph_roll":
+			set_morph_roll()
+		"ledge_grab":
+			set_ledge_grab()
 	pass
 
 
-func get_region_x( controller_name : String ) -> int:
-	var x : int = CONTROLLERS.get(controller_name, 39)
-	return x
+func set_double_jump() -> void:
+	var input_hint : GuiInputHints = GUI_INPUT_HINTS.instantiate()
+	input_hint.hint = input_hint.Hint.JUMP
+	action_container.add_child(input_hint)
+	
+	var label : Label = Label.new()
+	label.text = "->"
+	label.add_theme_font_size_override( "font_size", 8 )
+	label.add_theme_color_override( "font_shadow_color", Color(0,0,0) )
+	action_container.add_child(label)
+	
+	var input_hint2 : GuiInputHints = GUI_INPUT_HINTS.instantiate()
+	input_hint2.hint = input_hint.Hint.JUMP
+	action_container.add_child( input_hint2 )
+	pass
+
+
+func set_dash() -> void:
+	var input_hint : GuiInputHints = GUI_INPUT_HINTS.instantiate()
+	input_hint.hint = input_hint.Hint.DASH
+	action_container.add_child(input_hint)
+	pass
+
+
+func set_ground_slam() -> void:
+	var input_hint : GuiInputHints = GUI_INPUT_HINTS.instantiate()
+	input_hint.hint = input_hint.Hint.DOWN
+	action_container.add_child(input_hint)
+	
+	var label : Label = Label.new()
+	label.text = "+"
+	label.add_theme_font_size_override( "font_size", 8 )
+	label.add_theme_color_override( "font_shadow_color", Color(0,0,0) )
+	action_container.add_child(label)
+	
+	var input_hint2 : GuiInputHints = GUI_INPUT_HINTS.instantiate()
+	input_hint2.hint = input_hint.Hint.ATTACK
+	action_container.add_child( input_hint2 )
+	pass
+
+
+func set_morph_roll() -> void:
+	var input_hint : GuiInputHints = GUI_INPUT_HINTS.instantiate()
+	input_hint.hint = input_hint.Hint.MORPH
+	action_container.add_child(input_hint)
+	
+	var label : Label = Label.new()
+	label.text = "Note: Press"
+	label.add_theme_font_size_override( "font_size", 8 )
+	label.add_theme_color_override( "font_shadow_color", Color(0,0,0) )
+	note_container.add_child(label)
+	
+	var input_hint2 : GuiInputHints = GUI_INPUT_HINTS.instantiate()
+	input_hint2.hint = input_hint.Hint.ATTACK
+	note_container.add_child( input_hint2 )
+	
+	var label2 : Label = Label.new()
+	label2.text = "to lay bombs."
+	label2.add_theme_font_size_override( "font_size", 8 )
+	label2.add_theme_color_override( "font_shadow_color", Color(0,0,0) )
+	note_container.add_child(label2)
+	pass
+
+
+func set_ledge_grab() -> void:
+	action_label.text = ""
+	var label : Label = Label.new()
+	label.text = "Note: Release"
+	label.add_theme_font_size_override( "font_size", 8 )
+	label.add_theme_color_override( "font_shadow_color", Color(0,0,0) )
+	note_container.add_child(label)
+	
+	var input_hint : GuiInputHints = GUI_INPUT_HINTS.instantiate()
+	input_hint.hint = input_hint.Hint.JUMP
+	note_container.add_child(input_hint)
+	
+	var label2 : Label = Label.new()
+	label2.text = "to grab a ledge."
+	label2.add_theme_font_size_override( "font_size", 8 )
+	label2.add_theme_color_override( "font_shadow_color", Color(0,0,0) )
+	note_container.add_child(label2)
+	pass

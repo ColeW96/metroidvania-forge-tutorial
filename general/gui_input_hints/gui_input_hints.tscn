@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://doln5e7j65ibw"]
+
+[ext_resource type="Texture2D" uid="uid://c30j5ysbdc3yt" path="res://player/sprites/input_icons.png" id="1_auaor"]
+[ext_resource type="Script" uid="uid://cfixn0b2mue68" path="res://general/gui_input_hints/gui_input_hints.gd" id="2_vm0b5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6drb7"]
+resource_local_to_scene = true
+atlas = ExtResource("1_auaor")
+region = Rect2(273, 0, 13, 0)
+
+[node name="GuiInputHints" type="TextureRect" unique_id=1255076187]
+texture = SubResource("AtlasTexture_6drb7")
+script = ExtResource("2_vm0b5")

@@ -332,4 +332,5 @@ func _on_ability_acquired( ability_name : String ) -> void:
 	var ability_message : AbilityMessage = load("res://general/ability_message/ability_message.tscn").instantiate()
 	add_child(ability_message)
 	ability_message.set_ability_message_text(ability_name)
+	ability_message.set_action( ability_name )
 	pass
