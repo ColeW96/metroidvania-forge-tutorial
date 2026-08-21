@@ -53,16 +53,17 @@ func _ready() -> void:
 
 
 func set_input_hint_texture( active_hint : Hint ) -> void:
-	var p : Player = get_tree().get_first_node_in_group("Player")
 	var controller : String = "keyboard"
-	if p:
-		var input_hints : InputHints
-		for c in p.get_children():
-			if c is InputHints:
-				input_hints = c
-				break
+	if not Engine.is_editor_hint():
+		var p : Player = get_tree().get_first_node_in_group("Player")
+		if p:
+			var input_hints : InputHints
+			for c in p.get_children():
+				if c is InputHints:
+					input_hints = c
+					break
 		
-		controller = input_hints.controller_type
+			controller = input_hints.controller_type
 	
 	# FOR DEBUGGING ONLY
 	#controller = "xbox"
