@@ -902,7 +902,7 @@ script = ExtResource("19_r7pn3")
 
 [node name="BulletSpawn" type="Node2D" parent="." unique_id=765495843]
 z_index = 4
-position = Vector2(17, -27)
+position = Vector2(19, -27)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BulletSpawn" unique_id=1963609665]
 modulate = Color(1.353256, 1.353256, 1.353256, 1)

@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://de3w4k411bso3" path="res://general/respawn_trigger/respawn_trigger.tscn" id="5_xa1rh"]
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="6_5e6sv"]
 [ext_resource type="AudioStream" uid="uid://p8hxrxlmlcnc" path="res://music/dungeon_01.ogg" id="7_66hqp"]
+[ext_resource type="PackedScene" uid="uid://b7gueiujn071s" path="res://levels/props/ChandelierA.tscn" id="8_66hqp"]
 
 [node name="17" type="Node2D" unique_id=1247034308]
 
@@ -61,3 +62,11 @@ script = ExtResource("6_5e6sv")
 track = ExtResource("7_66hqp")
 reverb = 1
 metadata/_custom_type_script = "uid://rwwuu7gvxywr"
+
+[node name="Props" type="Node2D" parent="." unique_id=2112775876]
+
+[node name="ChandelierA" parent="Props" unique_id=907015132 instance=ExtResource("8_66hqp")]
+position = Vector2(112, 241)
+
+[node name="ChandelierA2" parent="Props" unique_id=572843628 instance=ExtResource("8_66hqp")]
+position = Vector2(368, 241)
