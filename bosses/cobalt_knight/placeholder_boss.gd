@@ -7,17 +7,19 @@ const SPIKE = preload("uid://k3rxlygqvubs")
 const VOID_FIST = preload("uid://byc7a584ny4fi")
 
 
-@export var hp : float = 30
+@export var max_hp : float = 30
 @onready var hazard_area: HazardArea = %HazardArea
 @onready var damage_area: DamageArea = %DamageArea
 @onready var spike_spawn_sprite: Sprite2D = %SpikeSpawnSprite
 
+var hp : float
 var spike_spawns : Array[ Marker2D ]
 var dir : Vector2 = Vector2.RIGHT
 var timer : float = 0
 
 
 func _ready() -> void:
+	hp = max_hp
 	spike_spawn_sprite.visible = false
 	for c in get_children():
 		if c is Marker2D:

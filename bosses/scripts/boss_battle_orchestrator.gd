@@ -59,6 +59,10 @@ func start_boss_battle() -> void:
 		
 		if boss is Enemy:
 			boss.was_hit.connect( _on_boss_enemy_hit )
+		else:
+			for c in boss.get_children():
+				if c is DamageArea:
+					c.damage_taken.connect( _on_boss_enemy_hit )
 	pass
 
 
@@ -110,4 +114,6 @@ func unique_name() -> String:
 func _on_boss_enemy_hit( _a : AttackArea ) -> void:
 	if boss is Enemy:
 		PlayerHud.update_boss_hp( boss.blackboard.health, boss.health )
+	elif _a:
+		PlayerHud.update_boss_hp( boss.hp, boss.max_hp )
 	pass

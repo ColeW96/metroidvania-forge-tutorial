@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bpu85f86p0afb" path="res://bosses/cobalt_knight/placeholder_boss.tscn" id="4_hikmn"]
 [ext_resource type="Script" uid="uid://ch0a048ylkibq" path="res://bosses/scripts/boss_battle_orchestrator.gd" id="5_agqoh"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="5_hikmn"]
+[ext_resource type="AudioStream" uid="uid://c8o0em6mqj12d" path="res://bosses/nega_pink_box/audio/nega_pink_box_boss.wav" id="6_02f1h"]
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="7_5tpny"]
 [ext_resource type="AudioStream" uid="uid://p8hxrxlmlcnc" path="res://music/dungeon_01.ogg" id="8_02f1h"]
 
@@ -46,14 +47,15 @@ position = Vector2(944, 704)
 
 [node name="BossBattleOrchestrator" type="Node" parent="." unique_id=1573185936 node_paths=PackedStringArray("boss", "trigger_area", "boss_tilemaps")]
 script = ExtResource("5_agqoh")
+boss_name = "Death Knight"
 boss = NodePath("PlaceholderBoss")
 trigger_area = NodePath("Area2D")
 boss_tilemaps = [NodePath("TileMapLayer3")]
+boss_track = ExtResource("6_02f1h")
 metadata/_custom_type_script = "uid://ch0a048ylkibq"
 
 [node name="PlaceholderBoss" parent="BossBattleOrchestrator" unique_id=852029037 instance=ExtResource("4_hikmn")]
 position = Vector2(400, 646)
-hp = 20.0
 
 [node name="Area2D" type="Area2D" parent="BossBattleOrchestrator" unique_id=219634067]
 position = Vector2(656, 680)
