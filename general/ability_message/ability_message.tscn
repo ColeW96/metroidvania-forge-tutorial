@@ -12,10 +12,10 @@ colors = PackedColorArray(0.58431375, 0.5764706, 0.58431375, 1, 0.58431375, 0.57
 gradient = SubResource("Gradient_5pb1n")
 width = 120
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_77qgn"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_unotc"]
 resource_local_to_scene = true
 atlas = ExtResource("4_unotc")
-region = Rect2(39, 0, 13, 0)
+region = Rect2(286, 0, 13, 0)
 
 [node name="AbilityMessage" type="CanvasLayer" unique_id=1539982044]
 process_mode = 2
@@ -117,5 +117,5 @@ text = "Close:"
 
 [node name="GuiInputHints" parent="MarginContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1255076187 instance=ExtResource("3_unotc")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_77qgn")
+texture = SubResource("AtlasTexture_unotc")
 hint = 4

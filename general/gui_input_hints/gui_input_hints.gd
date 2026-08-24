@@ -1,12 +1,25 @@
 @tool
 class_name GuiInputHints extends TextureRect
 
+enum DebugHint { PLAYSTATION, XBOX, SWITCH, KEYBOARD }
 enum Hint { ACTION, ATTACK, JUMP, DASH, SHOOT, DOWN, MORPH }
+
 @export var hint : Hint = Hint.ACTION :
 	set( value ):
 		hint = value
 		if Engine.is_editor_hint():
-			set_input_hint_texture(hint)
+			set_input_hint_texture()
+
+@export_category("DEBUG Hint")
+@export var debug_hint : DebugHint = DebugHint.KEYBOARD :
+	set( value ):
+		debug_hint = value
+		if Engine.is_editor_hint():
+			set_input_hint_texture()
+@export var use_debug_hint : bool = false :
+	set( value ):
+		use_debug_hint = value
+		set_input_hint_texture()
 
 const HINT_MAP : Dictionary = {
 	"keyboard" : {
@@ -48,11 +61,11 @@ const HINT_MAP : Dictionary = {
 }
 
 func _ready() -> void:
-	set_input_hint_texture( hint )
+	set_input_hint_texture()
 	pass
 
 
-func set_input_hint_texture( active_hint : Hint ) -> void:
+func set_input_hint_texture() -> void:
 	var controller : String = "keyboard"
 	if not Engine.is_editor_hint():
 		var p : Player = get_tree().get_first_node_in_group("Player")
@@ -64,20 +77,22 @@ func set_input_hint_texture( active_hint : Hint ) -> void:
 					break
 		
 			controller = input_hints.controller_type
+	elif use_debug_hint:
+		controller = get_debug_controller()
 	
 	# FOR DEBUGGING ONLY
 	#controller = "xbox"
 	
 	var atlas_texture : AtlasTexture = texture as AtlasTexture
 	if atlas_texture:
-		var x : int = HINT_MAP[controller].get( get_hint_string(active_hint), 0 )
+		var x : int = HINT_MAP[controller].get( get_hint_string(), 0 )
 		atlas_texture.region = Rect2( x, 0, 13, 0 )
 	pass
 
 
-func get_hint_string( hint_enum : Hint ) -> String:
+func get_hint_string() -> String:
 	var hint_string : String = ""
-	match hint_enum:
+	match hint:
 		Hint.ACTION:
 			hint_string = "action"
 		Hint.ATTACK:
@@ -93,3 +108,17 @@ func get_hint_string( hint_enum : Hint ) -> String:
 		Hint.MORPH:
 			hint_string = "morph"
 	return hint_string
+
+
+func get_debug_controller() -> String:
+	var debug_hint_string : String = ""
+	match debug_hint:
+		DebugHint.PLAYSTATION:
+			debug_hint_string = "playstation"
+		DebugHint.XBOX:
+			debug_hint_string = "xbox"
+		DebugHint.SWITCH:
+			debug_hint_string = "switch"
+		DebugHint.KEYBOARD:
+			debug_hint_string = "keyboard"
+	return debug_hint_string

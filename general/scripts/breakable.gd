@@ -89,13 +89,19 @@ func _on_damage_taken( attack_area : AttackArea ) -> void:
 		
 	if hp > 0:
 		damage_taken.emit()
-		Audio.play_spatial_sound( hit_audio, pos )
+		if get_parent() is AbilityPickup:
+			Audio.play_spatial_sound( hit_audio, pos, false, false, 0.5, .2 )
+		else:
+			Audio.play_spatial_sound( hit_audio, pos )
 		for p in hit_particles:
 			VisualEffects.hit_particles( pos, dir, p )
 			VisualEffects.object_shake(2.0)
 	else:
 		destroyed.emit()
-		Audio.play_spatial_sound( destroy_audio, pos )
+		if get_parent() is AbilityPickup:
+			Audio.play_spatial_sound( destroy_audio, pos, false, false, 0.5, .2 )
+		else:
+			Audio.play_spatial_sound( destroy_audio, pos )
 		for p in destroy_particles:
 			VisualEffects.hit_particles( pos, dir, p )
 		for c in get_children():
