@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="2_83xbm"]
 [ext_resource type="PackedScene" uid="uid://dlrseuwg0hsr5" path="res://general/input_level_transition/input_level_transition.tscn" id="4_cjmus"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="4_sxnha"]
+[ext_resource type="PackedScene" uid="uid://b7gueiujn071s" path="res://levels/props/ChandelierA.tscn" id="5_cjmus"]
 
 [node name="SmallerPlayground" type="Node2D" unique_id=775118826]
 
@@ -26,3 +27,6 @@ position = Vector2(56, 224)
 [node name="InputLevelTransition" parent="." unique_id=389267975 instance=ExtResource("4_cjmus")]
 position = Vector2(368, 224)
 target_level = "uid://dkb81i711vvg8"
+
+[node name="ChandelierA" parent="." unique_id=907015132 instance=ExtResource("5_cjmus")]
+position = Vector2(208, 158)

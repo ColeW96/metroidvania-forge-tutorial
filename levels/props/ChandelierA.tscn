@@ -1,7 +1,26 @@
 [gd_scene format=3 uid="uid://b7gueiujn071s"]
 
 [ext_resource type="Texture2D" uid="uid://db6cnp2mq76jm" path="res://levels/tilesets/sprites/forgotten_forest_example_tileset.png" id="1_ar0gi"]
+[ext_resource type="Script" uid="uid://brc344c2o0cfo" path="res://00_global/visual_effects/hit_particle_settings.gd" id="2_ud4ko"]
 [ext_resource type="Script" uid="uid://brcyuoolauc0k" path="res://general/scripts/light_flicker.gd" id="2_wy05x"]
+[ext_resource type="Script" uid="uid://sndrj6tq12yf" path="res://general/scripts/breakable.gd" id="3_nqk4h"]
+[ext_resource type="Script" uid="uid://dha53eb7vo0el" path="res://general/scripts/damage_area.gd" id="4_2mtb7"]
+[ext_resource type="Script" uid="uid://cdqw3u4u16lgo" path="res://general/scripts/loot_dropper.gd" id="5_de032"]
+[ext_resource type="Script" uid="uid://bfkq1vksotjux" path="res://general/scripts/loot_data.gd" id="6_ud4ko"]
+
+[sub_resource type="Resource" id="Resource_cc08i"]
+script = ExtResource("2_ud4ko")
+color = Color(0.95686275, 0.72156864, 0.08235294, 1)
+metadata/_custom_type_script = "uid://brc344c2o0cfo"
+
+[sub_resource type="Resource" id="Resource_yspl1"]
+script = ExtResource("2_ud4ko")
+count = 5
+color = Color(1, 0.80784315, 0.14117648, 1)
+metadata/_custom_type_script = "uid://brc344c2o0cfo"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6drb7"]
+radius = 8.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wy05x"]
 atlas = ExtResource("1_ar0gi")
@@ -78,12 +97,35 @@ turbulence_influence_max = 0.3
 turbulence_initial_displacement_min = -19.999998
 turbulence_initial_displacement_max = 20.000002
 
-[node name="ChandelierA" type="AnimatedSprite2D" unique_id=907015132]
+[sub_resource type="Resource" id="Resource_6drb7"]
+script = ExtResource("6_ud4ko")
+item = "uid://3c8hg2lctadd"
+drop_chance = 0.1
+metadata/_custom_type_script = "uid://bfkq1vksotjux"
+
+[node name="ChandelierA" type="Node2D" unique_id=1753652823]
+script = ExtResource("3_nqk4h")
+hp = 1.0
+fixed_hit_count = true
+destroy_particles = Array[ExtResource("2_ud4ko")]([SubResource("Resource_cc08i"), SubResource("Resource_yspl1")])
+metadata/_custom_type_script = "uid://sndrj6tq12yf"
+
+[node name="DamageArea" type="Area2D" parent="." unique_id=479644232]
+collision_layer = 64
+collision_mask = 0
+script = ExtResource("4_2mtb7")
+metadata/_custom_type_script = "uid://dha53eb7vo0el"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=1994745318]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_6drb7")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=907015132]
 sprite_frames = SubResource("SpriteFrames_ghk0g")
 autoplay = "default"
 frame_progress = 0.07298442
 
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=2032499868]
+[node name="PointLight2D" type="PointLight2D" parent="Sprite" unique_id=2032499868]
 position = Vector2(0, -6.999996)
 scale = Vector2(0.4296875, 0.31250006)
 energy = 0.6
@@ -93,9 +135,14 @@ script = ExtResource("2_wy05x")
 flicker_intensity = 0.2
 flicker_frequency = 0.1
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=2058562257]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Sprite" unique_id=2058562257]
 material = SubResource("CanvasItemMaterial_wy05x")
 position = Vector2(0, -7)
 amount = 3
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_nqk4h")
+
+[node name="LootDropper" type="Marker2D" parent="." unique_id=532105183]
+script = ExtResource("5_de032")
+items = Array[ExtResource("6_ud4ko")]([SubResource("Resource_6drb7")])
+metadata/_custom_type_script = "uid://cdqw3u4u16lgo"
