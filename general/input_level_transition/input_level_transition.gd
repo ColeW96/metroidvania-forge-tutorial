@@ -21,7 +21,8 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("up") and player_in_area:
 		get_viewport().set_input_as_handled()
-		SceneManager.transition_scene( target_level, target_area_name, Vector2.ZERO, "up" )
+		var offset : Vector2 = Vector2(0, 6)
+		SceneManager.transition_scene( target_level, target_area_name, offset, "up" )
 
 
 
@@ -37,10 +38,10 @@ func _on_player_exited( _n : Node2D ) -> void:
 	pass
 
 
-func _on_new_scene_ready( target_name : String, _offset : Vector2 ) -> void:
+func _on_new_scene_ready( target_name : String, offset : Vector2 ) -> void:
 	if target_name == name:
 		var player : Node = get_tree().get_first_node_in_group( "Player" )
-		player.global_position = global_position + Vector2(0, 6)
+		player.global_position = global_position + offset
 	pass
 
 
