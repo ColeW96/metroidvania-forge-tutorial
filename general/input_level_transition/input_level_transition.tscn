@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bqflfl65hp7d2" path="res://general/input_level_transition/input_level_transition.gd" id="1_yguct"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gers1"]
-size = Vector2(32, 32)
+size = Vector2(32, 24)
 
 [node name="InputLevelTransition" type="Node2D" unique_id=389267975]
 z_index = 99
@@ -15,6 +15,6 @@ collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1168358090]
-position = Vector2(0, -16)
+position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_gers1")
 debug_color = Color(0.4720327, 0.6392157, 0, 0.41960785)

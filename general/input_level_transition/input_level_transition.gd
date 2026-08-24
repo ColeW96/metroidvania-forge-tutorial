@@ -21,8 +21,7 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("up") and player_in_area:
 		get_viewport().set_input_as_handled()
-		var offset : Vector2 = Vector2(0, 6)
-		SceneManager.transition_scene( target_level, target_area_name, offset, "up" )
+		SceneManager.transition_scene( target_level, target_area_name, Vector2(0, 6), "up" )
 
 
 
