@@ -19,6 +19,12 @@ count = 5
 color = Color(1, 0.80784315, 0.14117648, 1)
 metadata/_custom_type_script = "uid://brc344c2o0cfo"
 
+[sub_resource type="Resource" id="Resource_ud4ko"]
+script = ExtResource("2_ud4ko")
+count = 3
+color = Color(1, 0.5411765, 0.18039216, 1)
+metadata/_custom_type_script = "uid://brc344c2o0cfo"
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_6drb7"]
 radius = 8.0
 
@@ -100,14 +106,14 @@ turbulence_initial_displacement_max = 20.000002
 [sub_resource type="Resource" id="Resource_6drb7"]
 script = ExtResource("6_ud4ko")
 item = "uid://3c8hg2lctadd"
-drop_chance = 0.1
+drop_chance = 0.05
 metadata/_custom_type_script = "uid://bfkq1vksotjux"
 
 [node name="ChandelierA" type="Node2D" unique_id=1753652823]
 script = ExtResource("3_nqk4h")
 hp = 1.0
 fixed_hit_count = true
-destroy_particles = Array[ExtResource("2_ud4ko")]([SubResource("Resource_cc08i"), SubResource("Resource_yspl1")])
+destroy_particles = Array[ExtResource("2_ud4ko")]([SubResource("Resource_cc08i"), SubResource("Resource_yspl1"), SubResource("Resource_ud4ko")])
 metadata/_custom_type_script = "uid://sndrj6tq12yf"
 
 [node name="DamageArea" type="Area2D" parent="." unique_id=479644232]
