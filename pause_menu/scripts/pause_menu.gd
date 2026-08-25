@@ -3,10 +3,13 @@ class_name PauseMenu extends CanvasLayer
 #region /// On ready variables
 @onready var pause_screen: Control = %PauseScreen
 @onready var system: Control = %System
+@onready var controls: Control = %Controls
 
 @onready var system_menu_button: Button = %SystemMenuButton
+@onready var controls_menu_button: Button = %ControlsMenuButton
 
 @onready var back_to_map_button: Button = %BackToMapButton
+@onready var back_to_map_button_2: Button = %BackToMapButton2
 @onready var back_to_title_button: Button = %BackToTitleButton
 
 @onready var music_slider: HSlider = %MusicSlider
@@ -20,8 +23,10 @@ var player_position : Vector2
 func _ready() -> void:
 	show_pause_screen()
 	system_menu_button.pressed.connect( show_system_menu )
+	controls_menu_button.pressed.connect( show_controls_menu )
 	Audio.setup_button_audio( self )
 	setup_sytem_menu()
+	back_to_map_button_2.pressed.connect( show_pause_screen )
 	var player : Node2D = get_tree().get_first_node_in_group( "Player" )
 	if player:
 		player_position = player.global_position
@@ -33,22 +38,30 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 		get_tree().paused = false
 		queue_free()
-	if pause_screen.visible == true:
-		if event.is_action_pressed( "right" ) or event.is_action_pressed( "down" ):
-			system_menu_button.grab_focus()
 	pass
 
 
 func show_pause_screen() -> void:
 	pause_screen.visible = true
 	system.visible = false
+	controls.visible = false
+	controls_menu_button.grab_focus()
 	pass
 
 
 func show_system_menu() -> void:
 	pause_screen.visible = false
 	system.visible = true
+	controls.visible = false
 	back_to_map_button.grab_focus()
+	pass
+
+
+func show_controls_menu() -> void:
+	pause_screen.visible = false
+	system.visible = false
+	controls.visible = true
+	back_to_map_button_2.grab_focus()
 	pass
 
 
