@@ -7,6 +7,7 @@ extends DecisionEngine
 @onready var es_attack: ESAttack = %ESAttack
 @onready var es_chase: ESChase = %ESChase
 @onready var es_dash_attack: ESNPBHDashAttack = %ESNPBHDashAttack
+@onready var es_jump: ESNPBHJumpState = %ESNPBHJumpState
 
 var regular_attacks_executed : float = 0.0
 
@@ -37,5 +38,7 @@ func decide() -> EnemyState:
 		
 		if blackboard.distance_to_target > es_attack.attack_range:
 			return es_chase
+		elif es_jump.can_jump():
+			return es_jump
 	
 	return idle_state

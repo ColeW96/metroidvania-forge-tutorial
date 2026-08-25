@@ -13,6 +13,9 @@ var on_cooldown : bool = false
 
 
 func enter() -> void:
+	if blackboard.target:
+		var dir : float = sign( blackboard.target.global_position.x - enemy.global_position.x )
+		enemy.change_dir( dir )
 	enemy.play_animation( animation_name if animation_name else "attack" )
 	duration = enemy.animation.current_animation_length
 	timer = 0

@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://1f21jhelvg48" path="res://enemies/scripts/states/es_chase.gd" id="12_mvbhv"]
 [ext_resource type="Script" uid="uid://dfg03o7e8cnit" path="res://enemies/scripts/sensors/edge_sensor.gd" id="14_7goyu"]
 [ext_resource type="Script" uid="uid://c1fd8n55hi86u" path="res://enemies/scripts/sensors/player_sensor.gd" id="15_plkv4"]
+[ext_resource type="Script" uid="uid://bmupbptsu8odn" path="res://bosses/nega_pink_box/scripts/npbh_es_jump.gd" id="16_4sn6g"]
 [ext_resource type="Script" uid="uid://vbioopbivv4j" path="res://bosses/nega_pink_box/scripts/npbh_dash_attack.gd" id="16_t1pui"]
 [ext_resource type="Script" uid="uid://cawilyvlawwsm" path="res://enemies/scripts/enemy_hit_particles.gd" id="16_xn23h"]
 [ext_resource type="Script" uid="uid://brc344c2o0cfo" path="res://00_global/visual_effects/hit_particle_settings.gd" id="17_sg1sq"]
@@ -259,6 +260,23 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4]
 }
 
+[sub_resource type="Animation" id="Animation_t1pui"]
+resource_name = "jump"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [14, 15, 16, 17, 18]
+}
+
 [sub_resource type="Animation" id="Animation_53kym"]
 resource_name = "stun"
 length = 0.3
@@ -301,6 +319,7 @@ _data = {
 &"dash_attack": SubResource("Animation_tlnbh"),
 &"death": SubResource("Animation_iyqwc"),
 &"idle": SubResource("Animation_482dd"),
+&"jump": SubResource("Animation_t1pui"),
 &"stun": SubResource("Animation_53kym"),
 &"walk": SubResource("Animation_np20x")
 }
@@ -454,6 +473,15 @@ move_speed = 350.0
 move_speed_curve = SubResource("Curve_5qkfb")
 effect_color = Color(2.1168277, 0.07741361, 0.76057065, 1)
 metadata/_custom_type_script = "uid://vbioopbivv4j"
+
+[node name="ESNPBHJumpState" type="Node" parent="EnemyStateMachine" unique_id=21984644]
+unique_name_in_owner = true
+script = ExtResource("16_4sn6g")
+jump_strength = 375.0
+move_speed = 175.0
+cooldown = 3.0
+animation_name = "jump"
+metadata/_custom_type_script = "uid://bmupbptsu8odn"
 
 [node name="EdgeSensor" type="RayCast2D" parent="." unique_id=533344323]
 visible = false
