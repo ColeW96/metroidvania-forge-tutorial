@@ -81,9 +81,9 @@ func handle_input( event : InputEvent ) -> PlayerState:
 				player.position.y += 4
 				return null
 		player.velocity.y -= jump_velocity
-		Audio.play_spatial_sound(JUMP, player.global_position, false, true, 0.25)
+		Audio.play_spatial_sound(JUMP, player.global_position, false, true, 0.25, 2.2)
 		VisualEffects.jump_dust( player.global_position )
-	if event.is_action_pressed("attack") and bomb_timer <= 0:
+	if event.is_action_pressed("shoot") and bomb_timer <= 0:
 		if bomb_count < 3:
 			var bomb : MorphBomb = MORPH_BOMB.instantiate()
 			get_tree().root.add_child( bomb )
@@ -126,7 +126,7 @@ func physics_process( delta: float ) -> PlayerState:
 		if player.is_on_floor():
 			on_floor = true
 			VisualEffects.land_dust(player.global_position)
-			Audio.play_spatial_sound(LAND, player.global_position, false, true, 0.5)
+			Audio.play_spatial_sound(LAND, player.global_position, false, true, 0.5, 2.3)
 	return next_state
 
 

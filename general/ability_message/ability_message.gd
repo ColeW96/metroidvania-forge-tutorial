@@ -123,7 +123,7 @@ func set_morph_roll() -> void:
 	note_container.add_child(label)
 	
 	var input_hint2 : GuiInputHints = GUI_INPUT_HINTS.instantiate()
-	input_hint2.hint = input_hint.Hint.ATTACK
+	input_hint2.hint = input_hint.Hint.SHOOT
 	note_container.add_child( input_hint2 )
 	
 	var label2 : Label = Label.new()

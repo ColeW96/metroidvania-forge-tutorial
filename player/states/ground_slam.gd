@@ -87,6 +87,8 @@ func check_collisions( delta : float ) -> bool:
 					for p in b.destroy_particles:
 						VisualEffects.hit_particles( pos, Vector2.DOWN, p )
 			else:
+				if c is SlamBreakable:
+					c.save_persistence()
 				c.queue_free()
 				VisualEffects.hit_particles( pos, Vector2.DOWN, HIT_WOOD_LARGE )
 				VisualEffects.hit_particles( pos, Vector2.DOWN, HIT_WOOD_MEDIUM )

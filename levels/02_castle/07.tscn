@@ -58,7 +58,7 @@ position = Vector2(240, 768)
 position = Vector2(48, 3)
 
 [node name="PlayerSpawn" parent="." unique_id=920153163 instance=ExtResource("7_j6yno")]
-position = Vector2(72, 320)
+position = Vector2(394, 773)
 
 [node name="MusicAutoTrigger" type="Node" parent="." unique_id=2030237965]
 script = ExtResource("8_buaw6")
