@@ -43,6 +43,7 @@ func _ready() -> void:
 
 func start_boss_battle() -> void:
 	battle_started.emit()
+	PlayerHud.in_boss_battle = true
 	
 	if boss_level_bounds:
 		boss_level_bounds.set_camera_bounds()
@@ -73,6 +74,7 @@ func end_boss_battle() -> void:
 	Audio.play_music( post_boss_track )
 	
 	PlayerHud.hide_boss_hp()
+	PlayerHud.in_boss_battle = false
 	
 	await deliver_reward()
 	

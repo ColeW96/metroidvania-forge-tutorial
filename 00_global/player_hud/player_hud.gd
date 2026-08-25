@@ -15,6 +15,7 @@ extends CanvasLayer
 @onready var boss_hp_animation_player: AnimationPlayer = %BossHPAnimationPlayer
 
 var boss_hp_tween : Tween
+var in_boss_battle : bool = false
 
 
 func _ready() -> void:

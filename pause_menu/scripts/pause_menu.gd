@@ -21,6 +21,8 @@ var player_position : Vector2
 
 
 func _ready() -> void:
+	if PlayerHud.in_boss_battle:
+		PlayerHud.boss_hp.visible = false
 	show_pause_screen()
 	system_menu_button.pressed.connect( show_system_menu )
 	controls_menu_button.pressed.connect( show_controls_menu )
@@ -37,6 +39,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed( "pause" ):
 		get_viewport().set_input_as_handled()
 		get_tree().paused = false
+		if PlayerHud.in_boss_battle:
+			PlayerHud.boss_hp.visible = true
 		queue_free()
 	pass
 
