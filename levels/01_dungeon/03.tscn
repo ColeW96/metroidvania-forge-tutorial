@@ -121,6 +121,7 @@ position = Vector2(72, 144)
 position = Vector2(160, 80)
 script = ExtResource("5_rsxyw")
 fixed_hit_count = true
+use_persistence = true
 hit_particles = Array[ExtResource("6_oxp2i")]([ExtResource("7_sk4eq"), SubResource("Resource_iekve"), SubResource("Resource_2sldr")])
 destroy_particles = Array[ExtResource("6_oxp2i")]([SubResource("Resource_7rybr"), ExtResource("9_j2sle"), SubResource("Resource_rrssx"), SubResource("Resource_agmfb"), SubResource("Resource_hmxn7")])
 metadata/_custom_type_script = "uid://sndrj6tq12yf"

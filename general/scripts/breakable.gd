@@ -14,9 +14,11 @@ signal damage_taken
 @export var shape_offset : float = 17.5
 
 @export var gravity : float = 12.6
-var gravity_increase : float = gravity
-var falling : bool = false
-var hit_ground : bool = false
+@export var shake_decay_rate : float = 5.0
+@export var max_shake_offset : float = 20.0
+
+@export_category("Persistence")
+@export var use_persistence : bool = false
 
 @export_category( "Particles" )
 @export var emission_offset : Vector2 = Vector2.ZERO
@@ -27,14 +29,21 @@ var hit_ground : bool = false
 @export var hit_audio : AudioStream = preload("uid://hfouy4mufw1c")
 @export var destroy_audio : AudioStream = preload("uid://cpqpq5d0arguu")
 
-var shake_strength : float = 0.0
-@export var shake_decay_rate : float = 5.0
-@export var max_shake_offset : float = 20.0
 
+var shake_strength : float = 0.0
+var gravity_increase : float = gravity
+var falling : bool = false
+var hit_ground : bool = false
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
+	
+	if use_persistence:
+		if SaveManager.persistent_data.get_or_add( _get_path(), "" ) == "destroyed":
+			queue_free()
+			return
+	
 	for c in get_children():
 		if c is DamageArea:
 			c.damage_taken.connect( _on_damage_taken )
@@ -111,6 +120,8 @@ func _on_damage_taken( attack_area : AttackArea ) -> void:
 		var tween : Tween = create_tween()
 		tween.tween_property( self, "modulate", Color( modulate, 0 ), 0.4 )
 		await tween.finished
+		if use_persistence:
+			save_persistence()
 		queue_free()
 	VisualEffects.object_shook.disconnect( _apply_shake )
 	pass
@@ -139,4 +150,13 @@ func _check_for_damage_area() -> bool:
 
 func _apply_shake( strength : float ) -> void:
 	shake_strength = min( strength, max_shake_offset )
+	pass
+
+
+func _get_path() -> String:
+	return get_tree().current_scene.scene_file_path + "/" + get_parent().name + "/" + name
+
+
+func save_persistence() -> void:
+	SaveManager.persistent_data[ _get_path() ] = "destroyed"
 	pass

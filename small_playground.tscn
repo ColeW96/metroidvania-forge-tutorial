@@ -502,7 +502,7 @@ tile_map_data = PackedByteArray("AAABAAgAAAACAAgAAAACAAgAAAADAAgAAAADAAgAAAAEAAg
 tile_set = ExtResource("1_3dgrd")
 
 [node name="PlayerSpawn" parent="." unique_id=2070126017 instance=ExtResource("3_jltr3")]
-position = Vector2(149.6976, 152.16776)
+position = Vector2(194, 255)
 
 [node name="props" type="Node2D" parent="." unique_id=1678461622]
 
@@ -537,6 +537,7 @@ position = Vector2(222, 524)
 position = Vector2(309, 207)
 script = ExtResource("6_uajdn")
 fixed_hit_count = true
+use_persistence = true
 hit_particles = Array[ExtResource("7_hu6bk")]([ExtResource("11_a64fv"), SubResource("Resource_iekve"), SubResource("Resource_2sldr")])
 destroy_particles = Array[ExtResource("7_hu6bk")]([SubResource("Resource_7rybr"), ExtResource("12_iekve"), SubResource("Resource_rrssx"), SubResource("Resource_agmfb"), SubResource("Resource_hmxn7")])
 metadata/_custom_type_script = "uid://sndrj6tq12yf"
