@@ -20,7 +20,8 @@ func exit() -> void:
 
 
 func physics_update( _delta : float ) -> void:
-	var dir : float = sign( blackboard.target.global_position.x - enemy.global_position.x )
-	enemy.change_dir( dir )
-	enemy.velocity.x = dir * chase_speed
+	if blackboard.target:
+		var dir : float = sign( blackboard.target.global_position.x - enemy.global_position.x )
+		enemy.change_dir( dir )
+		enemy.velocity.x = dir * chase_speed
 	pass

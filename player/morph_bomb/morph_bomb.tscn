@@ -108,14 +108,11 @@ tracks/3/path = NodePath("AttackArea")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.1, 0.3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
 "values": [{
-"args": [true],
-"method": &"set_active"
-}, {
-"args": [false],
-"method": &"set_active"
+"args": [0.2],
+"method": &"activate"
 }]
 }
 
