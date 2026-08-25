@@ -25,6 +25,11 @@ enum SIDE { LEFT, RIGHT, TOP, BOTTOM }
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
+		
+	if SaveManager.persistent_data.get_or_add( _get_path(), "" ) == "found":
+		queue_free()
+		return
+	
 	for c in get_children():
 		if c is TileMapLayer:
 			c.visible = true
@@ -37,6 +42,7 @@ func _on_body_entered( _node : Node2D ) -> void:
 	var tween : Tween = create_tween()
 	tween.tween_property( self, "modulate", Color(1, 1, 1, 0), 0.2 )
 	await tween.finished
+	SaveManager.persistent_data[ _get_path() ] = "found"
 	queue_free()
 	pass
 
@@ -65,3 +71,7 @@ func update_area_visibility() -> void:
 		if area_2d:
 			area_2d.visible = show_area
 	pass
+
+
+func _get_path() -> String:
+	return get_tree().current_scene.scene_file_path + "/" + get_parent().name + "/" + name
