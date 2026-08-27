@@ -83,7 +83,42 @@ region = Rect2(64, 64, 32, 32)
 atlas = ExtResource("3_uwtdo")
 region = Rect2(32, 96, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1nv8k"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1nv8k"]
+load_path = "res://.godot/imported/abilities.png-63196a83fde4f4f8174494127ae437fd.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6n36"]
+atlas = SubResource("CompressedTexture2D_1nv8k")
+region = Rect2(64, 160, 32, 32)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p6csp"]
+load_path = "res://.godot/imported/abilities.png-63196a83fde4f4f8174494127ae437fd.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aj446"]
+atlas = SubResource("CompressedTexture2D_p6csp")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qi88y"]
+load_path = "res://.godot/imported/abilities.png-63196a83fde4f4f8174494127ae437fd.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvc88"]
+atlas = SubResource("CompressedTexture2D_qi88y")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cux0y"]
+load_path = "res://.godot/imported/abilities.png-63196a83fde4f4f8174494127ae437fd.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sp6kg"]
+atlas = SubResource("CompressedTexture2D_cux0y")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_teyq6"]
+load_path = "res://.godot/imported/abilities.png-63196a83fde4f4f8174494127ae437fd.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rp51"]
+atlas = SubResource("CompressedTexture2D_teyq6")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_teyq6"]
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
 region = Rect2(195, 0, 13, 0)
@@ -93,7 +128,7 @@ resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
 region = Rect2(273, 0, 13, 0)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_teyq6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1nv8k"]
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
 region = Rect2(286, 0, 13, 0)
@@ -103,12 +138,12 @@ resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
 region = Rect2(208, 0, 13, 0)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2oqmc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ja1mc"]
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
 region = Rect2(403, 0, 13, 0)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ja1mc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2oqmc"]
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
 region = Rect2(351, 0, 13, 0)
@@ -985,7 +1020,6 @@ offset_bottom = -8.0
 grow_horizontal = 0
 grow_vertical = 0
 focus_neighbor_left = NodePath("../ControlsMenuButton")
-focus_neighbor_right = NodePath("../ControlsMenuButton")
 text = "System"
 
 [node name="ControlsMenuButton" type="Button" parent="Control/PauseScreen" unique_id=1620400866]
@@ -1004,7 +1038,6 @@ offset_right = -102.0
 offset_bottom = -8.0
 grow_horizontal = 0
 grow_vertical = 0
-focus_neighbor_left = NodePath("../SystemMenuButton")
 focus_neighbor_right = NodePath("../SystemMenuButton")
 text = "Controls"
 
@@ -1016,35 +1049,71 @@ offset_right = 51.0
 offset_bottom = 168.0
 script = ExtResource("3_b4s0c")
 
-[node name="AbilityLedgeGrab" type="TextureRect" parent="Control/PauseScreen/AbilitiesList" unique_id=661279284]
+[node name="_AbilityLedgeGrab" type="TextureRect" parent="Control/PauseScreen/AbilitiesList" unique_id=661279284]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 texture = SubResource("AtlasTexture_cux0y")
 stretch_mode = 3
 
-[node name="AbilityDoubleJump" type="TextureRect" parent="Control/PauseScreen/AbilitiesList" unique_id=1376567263]
+[node name="_AbilityDoubleJump" type="TextureRect" parent="Control/PauseScreen/AbilitiesList" unique_id=1376567263]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 texture = SubResource("AtlasTexture_b4s0c")
 stretch_mode = 3
 
-[node name="AbilityDash" type="TextureRect" parent="Control/PauseScreen/AbilitiesList" unique_id=23670297]
+[node name="_AbilityDash" type="TextureRect" parent="Control/PauseScreen/AbilitiesList" unique_id=23670297]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 texture = SubResource("AtlasTexture_s1glv")
 stretch_mode = 3
 
-[node name="AbilityGroundSlam" type="TextureRect" parent="Control/PauseScreen/AbilitiesList" unique_id=1962181170]
+[node name="_AbilityGroundSlam" type="TextureRect" parent="Control/PauseScreen/AbilitiesList" unique_id=1962181170]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 texture = SubResource("AtlasTexture_wn31l")
 stretch_mode = 3
 
-[node name="AbilityMorphRoll" type="TextureRect" parent="Control/PauseScreen/AbilitiesList" unique_id=1145928685]
+[node name="_AbilityMorphRoll" type="TextureRect" parent="Control/PauseScreen/AbilitiesList" unique_id=1145928685]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 texture = SubResource("AtlasTexture_b0obc")
 stretch_mode = 3
+
+[node name="AbilityLedgeGrab" type="Button" parent="Control/PauseScreen/AbilitiesList" unique_id=1195179161]
+unique_name_in_owner = true
+custom_maximum_size = Vector2(-1, 32)
+layout_mode = 2
+icon = SubResource("AtlasTexture_y6n36")
+
+[node name="AbilityDoubleJump" type="Button" parent="Control/PauseScreen/AbilitiesList" unique_id=1363174720]
+unique_name_in_owner = true
+custom_maximum_size = Vector2(-1, 32)
+layout_mode = 2
+icon = SubResource("AtlasTexture_aj446")
+
+[node name="AbilityDash" type="Button" parent="Control/PauseScreen/AbilitiesList" unique_id=267038665]
+unique_name_in_owner = true
+custom_maximum_size = Vector2(-1, 32)
+layout_mode = 2
+icon = SubResource("AtlasTexture_xvc88")
+
+[node name="AbilityGroundSlam" type="Button" parent="Control/PauseScreen/AbilitiesList" unique_id=1877272540]
+unique_name_in_owner = true
+custom_maximum_size = Vector2(-1, 32)
+layout_mode = 2
+icon = SubResource("AtlasTexture_sp6kg")
+
+[node name="AbilityMorphRoll" type="Button" parent="Control/PauseScreen/AbilitiesList" unique_id=2128301256]
+unique_name_in_owner = true
+custom_maximum_size = Vector2(-1, 32)
+layout_mode = 2
+focus_neighbor_right = NodePath("../../ControlsMenuButton")
+icon = SubResource("AtlasTexture_8rp51")
 
 [node name="System" type="Control" parent="Control" unique_id=2135429769]
 unique_name_in_owner = true
@@ -1204,7 +1273,7 @@ text = "Interact:"
 
 [node name="GuiInputHints" parent="Control/Controls/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=2062775260 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_1nv8k")
+texture = SubResource("AtlasTexture_teyq6")
 expand_mode = 2
 stretch_mode = 3
 
@@ -1235,7 +1304,7 @@ text = "Shoot:"
 
 [node name="GuiInputHints" parent="Control/Controls/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3" unique_id=313061671 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_teyq6")
+texture = SubResource("AtlasTexture_1nv8k")
 expand_mode = 2
 stretch_mode = 3
 hint = 4
@@ -1271,7 +1340,7 @@ text = "Morph:"
 
 [node name="GuiInputHints" parent="Control/Controls/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer6" unique_id=1023833811 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_2oqmc")
+texture = SubResource("AtlasTexture_ja1mc")
 expand_mode = 2
 stretch_mode = 3
 hint = 6
@@ -1287,7 +1356,7 @@ text = "Dash:"
 
 [node name="GuiInputHints" parent="Control/Controls/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer5" unique_id=360532068 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_ja1mc")
+texture = SubResource("AtlasTexture_2oqmc")
 expand_mode = 2
 stretch_mode = 3
 hint = 3

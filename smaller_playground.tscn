@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dlrseuwg0hsr5" path="res://general/input_level_transition/input_level_transition.tscn" id="4_cjmus"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="4_sxnha"]
 [ext_resource type="PackedScene" uid="uid://b7gueiujn071s" path="res://levels/props/ChandelierA.tscn" id="5_cjmus"]
-[ext_resource type="PackedScene" uid="uid://ja8lc0n3awhh" path="res://enemies/slime_2/slime_2.tscn" id="6_chnyq"]
+[ext_resource type="PackedScene" uid="uid://bew5osvj6ik17" path="res://general/ability_pickup/ability_pickup.tscn" id="6_chnyq"]
 
 [node name="SmallerPlayground" type="Node2D" unique_id=775118826]
 
@@ -32,5 +32,5 @@ target_level = "uid://dkb81i711vvg8"
 [node name="ChandelierA" parent="." unique_id=907015132 instance=ExtResource("5_cjmus")]
 position = Vector2(208, 158)
 
-[node name="Slime2" parent="." unique_id=488761391 instance=ExtResource("6_chnyq")]
-position = Vector2(190, 226)
+[node name="AbilityPickup" parent="." unique_id=1646825791 instance=ExtResource("6_chnyq")]
+position = Vector2(132.94783, 201.30618)

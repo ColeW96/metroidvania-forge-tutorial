@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Metroidvania Forge Tutorial"
-run/main_scene="uid://cp4dvywk3xrnx"
+run/main_scene="uid://54fk1gi8vcyu"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="uid://bjyl07jbw54oo"
 
