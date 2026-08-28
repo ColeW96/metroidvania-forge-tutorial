@@ -1,3 +1,4 @@
+# AbilitiesMenu
 extends Control
 
 @onready var abilities_tab: TabContainer = %AbilitiesTab

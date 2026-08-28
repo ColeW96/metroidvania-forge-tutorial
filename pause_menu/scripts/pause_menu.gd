@@ -18,6 +18,8 @@ class_name PauseMenu extends CanvasLayer
 @onready var music_slider: HSlider = %MusicSlider
 @onready var sfx_slider: HSlider = %SFXSlider
 @onready var ui_slider: HSlider = %UISlider
+
+@onready var morph_ascend: Button = %MorphAscend
 #endregion
 
 var player_position : Vector2
@@ -82,7 +84,7 @@ func show_abilities_menu() -> void:
 	system.visible = false
 	controls.visible = false
 	abilities.visible = true
-	
+	morph_ascend.grab_focus()
 	pass
 
 
