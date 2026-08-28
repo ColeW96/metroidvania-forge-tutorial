@@ -35,3 +35,7 @@ position = Vector2(208, 158)
 [node name="AbilityPickup" parent="." unique_id=1646825791 instance=ExtResource("6_chnyq")]
 position = Vector2(132.94783, 201.30618)
 type = 4
+
+[node name="AbilityPickup2" parent="." unique_id=102831747 instance=ExtResource("6_chnyq")]
+position = Vector2(218, 201)
+type = 3

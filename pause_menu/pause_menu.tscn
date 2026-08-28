@@ -6,9 +6,10 @@
 [ext_resource type="Script" uid="uid://c1bg5i4xslotb" path="res://pause_menu/scripts/abilities_list.gd" id="3_b4s0c"]
 [ext_resource type="PackedScene" uid="uid://ylecj1xha6lf" path="res://pause_menu/powerup_map_node.tscn" id="3_s1glv"]
 [ext_resource type="PackedScene" uid="uid://doln5e7j65ibw" path="res://general/gui_input_hints/gui_input_hints.tscn" id="7_cux0y"]
-[ext_resource type="Script" uid="uid://cekilm1skkt0y" path="res://pause_menu/abilities_menu.gd" id="8_cux0y"]
+[ext_resource type="Script" uid="uid://cekilm1skkt0y" path="res://pause_menu/scripts/abilities_menu.gd" id="8_cux0y"]
 [ext_resource type="Texture2D" uid="uid://c30j5ysbdc3yt" path="res://player/sprites/input_icons.png" id="8_teyq6"]
-[ext_resource type="Script" uid="uid://bn6klv8yv7ho7" path="res://pause_menu/ledge_grab_tab.gd" id="9_teyq6"]
+[ext_resource type="Script" uid="uid://bn6klv8yv7ho7" path="res://pause_menu/scripts/ledge_grab_tab.gd" id="9_teyq6"]
+[ext_resource type="Script" uid="uid://dnw6xtbh73eyi" path="res://pause_menu/scripts/morph_roll_tab.gd" id="10_p6csp"]
 
 [sub_resource type="FontVariation" id="FontVariation_5hbt6"]
 spacing_glyph = 6
@@ -181,7 +182,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_b0obc"]
 gradient = SubResource("Gradient_b0obc")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b0obc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_sp6kg"]
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
 region = Rect2(208, 0, 13, 0)
@@ -203,13 +204,63 @@ border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color(0.8, 0.96862745, 0.90588236, 1)
+border_color = Color(0.8, 0.969, 0.906, 1)
 corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_aj446"]
+resource_local_to_scene = true
+atlas = ExtResource("8_teyq6")
+region = Rect2(195, 0, 13, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6n36"]
+resource_local_to_scene = true
+atlas = ExtResource("8_teyq6")
+region = Rect2(208, 0, 13, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plusc"]
+resource_local_to_scene = true
+atlas = ExtResource("8_teyq6")
+region = Rect2(208, 0, 13, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvc88"]
+resource_local_to_scene = true
+atlas = ExtResource("8_teyq6")
+region = Rect2(195, 0, 13, 0)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_htrey"]
+resource_local_to_scene = true
+atlas = ExtResource("8_teyq6")
+region = Rect2(351, 0, 13, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_do541"]
+resource_local_to_scene = true
+atlas = ExtResource("8_teyq6")
+region = Rect2(195, 0, 13, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfaqf"]
+resource_local_to_scene = true
+atlas = ExtResource("8_teyq6")
+region = Rect2(156, 0, 13, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6an08"]
+resource_local_to_scene = true
+atlas = ExtResource("8_teyq6")
+region = Rect2(273, 0, 13, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcuti"]
+resource_local_to_scene = true
+atlas = ExtResource("8_teyq6")
+region = Rect2(195, 0, 13, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wbmk"]
+resource_local_to_scene = true
+atlas = ExtResource("8_teyq6")
+region = Rect2(403, 0, 13, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6cjy"]
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
 region = Rect2(195, 0, 13, 0)
@@ -1413,9 +1464,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -146.0
-offset_top = -107.5
+offset_top = -113.0
 offset_right = 146.0
-offset_bottom = 105.5
+offset_bottom = 112.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_phca4")
@@ -1424,7 +1475,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_phca4")
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_b0obc")
-current_tab = 0
+current_tab = 4
 clip_tabs = false
 tab_0/icon = SubResource("AtlasTexture_gm4du")
 tab_1/icon = SubResource("AtlasTexture_5u3lt")
@@ -1433,6 +1484,7 @@ tab_3/icon = SubResource("AtlasTexture_cux0y")
 tab_4/icon = SubResource("AtlasTexture_nsdwt")
 
 [node name="LedgeGrab" type="Control" parent="Control/Abilities/PanelContainer/AbilitiesTab" unique_id=945541681]
+visible = false
 layout_mode = 2
 script = ExtResource("9_teyq6")
 metadata/_tab_index = 0
@@ -1480,7 +1532,7 @@ text = "Note: Release"
 
 [node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer" unique_id=615188825 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_b0obc")
+texture = SubResource("AtlasTexture_sp6kg")
 hint = 2
 
 [node name="Label2" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer" unique_id=1098304557]
@@ -1546,69 +1598,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_blb37")
 
-[node name="Upgrade" type="Button" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1627312934]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="Panel2" type="Panel" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer/Upgrade" unique_id=290168107]
-custom_minimum_size = Vector2(8, 8)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_blb37")
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer" unique_id=225594129]
-layout_mode = 2
-theme_override_constants/separation = 10
-alignment = 1
-
-[node name="Button" type="Button" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer2" unique_id=1704524319]
-layout_mode = 2
-
-[node name="Panel" type="Panel" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer2/Button" unique_id=2123253129]
-custom_minimum_size = Vector2(8, 8)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_blb37")
-
-[node name="Button2" type="Button" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer2" unique_id=1414604479]
-layout_mode = 2
-
-[node name="Panel2" type="Panel" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer2/Button2" unique_id=246062080]
-custom_minimum_size = Vector2(8, 8)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_blb37")
-
 [node name="PanelContainer2" type="PanelContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2" unique_id=1570693094]
 custom_minimum_size = Vector2(190, 80)
 layout_mode = 2
@@ -1622,7 +1611,6 @@ size_flags_vertical = 0
 theme_override_colors/font_color = Color(0.8, 0.96862745, 0.90588236, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 12
-text = "Morph Ascend"
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -1646,6 +1634,7 @@ theme_override_constants/separation = 0
 
 [node name="PurchaseDescription" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=267055159]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 alignment = 1
 
@@ -1656,7 +1645,7 @@ text = "Purchase:"
 
 [node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/PurchaseDescription" unique_id=1793506210 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_htrey")
+texture = SubResource("AtlasTexture_aj446")
 
 [node name="UpgradePurchased" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=928231180]
 unique_name_in_owner = true
@@ -1672,11 +1661,301 @@ layout_mode = 2
 metadata/_tab_index = 1
 metadata/_tab_name = ""
 
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump" unique_id=1268339067]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 9.0
+offset_right = -15.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer" unique_id=1403974736]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.96862745, 0.90588236, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "DOUBLE JUMP"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer" unique_id=39554429]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+texture = SubResource("GradientTexture1D_b0obc")
+
+[node name="Label2" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer" unique_id=1631968226]
+custom_minimum_size = Vector2(258, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Perform a second jump mid-air. Useful for reaching new heights!"
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer" unique_id=128602774]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer" unique_id=1609300312]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Action:"
+
+[node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer" unique_id=1156469038 instance=ExtResource("7_cux0y")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_y6n36")
+hint = 2
+
+[node name="Label2" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer" unique_id=287060541]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "->"
+
+[node name="GuiInputHints2" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer" unique_id=1546785016 instance=ExtResource("7_cux0y")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_plusc")
+hint = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer" unique_id=1778416347]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer2" unique_id=1707810750]
+custom_minimum_size = Vector2(64, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6drb7")
+
+[node name="Label" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer2/PanelContainer" unique_id=1190293018]
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.8, 0.96862745, 0.90588236, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "Upgrades"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Panel" type="Panel" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer2/PanelContainer" unique_id=2023601134]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8rp51")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer2/PanelContainer" unique_id=1131692151]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 7
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer" unique_id=843644892]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer2" unique_id=1287528076]
+custom_minimum_size = Vector2(190, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6drb7")
+
+[node name="UpgradeName2" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer2/PanelContainer2" unique_id=728310246]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.8, 0.96862745, 0.90588236, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Panel" type="Panel" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer2/PanelContainer2" unique_id=2019444101]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8rp51")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer2/PanelContainer2" unique_id=484103579]
+custom_minimum_size = Vector2(0, 54)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 6
+
+[node name="UpgradeDescription2" type="VBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=2067042569]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PurchaseDescription2" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=612486771]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/PurchaseDescription2" unique_id=1889279040]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Purchase:"
+
+[node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/PurchaseDescription2" unique_id=495893134 instance=ExtResource("7_cux0y")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_xvc88")
+
+[node name="UpgradePurchased2" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=1944156702]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.96862745, 0.90588236, 1)
+theme_override_font_sizes/font_size = 8
+text = "Purchased"
+
 [node name="Dash" type="Control" parent="Control/Abilities/PanelContainer/AbilitiesTab" unique_id=1445479498]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 metadata/_tab_name = ""
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash" unique_id=444613205]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 9.0
+offset_right = -15.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer" unique_id=465499495]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.96862745, 0.90588236, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "DASH"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer" unique_id=1750265775]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+texture = SubResource("GradientTexture1D_b0obc")
+
+[node name="Label2" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer" unique_id=1476778779]
+custom_minimum_size = Vector2(258, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Dash forward to avoid harm. Can be used in the air or on the ground!"
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer" unique_id=1404906322]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer/HBoxContainer" unique_id=1844300042]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Action:"
+
+[node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer/HBoxContainer" unique_id=483699771 instance=ExtResource("7_cux0y")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_htrey")
+hint = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer" unique_id=827104583]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer/HBoxContainer2" unique_id=1410292324]
+custom_minimum_size = Vector2(64, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6drb7")
+
+[node name="Label" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer/HBoxContainer2/PanelContainer" unique_id=94408005]
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.8, 0.96862745, 0.90588236, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "Upgrades"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Panel" type="Panel" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer/HBoxContainer2/PanelContainer" unique_id=1341857210]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8rp51")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer/HBoxContainer2/PanelContainer" unique_id=80732590]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 7
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer" unique_id=1831915587]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer/HBoxContainer2" unique_id=1797917927]
+custom_minimum_size = Vector2(190, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6drb7")
+
+[node name="UpgradeName3" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer/HBoxContainer2/PanelContainer2" unique_id=116156106]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.8, 0.96862745, 0.90588236, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Panel" type="Panel" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer/HBoxContainer2/PanelContainer2" unique_id=384148366]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8rp51")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer/HBoxContainer2/PanelContainer2" unique_id=2008758101]
+custom_minimum_size = Vector2(0, 54)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 6
+
+[node name="UpgradeDescription3" type="VBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=1788105718]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PurchaseDescription3" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=1510886702]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/PurchaseDescription3" unique_id=1448150096]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Purchase:"
+
+[node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/PurchaseDescription3" unique_id=1495679476 instance=ExtResource("7_cux0y")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_do541")
+
+[node name="UpgradePurchased3" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=599352945]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.96862745, 0.90588236, 1)
+theme_override_font_sizes/font_size = 8
+text = "Purchased"
 
 [node name="GroundSlam" type="Control" parent="Control/Abilities/PanelContainer/AbilitiesTab" unique_id=342761919]
 visible = false
@@ -1684,11 +1963,321 @@ layout_mode = 2
 metadata/_tab_index = 3
 metadata/_tab_name = ""
 
-[node name="Morph" type="Control" parent="Control/Abilities/PanelContainer/AbilitiesTab" unique_id=845430174]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam" unique_id=1361189340]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 9.0
+offset_right = -15.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer" unique_id=1423688473]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.96862745, 0.90588236, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "GROUND SLAM"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer" unique_id=85557679]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+texture = SubResource("GradientTexture1D_b0obc")
+
+[node name="Label2" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer" unique_id=2132081936]
+custom_minimum_size = Vector2(258, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Launch straight down dealing damage and destroying certain objects!"
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer" unique_id=315187133]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer" unique_id=1804456581]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Action:"
+
+[node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer" unique_id=583205633 instance=ExtResource("7_cux0y")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_vfaqf")
+hint = 5
+
+[node name="Label2" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer" unique_id=1465854714]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "+"
+
+[node name="GuiInputHints2" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer" unique_id=1182278570 instance=ExtResource("7_cux0y")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_6an08")
+hint = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer" unique_id=748185633]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2" unique_id=1577455286]
+custom_minimum_size = Vector2(64, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6drb7")
+
+[node name="Label" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2/PanelContainer" unique_id=1369181462]
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.8, 0.96862745, 0.90588236, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "Upgrades"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Panel" type="Panel" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2/PanelContainer" unique_id=330577882]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8rp51")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2/PanelContainer" unique_id=1012953276]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 7
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer" unique_id=1504499288]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2" unique_id=507724244]
+custom_minimum_size = Vector2(190, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6drb7")
+
+[node name="UpgradeName4" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2/PanelContainer2" unique_id=1703331862]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.8, 0.96862745, 0.90588236, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Panel" type="Panel" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2/PanelContainer2" unique_id=1490874911]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8rp51")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2/PanelContainer2" unique_id=17215280]
+custom_minimum_size = Vector2(0, 54)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 6
+
+[node name="UpgradeDescription4" type="VBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=261293232]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PurchaseDescription4" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=156537097]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/PurchaseDescription4" unique_id=1280946472]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Purchase:"
+
+[node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/PurchaseDescription4" unique_id=615117683 instance=ExtResource("7_cux0y")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_fcuti")
+
+[node name="UpgradePurchased4" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=2133366257]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.96862745, 0.90588236, 1)
+theme_override_font_sizes/font_size = 8
+text = "Purchased"
+
+[node name="Morph" type="Control" parent="Control/Abilities/PanelContainer/AbilitiesTab" unique_id=845430174]
+layout_mode = 2
+script = ExtResource("10_p6csp")
 metadata/_tab_index = 4
 metadata/_tab_name = ""
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph" unique_id=1484754287]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 9.0
+offset_right = -15.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer" unique_id=1926531515]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.96862745, 0.90588236, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "MORPH BALL"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer" unique_id=845395775]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+texture = SubResource("GradientTexture1D_b0obc")
+
+[node name="Label2" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer" unique_id=1286601882]
+custom_minimum_size = Vector2(258, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Assume a spherical form to traverse new paths!"
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer" unique_id=212865716]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer" unique_id=519849484]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Action:"
+
+[node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer" unique_id=904871555 instance=ExtResource("7_cux0y")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_4wbmk")
+hint = 6
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer" unique_id=1675934967]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer2" unique_id=1394204015]
+custom_minimum_size = Vector2(64, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6drb7")
+
+[node name="Label" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer2/PanelContainer" unique_id=75017342]
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.8, 0.96862745, 0.90588236, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "Upgrades"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Panel" type="Panel" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer2/PanelContainer" unique_id=2139541907]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8rp51")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer2/PanelContainer" unique_id=21453964]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 7
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer" unique_id=1953298860]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Bombs" type="Button" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1540903763]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer/Bombs" unique_id=1924931371]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_blb37")
+
+[node name="PanelContainer2" type="PanelContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer2" unique_id=2060542888]
+custom_minimum_size = Vector2(190, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6drb7")
+
+[node name="UpgradeName5" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer2/PanelContainer2" unique_id=1459486981]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.8, 0.96862745, 0.90588236, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Panel" type="Panel" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer2/PanelContainer2" unique_id=1580112726]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8rp51")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer2/PanelContainer2" unique_id=1544379747]
+custom_minimum_size = Vector2(0, 54)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 6
+
+[node name="UpgradeDescription5" type="VBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=988615824]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="PurchaseDescription5" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=1914623185]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/PurchaseDescription5" unique_id=1538742178]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Purchase:"
+
+[node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/PurchaseDescription5" unique_id=716616904 instance=ExtResource("7_cux0y")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_t6cjy")
+
+[node name="UpgradePurchased5" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=1605946358]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.96862745, 0.90588236, 1)
+theme_override_font_sizes/font_size = 8
+text = "Purchased"
 
 [node name="BackButton" type="Button" parent="Control/Abilities" unique_id=335636618]
 unique_name_in_owner = true

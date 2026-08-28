@@ -64,6 +64,11 @@ var morph_roll : bool = false
 var ledge_grab : bool = false
 #endregion
 
+#region /// ability upgrades
+var morph_ascend : bool = false
+var bombs : bool = false
+#endregion
+
 
 #region /// standard variables
 var direction : Vector2 = Vector2.ZERO
