@@ -29,7 +29,7 @@ func handle_input( event : InputEvent ) -> PlayerState:
 	if event.is_action_pressed("down"):
 		_ease_player_drop()
 		return fall
-	if event.is_action_pressed("morph"):
+	if event.is_action_pressed("morph") and player.morph_ascend:
 		if player.can_morph():
 			return ball
 	return null

@@ -84,7 +84,7 @@ func show_abilities_menu() -> void:
 	system.visible = false
 	controls.visible = false
 	abilities.visible = true
-	morph_ascend.grab_focus()
+	back_button.grab_focus()
 	pass
 
 

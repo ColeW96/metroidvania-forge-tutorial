@@ -18,6 +18,8 @@ func _ready() -> void:
 
 
 func setup_upgrades() -> void:
+	if player.morph_roll:
+		morph_ascend.visible = true
 	morph_ascend.disabled = player.morph_ascend
 	if morph_ascend.disabled == true:
 		add_texture_rect_to_button( morph_ascend )
