@@ -34,3 +34,4 @@ position = Vector2(208, 158)
 
 [node name="AbilityPickup" parent="." unique_id=1646825791 instance=ExtResource("6_chnyq")]
 position = Vector2(132.94783, 201.30618)
+type = 4

@@ -5,8 +5,8 @@
 [ext_resource type="Script" uid="uid://cro50mhhf5uji" path="res://pause_menu/scripts/map.gd" id="2_wn31l"]
 [ext_resource type="Script" uid="uid://c1bg5i4xslotb" path="res://pause_menu/scripts/abilities_list.gd" id="3_b4s0c"]
 [ext_resource type="PackedScene" uid="uid://ylecj1xha6lf" path="res://pause_menu/powerup_map_node.tscn" id="3_s1glv"]
-[ext_resource type="Texture2D" uid="uid://bc3p77l87rvqy" path="res://player/sprites/abilities.png" id="3_uwtdo"]
 [ext_resource type="PackedScene" uid="uid://doln5e7j65ibw" path="res://general/gui_input_hints/gui_input_hints.tscn" id="7_cux0y"]
+[ext_resource type="Script" uid="uid://cekilm1skkt0y" path="res://pause_menu/abilities_menu.gd" id="8_cux0y"]
 [ext_resource type="Texture2D" uid="uid://c30j5ysbdc3yt" path="res://player/sprites/input_icons.png" id="8_teyq6"]
 
 [sub_resource type="FontVariation" id="FontVariation_5hbt6"]
@@ -63,59 +63,39 @@ _data = {
 &"default": SubResource("Animation_rd7dy")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cux0y"]
-atlas = ExtResource("3_uwtdo")
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y6n36"]
+load_path = "res://.godot/imported/abilities.png-63196a83fde4f4f8174494127ae437fd.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_luw8j"]
+atlas = SubResource("CompressedTexture2D_y6n36")
 region = Rect2(64, 160, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b4s0c"]
-atlas = ExtResource("3_uwtdo")
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xvc88"]
+load_path = "res://.godot/imported/abilities.png-63196a83fde4f4f8174494127ae437fd.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tokj7"]
+atlas = SubResource("CompressedTexture2D_xvc88")
 region = Rect2(96, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s1glv"]
-atlas = ExtResource("3_uwtdo")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wn31l"]
-atlas = ExtResource("3_uwtdo")
-region = Rect2(64, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b0obc"]
-atlas = ExtResource("3_uwtdo")
-region = Rect2(32, 96, 32, 32)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1nv8k"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5u3lt"]
 load_path = "res://.godot/imported/abilities.png-63196a83fde4f4f8174494127ae437fd.ctex"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y6n36"]
-atlas = SubResource("CompressedTexture2D_1nv8k")
-region = Rect2(64, 160, 32, 32)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p6csp"]
-load_path = "res://.godot/imported/abilities.png-63196a83fde4f4f8174494127ae437fd.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_aj446"]
-atlas = SubResource("CompressedTexture2D_p6csp")
-region = Rect2(96, 32, 32, 32)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qi88y"]
-load_path = "res://.godot/imported/abilities.png-63196a83fde4f4f8174494127ae437fd.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xvc88"]
-atlas = SubResource("CompressedTexture2D_qi88y")
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ss11"]
+atlas = SubResource("CompressedTexture2D_5u3lt")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cux0y"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gm4du"]
 load_path = "res://.godot/imported/abilities.png-63196a83fde4f4f8174494127ae437fd.ctex"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sp6kg"]
-atlas = SubResource("CompressedTexture2D_cux0y")
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqtue"]
+atlas = SubResource("CompressedTexture2D_gm4du")
 region = Rect2(64, 64, 32, 32)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_teyq6"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_etxg4"]
 load_path = "res://.godot/imported/abilities.png-63196a83fde4f4f8174494127ae437fd.ctex"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8rp51"]
-atlas = SubResource("CompressedTexture2D_teyq6")
+[sub_resource type="AtlasTexture" id="AtlasTexture_uejek"]
+atlas = SubResource("CompressedTexture2D_etxg4")
 region = Rect2(32, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_teyq6"]
@@ -147,6 +127,96 @@ region = Rect2(403, 0, 13, 0)
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
 region = Rect2(351, 0, 13, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_phca4"]
+bg_color = Color(0.05882353, 0.05882353, 0.05882353, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.96862745, 0.90588236, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b0obc"]
+bg_color = Color(0.05882353, 0.05882353, 0.05882353, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ja1mc"]
+load_path = "res://.godot/imported/abilities.png-63196a83fde4f4f8174494127ae437fd.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gm4du"]
+atlas = SubResource("CompressedTexture2D_ja1mc")
+region = Rect2(64, 160, 32, 32)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2oqmc"]
+load_path = "res://.godot/imported/abilities.png-63196a83fde4f4f8174494127ae437fd.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5u3lt"]
+atlas = SubResource("CompressedTexture2D_2oqmc")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sp6kg"]
+load_path = "res://.godot/imported/abilities.png-63196a83fde4f4f8174494127ae437fd.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etxg4"]
+atlas = SubResource("CompressedTexture2D_sp6kg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_b0obc"]
+load_path = "res://.godot/imported/abilities.png-63196a83fde4f4f8174494127ae437fd.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cux0y"]
+atlas = SubResource("CompressedTexture2D_b0obc")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_aj446"]
+load_path = "res://.godot/imported/abilities.png-63196a83fde4f4f8174494127ae437fd.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsdwt"]
+atlas = SubResource("CompressedTexture2D_aj446")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="Gradient" id="Gradient_b0obc"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_b0obc"]
+gradient = SubResource("Gradient_b0obc")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0obc"]
+resource_local_to_scene = true
+atlas = ExtResource("8_teyq6")
+region = Rect2(208, 0, 13, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6drb7"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8rp51"]
+draw_center = false
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_blb37"]
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8, 0.96862745, 0.90588236, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plusc"]
+resource_local_to_scene = true
+atlas = ExtResource("8_teyq6")
+region = Rect2(403, 0, 13, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htrey"]
+resource_local_to_scene = true
+atlas = ExtResource("8_teyq6")
+region = Rect2(195, 0, 13, 0)
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=1752538219]
 process_mode = 3
@@ -201,6 +271,7 @@ horizontal_alignment = 2
 
 [node name="PauseScreen" type="Control" parent="Control" unique_id=1553036884]
 unique_name_in_owner = true
+visible = false
 light_mask = 0
 layout_mode = 1
 anchors_preset = 15
@@ -985,22 +1056,23 @@ texture = SubResource("GradientTexture2D_uwtdo")
 libraries/ = SubResource("AnimationLibrary_uwtdo")
 autoplay = &"default"
 
-[node name="Label" type="Label" parent="Control/PauseScreen" unique_id=1925085075]
+[node name="AbilitiesMenuButton" type="Button" parent="Control/PauseScreen" unique_id=1078572378]
+unique_name_in_owner = true
 light_mask = 0
 layout_mode = 0
-offset_left = 8.0
+offset_left = 12.0
 offset_top = 8.0
-offset_right = 67.0
-offset_bottom = 23.0
+offset_right = 79.0
+offset_bottom = 31.0
 text = "Abilities"
 
 [node name="Label2" type="Label" parent="Control/PauseScreen" unique_id=1886642749]
 light_mask = 0
 layout_mode = 0
-offset_left = 113.0
-offset_top = 8.0
-offset_right = 153.0
-offset_bottom = 23.0
+offset_left = 117.0
+offset_top = 12.0
+offset_right = 157.0
+offset_bottom = 27.0
 text = "Map"
 
 [node name="SystemMenuButton" type="Button" parent="Control/PauseScreen" unique_id=978917200]
@@ -1043,77 +1115,41 @@ text = "Controls"
 
 [node name="AbilitiesList" type="VBoxContainer" parent="Control/PauseScreen" unique_id=295792289]
 layout_mode = 0
-offset_left = 19.0
+offset_left = 28.0
 offset_top = 28.0
-offset_right = 51.0
-offset_bottom = 168.0
+offset_right = 60.0
+offset_bottom = 204.0
 script = ExtResource("3_b4s0c")
 
-[node name="_AbilityLedgeGrab" type="TextureRect" parent="Control/PauseScreen/AbilitiesList" unique_id=661279284]
+[node name="AbilityLedgeGrab" type="TextureRect" parent="Control/PauseScreen/AbilitiesList" unique_id=168031297]
 unique_name_in_owner = true
-visible = false
+custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
-texture = SubResource("AtlasTexture_cux0y")
-stretch_mode = 3
+texture = SubResource("AtlasTexture_luw8j")
 
-[node name="_AbilityDoubleJump" type="TextureRect" parent="Control/PauseScreen/AbilitiesList" unique_id=1376567263]
+[node name="AbilityDoubleJump" type="TextureRect" parent="Control/PauseScreen/AbilitiesList" unique_id=1940886]
 unique_name_in_owner = true
-visible = false
+custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
-texture = SubResource("AtlasTexture_b4s0c")
-stretch_mode = 3
+texture = SubResource("AtlasTexture_tokj7")
 
-[node name="_AbilityDash" type="TextureRect" parent="Control/PauseScreen/AbilitiesList" unique_id=23670297]
+[node name="AbilityDash" type="TextureRect" parent="Control/PauseScreen/AbilitiesList" unique_id=1647541751]
 unique_name_in_owner = true
-visible = false
+custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
-texture = SubResource("AtlasTexture_s1glv")
-stretch_mode = 3
+texture = SubResource("AtlasTexture_8ss11")
 
-[node name="_AbilityGroundSlam" type="TextureRect" parent="Control/PauseScreen/AbilitiesList" unique_id=1962181170]
+[node name="AbilityGroundSlam" type="TextureRect" parent="Control/PauseScreen/AbilitiesList" unique_id=600595772]
 unique_name_in_owner = true
-visible = false
+custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
-texture = SubResource("AtlasTexture_wn31l")
-stretch_mode = 3
+texture = SubResource("AtlasTexture_gqtue")
 
-[node name="_AbilityMorphRoll" type="TextureRect" parent="Control/PauseScreen/AbilitiesList" unique_id=1145928685]
+[node name="AbilityMorphRoll" type="TextureRect" parent="Control/PauseScreen/AbilitiesList" unique_id=1937058944]
 unique_name_in_owner = true
-visible = false
+custom_maximum_size = Vector2(32, 32)
 layout_mode = 2
-texture = SubResource("AtlasTexture_b0obc")
-stretch_mode = 3
-
-[node name="AbilityLedgeGrab" type="Button" parent="Control/PauseScreen/AbilitiesList" unique_id=1195179161]
-unique_name_in_owner = true
-custom_maximum_size = Vector2(-1, 32)
-layout_mode = 2
-icon = SubResource("AtlasTexture_y6n36")
-
-[node name="AbilityDoubleJump" type="Button" parent="Control/PauseScreen/AbilitiesList" unique_id=1363174720]
-unique_name_in_owner = true
-custom_maximum_size = Vector2(-1, 32)
-layout_mode = 2
-icon = SubResource("AtlasTexture_aj446")
-
-[node name="AbilityDash" type="Button" parent="Control/PauseScreen/AbilitiesList" unique_id=267038665]
-unique_name_in_owner = true
-custom_maximum_size = Vector2(-1, 32)
-layout_mode = 2
-icon = SubResource("AtlasTexture_xvc88")
-
-[node name="AbilityGroundSlam" type="Button" parent="Control/PauseScreen/AbilitiesList" unique_id=1877272540]
-unique_name_in_owner = true
-custom_maximum_size = Vector2(-1, 32)
-layout_mode = 2
-icon = SubResource("AtlasTexture_sp6kg")
-
-[node name="AbilityMorphRoll" type="Button" parent="Control/PauseScreen/AbilitiesList" unique_id=2128301256]
-unique_name_in_owner = true
-custom_maximum_size = Vector2(-1, 32)
-layout_mode = 2
-focus_neighbor_right = NodePath("../../ControlsMenuButton")
-icon = SubResource("AtlasTexture_8rp51")
+texture = SubResource("AtlasTexture_uejek")
 
 [node name="System" type="Control" parent="Control" unique_id=2135429769]
 unique_name_in_owner = true
@@ -1227,6 +1263,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 36.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -1360,3 +1397,275 @@ texture = SubResource("AtlasTexture_2oqmc")
 expand_mode = 2
 stretch_mode = 3
 hint = 3
+
+[node name="Abilities" type="Control" parent="Control" unique_id=670651393]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_cux0y")
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/Abilities" unique_id=1209258589]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -146.0
+offset_top = -107.5
+offset_right = 146.0
+offset_bottom = 105.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_phca4")
+
+[node name="AbilitiesTab" type="TabContainer" parent="Control/Abilities/PanelContainer" unique_id=421426462]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_b0obc")
+current_tab = 0
+clip_tabs = false
+tab_0/icon = SubResource("AtlasTexture_gm4du")
+tab_1/icon = SubResource("AtlasTexture_5u3lt")
+tab_2/icon = SubResource("AtlasTexture_etxg4")
+tab_3/icon = SubResource("AtlasTexture_cux0y")
+tab_4/icon = SubResource("AtlasTexture_nsdwt")
+
+[node name="LedgeGrab" type="Control" parent="Control/Abilities/PanelContainer/AbilitiesTab" unique_id=945541681]
+layout_mode = 2
+metadata/_tab_index = 0
+metadata/_tab_name = ""
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab" unique_id=629627609]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 9.0
+offset_right = -15.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer" unique_id=1435192756]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.96862745, 0.90588236, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "LEDGE GRAB"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer" unique_id=1507513412]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+texture = SubResource("GradientTexture1D_b0obc")
+
+[node name="Label2" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer" unique_id=1186940684]
+custom_minimum_size = Vector2(258, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Hang on ledges and gaps in walls to ascend upwards!"
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer" unique_id=1186455978]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer" unique_id=587064391]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Note: Release"
+
+[node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer" unique_id=615188825 instance=ExtResource("7_cux0y")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_b0obc")
+hint = 2
+
+[node name="Label2" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer" unique_id=1098304557]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "to grab a ledge."
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer" unique_id=487683767]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2" unique_id=2017637692]
+custom_minimum_size = Vector2(64, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6drb7")
+
+[node name="Label" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer" unique_id=118691556]
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.8, 0.96862745, 0.90588236, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "Upgrades"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Panel" type="Panel" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer" unique_id=1067569306]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8rp51")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer" unique_id=1189599090]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 7
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer" unique_id=435784818]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Panel" type="Panel" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer" unique_id=506362138]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_blb37")
+
+[node name="Panel2" type="Panel" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer" unique_id=290168107]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_blb37")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer" unique_id=225594129]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Panel" type="Panel" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer2" unique_id=2123253129]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_blb37")
+
+[node name="Panel2" type="Panel" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer2" unique_id=246062080]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_blb37")
+
+[node name="PanelContainer2" type="PanelContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2" unique_id=1570693094]
+custom_minimum_size = Vector2(190, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6drb7")
+
+[node name="Label" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer2" unique_id=1082325004]
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.8, 0.96862745, 0.90588236, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "Morph Ascend"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Panel" type="Panel" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer2" unique_id=1272175378]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8rp51")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer2" unique_id=1892454700]
+custom_minimum_size = Vector2(0, 54)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=1915594794]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/VBoxContainer" unique_id=55576105]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1293318383]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Press"
+
+[node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1760461605 instance=ExtResource("7_cux0y")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_plusc")
+hint = 6
+
+[node name="Label2" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=2114530856]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "while hanging to transform"
+
+[node name="Label" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/VBoxContainer" unique_id=691772675]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "and ascend a ledge."
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=267055159]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/HBoxContainer2" unique_id=1087263281]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Purchase:"
+
+[node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/HBoxContainer2" unique_id=1793506210 instance=ExtResource("7_cux0y")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_htrey")
+
+[node name="Label" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=928231180]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.96862745, 0.90588236, 1)
+theme_override_font_sizes/font_size = 8
+text = "Purchased"
+
+[node name="DoubleJump" type="Control" parent="Control/Abilities/PanelContainer/AbilitiesTab" unique_id=21378805]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+metadata/_tab_name = ""
+
+[node name="Dash" type="Control" parent="Control/Abilities/PanelContainer/AbilitiesTab" unique_id=1445479498]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+metadata/_tab_name = ""
+
+[node name="GroundSlam" type="Control" parent="Control/Abilities/PanelContainer/AbilitiesTab" unique_id=342761919]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+metadata/_tab_name = ""
+
+[node name="Morph" type="Control" parent="Control/Abilities/PanelContainer/AbilitiesTab" unique_id=845430174]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 4
+metadata/_tab_name = ""
+
+[node name="BackButton" type="Button" parent="Control/Abilities" unique_id=335636618]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -68.0
+offset_top = -34.0
+offset_right = -25.0
+offset_bottom = -11.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Back"

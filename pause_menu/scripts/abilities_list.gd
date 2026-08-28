@@ -1,12 +1,11 @@
 # AbilitiesList
 extends Node
 
-@onready var ability_ledge_grab: Button = %AbilityLedgeGrab
-@onready var ability_double_jump: Button = %AbilityDoubleJump
-@onready var ability_dash: Button = %AbilityDash
-@onready var ability_ground_slam: Button = %AbilityGroundSlam
-@onready var ability_morph_roll: Button = %AbilityMorphRoll
-
+@onready var ability_ledge_grab: TextureRect = %AbilityLedgeGrab
+@onready var ability_double_jump: TextureRect = %AbilityDoubleJump
+@onready var ability_dash: TextureRect = %AbilityDash
+@onready var ability_ground_slam: TextureRect = %AbilityGroundSlam
+@onready var ability_morph_roll: TextureRect = %AbilityMorphRoll
 
 
 func _ready() -> void:
