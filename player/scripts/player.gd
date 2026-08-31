@@ -65,8 +65,10 @@ var ledge_grab : bool = false
 #endregion
 
 #region /// ability upgrades
-var morph_ascend : bool = false
-var bombs : bool = false
+var upgrades : Dictionary = {
+	"morph_ascend" : false,
+	"bombs" : false
+}
 #endregion
 
 
@@ -339,3 +341,18 @@ func _on_ability_acquired( ability_name : String ) -> void:
 	ability_message.set_ability_message_text(ability_name)
 	ability_message.set_action( ability_name )
 	pass
+
+
+func has_ability( ability : String ) -> bool:
+	match ability:
+		"ledge_grab":
+			return ledge_grab
+		"double_jump":
+			return double_jump
+		"dash":
+			return dash
+		"ground_slam":
+			return ground_slam
+		"morph_roll":
+			return morph_roll
+	return false

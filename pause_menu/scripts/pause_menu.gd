@@ -18,8 +18,6 @@ class_name PauseMenu extends CanvasLayer
 @onready var music_slider: HSlider = %MusicSlider
 @onready var sfx_slider: HSlider = %SFXSlider
 @onready var ui_slider: HSlider = %UISlider
-
-@onready var morph_ascend: Button = %MorphAscend
 #endregion
 
 var player_position : Vector2

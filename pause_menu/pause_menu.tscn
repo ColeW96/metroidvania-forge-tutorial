@@ -8,8 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://doln5e7j65ibw" path="res://general/gui_input_hints/gui_input_hints.tscn" id="7_cux0y"]
 [ext_resource type="Script" uid="uid://cekilm1skkt0y" path="res://pause_menu/scripts/abilities_menu.gd" id="8_cux0y"]
 [ext_resource type="Texture2D" uid="uid://c30j5ysbdc3yt" path="res://player/sprites/input_icons.png" id="8_teyq6"]
-[ext_resource type="Script" uid="uid://bn6klv8yv7ho7" path="res://pause_menu/scripts/ledge_grab_tab.gd" id="9_teyq6"]
-[ext_resource type="Script" uid="uid://dnw6xtbh73eyi" path="res://pause_menu/scripts/morph_roll_tab.gd" id="10_p6csp"]
+[ext_resource type="Script" uid="uid://dun5ofarwf1dj" path="res://pause_menu/scripts/upgrade_tab.gd" id="9_1nv8k"]
+[ext_resource type="PackedScene" uid="uid://bvbcrmd04ocow" path="res://pause_menu/upgrade_button.tscn" id="10_1nv8k"]
+[ext_resource type="Script" uid="uid://ctlhrwxnjq4r7" path="res://pause_menu/scripts/control_data.gd" id="12_ja1mc"]
 
 [sub_resource type="FontVariation" id="FontVariation_5hbt6"]
 spacing_glyph = 6
@@ -100,32 +101,32 @@ load_path = "res://.godot/imported/abilities.png-63196a83fde4f4f8174494127ae437f
 atlas = SubResource("CompressedTexture2D_etxg4")
 region = Rect2(32, 96, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_teyq6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1nv8k"]
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
 region = Rect2(195, 0, 13, 0)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_p6csp"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qi88y"]
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
 region = Rect2(273, 0, 13, 0)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1nv8k"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ja1mc"]
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
 region = Rect2(286, 0, 13, 0)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qi88y"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2oqmc"]
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
 region = Rect2(208, 0, 13, 0)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ja1mc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_sp6kg"]
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
 region = Rect2(403, 0, 13, 0)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2oqmc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_aj446"]
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
 region = Rect2(351, 0, 13, 0)
@@ -182,7 +183,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_b0obc"]
 gradient = SubResource("Gradient_b0obc")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sp6kg"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6n36"]
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
 region = Rect2(208, 0, 13, 0)
@@ -198,69 +199,89 @@ border_width_bottom = 2
 draw_center = false
 border_width_bottom = 2
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_blb37"]
-draw_center = false
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.8, 0.969, 0.906, 1)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
+[sub_resource type="Resource" id="Resource_1nv8k"]
+script = ExtResource("12_ja1mc")
+label_text = "Press"
+metadata/_custom_type_script = "uid://ctlhrwxnjq4r7"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_aj446"]
-resource_local_to_scene = true
-atlas = ExtResource("8_teyq6")
-region = Rect2(195, 0, 13, 0)
+[sub_resource type="Resource" id="Resource_qi88y"]
+script = ExtResource("12_ja1mc")
+type = 1
+hint_type = 6
+metadata/_custom_type_script = "uid://ctlhrwxnjq4r7"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y6n36"]
-resource_local_to_scene = true
-atlas = ExtResource("8_teyq6")
-region = Rect2(208, 0, 13, 0)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_plusc"]
-resource_local_to_scene = true
-atlas = ExtResource("8_teyq6")
-region = Rect2(208, 0, 13, 0)
+[sub_resource type="Resource" id="Resource_ja1mc"]
+script = ExtResource("12_ja1mc")
+label_text = "while hanging to transform"
+metadata/_custom_type_script = "uid://ctlhrwxnjq4r7"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xvc88"]
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
 region = Rect2(195, 0, 13, 0)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_plusc"]
+resource_local_to_scene = true
+atlas = ExtResource("8_teyq6")
+region = Rect2(208, 0, 13, 0)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_htrey"]
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
-region = Rect2(351, 0, 13, 0)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_do541"]
-resource_local_to_scene = true
-atlas = ExtResource("8_teyq6")
-region = Rect2(195, 0, 13, 0)
+region = Rect2(208, 0, 13, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vfaqf"]
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
-region = Rect2(156, 0, 13, 0)
+region = Rect2(195, 0, 13, 0)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6an08"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_do541"]
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
-region = Rect2(273, 0, 13, 0)
+region = Rect2(351, 0, 13, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fcuti"]
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
 region = Rect2(195, 0, 13, 0)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6an08"]
+resource_local_to_scene = true
+atlas = ExtResource("8_teyq6")
+region = Rect2(156, 0, 13, 0)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_4wbmk"]
+resource_local_to_scene = true
+atlas = ExtResource("8_teyq6")
+region = Rect2(273, 0, 13, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ap3l6"]
+resource_local_to_scene = true
+atlas = ExtResource("8_teyq6")
+region = Rect2(195, 0, 13, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6cjy"]
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
 region = Rect2(403, 0, 13, 0)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t6cjy"]
+[sub_resource type="Resource" id="Resource_aj446"]
+script = ExtResource("12_ja1mc")
+label_text = "Press"
+metadata/_custom_type_script = "uid://ctlhrwxnjq4r7"
+
+[sub_resource type="Resource" id="Resource_y6n36"]
+script = ExtResource("12_ja1mc")
+type = 1
+hint_type = 4
+metadata/_custom_type_script = "uid://ctlhrwxnjq4r7"
+
+[sub_resource type="Resource" id="Resource_xvc88"]
+script = ExtResource("12_ja1mc")
+label_text = "to lay bombs."
+metadata/_custom_type_script = "uid://ctlhrwxnjq4r7"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esxov"]
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
 region = Rect2(195, 0, 13, 0)
@@ -1357,7 +1378,7 @@ text = "Interact:"
 
 [node name="GuiInputHints" parent="Control/Controls/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=2062775260 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_teyq6")
+texture = SubResource("AtlasTexture_1nv8k")
 expand_mode = 2
 stretch_mode = 3
 
@@ -1372,7 +1393,7 @@ text = "Attack:"
 
 [node name="GuiInputHints" parent="Control/Controls/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1255076187 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_p6csp")
+texture = SubResource("AtlasTexture_qi88y")
 expand_mode = 2
 stretch_mode = 3
 hint = 1
@@ -1388,7 +1409,7 @@ text = "Shoot:"
 
 [node name="GuiInputHints" parent="Control/Controls/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3" unique_id=313061671 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_1nv8k")
+texture = SubResource("AtlasTexture_ja1mc")
 expand_mode = 2
 stretch_mode = 3
 hint = 4
@@ -1408,7 +1429,7 @@ text = "Jump:"
 
 [node name="GuiInputHints" parent="Control/Controls/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer4" unique_id=947966772 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_qi88y")
+texture = SubResource("AtlasTexture_2oqmc")
 expand_mode = 2
 stretch_mode = 3
 hint = 2
@@ -1424,7 +1445,7 @@ text = "Morph:"
 
 [node name="GuiInputHints" parent="Control/Controls/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer6" unique_id=1023833811 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_ja1mc")
+texture = SubResource("AtlasTexture_sp6kg")
 expand_mode = 2
 stretch_mode = 3
 hint = 6
@@ -1440,7 +1461,7 @@ text = "Dash:"
 
 [node name="GuiInputHints" parent="Control/Controls/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer5" unique_id=360532068 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_2oqmc")
+texture = SubResource("AtlasTexture_aj446")
 expand_mode = 2
 stretch_mode = 3
 hint = 3
@@ -1483,9 +1504,14 @@ tab_2/icon = SubResource("AtlasTexture_etxg4")
 tab_3/icon = SubResource("AtlasTexture_cux0y")
 tab_4/icon = SubResource("AtlasTexture_nsdwt")
 
-[node name="LedgeGrab" type="Control" parent="Control/Abilities/PanelContainer/AbilitiesTab" unique_id=945541681]
+[node name="LedgeGrab" type="Control" parent="Control/Abilities/PanelContainer/AbilitiesTab" unique_id=945541681 node_paths=PackedStringArray("upgrades", "upgrade_name", "upgrade_description", "purchase_description", "upgrade_purchased")]
 layout_mode = 2
-script = ExtResource("9_teyq6")
+script = ExtResource("9_1nv8k")
+upgrades = [NodePath("VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer/MorphAscend")]
+upgrade_name = NodePath("VBoxContainer/HBoxContainer2/PanelContainer2/UpgradeName")
+upgrade_description = NodePath("VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/UpgradeDescription")
+purchase_description = NodePath("VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/PurchaseDescription")
+upgrade_purchased = NodePath("VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/UpgradePurchased")
 metadata/_tab_index = 0
 metadata/_tab_name = ""
 
@@ -1531,7 +1557,7 @@ text = "Note: Release"
 
 [node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer" unique_id=615188825 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_sp6kg")
+texture = SubResource("AtlasTexture_y6n36")
 hint = 2
 
 [node name="Label2" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer" unique_id=1098304557]
@@ -1577,26 +1603,13 @@ layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="MorphAscend" type="Button" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1693288233]
-unique_name_in_owner = true
-visible = false
+[node name="MorphAscend" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer" unique_id=980956524 instance=ExtResource("10_1nv8k")]
 layout_mode = 2
-
-[node name="Panel" type="Panel" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer/MorphAscend" unique_id=506362138]
-custom_minimum_size = Vector2(8, 8)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_blb37")
+ability_required = "morph_roll"
+upgrade = "morph_ascend"
+upgrade_name = "Morph Ascend"
+description = Array[ExtResource("12_ja1mc")]([SubResource("Resource_1nv8k"), SubResource("Resource_qi88y"), SubResource("Resource_ja1mc")])
+description2 = "and ascend a ledge."
 
 [node name="PanelContainer2" type="PanelContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2" unique_id=1570693094]
 custom_minimum_size = Vector2(190, 80)
@@ -1604,7 +1617,6 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_6drb7")
 
 [node name="UpgradeName" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer2" unique_id=1082325004]
-unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 14)
 layout_mode = 2
 size_flags_vertical = 0
@@ -1628,12 +1640,10 @@ size_flags_vertical = 8
 theme_override_constants/separation = 6
 
 [node name="UpgradeDescription" type="VBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=1915594794]
-unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 0
 
 [node name="PurchaseDescription" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=267055159]
-unique_name_in_owner = true
 visible = false
 layout_mode = 2
 alignment = 1
@@ -1645,10 +1655,9 @@ text = "Purchase:"
 
 [node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/PurchaseDescription" unique_id=1793506210 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_aj446")
+texture = SubResource("AtlasTexture_xvc88")
 
 [node name="UpgradePurchased" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=928231180]
-unique_name_in_owner = true
 visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8, 0.96862745, 0.90588236, 1)
@@ -1658,6 +1667,7 @@ text = "Purchased"
 [node name="DoubleJump" type="Control" parent="Control/Abilities/PanelContainer/AbilitiesTab" unique_id=21378805]
 visible = false
 layout_mode = 2
+script = ExtResource("9_1nv8k")
 metadata/_tab_index = 1
 metadata/_tab_name = ""
 
@@ -1703,7 +1713,7 @@ text = "Action:"
 
 [node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer" unique_id=1156469038 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_y6n36")
+texture = SubResource("AtlasTexture_plusc")
 hint = 2
 
 [node name="Label2" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer" unique_id=287060541]
@@ -1713,7 +1723,7 @@ text = "->"
 
 [node name="GuiInputHints2" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer" unique_id=1546785016 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_plusc")
+texture = SubResource("AtlasTexture_htrey")
 hint = 2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer" unique_id=1778416347]
@@ -1759,8 +1769,7 @@ custom_minimum_size = Vector2(190, 80)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_6drb7")
 
-[node name="UpgradeName2" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer2/PanelContainer2" unique_id=728310246]
-unique_name_in_owner = true
+[node name="UpgradeName" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer2/PanelContainer2" unique_id=728310246]
 custom_minimum_size = Vector2(0, 14)
 layout_mode = 2
 size_flags_vertical = 0
@@ -1783,28 +1792,25 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_constants/separation = 6
 
-[node name="UpgradeDescription2" type="VBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=2067042569]
-unique_name_in_owner = true
+[node name="UpgradeDescription" type="VBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=2067042569]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="PurchaseDescription2" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=612486771]
-unique_name_in_owner = true
+[node name="PurchaseDescription" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=612486771]
 visible = false
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/PurchaseDescription2" unique_id=1889279040]
+[node name="Label" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/PurchaseDescription" unique_id=1889279040]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Purchase:"
 
-[node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/PurchaseDescription2" unique_id=495893134 instance=ExtResource("7_cux0y")]
+[node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/PurchaseDescription" unique_id=495893134 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_xvc88")
+texture = SubResource("AtlasTexture_vfaqf")
 
-[node name="UpgradePurchased2" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=1944156702]
-unique_name_in_owner = true
+[node name="UpgradePurchased" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=1944156702]
 visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8, 0.96862745, 0.90588236, 1)
@@ -1814,6 +1820,7 @@ text = "Purchased"
 [node name="Dash" type="Control" parent="Control/Abilities/PanelContainer/AbilitiesTab" unique_id=1445479498]
 visible = false
 layout_mode = 2
+script = ExtResource("9_1nv8k")
 metadata/_tab_index = 2
 metadata/_tab_name = ""
 
@@ -1859,7 +1866,7 @@ text = "Action:"
 
 [node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer/HBoxContainer" unique_id=483699771 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_htrey")
+texture = SubResource("AtlasTexture_do541")
 hint = 3
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer" unique_id=827104583]
@@ -1905,8 +1912,7 @@ custom_minimum_size = Vector2(190, 80)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_6drb7")
 
-[node name="UpgradeName3" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer/HBoxContainer2/PanelContainer2" unique_id=116156106]
-unique_name_in_owner = true
+[node name="UpgradeName" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer/HBoxContainer2/PanelContainer2" unique_id=116156106]
 custom_minimum_size = Vector2(0, 14)
 layout_mode = 2
 size_flags_vertical = 0
@@ -1929,28 +1935,25 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_constants/separation = 6
 
-[node name="UpgradeDescription3" type="VBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=1788105718]
-unique_name_in_owner = true
+[node name="UpgradeDescription" type="VBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=1788105718]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="PurchaseDescription3" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=1510886702]
-unique_name_in_owner = true
+[node name="PurchaseDescription" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=1510886702]
 visible = false
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/PurchaseDescription3" unique_id=1448150096]
+[node name="Label" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/PurchaseDescription" unique_id=1448150096]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Purchase:"
 
-[node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/PurchaseDescription3" unique_id=1495679476 instance=ExtResource("7_cux0y")]
+[node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/PurchaseDescription" unique_id=1495679476 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_do541")
+texture = SubResource("AtlasTexture_fcuti")
 
-[node name="UpgradePurchased3" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=599352945]
-unique_name_in_owner = true
+[node name="UpgradePurchased" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=599352945]
 visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8, 0.96862745, 0.90588236, 1)
@@ -1960,6 +1963,7 @@ text = "Purchased"
 [node name="GroundSlam" type="Control" parent="Control/Abilities/PanelContainer/AbilitiesTab" unique_id=342761919]
 visible = false
 layout_mode = 2
+script = ExtResource("9_1nv8k")
 metadata/_tab_index = 3
 metadata/_tab_name = ""
 
@@ -2005,7 +2009,7 @@ text = "Action:"
 
 [node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer" unique_id=583205633 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_vfaqf")
+texture = SubResource("AtlasTexture_6an08")
 hint = 5
 
 [node name="Label2" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer" unique_id=1465854714]
@@ -2015,7 +2019,7 @@ text = "+"
 
 [node name="GuiInputHints2" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer" unique_id=1182278570 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_6an08")
+texture = SubResource("AtlasTexture_4wbmk")
 hint = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer" unique_id=748185633]
@@ -2061,8 +2065,7 @@ custom_minimum_size = Vector2(190, 80)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_6drb7")
 
-[node name="UpgradeName4" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2/PanelContainer2" unique_id=1703331862]
-unique_name_in_owner = true
+[node name="UpgradeName" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2/PanelContainer2" unique_id=1703331862]
 custom_minimum_size = Vector2(0, 14)
 layout_mode = 2
 size_flags_vertical = 0
@@ -2085,38 +2088,40 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_constants/separation = 6
 
-[node name="UpgradeDescription4" type="VBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=261293232]
-unique_name_in_owner = true
+[node name="UpgradeDescription" type="VBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=261293232]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="PurchaseDescription4" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=156537097]
-unique_name_in_owner = true
+[node name="PurchaseDescription" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=156537097]
 visible = false
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/PurchaseDescription4" unique_id=1280946472]
+[node name="Label" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/PurchaseDescription" unique_id=1280946472]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Purchase:"
 
-[node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/PurchaseDescription4" unique_id=615117683 instance=ExtResource("7_cux0y")]
+[node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/PurchaseDescription" unique_id=615117683 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_fcuti")
+texture = SubResource("AtlasTexture_ap3l6")
 
-[node name="UpgradePurchased4" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=2133366257]
-unique_name_in_owner = true
+[node name="UpgradePurchased" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=2133366257]
 visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8, 0.96862745, 0.90588236, 1)
 theme_override_font_sizes/font_size = 8
 text = "Purchased"
 
-[node name="Morph" type="Control" parent="Control/Abilities/PanelContainer/AbilitiesTab" unique_id=845430174]
+[node name="Morph" type="Control" parent="Control/Abilities/PanelContainer/AbilitiesTab" unique_id=845430174 node_paths=PackedStringArray("upgrades", "upgrade_name", "upgrade_description", "purchase_description", "upgrade_purchased")]
 visible = false
 layout_mode = 2
-script = ExtResource("10_p6csp")
+script = ExtResource("9_1nv8k")
+upgrades = [NodePath("VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer/Bombs")]
+upgrade_name = NodePath("VBoxContainer/HBoxContainer2/PanelContainer2/UpgradeName")
+upgrade_description = NodePath("VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/UpgradeDescription")
+purchase_description = NodePath("VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/PurchaseDescription")
+upgrade_purchased = NodePath("VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/UpgradePurchased")
 metadata/_tab_index = 4
 metadata/_tab_name = ""
 
@@ -2162,7 +2167,7 @@ text = "Action:"
 
 [node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer" unique_id=904871555 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_4wbmk")
+texture = SubResource("AtlasTexture_t6cjy")
 hint = 6
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer" unique_id=1675934967]
@@ -2203,33 +2208,18 @@ layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="Bombs" type="Button" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1540903763]
-unique_name_in_owner = true
+[node name="Bombs" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1858810577 instance=ExtResource("10_1nv8k")]
 layout_mode = 2
-
-[node name="Panel" type="Panel" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer/Bombs" unique_id=1924931371]
-custom_minimum_size = Vector2(8, 8)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_blb37")
+upgrade = "bombs"
+upgrade_name = "Bombs"
+description = Array[ExtResource("12_ja1mc")]([SubResource("Resource_aj446"), SubResource("Resource_y6n36"), SubResource("Resource_xvc88")])
 
 [node name="PanelContainer2" type="PanelContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer2" unique_id=2060542888]
 custom_minimum_size = Vector2(190, 80)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_6drb7")
 
-[node name="UpgradeName5" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer2/PanelContainer2" unique_id=1459486981]
-unique_name_in_owner = true
+[node name="UpgradeName" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer2/PanelContainer2" unique_id=1459486981]
 custom_minimum_size = Vector2(0, 14)
 layout_mode = 2
 size_flags_vertical = 0
@@ -2252,28 +2242,25 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_constants/separation = 6
 
-[node name="UpgradeDescription5" type="VBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=988615824]
-unique_name_in_owner = true
+[node name="UpgradeDescription" type="VBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=988615824]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="PurchaseDescription5" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=1914623185]
-unique_name_in_owner = true
+[node name="PurchaseDescription" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=1914623185]
 visible = false
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/PurchaseDescription5" unique_id=1538742178]
+[node name="Label" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/PurchaseDescription" unique_id=1538742178]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Purchase:"
 
-[node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/PurchaseDescription5" unique_id=716616904 instance=ExtResource("7_cux0y")]
+[node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/PurchaseDescription" unique_id=716616904 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_t6cjy")
+texture = SubResource("AtlasTexture_esxov")
 
-[node name="UpgradePurchased5" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=1605946358]
-unique_name_in_owner = true
+[node name="UpgradePurchased" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=1605946358]
 visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8, 0.96862745, 0.90588236, 1)

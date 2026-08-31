@@ -115,22 +115,6 @@ func set_morph_roll() -> void:
 	var input_hint : GuiInputHints = GUI_INPUT_HINTS.instantiate()
 	input_hint.hint = input_hint.Hint.MORPH
 	action_container.add_child(input_hint)
-	
-	var label : Label = Label.new()
-	label.text = "Note: Press"
-	label.add_theme_font_size_override( "font_size", 8 )
-	label.add_theme_color_override( "font_shadow_color", Color(0,0,0) )
-	note_container.add_child(label)
-	
-	var input_hint2 : GuiInputHints = GUI_INPUT_HINTS.instantiate()
-	input_hint2.hint = input_hint.Hint.SHOOT
-	note_container.add_child( input_hint2 )
-	
-	var label2 : Label = Label.new()
-	label2.text = "to lay bombs."
-	label2.add_theme_font_size_override( "font_size", 8 )
-	label2.add_theme_color_override( "font_shadow_color", Color(0,0,0) )
-	note_container.add_child(label2)
 	pass
 
 

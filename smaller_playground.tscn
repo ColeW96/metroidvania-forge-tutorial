@@ -33,9 +33,20 @@ target_level = "uid://dkb81i711vvg8"
 position = Vector2(208, 158)
 
 [node name="AbilityPickup" parent="." unique_id=1646825791 instance=ExtResource("6_chnyq")]
-position = Vector2(132.94783, 201.30618)
+position = Vector2(109, 202)
 type = 4
 
-[node name="AbilityPickup2" parent="." unique_id=102831747 instance=ExtResource("6_chnyq")]
-position = Vector2(218, 201)
+[node name="AbilityPickup2" parent="." unique_id=1265769369 instance=ExtResource("6_chnyq")]
+position = Vector2(171, 202)
+
+[node name="AbilityPickup3" parent="." unique_id=721402361 instance=ExtResource("6_chnyq")]
+position = Vector2(225, 202)
 type = 3
+
+[node name="AbilityPickup4" parent="." unique_id=1833477448 instance=ExtResource("6_chnyq")]
+position = Vector2(277, 202)
+type = 1
+
+[node name="AbilityPickup5" parent="." unique_id=227058448 instance=ExtResource("6_chnyq")]
+position = Vector2(324, 202)
+type = 2
