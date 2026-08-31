@@ -8,6 +8,7 @@ extends DecisionEngine
 @onready var es_chase: ESChase = %ESChase
 @onready var es_dash_attack: ESNPBHDashAttack = %ESNPBHDashAttack
 @onready var es_jump: ESNPBHJumpState = %ESNPBHJumpState
+@onready var es_ground_slam: ESNPBHGroundSlam = %ESNPBHGroundSlam
 
 var regular_attacks_executed : float = 0.0
 
@@ -27,6 +28,10 @@ func decide() -> EnemyState:
 		return null
 	
 	if blackboard.target:
+		if PlayerHud.boss_hp_bar.value < 0.5:
+			if not es_ground_slam.on_cooldown:
+				return es_ground_slam
+		
 		if regular_attacks_executed > 3:
 			if es_dash_attack.can_attack():
 				regular_attacks_executed = 0

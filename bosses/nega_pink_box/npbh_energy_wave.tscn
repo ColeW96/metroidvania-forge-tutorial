@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://bflycv8iwr643"]
+
+[ext_resource type="Texture2D" uid="uid://dhlmohtweyqa2" path="res://bosses/nega_pink_box/sprites/pink_box_effects.png" id="1_ohbaf"]
+[ext_resource type="Script" uid="uid://bawqhfjn8yo4b" path="res://bosses/nega_pink_box/scripts/npbh_energy_wave.gd" id="1_x1qtv"]
+[ext_resource type="Script" uid="uid://bvoy8p2v1ao7i" path="res://general/scripts/hazard_area.gd" id="2_crasx"]
+
+[sub_resource type="Animation" id="Animation_crasx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+
+[sub_resource type="Animation" id="Animation_ohbaf"]
+resource_name = "default"
+length = 0.1333
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [9, 10, 11, 12]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_crasx"]
+_data = {
+&"RESET": SubResource("Animation_crasx"),
+&"default": SubResource("Animation_ohbaf")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6drb7"]
+size = Vector2(31, 131)
+
+[sub_resource type="Gradient" id="Gradient_x1qtv"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6drb7"]
+gradient = SubResource("Gradient_x1qtv")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="NpbhEnergyWave" type="Node2D" unique_id=1562364470]
+z_index = 1
+script = ExtResource("1_x1qtv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1310220102]
+position = Vector2(-52, -64)
+texture = ExtResource("1_ohbaf")
+hframes = 5
+vframes = 3
+frame = 9
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1100505157]
+libraries/ = SubResource("AnimationLibrary_crasx")
+autoplay = &"default"
+
+[node name="HazardArea" type="Area2D" parent="." unique_id=503956907]
+visible = false
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("2_crasx")
+damage = 2.0
+metadata/_custom_type_script = "uid://bvoy8p2v1ao7i"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea" unique_id=86993421]
+position = Vector2(-5.5, -55.5)
+shape = SubResource("RectangleShape2D_6drb7")
+debug_color = Color(0.7019608, 0, 0.07058824, 0)
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1303012611]
+position = Vector2(0, -59)
+scale = Vector2(1.671875, 1.6093751)
+color = Color(1, 0.015686275, 0.34117648, 1)
+texture = SubResource("GradientTexture2D_6drb7")

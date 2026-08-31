@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://bmupbptsu8odn" path="res://bosses/nega_pink_box/scripts/npbh_es_jump.gd" id="16_4sn6g"]
 [ext_resource type="Script" uid="uid://vbioopbivv4j" path="res://bosses/nega_pink_box/scripts/npbh_dash_attack.gd" id="16_t1pui"]
 [ext_resource type="Script" uid="uid://cawilyvlawwsm" path="res://enemies/scripts/enemy_hit_particles.gd" id="16_xn23h"]
+[ext_resource type="Script" uid="uid://blh5pcc6ofphr" path="res://bosses/nega_pink_box/scripts/npbh_es_ground_slam.gd" id="17_4sn6g"]
 [ext_resource type="Script" uid="uid://brc344c2o0cfo" path="res://00_global/visual_effects/hit_particle_settings.gd" id="17_sg1sq"]
 [ext_resource type="Script" uid="uid://cdqw3u4u16lgo" path="res://general/scripts/loot_dropper.gd" id="18_spfja"]
 [ext_resource type="Script" uid="uid://bfkq1vksotjux" path="res://general/scripts/loot_data.gd" id="19_xkxgo"]
@@ -90,6 +91,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_rai4y"]
@@ -242,6 +255,35 @@ tracks/0/keys = {
 "values": [36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47]
 }
 
+[sub_resource type="Animation" id="Animation_4sn6g"]
+resource_name = "ground_slam"
+length = 2.6
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.19999999, 0.3, 0.4, 0.8, 0.9, 1, 1.1, 2.1, 2.1999998, 2.225, 2.25, 2.2749999, 2.2999997, 2.3249998, 2.35, 2.3749998, 2.3999999, 2.4249997, 2.46),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [14, 15, 16, 17, 18, 28, 29, 30, 31, 32, 33, 34, 35, 33, 34, 35, 33, 34, 35, 33, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.90000004, 1, 1.5, 1.5999999, 2.2, 2.3, 2.43, 2.46),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(2.1168277, 0.07741361, 0.76057065, 1), Color(1, 1, 1, 1), Color(2.1168277, 0.07741361, 0.76057065, 1), Color(1, 1, 1, 1), Color(2.1168277, 0.07741361, 0.76057065, 1), Color(2.1168277, 0.07741361, 0.76057065, 1), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_482dd"]
 resource_name = "idle"
 length = 0.5
@@ -318,6 +360,7 @@ _data = {
 &"attack": SubResource("Animation_rai4y"),
 &"dash_attack": SubResource("Animation_tlnbh"),
 &"death": SubResource("Animation_iyqwc"),
+&"ground_slam": SubResource("Animation_4sn6g"),
 &"idle": SubResource("Animation_482dd"),
 &"jump": SubResource("Animation_t1pui"),
 &"stun": SubResource("Animation_53kym"),
@@ -331,6 +374,9 @@ point_count = 3
 [sub_resource type="Curve" id="Curve_5qkfb"]
 _data = [Vector2(0.49828175, 0), 0.0, 0.0, 0, 0, Vector2(0.5051546, 1), 6.9045134, 6.9045134, 0, 0, Vector2(0.8453608, 1), -3.7307727, -3.7307727, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 4
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6drb7"]
+size = Vector2(1374, 398)
 
 [sub_resource type="Resource" id="Resource_uucha"]
 script = ExtResource("17_sg1sq")
@@ -483,6 +529,13 @@ cooldown = 3.0
 animation_name = "jump"
 metadata/_custom_type_script = "uid://bmupbptsu8odn"
 
+[node name="ESNPBHGroundSlam" type="Node" parent="EnemyStateMachine" unique_id=925273530]
+unique_name_in_owner = true
+script = ExtResource("17_4sn6g")
+tween_pos_01 = Vector2(468, 361)
+tween_pos_02 = Vector2(468, 550)
+metadata/_custom_type_script = "uid://blh5pcc6ofphr"
+
 [node name="EdgeSensor" type="RayCast2D" parent="." unique_id=533344323]
 visible = false
 position = Vector2(7, -3)
@@ -503,9 +556,9 @@ script = ExtResource("15_plkv4")
 use_audio_sensor = false
 metadata/_custom_type_script = "uid://c1fd8n55hi86u"
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerSensor" unique_id=1566586220]
-position = Vector2(0, -29)
-polygon = PackedVector2Array(0, 0, 256, -128, 256, 128)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerSensor" unique_id=384347060]
+shape = SubResource("RectangleShape2D_6drb7")
+debug_color = Color(0.7019608, 0.043137256, 0, 0.078431375)
 
 [node name="EnemyHitParticles" type="Marker2D" parent="." unique_id=404233325]
 position = Vector2(0, -7)
@@ -526,6 +579,7 @@ idle_state = NodePath("../EnemyStateMachine/ESChase_Idle")
 metadata/_custom_type_script = "uid://bit4f04t5u17t"
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=1026226565]
+visible = false
 collision_layer = 0
 collision_mask = 16
 script = ExtResource("21_byl52")

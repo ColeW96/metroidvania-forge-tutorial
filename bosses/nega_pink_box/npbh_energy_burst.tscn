@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://domj6yk8l1t8x"]
+
+[ext_resource type="Texture2D" uid="uid://dhlmohtweyqa2" path="res://bosses/nega_pink_box/sprites/pink_box_effects.png" id="2_h7o37"]
+
+[sub_resource type="Animation" id="Animation_crasx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_ohbaf"]
+resource_name = "default"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667, 0.20000002, 0.23333335, 0.26666668),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PointLight2D:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 1.5, 0.0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_crasx"]
+_data = {
+&"RESET": SubResource("Animation_crasx"),
+&"default": SubResource("Animation_ohbaf")
+}
+
+[sub_resource type="Gradient" id="Gradient_x1qtv"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6drb7"]
+gradient = SubResource("Gradient_x1qtv")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="NpbhEnergyBurst" type="Node2D" unique_id=1562364470]
+z_index = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1310220102]
+position = Vector2(0, -64)
+texture = ExtResource("2_h7o37")
+hframes = 5
+vframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1100505157]
+libraries/ = SubResource("AnimationLibrary_crasx")
+autoplay = &"default"
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1303012611]
+position = Vector2(0, -40)
+scale = Vector2(1.671875, 1.6093751)
+color = Color(1, 0.015686275, 0.34117648, 1)
+texture = SubResource("GradientTexture2D_6drb7")

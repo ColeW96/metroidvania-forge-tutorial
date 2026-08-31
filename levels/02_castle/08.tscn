@@ -46,13 +46,15 @@ script = ExtResource("4_egrrs")
 track = ExtResource("5_gut50")
 metadata/_custom_type_script = "uid://rwwuu7gvxywr"
 
-[node name="BossBattleOrchestrator" type="Node" parent="." unique_id=365039576 node_paths=PackedStringArray("boss", "trigger_area", "boss_tilemaps")]
+[node name="BossBattleOrchestrator" type="Node" parent="." unique_id=365039576 node_paths=PackedStringArray("boss", "trigger_area", "boss_tilemaps", "boss_level_bounds", "original_level_bounds")]
 script = ExtResource("5_l3j2w")
 boss_name = "Nega Pink Box Hero"
 boss = NodePath("NegaPinkBoxHero")
 trigger_area = NodePath("Area2D")
 boss_tilemaps = [NodePath("BossTilemap")]
 boss_track = ExtResource("7_eq85o")
+boss_level_bounds = NodePath("LevelBounds2")
+original_level_bounds = NodePath("../LevelBounds")
 metadata/_custom_type_script = "uid://ch0a048ylkibq"
 
 [node name="BossTilemap" type="TileMapLayer" parent="BossBattleOrchestrator" unique_id=230411526]
@@ -68,6 +70,21 @@ shape = SubResource("RectangleShape2D_6drb7")
 [node name="NegaPinkBoxHero" parent="BossBattleOrchestrator" unique_id=488761391 instance=ExtResource("8_gut50")]
 position = Vector2(624, 544)
 face_left_on_start = true
+
+[node name="Marker2D" type="Marker2D" parent="BossBattleOrchestrator" unique_id=102110292]
+position = Vector2(468, 361)
+
+[node name="Marker2D2" type="Marker2D" parent="BossBattleOrchestrator" unique_id=826970543]
+position = Vector2(468, 550)
+
+[node name="LevelBounds2" type="Node2D" parent="BossBattleOrchestrator" unique_id=2140685024]
+z_index = 256
+position = Vector2(0, 262)
+script = ExtResource("2_l0yxd")
+width = 1120
+height = 334
+set_on_ready = false
+metadata/_custom_type_script = "uid://drqun7tewik8i"
 
 [node name="PlayerSpawn" parent="." unique_id=544684349 instance=ExtResource("6_qayq2")]
 position = Vector2(312, 552)
