@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://cro50mhhf5uji" path="res://pause_menu/scripts/map.gd" id="2_wn31l"]
 [ext_resource type="Script" uid="uid://c1bg5i4xslotb" path="res://pause_menu/scripts/abilities_list.gd" id="3_b4s0c"]
 [ext_resource type="PackedScene" uid="uid://ylecj1xha6lf" path="res://pause_menu/powerup_map_node.tscn" id="3_s1glv"]
+[ext_resource type="Script" uid="uid://dkljymv072js8" path="res://pause_menu/scripts/controls.gd" id="6_qi88y"]
 [ext_resource type="PackedScene" uid="uid://doln5e7j65ibw" path="res://general/gui_input_hints/gui_input_hints.tscn" id="7_cux0y"]
 [ext_resource type="Script" uid="uid://cekilm1skkt0y" path="res://pause_menu/scripts/abilities_menu.gd" id="8_cux0y"]
 [ext_resource type="Texture2D" uid="uid://c30j5ysbdc3yt" path="res://player/sprites/input_icons.png" id="8_teyq6"]
@@ -120,16 +121,6 @@ region = Rect2(286, 0, 13, 0)
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
 region = Rect2(208, 0, 13, 0)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sp6kg"]
-resource_local_to_scene = true
-atlas = ExtResource("8_teyq6")
-region = Rect2(403, 0, 13, 0)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_aj446"]
-resource_local_to_scene = true
-atlas = ExtResource("8_teyq6")
-region = Rect2(351, 0, 13, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_phca4"]
 bg_color = Color(0.05882353, 0.05882353, 0.05882353, 1)
@@ -1326,7 +1317,6 @@ value = 0.5
 
 [node name="Controls" type="Control" parent="Control" unique_id=864498751]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1334,6 +1324,7 @@ anchor_bottom = 1.0
 offset_top = 36.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("6_qi88y")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/Controls" unique_id=1372393651]
 layout_mode = 1
@@ -1434,40 +1425,19 @@ expand_mode = 2
 stretch_mode = 3
 hint = 2
 
-[node name="HBoxContainer6" type="HBoxContainer" parent="Control/Controls/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=945270536]
+[node name="MoveInputsContainer" type="HBoxContainer" parent="Control/Controls/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=945270536]
+unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/separation = 17
+theme_override_constants/separation = 24
 
-[node name="Label2" type="Label" parent="Control/Controls/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer6" unique_id=657044874]
+[node name="Label2" type="Label" parent="Control/Controls/VBoxContainer/HBoxContainer/VBoxContainer2/MoveInputsContainer" unique_id=657044874]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
-text = "Morph:"
-
-[node name="GuiInputHints" parent="Control/Controls/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer6" unique_id=1023833811 instance=ExtResource("7_cux0y")]
-layout_mode = 2
-texture = SubResource("AtlasTexture_sp6kg")
-expand_mode = 2
-stretch_mode = 3
-hint = 6
-
-[node name="HBoxContainer5" type="HBoxContainer" parent="Control/Controls/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=224345929]
-layout_mode = 2
-theme_override_constants/separation = 27
-
-[node name="Label2" type="Label" parent="Control/Controls/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer5" unique_id=1206817121]
-layout_mode = 2
-theme_override_font_sizes/font_size = 12
-text = "Dash:"
-
-[node name="GuiInputHints" parent="Control/Controls/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer5" unique_id=360532068 instance=ExtResource("7_cux0y")]
-layout_mode = 2
-texture = SubResource("AtlasTexture_aj446")
-expand_mode = 2
-stretch_mode = 3
-hint = 3
+text = "Move:"
 
 [node name="Abilities" type="Control" parent="Control" unique_id=670651393]
 unique_name_in_owner = true
+visible = false
 light_mask = 0
 layout_mode = 1
 anchors_preset = 15

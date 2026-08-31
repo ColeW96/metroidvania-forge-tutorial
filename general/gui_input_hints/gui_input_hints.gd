@@ -2,7 +2,7 @@
 class_name GuiInputHints extends TextureRect
 
 enum DebugHint { PLAYSTATION, XBOX, SWITCH, KEYBOARD }
-enum Hint { ACTION, ATTACK, JUMP, DASH, SHOOT, DOWN, MORPH }
+enum Hint { ACTION, ATTACK, JUMP, DASH, SHOOT, DOWN, MORPH, UP, LEFT, RIGHT, D_PAD, L_STICK, R_STICK }
 
 @export var hint : Hint = Hint.ACTION :
 	set( value ):
@@ -28,8 +28,11 @@ const HINT_MAP : Dictionary = {
 		"jump" : 208,
 		"dash" : 351,
 		"shoot" : 286,
+		"morph" : 403,
 		"down" : 156,
-		"morph" : 403
+		"up" : 520,
+		"left" : 533,
+		"right" : 546
 	},
 	"playstation" : {
 		"action" : 0,
@@ -38,7 +41,10 @@ const HINT_MAP : Dictionary = {
 		"dash" : 312,
 		"shoot" : 39,
 		"down" : 299,
-		"morph" : 364
+		"morph" : 364,
+		"d_pad" : 611,
+		"l_stick" : 624,
+		"r_stick" : 637
 	},
 	"xbox" : {
 		"action" : 104,
@@ -47,7 +53,10 @@ const HINT_MAP : Dictionary = {
 		"dash" : 325,
 		"shoot" : 78,
 		"down" : 299,
-		"morph" : 377
+		"morph" : 377,
+		"d_pad" : 611,
+		"l_stick" : 624,
+		"r_stick" : 637
 	},
 	"switch" : {
 		"action" : 247,
@@ -56,7 +65,10 @@ const HINT_MAP : Dictionary = {
 		"dash" : 338,
 		"shoot" : 221,
 		"down" : 299,
-		"morph" : 390
+		"morph" : 390,
+		"d_pad" : 611,
+		"l_stick" : 624,
+		"r_stick" : 637
 	}
 }
 
@@ -107,6 +119,18 @@ func get_hint_string() -> String:
 			hint_string = "down"
 		Hint.MORPH:
 			hint_string = "morph"
+		Hint.UP:
+			hint_string = "up"
+		Hint.LEFT:
+			hint_string = "left"
+		Hint.RIGHT:
+			hint_string = "right"
+		Hint.D_PAD:
+			hint_string = "d_pad"
+		Hint.L_STICK:
+			hint_string = "l_stick"
+		Hint.R_STICK:
+			hint_string = "r_stick"
 	return hint_string
 
 
