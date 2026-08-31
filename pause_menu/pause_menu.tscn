@@ -1468,6 +1468,7 @@ hint = 3
 
 [node name="Abilities" type="Control" parent="Control" unique_id=670651393]
 unique_name_in_owner = true
+light_mask = 0
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1478,6 +1479,7 @@ grow_vertical = 2
 script = ExtResource("8_cux0y")
 
 [node name="PanelContainer" type="PanelContainer" parent="Control/Abilities" unique_id=1209258589]
+light_mask = 0
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1494,6 +1496,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_phca4")
 
 [node name="AbilitiesTab" type="TabContainer" parent="Control/Abilities/PanelContainer" unique_id=421426462]
 unique_name_in_owner = true
+light_mask = 0
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_b0obc")
 current_tab = 0
