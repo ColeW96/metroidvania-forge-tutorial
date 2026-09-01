@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dlrseuwg0hsr5" path="res://general/input_level_transition/input_level_transition.tscn" id="4_cjmus"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="4_sxnha"]
 [ext_resource type="PackedScene" uid="uid://b7gueiujn071s" path="res://levels/props/ChandelierA.tscn" id="5_cjmus"]
-[ext_resource type="PackedScene" uid="uid://bew5osvj6ik17" path="res://general/ability_pickup/ability_pickup.tscn" id="6_chnyq"]
+[ext_resource type="PackedScene" uid="uid://wdmyqu8yln5j" path="res://general/powerup/powerup.tscn" id="6_chnyq"]
 
 [node name="SmallerPlayground" type="Node2D" unique_id=775118826]
 
@@ -32,21 +32,7 @@ target_level = "uid://dkb81i711vvg8"
 [node name="ChandelierA" parent="." unique_id=907015132 instance=ExtResource("5_cjmus")]
 position = Vector2(208, 158)
 
-[node name="AbilityPickup" parent="." unique_id=1646825791 instance=ExtResource("6_chnyq")]
-position = Vector2(109, 202)
-type = 4
-
-[node name="AbilityPickup2" parent="." unique_id=1265769369 instance=ExtResource("6_chnyq")]
-position = Vector2(171, 202)
-
-[node name="AbilityPickup3" parent="." unique_id=721402361 instance=ExtResource("6_chnyq")]
-position = Vector2(225, 202)
-type = 3
-
-[node name="AbilityPickup4" parent="." unique_id=1833477448 instance=ExtResource("6_chnyq")]
-position = Vector2(277, 202)
+[node name="Powerup" parent="." unique_id=165981682 instance=ExtResource("6_chnyq")]
+position = Vector2(218, 112)
+amount = 2.0
 type = 1
-
-[node name="AbilityPickup5" parent="." unique_id=227058448 instance=ExtResource("6_chnyq")]
-position = Vector2(324, 202)
-type = 2

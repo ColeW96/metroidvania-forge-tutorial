@@ -3,7 +3,7 @@ class_name Powerup extends Node2D
 
 const HEALTH_UP_AUDIO = preload("uid://c40kvmm7j4x3h")
 
-enum Type { HEALTH }
+enum Type { HEALTH, SKILL }
 
 @export var amount : float = 10
 @export var type : Type = Type.HEALTH :
@@ -11,6 +11,7 @@ enum Type { HEALTH }
 		type = value
 		_set_animation()
 
+@onready var powerup_sprite: Sprite2D = %PowerupSprite
 @onready var powerup_anim: AnimationPlayer = %PowerupAnim
 @onready var area_2d: Area2D = $Area2D
 @onready var texture_rect: TextureRect = %TextureRect
@@ -38,7 +39,11 @@ func _on_body_entered( n : Node2D ) -> void:
 			n.max_hp += amount
 			n.hp = n.max_hp
 			audio = HEALTH_UP_AUDIO
-	Audio.play_spatial_sound( audio, n.global_position )
+			Audio.play_spatial_sound( audio, n.global_position )
+		Type.SKILL:
+			print(n.skill_tokens, " before")
+			n.skill_tokens += amount
+			print(n.skill_tokens, " after")
 	area_2d.body_entered.disconnect( _on_body_entered )
 	queue_free()
 	pass
@@ -55,6 +60,8 @@ func get_powerup_name() -> String:
 	match type:
 		Type.HEALTH:
 			return "health_powerup"
+		Type.SKILL:
+			return "skill_token"
 	return ""
 
 func _get_path() -> String:

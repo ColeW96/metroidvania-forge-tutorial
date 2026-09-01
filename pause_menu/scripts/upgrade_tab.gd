@@ -9,7 +9,7 @@ var player : Player
 @export var upgrade_description : VBoxContainer
 @export var purchase_description : HBoxContainer
 @export var upgrade_purchased : Label
-
+@onready var skill_tokens_label: Label = %SkillTokensLabel
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player")
@@ -31,6 +31,12 @@ func setup_upgrades() -> void:
 
 
 func _on_upgrade_pressed( b : UpgradeButton ) -> void:
+	if player.skill_tokens < 1:
+		return
+	
+	player.skill_tokens -= 1
+	skill_tokens_label.text = str(player.skill_tokens)
+	
 	b.disabled = true
 	purchase_description.visible = false
 	upgrade_purchased.visible = true

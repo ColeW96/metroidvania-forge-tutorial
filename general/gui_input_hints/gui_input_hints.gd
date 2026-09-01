@@ -2,7 +2,11 @@
 class_name GuiInputHints extends TextureRect
 
 enum DebugHint { PLAYSTATION, XBOX, SWITCH, KEYBOARD }
-enum Hint { ACTION, ATTACK, JUMP, DASH, SHOOT, DOWN, MORPH, UP, LEFT, RIGHT, D_PAD, L_STICK, R_STICK }
+enum Hint { ACTION, ATTACK, JUMP,
+ 			DASH, SHOOT, DOWN, 
+			MORPH, UP, LEFT, 
+			RIGHT, D_PAD, L_STICK, 
+			R_STICK, PAN_UP, PAN_DOWN, PAN_LEFT, PAN_RIGHT }
 
 @export var hint : Hint = Hint.ACTION :
 	set( value ):
@@ -32,7 +36,11 @@ const HINT_MAP : Dictionary = {
 		"down" : 156,
 		"up" : 520,
 		"left" : 533,
-		"right" : 546
+		"right" : 546,
+		"pan_up" : 468,
+		"pan_down" : 481,
+		"pan_left" : 494,
+		"pan_right" : 507
 	},
 	"playstation" : {
 		"action" : 0,
@@ -131,6 +139,14 @@ func get_hint_string() -> String:
 			hint_string = "l_stick"
 		Hint.R_STICK:
 			hint_string = "r_stick"
+		Hint.PAN_UP:
+			hint_string = "pan_up"
+		Hint.PAN_DOWN:
+			hint_string = "pan_down"
+		Hint.PAN_LEFT:
+			hint_string = "pan_left"
+		Hint.PAN_RIGHT:
+			hint_string = "pan_right"
 	return hint_string
 
 

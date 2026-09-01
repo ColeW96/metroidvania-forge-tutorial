@@ -55,6 +55,7 @@ var max_hp : float = 20 :
 	set( value ):
 		max_hp = value
 		Messages.player_health_changed.emit( hp, max_hp )
+var skill_tokens : int = 0
 var dash : bool = false
 var dash_count : int = 0
 var double_jump : bool = false
