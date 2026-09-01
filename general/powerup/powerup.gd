@@ -41,9 +41,7 @@ func _on_body_entered( n : Node2D ) -> void:
 			audio = HEALTH_UP_AUDIO
 			Audio.play_spatial_sound( audio, n.global_position )
 		Type.SKILL:
-			print(n.skill_tokens, " before")
 			n.skill_tokens += amount
-			print(n.skill_tokens, " after")
 	area_2d.body_entered.disconnect( _on_body_entered )
 	queue_free()
 	pass

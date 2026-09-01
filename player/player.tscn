@@ -998,7 +998,7 @@ script = ExtResource("18_c35mf")
 
 [node name="Sprite2D" type="Sprite2D" parent="InputHints" unique_id=826723642]
 texture = ExtResource("18_e7oew")
-hframes = 32
+hframes = 50
 frame = 16
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=1309984596]
