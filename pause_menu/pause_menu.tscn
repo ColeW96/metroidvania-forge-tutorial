@@ -103,22 +103,22 @@ load_path = "res://.godot/imported/abilities.png-63196a83fde4f4f8174494127ae437f
 atlas = SubResource("CompressedTexture2D_etxg4")
 region = Rect2(32, 96, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qi88y"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ja1mc"]
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
 region = Rect2(195, 0, 13, 0)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ja1mc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2oqmc"]
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
 region = Rect2(273, 0, 13, 0)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2oqmc"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_sp6kg"]
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
 region = Rect2(286, 0, 13, 0)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sp6kg"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_aj446"]
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
 region = Rect2(208, 0, 13, 0)
@@ -175,7 +175,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_b0obc"]
 gradient = SubResource("Gradient_b0obc")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_aj446"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6n36"]
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
 region = Rect2(208, 0, 13, 0)
@@ -207,15 +207,10 @@ script = ExtResource("12_ja1mc")
 label_text = "while hanging to transform"
 metadata/_custom_type_script = "uid://ctlhrwxnjq4r7"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y6n36"]
-resource_local_to_scene = true
-atlas = ExtResource("8_teyq6")
-region = Rect2(195, 0, 13, 0)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_xvc88"]
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
-region = Rect2(208, 0, 13, 0)
+region = Rect2(195, 0, 13, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_plusc"]
 resource_local_to_scene = true
@@ -225,34 +220,39 @@ region = Rect2(208, 0, 13, 0)
 [sub_resource type="AtlasTexture" id="AtlasTexture_htrey"]
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
-region = Rect2(195, 0, 13, 0)
+region = Rect2(208, 0, 13, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vfaqf"]
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
-region = Rect2(351, 0, 13, 0)
+region = Rect2(195, 0, 13, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_do541"]
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
-region = Rect2(195, 0, 13, 0)
+region = Rect2(351, 0, 13, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fcuti"]
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
-region = Rect2(156, 0, 13, 0)
+region = Rect2(195, 0, 13, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6an08"]
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
-region = Rect2(273, 0, 13, 0)
+region = Rect2(156, 0, 13, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4wbmk"]
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
-region = Rect2(195, 0, 13, 0)
+region = Rect2(273, 0, 13, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ap3l6"]
+resource_local_to_scene = true
+atlas = ExtResource("8_teyq6")
+region = Rect2(195, 0, 13, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6cjy"]
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
 region = Rect2(403, 0, 13, 0)
@@ -273,7 +273,7 @@ script = ExtResource("12_ja1mc")
 label_text = "to lay bombs."
 metadata/_custom_type_script = "uid://ctlhrwxnjq4r7"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t6cjy"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_esxov"]
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
 region = Rect2(195, 0, 13, 0)
@@ -1374,7 +1374,7 @@ text = "Interact:"
 
 [node name="GuiInputHints" parent="Control/Controls/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=2062775260 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_qi88y")
+texture = SubResource("AtlasTexture_ja1mc")
 expand_mode = 2
 stretch_mode = 3
 
@@ -1389,7 +1389,7 @@ text = "Attack:"
 
 [node name="GuiInputHints" parent="Control/Controls/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1255076187 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_ja1mc")
+texture = SubResource("AtlasTexture_2oqmc")
 expand_mode = 2
 stretch_mode = 3
 hint = 1
@@ -1405,7 +1405,7 @@ text = "Shoot:"
 
 [node name="GuiInputHints" parent="Control/Controls/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3" unique_id=313061671 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_2oqmc")
+texture = SubResource("AtlasTexture_sp6kg")
 expand_mode = 2
 stretch_mode = 3
 hint = 4
@@ -1425,7 +1425,7 @@ text = "Jump:"
 
 [node name="GuiInputHints" parent="Control/Controls/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer4" unique_id=947966772 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_sp6kg")
+texture = SubResource("AtlasTexture_aj446")
 expand_mode = 2
 stretch_mode = 3
 hint = 2
@@ -1544,7 +1544,7 @@ text = "Note: Release"
 
 [node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer" unique_id=615188825 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_aj446")
+texture = SubResource("AtlasTexture_y6n36")
 hint = 2
 
 [node name="Label2" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer" unique_id=1098304557]
@@ -1642,7 +1642,7 @@ text = "Purchase:"
 
 [node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/PurchaseDescription" unique_id=1793506210 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_y6n36")
+texture = SubResource("AtlasTexture_xvc88")
 
 [node name="UpgradePurchased" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/LedgeGrab/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=928231180]
 visible = false
@@ -1700,7 +1700,7 @@ text = "Action:"
 
 [node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer" unique_id=1156469038 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_xvc88")
+texture = SubResource("AtlasTexture_plusc")
 hint = 2
 
 [node name="Label2" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer" unique_id=287060541]
@@ -1710,7 +1710,7 @@ text = "->"
 
 [node name="GuiInputHints2" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer" unique_id=1546785016 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_plusc")
+texture = SubResource("AtlasTexture_htrey")
 hint = 2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer" unique_id=1778416347]
@@ -1795,7 +1795,7 @@ text = "Purchase:"
 
 [node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/PurchaseDescription" unique_id=495893134 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_htrey")
+texture = SubResource("AtlasTexture_vfaqf")
 
 [node name="UpgradePurchased" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/DoubleJump/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=1944156702]
 visible = false
@@ -1853,7 +1853,7 @@ text = "Action:"
 
 [node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer/HBoxContainer" unique_id=483699771 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_vfaqf")
+texture = SubResource("AtlasTexture_do541")
 hint = 3
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer" unique_id=827104583]
@@ -1938,7 +1938,7 @@ text = "Purchase:"
 
 [node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/PurchaseDescription" unique_id=1495679476 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_do541")
+texture = SubResource("AtlasTexture_fcuti")
 
 [node name="UpgradePurchased" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/Dash/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=599352945]
 visible = false
@@ -1996,7 +1996,7 @@ text = "Action:"
 
 [node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer" unique_id=583205633 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_fcuti")
+texture = SubResource("AtlasTexture_6an08")
 hint = 5
 
 [node name="Label2" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer" unique_id=1465854714]
@@ -2006,7 +2006,7 @@ text = "+"
 
 [node name="GuiInputHints2" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer" unique_id=1182278570 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_6an08")
+texture = SubResource("AtlasTexture_4wbmk")
 hint = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer" unique_id=748185633]
@@ -2091,7 +2091,7 @@ text = "Purchase:"
 
 [node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/PurchaseDescription" unique_id=615117683 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_4wbmk")
+texture = SubResource("AtlasTexture_ap3l6")
 
 [node name="UpgradePurchased" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=2133366257]
 visible = false
@@ -2154,7 +2154,7 @@ text = "Action:"
 
 [node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer" unique_id=904871555 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_ap3l6")
+texture = SubResource("AtlasTexture_t6cjy")
 hint = 6
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer" unique_id=1675934967]
@@ -2245,7 +2245,7 @@ text = "Purchase:"
 
 [node name="GuiInputHints" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/PurchaseDescription" unique_id=716616904 instance=ExtResource("7_cux0y")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_t6cjy")
+texture = SubResource("AtlasTexture_esxov")
 
 [node name="UpgradePurchased" type="Label" parent="Control/Abilities/PanelContainer/AbilitiesTab/Morph/VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer" unique_id=1605946358]
 visible = false

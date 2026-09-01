@@ -52,11 +52,13 @@ func create_new_game_save( slot : int ) -> void:
 		"y" : 229,
 		"hp" : 20,
 		"max_hp" : 20,
+		"skill_tokens" : 0,
 		"dash" : false,
 		"double_jump" : false,
 		"ground_slam" : false,
 		"morph_roll" : false,
 		"ledge_grab" : false,
+		"upgrades" : {},
 		"discovered_areas" : discovered_areas,
 		"persistent_data" : persistent_data,
 	}
@@ -74,11 +76,13 @@ func save_game() -> void:
 		"y" : player.global_position.y,
 		"hp" : player.hp,
 		"max_hp" : player.max_hp,
+		"skill_tokens" : player.skill_tokens,
 		"dash" : player.dash,
 		"double_jump" : player.double_jump,
 		"ground_slam" : player.ground_slam,
 		"morph_roll" : player.morph_roll,
 		"ledge_grab" : player.ledge_grab,
+		"upgrades" : player.upgrades,
 		"discovered_areas" : discovered_areas,
 		"persistent_data" : persistent_data,
 	}
@@ -114,12 +118,15 @@ func setup_player() -> void:
 	
 	player.max_hp = save_data.get( "max_hp", 20 )
 	player.hp = save_data.get( "hp", 20 )
+	player.skill_tokens = save_data.get( "skill_tokens", 0 )
 	
 	player.dash = save_data.get( "dash", false )
 	player.double_jump = save_data.get( "double_jump", false )
 	player.ground_slam = save_data.get( "ground_slam", false )
 	player.morph_roll = save_data.get( "morph_roll", false )
 	player.ledge_grab = save_data.get( "ledge_grab", false )
+	player.upgrades["morph_ascend"] = save_data["upgrades"].get( "morph_ascend", false )
+	player.upgrades["bombs"] = save_data["upgrades"].get("bombs", false)
 	player.global_position = Vector2(
 		save_data.get( "x", 0 ),
 		save_data.get( "y", 0 )
