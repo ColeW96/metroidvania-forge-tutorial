@@ -319,6 +319,7 @@ size = Vector2(5, 15.5)
 size = Vector2(5, 15.5)
 
 [node name="SlamWave" type="Node2D" unique_id=767308914]
+z_index = 1
 script = ExtResource("1_v6wqy")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1734803770]

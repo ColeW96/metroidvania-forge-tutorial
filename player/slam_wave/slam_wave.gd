@@ -14,12 +14,16 @@ func _ready() -> void:
 	if facing_left:
 		scale = Vector2(-1, 1)
 		move_vector = Vector2.LEFT
+	
+	var anim : String = "level_1"
+	
 	if level == 3:
-		animation_player.play("level_3")
+		anim = "level_3"
 	elif level == 2:
-		animation_player.play("level_2")
-	else:
-		animation_player.play("level_1")
+		anim = "level_2"
+	
+	animation_player.play(anim)
+	
 	area_2d.body_entered.connect( _on_body_entered )
 	await get_tree().create_timer(.35).timeout
 	queue_free()
