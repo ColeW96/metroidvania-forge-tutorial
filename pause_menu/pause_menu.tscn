@@ -1956,7 +1956,7 @@ text = "Purchased"
 [node name="GroundSlam" type="Control" parent="Control/Abilities/PanelContainer/AbilitiesTab" unique_id=342761919 node_paths=PackedStringArray("upgrades", "upgrade_name", "upgrade_description", "purchase_description", "upgrade_purchased")]
 layout_mode = 2
 script = ExtResource("9_1nv8k")
-upgrades = [NodePath("VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer/WaveEmitter")]
+upgrades = [NodePath("VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer/WaveEmitter"), NodePath("VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer/WaveEmitter2"), NodePath("VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer/WaveEmitter3")]
 upgrade_name = NodePath("VBoxContainer/HBoxContainer2/PanelContainer2/UpgradeName")
 upgrade_description = NodePath("VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/UpgradeDescription")
 purchase_description = NodePath("VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/PurchaseDescription")
@@ -2057,10 +2057,26 @@ layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="WaveEmitter" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1900918423 instance=ExtResource("10_1nv8k")]
+[node name="WaveEmitter" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1900918423 node_paths=PackedStringArray("next_upgrade") instance=ExtResource("10_1nv8k")]
 layout_mode = 2
 upgrade = "wave_emitter_01"
 upgrade_name = "Wave Emitter Lv. 1"
+description = Array[ExtResource("12_ja1mc")]([SubResource("Resource_2oqmc")])
+next_upgrade = NodePath("../WaveEmitter2")
+
+[node name="WaveEmitter2" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1706243124 node_paths=PackedStringArray("next_upgrade") instance=ExtResource("10_1nv8k")]
+visible = false
+layout_mode = 2
+upgrade = "wave_emitter_02"
+upgrade_name = "Wave Emitter Lv. 2"
+description = Array[ExtResource("12_ja1mc")]([SubResource("Resource_2oqmc")])
+next_upgrade = NodePath("../WaveEmitter3")
+
+[node name="WaveEmitter3" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer" unique_id=397001963 instance=ExtResource("10_1nv8k")]
+visible = false
+layout_mode = 2
+upgrade = "wave_emitter_03"
+upgrade_name = "Wave Emitter Lv. 3"
 description = Array[ExtResource("12_ja1mc")]([SubResource("Resource_2oqmc")])
 
 [node name="PanelContainer2" type="PanelContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2" unique_id=507724244]

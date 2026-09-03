@@ -69,7 +69,9 @@ var ledge_grab : bool = false
 var upgrades : Dictionary = {
 	"morph_ascend" : false,
 	"bombs" : false,
-	"wave_emitter_01" : false
+	"wave_emitter_01" : false,
+	"wave_emitter_02" : false,
+	"wave_emitter_03" : false
 }
 #endregion
 

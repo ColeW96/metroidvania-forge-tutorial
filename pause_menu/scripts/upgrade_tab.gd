@@ -24,6 +24,8 @@ func setup_upgrades() -> void:
 		b.disabled = player.upgrades.get( b.upgrade )
 		if b.disabled == true:
 			add_texture_rect_to_button( b )
+			if b.next_upgrade:
+				b.next_upgrade.visible = true
 		b.pressed.connect( _on_upgrade_pressed.bind(b) )
 		b.focus_entered.connect( _on_upgrade_focus_entered.bind(b) )
 		b.focus_exited.connect( _on_upgrade_focus_exited )
@@ -44,6 +46,9 @@ func _on_upgrade_pressed( b : UpgradeButton ) -> void:
 	add_texture_rect_to_button(b)
 	
 	player.upgrades[b.upgrade] = true
+	
+	if b.next_upgrade:
+		b.next_upgrade.visible = true
 	pass
 
 
