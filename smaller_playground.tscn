@@ -35,7 +35,7 @@ position = Vector2(208, 158)
 
 [node name="Powerup" parent="." unique_id=165981682 instance=ExtResource("6_chnyq")]
 position = Vector2(218, 112)
-amount = 2.0
+amount = 3.0
 type = 1
 
 [node name="Slime2" parent="." unique_id=488761391 instance=ExtResource("7_j1wm5")]

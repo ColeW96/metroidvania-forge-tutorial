@@ -247,9 +247,19 @@ resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
 region = Rect2(273, 0, 13, 0)
 
+[sub_resource type="Resource" id="Resource_sp6kg"]
+script = ExtResource("12_ja1mc")
+label_text = "Emit small damaging waves when landing."
+metadata/_custom_type_script = "uid://ctlhrwxnjq4r7"
+
 [sub_resource type="Resource" id="Resource_2oqmc"]
 script = ExtResource("12_ja1mc")
-label_text = "Emit small damaging waves upon landing."
+label_text = "Increase size and damage of waves."
+metadata/_custom_type_script = "uid://ctlhrwxnjq4r7"
+
+[sub_resource type="Resource" id="Resource_5u3lt"]
+script = ExtResource("12_ja1mc")
+label_text = "Further increase to size and damage of waves."
 metadata/_custom_type_script = "uid://ctlhrwxnjq4r7"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ap3l6"]
@@ -2061,7 +2071,7 @@ alignment = 1
 layout_mode = 2
 upgrade = "wave_emitter_01"
 upgrade_name = "Wave Emitter Lv. 1"
-description = Array[ExtResource("12_ja1mc")]([SubResource("Resource_2oqmc")])
+description = Array[ExtResource("12_ja1mc")]([SubResource("Resource_sp6kg")])
 next_upgrade = NodePath("../WaveEmitter2")
 
 [node name="WaveEmitter2" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1706243124 node_paths=PackedStringArray("next_upgrade") instance=ExtResource("10_1nv8k")]
@@ -2077,7 +2087,7 @@ visible = false
 layout_mode = 2
 upgrade = "wave_emitter_03"
 upgrade_name = "Wave Emitter Lv. 3"
-description = Array[ExtResource("12_ja1mc")]([SubResource("Resource_2oqmc")])
+description = Array[ExtResource("12_ja1mc")]([SubResource("Resource_5u3lt")])
 
 [node name="PanelContainer2" type="PanelContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2" unique_id=507724244]
 custom_minimum_size = Vector2(190, 80)

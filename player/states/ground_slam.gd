@@ -102,12 +102,20 @@ func check_collisions( delta : float ) -> bool:
 
 
 func emit_waves() -> void:
+	var level : int = 1
+	if player.upgrades["wave_emitter_03"]:
+		level = 3
+	elif player.upgrades["wave_emitter_02"]:
+		level = 2
+	
 	var wave1 : SlamWave = SLAM_WAVE.instantiate()
+	wave1.level = level
 	player.add_sibling(wave1)
 	wave1.global_position = player.global_position
 	wave1.ray_cast.force_raycast_update()
 	
 	var wave2 : SlamWave = SLAM_WAVE.instantiate()
+	wave2.level = level
 	wave2.facing_left = true
 	player.add_sibling(wave2)
 	wave2.global_position = player.global_position
