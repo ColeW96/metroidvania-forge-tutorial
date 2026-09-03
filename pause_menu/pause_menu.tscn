@@ -2070,7 +2070,7 @@ alignment = 1
 [node name="WaveEmitter" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1900918423 node_paths=PackedStringArray("next_upgrade") instance=ExtResource("10_1nv8k")]
 layout_mode = 2
 upgrade = "wave_emitter_01"
-upgrade_name = "Wave Emitter Lv. 1"
+upgrade_name = "Wave Emitter"
 description = Array[ExtResource("12_ja1mc")]([SubResource("Resource_sp6kg")])
 next_upgrade = NodePath("../WaveEmitter2")
 
