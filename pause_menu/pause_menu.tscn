@@ -2075,7 +2075,6 @@ description = Array[ExtResource("12_ja1mc")]([SubResource("Resource_sp6kg")])
 next_upgrade = NodePath("../WaveEmitter2")
 
 [node name="WaveEmitter2" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1706243124 node_paths=PackedStringArray("next_upgrade") instance=ExtResource("10_1nv8k")]
-visible = false
 layout_mode = 2
 upgrade = "wave_emitter_02"
 upgrade_name = "Wave Emitter Lv. 2"
@@ -2083,7 +2082,6 @@ description = Array[ExtResource("12_ja1mc")]([SubResource("Resource_2oqmc")])
 next_upgrade = NodePath("../WaveEmitter3")
 
 [node name="WaveEmitter3" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer" unique_id=397001963 instance=ExtResource("10_1nv8k")]
-visible = false
 layout_mode = 2
 upgrade = "wave_emitter_03"
 upgrade_name = "Wave Emitter Lv. 3"
