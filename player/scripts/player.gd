@@ -68,7 +68,8 @@ var ledge_grab : bool = false
 #region /// ability upgrades
 var upgrades : Dictionary = {
 	"morph_ascend" : false,
-	"bombs" : false
+	"bombs" : false,
+	"wave_emitter_01" : false
 }
 #endregion
 

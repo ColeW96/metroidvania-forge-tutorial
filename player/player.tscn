@@ -216,7 +216,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(2, -2),
 "update": 0,
-"values": [Color(1.1638972, 0.33929244, 0.32570004, 1), Color(1.1638972, 0.9056418, 0.21696097, 0)]
+"values": [Color(1.1638972, 0.33929244, 0.32570004, 1), Color(1.164, 0.906, 0.217, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_bjvpn"]

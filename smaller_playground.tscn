@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="4_sxnha"]
 [ext_resource type="PackedScene" uid="uid://b7gueiujn071s" path="res://levels/props/ChandelierA.tscn" id="5_cjmus"]
 [ext_resource type="PackedScene" uid="uid://wdmyqu8yln5j" path="res://general/powerup/powerup.tscn" id="6_chnyq"]
+[ext_resource type="PackedScene" uid="uid://ja8lc0n3awhh" path="res://enemies/slime_2/slime_2.tscn" id="7_j1wm5"]
 
 [node name="SmallerPlayground" type="Node2D" unique_id=775118826]
 
@@ -36,3 +37,6 @@ position = Vector2(208, 158)
 position = Vector2(218, 112)
 amount = 2.0
 type = 1
+
+[node name="Slime2" parent="." unique_id=488761391 instance=ExtResource("7_j1wm5")]
+position = Vector2(243, 226)

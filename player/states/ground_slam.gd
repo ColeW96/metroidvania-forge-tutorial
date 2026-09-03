@@ -6,6 +6,7 @@ const BREAK_WOOD_AUDIO = preload("uid://cpqpq5d0arguu")
 const HIT_WOOD_LARGE = preload("uid://dm5k2wmv5w6sh")
 const HIT_WOOD_MEDIUM = preload("uid://gjrpwjdumgxp")
 const HIT_WOOD_SMALL = preload("uid://dhrfnkg8xl0lk")
+const SLAM_WAVE = preload("uid://odubh3tb41ag")
 
 
 @export var velocity : float = 400.0
@@ -39,6 +40,8 @@ func exit() -> void:
 	Audio.play_spatial_sound( BOOM_AUDIO, player.global_position, false, true, 1 )
 	damage_area.end_invulnerable()
 	ground_slam_attack_area.set_active( false )
+	if player.upgrades["wave_emitter_01"]:
+		emit_waves()
 	pass
 
 
@@ -96,3 +99,17 @@ func check_collisions( delta : float ) -> bool:
 				Audio.play_spatial_sound( BREAK_WOOD_AUDIO, pos, false, true, 0.75 )
 		return true
 	return false
+
+
+func emit_waves() -> void:
+	var wave1 : SlamWave = SLAM_WAVE.instantiate()
+	player.add_sibling(wave1)
+	wave1.global_position = player.global_position
+	wave1.ray_cast.force_raycast_update()
+	
+	var wave2 : SlamWave = SLAM_WAVE.instantiate()
+	wave2.facing_left = true
+	player.add_sibling(wave2)
+	wave2.global_position = player.global_position
+	wave2.ray_cast.force_raycast_update()
+	pass

@@ -247,6 +247,11 @@ resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
 region = Rect2(273, 0, 13, 0)
 
+[sub_resource type="Resource" id="Resource_2oqmc"]
+script = ExtResource("12_ja1mc")
+label_text = "Emit small damaging waves upon landing."
+metadata/_custom_type_script = "uid://ctlhrwxnjq4r7"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ap3l6"]
 resource_local_to_scene = true
 atlas = ExtResource("8_teyq6")
@@ -1483,7 +1488,7 @@ unique_name_in_owner = true
 light_mask = 0
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_b0obc")
-current_tab = 0
+current_tab = 3
 clip_tabs = false
 tab_0/icon = SubResource("AtlasTexture_gm4du")
 tab_1/icon = SubResource("AtlasTexture_5u3lt")
@@ -1492,6 +1497,7 @@ tab_3/icon = SubResource("AtlasTexture_cux0y")
 tab_4/icon = SubResource("AtlasTexture_nsdwt")
 
 [node name="LedgeGrab" type="Control" parent="Control/Abilities/PanelContainer/AbilitiesTab" unique_id=945541681 node_paths=PackedStringArray("upgrades", "upgrade_name", "upgrade_description", "purchase_description", "upgrade_purchased")]
+visible = false
 layout_mode = 2
 script = ExtResource("9_1nv8k")
 upgrades = [NodePath("VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer/MorphAscend")]
@@ -1947,10 +1953,14 @@ theme_override_colors/font_color = Color(0.8, 0.96862745, 0.90588236, 1)
 theme_override_font_sizes/font_size = 8
 text = "Purchased"
 
-[node name="GroundSlam" type="Control" parent="Control/Abilities/PanelContainer/AbilitiesTab" unique_id=342761919]
-visible = false
+[node name="GroundSlam" type="Control" parent="Control/Abilities/PanelContainer/AbilitiesTab" unique_id=342761919 node_paths=PackedStringArray("upgrades", "upgrade_name", "upgrade_description", "purchase_description", "upgrade_purchased")]
 layout_mode = 2
 script = ExtResource("9_1nv8k")
+upgrades = [NodePath("VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer/WaveEmitter")]
+upgrade_name = NodePath("VBoxContainer/HBoxContainer2/PanelContainer2/UpgradeName")
+upgrade_description = NodePath("VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/UpgradeDescription")
+purchase_description = NodePath("VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/PurchaseDescription")
+upgrade_purchased = NodePath("VBoxContainer/HBoxContainer2/PanelContainer2/VBoxContainer/UpgradePurchased")
 metadata/_tab_index = 3
 metadata/_tab_name = ""
 
@@ -2046,6 +2056,12 @@ theme_override_constants/separation = 7
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
+
+[node name="WaveEmitter" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1900918423 instance=ExtResource("10_1nv8k")]
+layout_mode = 2
+upgrade = "wave_emitter_01"
+upgrade_name = "Wave Emitter Lv. 1"
+description = Array[ExtResource("12_ja1mc")]([SubResource("Resource_2oqmc")])
 
 [node name="PanelContainer2" type="PanelContainer" parent="Control/Abilities/PanelContainer/AbilitiesTab/GroundSlam/VBoxContainer/HBoxContainer2" unique_id=507724244]
 custom_minimum_size = Vector2(190, 80)

@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://odubh3tb41ag"]
+
+[ext_resource type="Texture2D" uid="uid://vw1wo0ldi6mh" path="res://player/sprites/slam_wave_01.png" id="1_nfi37"]
+[ext_resource type="Script" uid="uid://bb18vuv7ny8w3" path="res://player/slam_wave/slam_wave.gd" id="1_v6wqy"]
+[ext_resource type="Script" uid="uid://bvoy8p2v1ao7i" path="res://general/scripts/hazard_area.gd" id="3_6ijge"]
+
+[sub_resource type="Animation" id="Animation_nfi37"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1.164, 0.344, 0.326, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_v6wqy"]
+resource_name = "default"
+length = 0.35
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.025, 0.05, 0.075, 0.1, 0.125, 0.15, 0.175, 0.2, 0.22500001, 0.25, 0.275, 0.3, 0.325),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 4, 5, 3, 1, 0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.325),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1.164, 0.344, 0.326, 1), Color(1.164, 0.344, 0.326, 1), Color(1.164, 0.906, 0.217, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HazardArea")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.15),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.2],
+"method": &"activate"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6ijge"]
+_data = {
+&"RESET": SubResource("Animation_nfi37"),
+&"default": SubResource("Animation_v6wqy")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8rp51"]
+size = Vector2(5, 15.5)
+
+[node name="SlamWave" type="Node2D" unique_id=767308914]
+script = ExtResource("1_v6wqy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1734803770]
+modulate = Color(1.164, 0.344, 0.326, 1)
+position = Vector2(0, -30)
+texture = ExtResource("1_nfi37")
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1984709891]
+libraries/ = SubResource("AnimationLibrary_6ijge")
+autoplay = &"default"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2144202511]
+unique_name_in_owner = true
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1977308837]
+position = Vector2(10.5, -9.25)
+shape = SubResource("RectangleShape2D_8rp51")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1757453188]
+unique_name_in_owner = true
+position = Vector2(7, -1)
+target_position = Vector2(0, 4)
+collision_mask = 3
+hit_from_inside = true
+
+[node name="HazardArea" type="Area2D" parent="." unique_id=1404669752]
+collision_layer = 0
+collision_mask = 96
+script = ExtResource("3_6ijge")
+damage = 0.5
+metadata/_custom_type_script = "uid://bvoy8p2v1ao7i"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HazardArea" unique_id=1770602903]
+position = Vector2(10.5, -9.25)
+shape = SubResource("RectangleShape2D_8rp51")
+debug_color = Color(0.70196074, 0, 0.004296813, 0.41960785)

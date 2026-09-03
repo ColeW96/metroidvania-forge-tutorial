@@ -125,8 +125,8 @@ func setup_player() -> void:
 	player.ground_slam = save_data.get( "ground_slam", false )
 	player.morph_roll = save_data.get( "morph_roll", false )
 	player.ledge_grab = save_data.get( "ledge_grab", false )
-	player.upgrades["morph_ascend"] = save_data["upgrades"].get( "morph_ascend", false )
-	player.upgrades["bombs"] = save_data["upgrades"].get("bombs", false)
+	player.upgrades = save_data["upgrades"]
+	
 	player.global_position = Vector2(
 		save_data.get( "x", 0 ),
 		save_data.get( "y", 0 )
