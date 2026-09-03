@@ -6,10 +6,12 @@ const HEALTH_UP_AUDIO = preload("uid://c40kvmm7j4x3h")
 enum Type { HEALTH, SKILL }
 
 @export var amount : float = 10
-@export var type : Type = Type.HEALTH :
+@export var type : Type = Type.HEALTH:
 	set( value ):
 		type = value
 		_set_animation()
+
+@export var node_to_remove : Node
 
 @onready var powerup_sprite: Sprite2D = %PowerupSprite
 @onready var powerup_anim: AnimationPlayer = %PowerupAnim
@@ -21,6 +23,9 @@ func _ready() -> void:
 	
 	if Engine.is_editor_hint():
 		return
+	
+	if node_to_remove:
+		tree_exited.connect( _on_tree_exited )
 	
 	if SaveManager.persistent_data.get_or_add( _get_path(), "" ) == "acquired":
 		queue_free()
@@ -64,3 +69,8 @@ func get_powerup_name() -> String:
 
 func _get_path() -> String:
 	return get_tree().current_scene.scene_file_path + "/" + get_parent().name + "/" + name
+
+
+func _on_tree_exited() -> void:
+	node_to_remove.queue_free()
+	pass

@@ -112,6 +112,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_hrg6l"]
 
 [node name="Powerup" type="Node2D" unique_id=165981682]
+process_mode = 3
 script = ExtResource("1_nh1rk")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1820189781]
@@ -132,7 +133,6 @@ vframes = 4
 unique_name_in_owner = true
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_nn186")
-autoplay = &"health_powerup"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2118701262]
 collision_layer = 0

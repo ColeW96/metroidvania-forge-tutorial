@@ -58,7 +58,13 @@ func create_new_game_save( slot : int ) -> void:
 		"ground_slam" : false,
 		"morph_roll" : false,
 		"ledge_grab" : false,
-		"upgrades" : {},
+		"upgrades" : {
+			"morph_ascend" : false,
+			"bombs" : false,
+			"wave_emitter_01" : false,
+			"wave_emitter_02" : false,
+			"wave_emitter_03" : false
+		},
 		"discovered_areas" : discovered_areas,
 		"persistent_data" : persistent_data,
 	}

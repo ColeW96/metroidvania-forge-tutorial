@@ -8,6 +8,7 @@
 [ext_resource type="TileSet" uid="uid://b337bi8pmvtwx" path="res://levels/tilesets/ff_no_collision.tres" id="6_3uw4e"]
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="7_3uw4e"]
 [ext_resource type="AudioStream" uid="uid://p8hxrxlmlcnc" path="res://music/dungeon_01.ogg" id="8_rjne3"]
+[ext_resource type="PackedScene" uid="uid://wdmyqu8yln5j" path="res://general/powerup/powerup.tscn" id="9_b7p2m"]
 
 [node name="28" type="Node2D" unique_id=1247034308]
 
@@ -47,6 +48,13 @@ show_area = false
 
 [node name="TileMapLayer" type="TileMapLayer" parent="HiddenAreas/HiddenArea" unique_id=476447765]
 tile_map_data = PackedByteArray("AAD/////AAAHAAkAAAD//wAAAAAJAAoAAAD+////AAAJAAYAAAA=")
+tile_set = ExtResource("6_3uw4e")
+
+[node name="HiddenArea7" parent="HiddenAreas" unique_id=1078951660 instance=ExtResource("5_phtli")]
+position = Vector2(160, 448)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="HiddenAreas/HiddenArea7" unique_id=1944835681]
+tile_map_data = PackedByteArray("AAD//wAAAAAIAAoAAAD/////AAAFAAsAAAD///7/AAAFAA4AAAAAAP7/AAAJAAoAAAD+//7/AAAEAA4AAAA=")
 tile_set = ExtResource("6_3uw4e")
 
 [node name="HiddenArea2" parent="HiddenAreas" unique_id=1168541592 instance=ExtResource("5_phtli")]
@@ -89,14 +97,6 @@ show_area = false
 tile_map_data = PackedByteArray("AAD/////AAAHAAkAAAD//wAAAAAHAAoAAAA=")
 tile_set = ExtResource("6_3uw4e")
 
-[node name="HiddenArea7" parent="HiddenAreas" unique_id=768829437 instance=ExtResource("5_phtli")]
-position = Vector2(384, 544)
-show_area = false
-
-[node name="TileMapLayer" type="TileMapLayer" parent="HiddenAreas/HiddenArea7" unique_id=1457221236]
-tile_map_data = PackedByteArray("AAD/////AAADAAYAAAD+////AAAHAAoAAAAAAP//AAAIAAoAAAA=")
-tile_set = ExtResource("6_3uw4e")
-
 [node name="HiddenArea8" parent="HiddenAreas" unique_id=1910181203 instance=ExtResource("5_phtli")]
 position = Vector2(352, 608)
 show_area = false
@@ -110,3 +110,13 @@ script = ExtResource("7_3uw4e")
 track = ExtResource("8_rjne3")
 reverb = 2
 metadata/_custom_type_script = "uid://rwwuu7gvxywr"
+
+[node name="Powerup" parent="." unique_id=165981682 node_paths=PackedStringArray("node_to_remove") instance=ExtResource("9_b7p2m")]
+position = Vector2(432, 528)
+amount = 1.0
+type = 1
+node_to_remove = NodePath("../TileMapLayer3")
+
+[node name="TileMapLayer3" type="TileMapLayer" parent="." unique_id=1645413450]
+tile_map_data = PackedByteArray("AAAKAA4AAAAJAAoAAAALAA4AAAABAAYAAAAMAA4AAAACAAgAAAA=")
+tile_set = ExtResource("1_hts2n")
