@@ -9,6 +9,7 @@
 [ext_resource type="TileSet" uid="uid://b337bi8pmvtwx" path="res://levels/tilesets/ff_no_collision.tres" id="7_swehg"]
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="8_y7cwq"]
 [ext_resource type="AudioStream" uid="uid://p8hxrxlmlcnc" path="res://music/dungeon_01.ogg" id="9_ka32x"]
+[ext_resource type="PackedScene" uid="uid://b7gueiujn071s" path="res://levels/props/ChandelierA.tscn" id="10_ka32x"]
 
 [node name="18" type="Node2D" unique_id=1247034308]
 
@@ -58,3 +59,17 @@ script = ExtResource("8_y7cwq")
 track = ExtResource("9_ka32x")
 reverb = 2
 metadata/_custom_type_script = "uid://rwwuu7gvxywr"
+
+[node name="Props" type="Node2D" parent="." unique_id=1302795484]
+
+[node name="ChandelierA" parent="Props" unique_id=1753652823 instance=ExtResource("10_ka32x")]
+position = Vector2(80, 240)
+
+[node name="ChandelierA2" parent="Props" unique_id=1601928448 instance=ExtResource("10_ka32x")]
+position = Vector2(144, 240)
+
+[node name="ChandelierA3" parent="Props" unique_id=701711048 instance=ExtResource("10_ka32x")]
+position = Vector2(208, 688)
+
+[node name="ChandelierA4" parent="Props" unique_id=62805253 instance=ExtResource("10_ka32x")]
+position = Vector2(48, 688)

@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="7_3uw4e"]
 [ext_resource type="AudioStream" uid="uid://p8hxrxlmlcnc" path="res://music/dungeon_01.ogg" id="8_rjne3"]
 [ext_resource type="PackedScene" uid="uid://wdmyqu8yln5j" path="res://general/powerup/powerup.tscn" id="9_b7p2m"]
+[ext_resource type="PackedScene" uid="uid://b7gueiujn071s" path="res://levels/props/ChandelierA.tscn" id="10_k2mt7"]
 
 [node name="28" type="Node2D" unique_id=1247034308]
 
@@ -120,3 +121,17 @@ node_to_remove = NodePath("../TileMapLayer3")
 [node name="TileMapLayer3" type="TileMapLayer" parent="." unique_id=1645413450]
 tile_map_data = PackedByteArray("AAAKAA4AAAAJAAoAAAALAA4AAAABAAYAAAAMAA4AAAACAAgAAAA=")
 tile_set = ExtResource("1_hts2n")
+
+[node name="Props" type="Node2D" parent="." unique_id=388912658]
+
+[node name="ChandelierA" parent="Props" unique_id=1753652823 instance=ExtResource("10_k2mt7")]
+position = Vector2(424, 48)
+
+[node name="ChandelierA2" parent="Props" unique_id=1962832390 instance=ExtResource("10_k2mt7")]
+position = Vector2(280, 48)
+
+[node name="ChandelierA3" parent="Props" unique_id=1949869445 instance=ExtResource("10_k2mt7")]
+position = Vector2(232, 208)
+
+[node name="ChandelierA4" parent="Props" unique_id=309677869 instance=ExtResource("10_k2mt7")]
+position = Vector2(104, 208)

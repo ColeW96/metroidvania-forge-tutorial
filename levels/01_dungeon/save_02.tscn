@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="6_eq5w2"]
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="7_fd5l0"]
 [ext_resource type="PackedScene" uid="uid://c02dlnypfkr7c" path="res://levels/props/test_dummy/test_dummy.tscn" id="7_jfgeo"]
+[ext_resource type="PackedScene" uid="uid://b7gueiujn071s" path="res://levels/props/ChandelierA.tscn" id="8_y1q0x"]
 
 [node name="S02" type="Node2D" unique_id=396729049]
 
@@ -48,3 +49,15 @@ position = Vector2(439, 100)
 [node name="TestDummy" parent="Props" unique_id=1457156033 instance=ExtResource("7_jfgeo")]
 position = Vector2(62, 258)
 scale = Vector2(-1, 1)
+
+[node name="ChandelierA" parent="Props" unique_id=1753652823 instance=ExtResource("8_y1q0x")]
+position = Vector2(168, 144)
+
+[node name="ChandelierA2" parent="Props" unique_id=940331653 instance=ExtResource("8_y1q0x")]
+position = Vector2(256, 48)
+
+[node name="ChandelierA3" parent="Props" unique_id=328584553 instance=ExtResource("8_y1q0x")]
+position = Vector2(368, 48)
+
+[node name="ChandelierA4" parent="Props" unique_id=2101494150 instance=ExtResource("8_y1q0x")]
+position = Vector2(56, 144)

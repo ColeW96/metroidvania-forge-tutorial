@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="6_fo27w"]
 [ext_resource type="PackedScene" uid="uid://h20ktogdikrd" path="res://levels/props/crate_wooden.tscn" id="7_krhfq"]
 [ext_resource type="AudioStream" uid="uid://p8hxrxlmlcnc" path="res://music/dungeon_01.ogg" id="7_qehbb"]
+[ext_resource type="PackedScene" uid="uid://b7gueiujn071s" path="res://levels/props/ChandelierA.tscn" id="9_1h0yw"]
 
 [node name="15" type="Node2D" unique_id=1247034308]
 
@@ -64,3 +65,15 @@ position = Vector2(293, 725)
 
 [node name="Crate3" parent="Props" unique_id=192149062 instance=ExtResource("7_krhfq")]
 position = Vector2(316, 694)
+
+[node name="ChandelierA" parent="Props" unique_id=1753652823 instance=ExtResource("9_1h0yw")]
+position = Vector2(48, 144)
+
+[node name="ChandelierA2" parent="Props" unique_id=1474510890 instance=ExtResource("9_1h0yw")]
+position = Vector2(176, 144)
+
+[node name="ChandelierA3" parent="Props" unique_id=1086282652 instance=ExtResource("9_1h0yw")]
+position = Vector2(176, 688)
+
+[node name="ChandelierA4" parent="Props" unique_id=650355131 instance=ExtResource("9_1h0yw")]
+position = Vector2(32, 688)

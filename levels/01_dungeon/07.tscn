@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://wdmyqu8yln5j" path="res://general/powerup/powerup.tscn" id="5_wlrwi"]
 [ext_resource type="PackedScene" uid="uid://h20ktogdikrd" path="res://levels/props/crate_wooden.tscn" id="6_emgrn"]
 [ext_resource type="PackedScene" uid="uid://dkyap82b10vdy" path="res://enemies/doom_scribe/doom_scribe.tscn" id="6_feimv"]
+[ext_resource type="PackedScene" uid="uid://b7gueiujn071s" path="res://levels/props/ChandelierA.tscn" id="7_06obc"]
 [ext_resource type="Script" uid="uid://dnb4iextr4r2g" path="res://general/scripts/patrol_limit.gd" id="7_ev72y"]
 [ext_resource type="PackedScene" uid="uid://hanqvafhvg88" path="res://enemies/living_armor/living_armor.tscn" id="8_28dw6"]
 [ext_resource type="PackedScene" uid="uid://ja8lc0n3awhh" path="res://enemies/slime_2/slime_2.tscn" id="9_0lghe"]
@@ -51,6 +52,24 @@ position = Vector2(62, 80)
 
 [node name="Crate" parent="Props" unique_id=261099677 instance=ExtResource("6_emgrn")]
 position = Vector2(1514, 339)
+
+[node name="ChandelierA" parent="Props" unique_id=1753652823 instance=ExtResource("7_06obc")]
+position = Vector2(144, 208)
+
+[node name="ChandelierA2" parent="Props" unique_id=1281941571 instance=ExtResource("7_06obc")]
+position = Vector2(464, 240)
+
+[node name="ChandelierA3" parent="Props" unique_id=1220343131 instance=ExtResource("7_06obc")]
+position = Vector2(656, 240)
+
+[node name="ChandelierA4" parent="Props" unique_id=1926363699 instance=ExtResource("7_06obc")]
+position = Vector2(1456, 208)
+
+[node name="ChandelierA5" parent="Props" unique_id=215556367 instance=ExtResource("7_06obc")]
+position = Vector2(1360, 304)
+
+[node name="ChandelierA6" parent="Props" unique_id=1006960050 instance=ExtResource("7_06obc")]
+position = Vector2(1152, 158)
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1107606966]
 

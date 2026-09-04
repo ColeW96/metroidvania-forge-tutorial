@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://p8hxrxlmlcnc" path="res://music/dungeon_01.ogg" id="6_qiso3"]
 [ext_resource type="PackedScene" uid="uid://c02dlnypfkr7c" path="res://levels/props/test_dummy/test_dummy.tscn" id="7_3lck7"]
 [ext_resource type="PackedScene" uid="uid://ja8lc0n3awhh" path="res://enemies/slime_2/slime_2.tscn" id="8_wy5d3"]
+[ext_resource type="PackedScene" uid="uid://b7gueiujn071s" path="res://levels/props/ChandelierA.tscn" id="9_6gy45"]
 [ext_resource type="PackedScene" uid="uid://b8tbf6ebtoi83" path="res://enemies/demonic_chest/demonic_chest.tscn" id="9_mnl52"]
 [ext_resource type="Script" uid="uid://dnb4iextr4r2g" path="res://general/scripts/patrol_limit.gd" id="10_0p41i"]
 
@@ -62,6 +63,18 @@ scale = Vector2(-1, 1)
 
 [node name="TestDummy2" parent="Props" unique_id=1153848006 instance=ExtResource("7_3lck7")]
 position = Vector2(551, 354)
+
+[node name="ChandelierA" parent="Props" unique_id=1753652823 instance=ExtResource("9_6gy45")]
+position = Vector2(288, 48)
+
+[node name="ChandelierA2" parent="Props" unique_id=1793305260 instance=ExtResource("9_6gy45")]
+position = Vector2(568, 48)
+
+[node name="ChandelierA3" parent="Props" unique_id=1454250794 instance=ExtResource("9_6gy45")]
+position = Vector2(696, 48)
+
+[node name="ChandelierA4" parent="Props" unique_id=1177725608 instance=ExtResource("9_6gy45")]
+position = Vector2(928, 48)
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1389590461]
 

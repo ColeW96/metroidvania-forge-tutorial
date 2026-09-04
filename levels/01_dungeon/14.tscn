@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b8tbf6ebtoi83" path="res://enemies/demonic_chest/demonic_chest.tscn" id="6_o613t"]
 [ext_resource type="Script" uid="uid://dnb4iextr4r2g" path="res://general/scripts/patrol_limit.gd" id="7_hbctf"]
 [ext_resource type="PackedScene" uid="uid://ja8lc0n3awhh" path="res://enemies/slime_2/slime_2.tscn" id="8_xxvyw"]
+[ext_resource type="PackedScene" uid="uid://b7gueiujn071s" path="res://levels/props/ChandelierA.tscn" id="10_xvba1"]
 
 [node name="14" type="Node2D" unique_id=514909877]
 
@@ -67,3 +68,23 @@ metadata/_custom_type_script = "uid://dnb4iextr4r2g"
 
 [node name="Slime2" parent="Enemies" unique_id=779353834 instance=ExtResource("8_xxvyw")]
 position = Vector2(807, 194)
+
+[node name="Props" type="Node2D" parent="." unique_id=838736271]
+
+[node name="ChandelierA" parent="Props" unique_id=1753652823 instance=ExtResource("10_xvba1")]
+position = Vector2(144, 240)
+
+[node name="ChandelierA2" parent="Props" unique_id=210988477 instance=ExtResource("10_xvba1")]
+position = Vector2(264, 48)
+
+[node name="ChandelierA3" parent="Props" unique_id=27549594 instance=ExtResource("10_xvba1")]
+position = Vector2(448, 48)
+
+[node name="ChandelierA4" parent="Props" unique_id=1507868603 instance=ExtResource("10_xvba1")]
+position = Vector2(672, 48)
+
+[node name="ChandelierA5" parent="Props" unique_id=1937801618 instance=ExtResource("10_xvba1")]
+position = Vector2(720, 112)
+
+[node name="ChandelierA6" parent="Props" unique_id=2005340752 instance=ExtResource("10_xvba1")]
+position = Vector2(1024, 112)

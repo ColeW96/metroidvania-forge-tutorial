@@ -117,6 +117,7 @@ destroy_particles = Array[ExtResource("2_ud4ko")]([SubResource("Resource_cc08i")
 metadata/_custom_type_script = "uid://sndrj6tq12yf"
 
 [node name="DamageArea" type="Area2D" parent="." unique_id=479644232]
+visible = false
 collision_layer = 64
 collision_mask = 0
 script = ExtResource("4_2mtb7")

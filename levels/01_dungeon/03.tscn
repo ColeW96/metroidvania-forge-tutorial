@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://h20ktogdikrd" path="res://levels/props/crate_wooden.tscn" id="12_sk4eq"]
 [ext_resource type="PackedScene" uid="uid://bpbdxq44olmim" path="res://levels/props/test_dummy/spike_dummy.tscn" id="13_el0rl"]
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="14_j2sle"]
+[ext_resource type="PackedScene" uid="uid://b7gueiujn071s" path="res://levels/props/ChandelierA.tscn" id="14_nnfnh"]
 [ext_resource type="AudioStream" uid="uid://p8hxrxlmlcnc" path="res://music/dungeon_01.ogg" id="15_t7cs5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0jtl8"]
@@ -157,6 +158,30 @@ position = Vector2(384, 546)
 
 [node name="SpikeDummy2" parent="Props" unique_id=251860298 instance=ExtResource("13_el0rl")]
 position = Vector2(169, 546)
+
+[node name="ChandelierA" parent="Props" unique_id=1753652823 instance=ExtResource("14_nnfnh")]
+position = Vector2(208, 368)
+
+[node name="ChandelierA2" parent="Props" unique_id=371485675 instance=ExtResource("14_nnfnh")]
+position = Vector2(336, 368)
+
+[node name="ChandelierA3" parent="Props" unique_id=1024822589 instance=ExtResource("14_nnfnh")]
+position = Vector2(464, 304)
+
+[node name="ChandelierA4" parent="Props" unique_id=605773668 instance=ExtResource("14_nnfnh")]
+position = Vector2(592, 304)
+
+[node name="ChandelierA5" parent="Props" unique_id=1742299174 instance=ExtResource("14_nnfnh")]
+position = Vector2(336, 48)
+
+[node name="ChandelierA6" parent="Props" unique_id=977337574 instance=ExtResource("14_nnfnh")]
+position = Vector2(656, 48)
+
+[node name="ChandelierA7" parent="Props" unique_id=1799368919 instance=ExtResource("14_nnfnh")]
+position = Vector2(560, 48)
+
+[node name="ChandelierA8" parent="Props" unique_id=1352951042 instance=ExtResource("14_nnfnh")]
+position = Vector2(448, 48)
 
 [node name="MusicAutoTrigger" type="Node" parent="." unique_id=502182976]
 script = ExtResource("14_j2sle")

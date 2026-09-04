@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://hanqvafhvg88" path="res://enemies/living_armor/living_armor.tscn" id="6_flo0k"]
 [ext_resource type="AudioStream" uid="uid://p8hxrxlmlcnc" path="res://music/dungeon_01.ogg" id="6_v0tr7"]
 [ext_resource type="PackedScene" uid="uid://dlrseuwg0hsr5" path="res://general/input_level_transition/input_level_transition.tscn" id="8_86xps"]
+[ext_resource type="PackedScene" uid="uid://b7gueiujn071s" path="res://levels/props/ChandelierA.tscn" id="9_8ptqc"]
 
 [node name="04" type="Node2D" unique_id=940042686]
 
@@ -56,3 +57,17 @@ face_left_on_start = true
 position = Vector2(400, 224)
 target_level = "uid://doa4omuybhbck"
 target_area_name = "DI01-I1"
+
+[node name="Props" type="Node2D" parent="." unique_id=454083631]
+
+[node name="ChandelierA" parent="Props" unique_id=1753652823 instance=ExtResource("9_8ptqc")]
+position = Vector2(144, 144)
+
+[node name="ChandelierA4" parent="Props" unique_id=175951426 instance=ExtResource("9_8ptqc")]
+position = Vector2(80, 48)
+
+[node name="ChandelierA2" parent="Props" unique_id=243522011 instance=ExtResource("9_8ptqc")]
+position = Vector2(240, 144)
+
+[node name="ChandelierA3" parent="Props" unique_id=1982962371 instance=ExtResource("9_8ptqc")]
+position = Vector2(368, 112)

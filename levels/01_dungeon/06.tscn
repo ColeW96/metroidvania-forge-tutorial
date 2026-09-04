@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://dnb4iextr4r2g" path="res://general/scripts/patrol_limit.gd" id="6_hdrwu"]
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="7_quowb"]
 [ext_resource type="PackedScene" uid="uid://ja8lc0n3awhh" path="res://enemies/slime_2/slime_2.tscn" id="8_21nqe"]
+[ext_resource type="PackedScene" uid="uid://b7gueiujn071s" path="res://levels/props/ChandelierA.tscn" id="8_vi8vm"]
 [ext_resource type="PackedScene" uid="uid://h20ktogdikrd" path="res://levels/props/crate_wooden.tscn" id="9_oosk0"]
 
 [node name="06" type="Node2D" unique_id=1247034308]
@@ -56,6 +57,12 @@ position = Vector2(54, 340)
 
 [node name="Crate2" parent="Props" unique_id=1239322299 instance=ExtResource("9_oosk0")]
 position = Vector2(54, 308)
+
+[node name="ChandelierA" parent="Props" unique_id=1753652823 instance=ExtResource("8_vi8vm")]
+position = Vector2(480, 48)
+
+[node name="ChandelierA2" parent="Props" unique_id=1226402773 instance=ExtResource("8_vi8vm")]
+position = Vector2(64, 208)
 
 [node name="Enemies" type="Node2D" parent="." unique_id=111201206]
 

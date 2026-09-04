@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="5_tfqsn"]
 [ext_resource type="AudioStream" uid="uid://p8hxrxlmlcnc" path="res://music/dungeon_01.ogg" id="6_3l1jh"]
 [ext_resource type="PackedScene" uid="uid://ja8lc0n3awhh" path="res://enemies/slime_2/slime_2.tscn" id="6_hrtbl"]
+[ext_resource type="PackedScene" uid="uid://b7gueiujn071s" path="res://levels/props/ChandelierA.tscn" id="8_otvex"]
 
 [node name="05" type="Node2D" unique_id=1247034308]
 
@@ -54,3 +55,17 @@ position = Vector2(216, 96)
 [node name="Slime3" parent="Enemies" unique_id=831922590 instance=ExtResource("6_hrtbl")]
 position = Vector2(424, 192)
 face_left_on_start = true
+
+[node name="Props" type="Node2D" parent="." unique_id=1449634316]
+
+[node name="ChandelierA4" parent="Props" unique_id=1986109572 instance=ExtResource("8_otvex")]
+position = Vector2(400, 144)
+
+[node name="ChandelierA5" parent="Props" unique_id=391592413 instance=ExtResource("8_otvex")]
+position = Vector2(488, 48)
+
+[node name="ChandelierA6" parent="Props" unique_id=828654713 instance=ExtResource("8_otvex")]
+position = Vector2(56, 48)
+
+[node name="ChandelierA2" parent="Props" unique_id=680942590 instance=ExtResource("8_otvex")]
+position = Vector2(336, 240)

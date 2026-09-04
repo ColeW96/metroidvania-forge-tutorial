@@ -70,3 +70,9 @@ position = Vector2(112, 241)
 
 [node name="ChandelierA2" parent="Props" unique_id=572843628 instance=ExtResource("8_66hqp")]
 position = Vector2(368, 241)
+
+[node name="ChandelierA3" parent="Props" unique_id=1753652823 instance=ExtResource("8_66hqp")]
+position = Vector2(176, 48)
+
+[node name="ChandelierA4" parent="Props" unique_id=1176092527 instance=ExtResource("8_66hqp")]
+position = Vector2(304, 48)

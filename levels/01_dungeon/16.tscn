@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://h20ktogdikrd" path="res://levels/props/crate_wooden.tscn" id="5_otobn"]
 [ext_resource type="PackedScene" uid="uid://c02dlnypfkr7c" path="res://levels/props/test_dummy/test_dummy.tscn" id="6_fhti0"]
 [ext_resource type="PackedScene" uid="uid://bl8f4woftk8ry" path="res://levels/props/torch.tscn" id="7_l6xjn"]
+[ext_resource type="PackedScene" uid="uid://b7gueiujn071s" path="res://levels/props/ChandelierA.tscn" id="8_jr4ar"]
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="8_wdt5a"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="9_amun5"]
 [ext_resource type="AudioStream" uid="uid://p8hxrxlmlcnc" path="res://music/dungeon_01.ogg" id="9_eqn7c"]
@@ -56,6 +57,12 @@ position = Vector2(208, 195)
 
 [node name="Torch2" parent="Props" unique_id=732178916 instance=ExtResource("7_l6xjn")]
 position = Vector2(272, 195)
+
+[node name="ChandelierA" parent="Props" unique_id=1753652823 instance=ExtResource("8_jr4ar")]
+position = Vector2(112, 80)
+
+[node name="ChandelierA2" parent="Props" unique_id=1736874865 instance=ExtResource("8_jr4ar")]
+position = Vector2(368, 80)
 
 [node name="MusicAutoTrigger" type="Node" parent="." unique_id=1850553402]
 script = ExtResource("8_wdt5a")

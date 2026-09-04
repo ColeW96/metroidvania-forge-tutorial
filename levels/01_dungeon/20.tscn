@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="4_c6fbo"]
 [ext_resource type="PackedScene" uid="uid://dj5ayp15ys2v8" path="res://enemies/gargoyle_statue/gargoyle_statue.tscn" id="5_21rp4"]
 [ext_resource type="PackedScene" uid="uid://h20ktogdikrd" path="res://levels/props/crate_wooden.tscn" id="5_gqybm"]
+[ext_resource type="PackedScene" uid="uid://b7gueiujn071s" path="res://levels/props/ChandelierA.tscn" id="6_h6vso"]
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="7_nofy0"]
 [ext_resource type="AudioStream" uid="uid://p8hxrxlmlcnc" path="res://music/dungeon_01.ogg" id="8_j0iof"]
 
@@ -51,6 +52,21 @@ position = Vector2(64, 352)
 
 [node name="Crate" parent="Props" unique_id=261099677 instance=ExtResource("5_gqybm")]
 position = Vector2(394, 149)
+
+[node name="ChandelierA" parent="Props" unique_id=1753652823 instance=ExtResource("6_h6vso")]
+position = Vector2(56, 272)
+
+[node name="ChandelierA2" parent="Props" unique_id=964953665 instance=ExtResource("6_h6vso")]
+position = Vector2(288, 304)
+
+[node name="ChandelierA3" parent="Props" unique_id=1163835662 instance=ExtResource("6_h6vso")]
+position = Vector2(432, 304)
+
+[node name="ChandelierA4" parent="Props" unique_id=2132413529 instance=ExtResource("6_h6vso")]
+position = Vector2(296, 48)
+
+[node name="ChandelierA5" parent="Props" unique_id=2089241528 instance=ExtResource("6_h6vso")]
+position = Vector2(192, 48)
 
 [node name="Enemies" type="Node2D" parent="." unique_id=379349172]
 

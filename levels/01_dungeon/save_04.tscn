@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="4_m3q4i"]
 [ext_resource type="PackedScene" uid="uid://85pdupjx7ewh" path="res://general/save_point/save_point.tscn" id="5_u01bv"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="6_exwn5"]
+[ext_resource type="PackedScene" uid="uid://b7gueiujn071s" path="res://levels/props/ChandelierA.tscn" id="7_er37d"]
 
 [node name="S04" type="Node2D" unique_id=396729049]
 
@@ -46,3 +47,14 @@ position = Vector2(225, 195)
 
 [node name="PlayerSpawn" parent="." unique_id=1335833567 instance=ExtResource("6_exwn5")]
 position = Vector2(37, 324)
+
+[node name="Props" type="Node2D" parent="." unique_id=1836708979]
+
+[node name="ChandelierA4" parent="Props" unique_id=497174659 instance=ExtResource("7_er37d")]
+position = Vector2(160, 112)
+
+[node name="ChandelierA5" parent="Props" unique_id=1815110545 instance=ExtResource("7_er37d")]
+position = Vector2(288, 112)
+
+[node name="ChandelierA6" parent="Props" unique_id=1321076640 instance=ExtResource("7_er37d")]
+position = Vector2(408, 112)

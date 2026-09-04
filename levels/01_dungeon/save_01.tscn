@@ -3,6 +3,7 @@
 [ext_resource type="TileSet" uid="uid://p87hshodqhxn" path="res://levels/tilesets/forgotten_forest.tres" id="1_20txu"]
 [ext_resource type="PackedScene" uid="uid://85pdupjx7ewh" path="res://general/save_point/save_point.tscn" id="2_340q8"]
 [ext_resource type="PackedScene" uid="uid://bl8f4woftk8ry" path="res://levels/props/torch.tscn" id="3_3dos6"]
+[ext_resource type="PackedScene" uid="uid://b7gueiujn071s" path="res://levels/props/ChandelierA.tscn" id="4_340q8"]
 [ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="4_xhug2"]
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="5_fdop8"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="6_uusdv"]
@@ -36,6 +37,12 @@ position = Vector2(74, 227)
 
 [node name="Torch2" parent="Props" unique_id=844725407 instance=ExtResource("3_3dos6")]
 position = Vector2(406, 227)
+
+[node name="ChandelierA" parent="Props" unique_id=1753652823 instance=ExtResource("4_340q8")]
+position = Vector2(48, 112)
+
+[node name="ChandelierA2" parent="Props" unique_id=1781347088 instance=ExtResource("4_340q8")]
+position = Vector2(432, 112)
 
 [node name="DS01-1" parent="." unique_id=1062349495 instance=ExtResource("4_xhug2")]
 position = Vector2(0, 224)

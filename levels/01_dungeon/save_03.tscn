@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bpbdxq44olmim" path="res://levels/props/test_dummy/spike_dummy.tscn" id="6_raiqq"]
 [ext_resource type="PackedScene" uid="uid://c02dlnypfkr7c" path="res://levels/props/test_dummy/test_dummy.tscn" id="7_chdfy"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="8_5tqjr"]
+[ext_resource type="PackedScene" uid="uid://b7gueiujn071s" path="res://levels/props/ChandelierA.tscn" id="8_65bej"]
 
 [node name="S03" type="Node2D" unique_id=396729049]
 
@@ -47,6 +48,18 @@ position = Vector2(424, 226)
 
 [node name="TestDummy" parent="Props" unique_id=463541353 instance=ExtResource("7_chdfy")]
 position = Vector2(377, 226)
+
+[node name="ChandelierA" parent="Props" unique_id=1753652823 instance=ExtResource("8_65bej")]
+position = Vector2(80, 112)
+
+[node name="ChandelierA2" parent="Props" unique_id=1092271403 instance=ExtResource("8_65bej")]
+position = Vector2(400, 112)
+
+[node name="ChandelierA3" parent="Props" unique_id=1927174825 instance=ExtResource("8_65bej")]
+position = Vector2(152, 48)
+
+[node name="ChandelierA4" parent="Props" unique_id=1822875937 instance=ExtResource("8_65bej")]
+position = Vector2(328, 48)
 
 [node name="PlayerSpawn" parent="." unique_id=546156597 instance=ExtResource("8_5tqjr")]
 position = Vector2(45, 357)

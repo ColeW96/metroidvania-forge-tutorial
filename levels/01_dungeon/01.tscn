@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cqo23h708wxk" path="res://general/level_transition/level_transition.tscn" id="4_5iu78"]
 [ext_resource type="PackedScene" uid="uid://bl8f4woftk8ry" path="res://levels/props/torch.tscn" id="4_e8knj"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="5_e8knj"]
+[ext_resource type="PackedScene" uid="uid://b7gueiujn071s" path="res://levels/props/ChandelierA.tscn" id="5_yb7yj"]
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="6_ocngb"]
 [ext_resource type="AudioStream" uid="uid://p8hxrxlmlcnc" path="res://music/dungeon_01.ogg" id="7_6o5dd"]
 [ext_resource type="PackedScene" uid="uid://ja8lc0n3awhh" path="res://enemies/slime_2/slime_2.tscn" id="8_6o5dd"]
@@ -57,13 +58,25 @@ target_area_name = "D05-1"
 [node name="Props" type="Node2D" parent="." unique_id=724842675]
 
 [node name="Torch" parent="Props" unique_id=1909834648 instance=ExtResource("4_e8knj")]
-position = Vector2(224, 260)
-
-[node name="Torch3" parent="Props" unique_id=1422067073 instance=ExtResource("4_e8knj")]
-position = Vector2(543, 228)
+position = Vector2(224, 259)
 
 [node name="Torch4" parent="Props" unique_id=933585705 instance=ExtResource("4_e8knj")]
-position = Vector2(925, 324)
+position = Vector2(768, 291)
+
+[node name="ChandelierA" parent="Props" unique_id=1753652823 instance=ExtResource("5_yb7yj")]
+position = Vector2(16, 112)
+
+[node name="ChandelierA2" parent="Props" unique_id=26493463 instance=ExtResource("5_yb7yj")]
+position = Vector2(144, 112)
+
+[node name="ChandelierA3" parent="Props" unique_id=1358283909 instance=ExtResource("5_yb7yj")]
+position = Vector2(688, 144)
+
+[node name="ChandelierA5" parent="Props" unique_id=1397710848 instance=ExtResource("5_yb7yj")]
+position = Vector2(448, 112)
+
+[node name="ChandelierA4" parent="Props" unique_id=1414895513 instance=ExtResource("5_yb7yj")]
+position = Vector2(784, 144)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=331775035]
 visible = false
@@ -84,7 +97,9 @@ metadata/_custom_type_script = "uid://rwwuu7gvxywr"
 
 [node name="Slime2" parent="Enemies" unique_id=488761391 instance=ExtResource("8_6o5dd")]
 position = Vector2(352, 320)
+show_vision = false
 
 [node name="Slime3" parent="Enemies" unique_id=1259273143 instance=ExtResource("8_6o5dd")]
 position = Vector2(656, 320)
 face_left_on_start = true
+show_vision = false
