@@ -69,6 +69,7 @@ shape = SubResource("RectangleShape2D_6drb7")
 
 [node name="NegaPinkBoxHero" parent="BossBattleOrchestrator" unique_id=488761391 instance=ExtResource("8_gut50")]
 position = Vector2(624, 544)
+health = 3.0
 face_left_on_start = true
 
 [node name="Marker2D" type="Marker2D" parent="BossBattleOrchestrator" unique_id=102110292]

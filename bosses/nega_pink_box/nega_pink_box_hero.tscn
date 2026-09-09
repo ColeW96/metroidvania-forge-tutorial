@@ -9,10 +9,14 @@
 [ext_resource type="Script" uid="uid://bvoy8p2v1ao7i" path="res://general/scripts/hazard_area.gd" id="5_4sn6g"]
 [ext_resource type="Script" uid="uid://b5qql3uoxwh0y" path="res://enemies/scripts/enemy_state_machine.gd" id="6_ioh3j"]
 [ext_resource type="Script" uid="uid://mcndna2lf2n1" path="res://enemies/scripts/states/es_walk.gd" id="7_4fcso"]
+[ext_resource type="AudioStream" uid="uid://d3iwgndg5oc2r" path="res://bosses/nega_pink_box/audio/whoa.wav" id="8_ioh3j"]
 [ext_resource type="Script" uid="uid://ctqgpa10k4em6" path="res://enemies/scripts/states/es_stun.gd" id="8_l4upt"]
 [ext_resource type="Script" uid="uid://b2qdp3bms72og" path="res://enemies/scripts/states/es_death.gd" id="9_sp5s3"]
 [ext_resource type="AudioStream" uid="uid://k3p37oqyb0e4" path="res://enemies/slime/slime_death.wav" id="10_g607t"]
+[ext_resource type="AudioStream" uid="uid://cxdhfd324t2sa" path="res://bosses/nega_pink_box/audio/charge.wav" id="10_l4upt"]
 [ext_resource type="Script" uid="uid://dkbw4qtkft820" path="res://enemies/scripts/states/es_attack.gd" id="11_2c5fn"]
+[ext_resource type="AudioStream" uid="uid://b3q7oxx2868on" path="res://bosses/nega_pink_box/audio/ground slam.wav" id="11_g607t"]
+[ext_resource type="AudioStream" uid="uid://r4wkitgi5qpc" path="res://bosses/nega_pink_box/audio/explosion.wav" id="11_sp5s3"]
 [ext_resource type="Script" uid="uid://1f21jhelvg48" path="res://enemies/scripts/states/es_chase.gd" id="12_mvbhv"]
 [ext_resource type="Script" uid="uid://dfg03o7e8cnit" path="res://enemies/scripts/sensors/edge_sensor.gd" id="14_7goyu"]
 [ext_resource type="Script" uid="uid://c1fd8n55hi86u" path="res://enemies/scripts/sensors/player_sensor.gd" id="15_plkv4"]
@@ -104,6 +108,42 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D/ChargeSprite:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite2D/ChargeSprite:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprite2D/ChargeSprite:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1.8247963, 0.059608817, 0.6509062, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_rai4y"]
 resource_name = "attack"
@@ -170,6 +210,23 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [ExtResource("8_ioh3j")],
+"method": &"play_audio"
+}, {
+"args": [ExtResource("22_glntu")],
+"method": &"play_audio"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_tlnbh"]
@@ -258,7 +315,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_4sn6g"]
 resource_name = "ground_slam"
 length = 2.6
-step = 0.01
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -282,6 +339,65 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(2.1168277, 0.07741361, 0.76057065, 1), Color(1, 1, 1, 1), Color(2.1168277, 0.07741361, 0.76057065, 1), Color(1, 1, 1, 1), Color(2.1168277, 0.07741361, 0.76057065, 1), Color(2.1168277, 0.07741361, 0.76057065, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.8, 1.4, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [ExtResource("10_l4upt")],
+"method": &"play_audio"
+}, {
+"args": [ExtResource("10_l4upt")],
+"method": &"play_audio"
+}, {
+"args": [ExtResource("11_g607t")],
+"method": &"play_audio"
+}, {
+"args": [ExtResource("11_sp5s3")],
+"method": &"play_audio"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D/ChargeSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.1, 1.4, 1.7, 2, 2.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D/ChargeSprite:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.8, 1.1, 1.4, 1.7, 2, 2.3000002),
+"transitions": PackedFloat32Array(0.5, 1, 0.5, 1, 0.5, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(1, 1), Vector2(2, 2), Vector2(1, 1), Vector2(2, 2), Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D/ChargeSprite:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.8, 1.1, 1.4, 1.7, 2, 2.3000002),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1.8247963, 0.059608817, 0.6509062, 0), Color(1.8247963, 0.059608817, 0.6509062, 1), Color(1.8247963, 0.059608817, 0.6509062, 0), Color(1.8247963, 0.059608817, 0.6509062, 1), Color(1.8247963, 0.059608817, 0.6509062, 0), Color(1.8247963, 0.059608817, 0.6509062, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_482dd"]
@@ -434,6 +550,15 @@ texture = SubResource("CompressedTexture2D_1b8ss")
 hframes = 8
 script = ExtResource("3_tlnbh")
 
+[node name="ChargeSprite" type="Sprite2D" parent="Sprite2D" unique_id=2105424484]
+visible = false
+modulate = Color(1.8247963, 0.059608817, 0.6509062, 0)
+show_behind_parent = true
+texture = ExtResource("2_1b8ss")
+hframes = 8
+vframes = 7
+frame = 30
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1072617159]
 visible = false
 position = Vector2(0, -19)
@@ -517,7 +642,7 @@ unique_name_in_owner = true
 script = ExtResource("16_t1pui")
 move_speed = 350.0
 move_speed_curve = SubResource("Curve_5qkfb")
-effect_color = Color(2.1168277, 0.07741361, 0.76057065, 1)
+effect_color = Color(2.117, 0.077, 0.761, 1)
 metadata/_custom_type_script = "uid://vbioopbivv4j"
 
 [node name="ESNPBHJumpState" type="Node" parent="EnemyStateMachine" unique_id=21984644]
@@ -534,6 +659,7 @@ unique_name_in_owner = true
 script = ExtResource("17_4sn6g")
 tween_pos_01 = Vector2(468, 361)
 tween_pos_02 = Vector2(468, 550)
+effect_color = Color(2.117, 0.077, 0.761, 1)
 metadata/_custom_type_script = "uid://blh5pcc6ofphr"
 
 [node name="EdgeSensor" type="RayCast2D" parent="." unique_id=533344323]
@@ -592,7 +718,6 @@ shape = SubResource("RectangleShape2D_qh6hf")
 debug_color = Color(1, 0, 0.07821226, 0.28627452)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1617562983]
-stream = ExtResource("22_glntu")
 bus = &"SFX"
 
 [node name="DamageModulate" type="Node" parent="." unique_id=629431823]

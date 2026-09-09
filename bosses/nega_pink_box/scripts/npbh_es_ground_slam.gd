@@ -8,11 +8,15 @@ const ENERGY_BURST = preload("uid://domj6yk8l1t8x")
 @export var cooldown : float = 5.0
 @export var tween_pos_01 : Vector2 = Vector2.ZERO
 @export var tween_pos_02 : Vector2 = Vector2.ZERO
+@export var effect_color : Color
 
 var on_cooldown : bool = false
+var effect_time : float = 0.0
+var effect_delay : float = 0.05
 
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
-
+@onready var damage_shape: CollisionShape2D = $"../../DamageArea/CollisionShape2D2"
+@onready var sprite_2d: PlayerSprite = $"../../Sprite2D"
 
 func enter() -> void:
 	animation_player.play( "ground_slam" )
@@ -20,6 +24,8 @@ func enter() -> void:
 	on_cooldown = true
 	enemy.velocity = Vector2.ZERO
 	enemy.affected_by_gravity = false
+	
+	damage_shape.disabled = true
 	
 	var t : Tween = create_tween()
 	t.set_ease(Tween.EASE_IN_OUT)
@@ -48,11 +54,15 @@ func re_enter() -> void:
 func exit() -> void:
 	blackboard.can_decide = true
 	enemy.affected_by_gravity = true
+	damage_shape.disabled = false
 	pass
 
 
-func physics_update( _delta : float ) -> void:
-	
+func physics_update( delta : float ) -> void:
+	effect_time -= delta
+	if effect_time < 0:
+		effect_time = effect_delay
+		sprite_2d.ghost( effect_color, Color( .5, .5, 2, 0 ) )
 	pass
 
 
@@ -81,4 +91,6 @@ func _emit_waves() -> void:
 	e2.facing_left = true
 	enemy.add_sibling(e2)
 	e2.global_position = enemy.global_position
+	
+	VisualEffects.camera_shake(10)
 	pass

@@ -1,6 +1,8 @@
 class_name ESNPBHDashAttack
 extends EnemyState
 
+const DASH = preload("uid://dh1xegi1oobjo")
+
 @export var attack_range : float = 300.0
 @export var cooldown : float = 5.0
 @export var attack_area : AttackArea
@@ -24,8 +26,15 @@ func enter() -> void:
 	on_cooldown = true
 	enemy.velocity.x = move_speed * blackboard.dir
 	sprite_2d.tween_color( 1.5, effect_color )
-	if attack_area:
-		attack_area.flip( blackboard.dir )
+	Audio.play_spatial_sound( DASH, enemy.global_position )
+	
+	await get_tree().create_timer(0.4).timeout
+	
+	if blackboard.target:
+		var dir : float = sign( blackboard.target.global_position.x - enemy.global_position.x )
+		enemy.change_dir( dir )
+		if attack_area:
+			attack_area.flip( blackboard.dir )
 	pass
 
 

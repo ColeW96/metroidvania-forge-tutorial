@@ -106,7 +106,7 @@ func set_input_hint_texture() -> void:
 	var atlas_texture : AtlasTexture = texture as AtlasTexture
 	if atlas_texture:
 		var x : int = HINT_MAP[controller].get( get_hint_string(), 0 )
-		atlas_texture.region = Rect2( x, 0, 13, 0 )
+		atlas_texture.region = Rect2( x, 0, 13, 13 )
 	pass
 
 

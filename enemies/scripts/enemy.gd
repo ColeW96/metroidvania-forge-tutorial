@@ -157,3 +157,8 @@ func _update_vision_cone() -> void:
 		if c is PlayerSensor:
 			c.visible = show_vision
 	pass
+
+
+func play_audio( audio : AudioStream ) -> void:
+	Audio.play_spatial_sound( audio, global_position )
+	pass
