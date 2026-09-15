@@ -30,6 +30,9 @@ func enter() -> void:
 	var t : Tween = create_tween()
 	t.set_ease(Tween.EASE_IN_OUT)
 	t.set_trans(Tween.TRANS_EXPO)
+	
+	t.tween_interval(0.4)
+	
 	t.tween_property( enemy, "global_position", tween_pos_01, 1.0 )
 	
 	t.tween_interval(1.2)

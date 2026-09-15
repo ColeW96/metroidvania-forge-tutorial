@@ -7,20 +7,31 @@ extends EnemyState
 
 var dir : float = 1.0
 var on_cooldown : bool = false
+var do_jump : bool = false
 
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 
 
 func enter() -> void:
-	animation_player.play("jump")
-	animation_player.pause()
+	blackboard.can_decide = false
+	on_cooldown = true
+	
+	enemy.velocity.x = 0
+	
+	animation_player.play("crouch")
+	
+	await animation_player.animation_finished
+	
+	do_jump = true
+	
 	dir = 1.0
 	if enemy.sprite.flip_h == true:
 		dir = -1.0
-	enemy.velocity.y = -jump_strength
 	
-	blackboard.can_decide = false
-	on_cooldown = true
+	animation_player.play("jump")
+	animation_player.pause()
+	
+	enemy.velocity.y = -jump_strength
 	pass
 
 
@@ -30,15 +41,20 @@ func re_enter() -> void:
 
 
 func exit() -> void:
+	do_jump = false
 	blackboard.can_decide = true
 	run_cooldown()
 	pass
 
 
 func physics_update( _delta : float ) -> void:
+	if not do_jump:
+		return
 	
 	enemy.velocity.x = dir * move_speed
+	
 	set_jump_frame()
+	
 	if enemy.is_on_floor() and enemy.velocity.y > 0:
 		blackboard.can_decide = true
 	pass

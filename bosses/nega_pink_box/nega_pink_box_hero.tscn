@@ -229,6 +229,23 @@ tracks/5/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_sp5s3"]
+resource_name = "crouch"
+length = 0.39999999999999997
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [49, 50, 51, 52]
+}
+
 [sub_resource type="Animation" id="Animation_tlnbh"]
 resource_name = "dash_attack"
 step = 0.05
@@ -314,7 +331,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_4sn6g"]
 resource_name = "ground_slam"
-length = 2.6
+length = 3.0000000000000004
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -323,10 +340,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.19999999, 0.3, 0.4, 0.8, 0.9, 1, 1.1, 2.1, 2.1999998, 2.225, 2.25, 2.2749999, 2.2999997, 2.3249998, 2.35, 2.3749998, 2.3999999, 2.4249997, 2.46),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4000001, 0.5000001, 0.6000001, 0.7000001, 0.8000001, 1.2, 1.3000001, 1.4000001, 1.5000001, 2.5, 2.6, 2.625, 2.65, 2.675, 2.6999998, 2.725, 2.75, 2.7749999, 2.8, 2.8249998, 2.8600001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [14, 15, 16, 17, 18, 28, 29, 30, 31, 32, 33, 34, 35, 33, 34, 35, 33, 34, 35, 33, 0]
+"values": [49, 50, 51, 52, 14, 15, 16, 17, 18, 28, 29, 30, 31, 32, 33, 34, 35, 33, 34, 35, 33, 34, 35, 33, 0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -335,7 +352,7 @@ tracks/1/path = NodePath(".:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.90000004, 1, 1.5, 1.5999999, 2.2, 2.3, 2.43, 2.46),
+"times": PackedFloat32Array(0, 1.3000002, 1.4000001, 1.9000001, 2, 2.6000001, 2.7, 2.8300002, 2.8600001),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(2.1168277, 0.07741361, 0.76057065, 1), Color(1, 1, 1, 1), Color(2.1168277, 0.07741361, 0.76057065, 1), Color(1, 1, 1, 1), Color(2.1168277, 0.07741361, 0.76057065, 1), Color(2.1168277, 0.07741361, 0.76057065, 1), Color(1, 1, 1, 1)]
@@ -347,7 +364,7 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.8, 1.4, 2, 2.5),
+"times": PackedFloat32Array(1.2, 1.8000001, 2.4, 2.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "values": [{
 "args": [ExtResource("10_l4upt")],
@@ -370,7 +387,7 @@ tracks/3/path = NodePath("Sprite2D/ChargeSprite:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.8, 1.1, 1.4, 1.7, 2, 2.3),
+"times": PackedFloat32Array(0, 1.2, 1.5000001, 1.8000001, 2.1000001, 2.4, 2.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [false, true, false, true, false, true, false]
@@ -382,7 +399,7 @@ tracks/4/path = NodePath("Sprite2D/ChargeSprite:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.8, 1.1, 1.4, 1.7, 2, 2.3000002),
+"times": PackedFloat32Array(1.2, 1.5000001, 1.8000001, 2.1000001, 2.4, 2.7000003),
 "transitions": PackedFloat32Array(0.5, 1, 0.5, 1, 0.5, 1),
 "update": 0,
 "values": [Vector2(2, 2), Vector2(1, 1), Vector2(2, 2), Vector2(1, 1), Vector2(2, 2), Vector2(1, 1)]
@@ -394,7 +411,7 @@ tracks/5/path = NodePath("Sprite2D/ChargeSprite:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.8, 1.1, 1.4, 1.7, 2, 2.3000002),
+"times": PackedFloat32Array(1.2, 1.5000001, 1.8000001, 2.1000001, 2.4, 2.7000003),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(1.8247963, 0.059608817, 0.6509062, 0), Color(1.8247963, 0.059608817, 0.6509062, 1), Color(1.8247963, 0.059608817, 0.6509062, 0), Color(1.8247963, 0.059608817, 0.6509062, 1), Color(1.8247963, 0.059608817, 0.6509062, 0), Color(1.8247963, 0.059608817, 0.6509062, 1)]
@@ -474,6 +491,7 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_mafwj"),
 &"attack": SubResource("Animation_rai4y"),
+&"crouch": SubResource("Animation_sp5s3"),
 &"dash_attack": SubResource("Animation_tlnbh"),
 &"death": SubResource("Animation_iyqwc"),
 &"ground_slam": SubResource("Animation_4sn6g"),
