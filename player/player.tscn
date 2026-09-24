@@ -1071,6 +1071,7 @@ collision_mask = 3
 hit_from_inside = true
 
 [node name="LedgeDetection" type="Node2D" parent="." unique_id=1727764238]
+visible = false
 
 [node name="TopCheck" type="RayCast2D" parent="LedgeDetection" unique_id=3836025]
 unique_name_in_owner = true

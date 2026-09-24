@@ -20,7 +20,7 @@ func _ready() -> void:
 		if c is AttackArea:
 			attack_area = c
 			attack_area.set_active()
-			attack_area.damage_done.connect( _on_damage_dealt )
+			attack_area.damage_done.connect( _on_damage_done )
 		elif c is AnimationPlayer:
 			animation_player = c
 		elif c is Sprite2D:
@@ -67,7 +67,7 @@ func _lifetime_timer() -> void:
 	pass
 
 
-func _on_damage_dealt( _result : bool ) -> void:
+func _on_damage_done( _dir : Vector2 ) -> void:
 	destroy.call_deferred()
 	pass
 

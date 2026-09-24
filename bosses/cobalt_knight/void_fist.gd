@@ -22,7 +22,6 @@ func _physics_process(delta: float) -> void:
 	pass
 
 
-func _on_damage_done( result : bool ) -> void:
-	if result:
-		queue_free()
+func _on_damage_done( _dir : Vector2 ) -> void:
+	queue_free()
 	pass

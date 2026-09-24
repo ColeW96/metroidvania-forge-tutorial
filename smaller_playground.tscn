@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b7gueiujn071s" path="res://levels/props/ChandelierA.tscn" id="5_cjmus"]
 [ext_resource type="PackedScene" uid="uid://wdmyqu8yln5j" path="res://general/powerup/powerup.tscn" id="6_chnyq"]
 [ext_resource type="PackedScene" uid="uid://hanqvafhvg88" path="res://enemies/living_armor/living_armor.tscn" id="7_j1wm5"]
+[ext_resource type="PackedScene" uid="uid://h20ktogdikrd" path="res://levels/props/crate_wooden.tscn" id="8_03d05"]
 
 [node name="SmallerPlayground" type="Node2D" unique_id=775118826]
 
@@ -39,4 +40,10 @@ amount = 3.0
 type = 1
 
 [node name="LivingArmor" parent="." unique_id=488761391 instance=ExtResource("7_j1wm5")]
+process_mode = 4
 position = Vector2(240, 227)
+
+[node name="Crate" parent="." unique_id=261099677 instance=ExtResource("8_03d05")]
+position = Vector2(172, 213)
+hp = 999.0
+fixed_hit_count = false

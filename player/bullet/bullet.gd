@@ -39,10 +39,9 @@ func reset_bullet() -> void:
 	pass
 
 
-func _on_damage_done( result : bool ) -> void:
-	if result:
-		attack_area.set_active( false )
-		destroy()
+func _on_damage_done( _dir : Vector2 ) -> void:
+	attack_area.set_active( false )
+	destroy()
 	pass
 
 

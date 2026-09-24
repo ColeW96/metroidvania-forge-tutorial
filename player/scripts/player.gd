@@ -81,6 +81,7 @@ var direction : Vector2 = Vector2.ZERO
 var _cardinal_direction : Vector2 = Vector2.RIGHT
 var gravity : float = 980.0
 var gravity_multiplier : float = 1.0
+var recoil : Vector2 = Vector2.ZERO
 var bullet_spawn_pos : Vector2
 var ledge_check_pos : Vector2
 var ledge_grab_pos : Vector2
@@ -106,6 +107,7 @@ func _ready() -> void:
 	Messages.back_to_title_screen.connect( queue_free )
 	Messages.ability_acquired.connect( _on_ability_acquired )
 	damage_area.damage_taken.connect( _on_damage_taken )
+	attack_area.damage_done.connect( _on_damage_done )
 	hp = max_hp
 	pass
 
@@ -152,12 +154,16 @@ func _process( _delta: float ) -> void:
 	pass
 
 
-func _physics_process( _delta: float ) -> void:
-	velocity.y += gravity * _delta * gravity_multiplier
+func _physics_process( delta: float ) -> void:
+	velocity.y += gravity * delta * gravity_multiplier
 	velocity.y = clampf( velocity.y, -1000.0, max_fall_velocity )
 	move_and_slide()
-	change_state( current_state.physics_process( _delta ) )
-	get_last_position()
+	change_state( current_state.physics_process( delta ) )
+	# add recoil velocity
+	velocity += recoil
+	# reduce recoil velocity
+	recoil = recoil.lerp( Vector2.ZERO, 1.0 - exp( delta * -50 ) )
+	get_last_position() # may need to move this above recoil
 	pass
 
 
@@ -295,6 +301,11 @@ func _on_damage_taken( attacking_area : AttackArea ) -> void:
 		return
 	hp -= attacking_area.damage
 	damage_taken.emit()
+	pass
+
+
+func _on_damage_done( dir : Vector2 ) -> void:
+	recoil = dir.normalized() * Vector2( 500, 0 ) * -1
 	pass
 
 
