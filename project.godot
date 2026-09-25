@@ -31,6 +31,7 @@ buses/default_bus_layout="uid://d0vqj8ryikljn"
 
 SceneManager="*res://00_global/scene_manager/scene_manager.tscn"
 SaveManager="*res://00_global/save_manager.gd"
+DeviceManager="*uid://5j18ir88byg1"
 Messages="*res://00_global/messages.gd"
 PlayerHud="*res://00_global/player_hud/player_hud.tscn"
 Audio="*res://00_global/audio/audio.tscn"

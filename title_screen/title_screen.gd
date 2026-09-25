@@ -20,6 +20,10 @@ extends CanvasLayer
 @onready var animation_player: AnimationPlayer = $Control/MainMenu/Logo/AnimationPlayer
 #endregion
 
+@onready var controls_button: Button = %ControlsButton
+
+
+
 func _ready() -> void:
 	# connect to button signals
 	new_game_button.pressed.connect( show_new_game_menu )
@@ -32,6 +36,8 @@ func _ready() -> void:
 	load_slot_01.pressed.connect( _on_load_game_pressed.bind( 0 ) )
 	load_slot_02.pressed.connect( _on_load_game_pressed.bind( 1 ) )
 	load_slot_03.pressed.connect( _on_load_game_pressed.bind( 2 ) )
+	
+	controls_button.pressed.connect( _on_controls_pressed )
 	
 	Audio.setup_button_audio( self )
 	
@@ -100,4 +106,9 @@ func _on_load_game_pressed( slot : int ) -> void:
 func _on_animation_finished( anim_name : String ) -> void:
 	if anim_name == "start":
 		animation_player.play("loop")
+	pass
+
+
+func _on_controls_pressed() -> void:
+	print("Controller: ", DeviceManager.controller_type)
 	pass

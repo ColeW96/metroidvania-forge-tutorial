@@ -21,7 +21,6 @@ func _ready() -> void:
 	pass
 
 
-
 func transition_scene( new_scene : String, target_area : String, player_offset : Vector2, dir : String ) -> void:
 	
 	get_tree().paused = true

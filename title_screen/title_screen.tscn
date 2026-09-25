@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://bl8f4woftk8ry" path="res://levels/props/torch.tscn" id="2_2dq6q"]
 [ext_resource type="Texture2D" uid="uid://d32fgghpxvbwd" path="res://title_screen/metroidvania_logo.png" id="3_2dq6q"]
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="5_0m3ch"]
+[ext_resource type="PackedScene" uid="uid://doln5e7j65ibw" path="res://general/gui_input_hints/gui_input_hints.tscn" id="5_fv0o7"]
+[ext_resource type="Texture2D" uid="uid://c30j5ysbdc3yt" path="res://player/sprites/input_icons.png" id="6_1oos5"]
 [ext_resource type="AudioStream" uid="uid://dni36efng4xk1" path="res://music/title_01.ogg" id="6_fk0fn"]
 
 [sub_resource type="Animation" id="Animation_vbjqi"]
@@ -63,6 +65,16 @@ _data = {
 &"start": SubResource("Animation_2dq6q")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fv0o7"]
+resource_local_to_scene = true
+atlas = ExtResource("6_1oos5")
+region = Rect2(182, 0, 13, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1oos5"]
+resource_local_to_scene = true
+atlas = ExtResource("6_1oos5")
+region = Rect2(182, 0, 13, 13)
+
 [node name="TitleScreen" type="CanvasLayer" unique_id=953017569]
 layer = 5
 script = ExtResource("1_vbjqi")
@@ -103,6 +115,7 @@ position = Vector2(406, 227)
 
 [node name="MainMenu" type="VBoxContainer" parent="Control" unique_id=1103013385]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -110,9 +123,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -86.0
-offset_top = -111.0
+offset_top = -126.0
 offset_right = 86.0
-offset_bottom = 59.0
+offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
@@ -142,9 +155,23 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Load Game"
 
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MainMenu" unique_id=781345185]
+layout_mode = 2
+
+[node name="ControlsButton" type="Button" parent="Control/MainMenu/HBoxContainer" unique_id=1817133237]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(84, 0)
+layout_mode = 2
+text = "Controls"
+
+[node name="SettingsButton" type="Button" parent="Control/MainMenu/HBoxContainer" unique_id=79942960]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(84, 0)
+layout_mode = 2
+text = "Settings"
+
 [node name="NewGameMenu" type="VBoxContainer" parent="Control" unique_id=2125447401]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -152,9 +179,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -92.0
-offset_top = -42.0
+offset_top = -64.5
 offset_right = 92.0
-offset_bottom = 72.0
+offset_bottom = 84.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
@@ -183,6 +210,18 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Begin Slot 03"
 
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/NewGameMenu" unique_id=615322138]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/NewGameMenu/HBoxContainer" unique_id=289563669]
+layout_mode = 2
+text = "Back:"
+
+[node name="GuiInputHints" parent="Control/NewGameMenu/HBoxContainer" unique_id=1255076187 instance=ExtResource("5_fv0o7")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_fv0o7")
+
 [node name="LoadGameMenu" type="VBoxContainer" parent="Control" unique_id=912323750]
 unique_name_in_owner = true
 visible = false
@@ -193,9 +232,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -92.0
-offset_top = -42.0
+offset_top = -65.5
 offset_right = 92.0
-offset_bottom = 72.0
+offset_bottom = 83.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
@@ -223,6 +262,20 @@ text = "Load Slot 02"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Load Slot 03"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/LoadGameMenu" unique_id=1723794095]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/LoadGameMenu/HBoxContainer" unique_id=163669348]
+layout_mode = 2
+text = "Back:"
+
+[node name="GuiInputHints" parent="Control/LoadGameMenu/HBoxContainer" unique_id=760850464 instance=ExtResource("5_fv0o7")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_1oos5")
+hint = 17
+debug_hint = 1
 
 [node name="MusicAutoTrigger" type="Node" parent="." unique_id=1376764429]
 script = ExtResource("5_0m3ch")

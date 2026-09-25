@@ -6,7 +6,7 @@ enum Hint { ACTION, ATTACK, JUMP,
  			DASH, SHOOT, DOWN, 
 			MORPH, UP, LEFT, 
 			RIGHT, D_PAD, L_STICK, 
-			R_STICK, PAN_UP, PAN_DOWN, PAN_LEFT, PAN_RIGHT }
+			R_STICK, PAN_UP, PAN_DOWN, PAN_LEFT, PAN_RIGHT, PAUSE }
 
 @export var hint : Hint = Hint.ACTION :
 	set( value ):
@@ -40,7 +40,8 @@ const HINT_MAP : Dictionary = {
 		"pan_up" : 468,
 		"pan_down" : 481,
 		"pan_left" : 494,
-		"pan_right" : 507
+		"pan_right" : 507,
+		"pause" : 182
 	},
 	"playstation" : {
 		"action" : 0,
@@ -88,20 +89,9 @@ func _ready() -> void:
 func set_input_hint_texture() -> void:
 	var controller : String = "keyboard"
 	if not Engine.is_editor_hint():
-		var p : Player = get_tree().get_first_node_in_group("Player")
-		if p:
-			var input_hints : InputHints
-			for c in p.get_children():
-				if c is InputHints:
-					input_hints = c
-					break
-		
-			controller = input_hints.controller_type
-	elif use_debug_hint:
-		controller = get_debug_controller()
-	
-	# FOR DEBUGGING ONLY
-	#controller = "xbox"
+		controller = DeviceManager.controller_type
+	if use_debug_hint:
+			controller = get_debug_controller()
 	
 	var atlas_texture : AtlasTexture = texture as AtlasTexture
 	if atlas_texture:
@@ -147,6 +137,8 @@ func get_hint_string() -> String:
 			hint_string = "pan_left"
 		Hint.PAN_RIGHT:
 			hint_string = "pan_right"
+		Hint.PAUSE:
+			hint_string = "pause"
 	return hint_string
 
 

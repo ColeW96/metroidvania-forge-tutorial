@@ -6,16 +6,7 @@ const GUI_INPUT_HINTS = preload("uid://doln5e7j65ibw")
 @onready var pan_inputs_container: HBoxContainer = %PanInputsContainer
 
 func _ready() -> void:
-	var controller : String = "keyboard"
-	var p : Player = get_tree().get_first_node_in_group("Player")
-	if p:
-		var input_hints : InputHints
-		for c in p.get_children():
-			if c is InputHints:
-				input_hints = c
-				break
-	
-		controller = input_hints.controller_type
+	var controller : String = DeviceManager.controller_type
 	setup_move_inputs_container( controller )
 	setup_pan_inputs_container( controller )
 	pass
