@@ -7,6 +7,7 @@ extends CanvasLayer
 @onready var load_game_menu: VBoxContainer = %LoadGameMenu
 @onready var controls_menu: ControlsMenu = %ControlsMenu
 @onready var settings_menu: VBoxContainer = %SettingsMenu
+@onready var settings_background: PanelContainer = %SettingsBackground
 
 @onready var new_game_button: Button = %NewGameButton
 @onready var load_game_button: Button = %LoadGameButton
@@ -24,6 +25,8 @@ extends CanvasLayer
 @onready var music_slider: HSlider = %MusicSlider
 @onready var sfx_slider: HSlider = %SFXSlider
 @onready var ui_slider: HSlider = %UISlider
+
+@onready var quit_game_button: Button = %QuitGameButton
 
 @onready var animation_player: AnimationPlayer = $Control/MainMenu/Logo/AnimationPlayer
 #endregion
@@ -43,6 +46,8 @@ func _ready() -> void:
 	load_slot_01.pressed.connect( _on_load_game_pressed.bind( 0 ) )
 	load_slot_02.pressed.connect( _on_load_game_pressed.bind( 1 ) )
 	load_slot_03.pressed.connect( _on_load_game_pressed.bind( 2 ) )
+	
+	quit_game_button.pressed.connect( _on_quit_game_pressed )
 	
 	Audio.setup_button_audio( self )
 	
@@ -77,6 +82,7 @@ func show_main_menu() -> void:
 	load_game_menu.visible = false
 	controls_menu.visible = false
 	settings_menu.visible = false
+	settings_background.visible = false
 	
 	new_game_button.grab_focus()
 	pass
@@ -88,6 +94,7 @@ func show_new_game_menu() -> void:
 	load_game_menu.visible = false
 	controls_menu.visible = false
 	settings_menu.visible = false
+	settings_background.visible = false
 	
 	new_slot_01.grab_focus()
 	
@@ -108,6 +115,7 @@ func show_load_game_menu() -> void:
 	load_game_menu.visible = true
 	controls_menu.visible = false
 	settings_menu.visible = false
+	settings_background.visible = false
 	
 	load_slot_01.grab_focus()
 	
@@ -123,6 +131,7 @@ func show_controls_menu() -> void:
 	load_game_menu.visible = false
 	controls_menu.visible = true
 	settings_menu.visible = false
+	settings_background.visible = false
 	pass
 
 
@@ -132,6 +141,8 @@ func show_settings_menu() -> void:
 	load_game_menu.visible = false
 	controls_menu.visible = false
 	settings_menu.visible = true
+	settings_background.visible = true
+	
 	music_slider.grab_focus()
 	pass
 
@@ -169,4 +180,9 @@ func _on_ui_slider_changed( value : float ) -> void:
 	AudioServer.set_bus_volume_linear( 4, value )
 	Audio.ui_focus_change()
 	SaveManager.save_configuration()
+	pass
+
+
+func _on_quit_game_pressed() -> void:
+	get_tree().quit()
 	pass
