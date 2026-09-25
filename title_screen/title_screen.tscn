@@ -221,6 +221,7 @@ text = "Back:"
 [node name="GuiInputHints" parent="Control/NewGameMenu/HBoxContainer" unique_id=1255076187 instance=ExtResource("5_fv0o7")]
 layout_mode = 2
 texture = SubResource("AtlasTexture_fv0o7")
+hint = 17
 
 [node name="LoadGameMenu" type="VBoxContainer" parent="Control" unique_id=912323750]
 unique_name_in_owner = true
@@ -275,7 +276,6 @@ text = "Back:"
 layout_mode = 2
 texture = SubResource("AtlasTexture_1oos5")
 hint = 17
-debug_hint = 1
 
 [node name="MusicAutoTrigger" type="Node" parent="." unique_id=1376764429]
 script = ExtResource("5_0m3ch")
