@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://doln5e7j65ibw" path="res://general/gui_input_hints/gui_input_hints.tscn" id="5_fv0o7"]
 [ext_resource type="Texture2D" uid="uid://c30j5ysbdc3yt" path="res://player/sprites/input_icons.png" id="6_1oos5"]
 [ext_resource type="AudioStream" uid="uid://dni36efng4xk1" path="res://music/title_01.ogg" id="6_fk0fn"]
+[ext_resource type="Script" uid="uid://dkljymv072js8" path="res://pause_menu/scripts/controls.gd" id="7_1oos5"]
 
 [sub_resource type="Animation" id="Animation_vbjqi"]
 length = 0.001
@@ -68,12 +69,32 @@ _data = {
 [sub_resource type="AtlasTexture" id="AtlasTexture_fv0o7"]
 resource_local_to_scene = true
 atlas = ExtResource("6_1oos5")
-region = Rect2(182, 0, 13, 13)
+region = Rect2(195, 0, 13, 13)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1oos5"]
 resource_local_to_scene = true
 atlas = ExtResource("6_1oos5")
-region = Rect2(182, 0, 13, 13)
+region = Rect2(195, 0, 13, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fh6ay"]
+resource_local_to_scene = true
+atlas = ExtResource("6_1oos5")
+region = Rect2(195, 0, 13, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jabur"]
+resource_local_to_scene = true
+atlas = ExtResource("6_1oos5")
+region = Rect2(273, 0, 13, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uiiip"]
+resource_local_to_scene = true
+atlas = ExtResource("6_1oos5")
+region = Rect2(286, 0, 13, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7x7j"]
+resource_local_to_scene = true
+atlas = ExtResource("6_1oos5")
+region = Rect2(208, 0, 13, 13)
 
 [node name="TitleScreen" type="CanvasLayer" unique_id=953017569]
 layer = 5
@@ -172,6 +193,7 @@ text = "Settings"
 
 [node name="NewGameMenu" type="VBoxContainer" parent="Control" unique_id=2125447401]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -221,7 +243,6 @@ text = "Back:"
 [node name="GuiInputHints" parent="Control/NewGameMenu/HBoxContainer" unique_id=1255076187 instance=ExtResource("5_fv0o7")]
 layout_mode = 2
 texture = SubResource("AtlasTexture_fv0o7")
-hint = 17
 
 [node name="LoadGameMenu" type="VBoxContainer" parent="Control" unique_id=912323750]
 unique_name_in_owner = true
@@ -275,7 +296,211 @@ text = "Back:"
 [node name="GuiInputHints" parent="Control/LoadGameMenu/HBoxContainer" unique_id=760850464 instance=ExtResource("5_fv0o7")]
 layout_mode = 2
 texture = SubResource("AtlasTexture_1oos5")
-hint = 17
+
+[node name="ControlsMenu" type="VBoxContainer" parent="Control" unique_id=1855879530 node_paths=PackedStringArray("move_inputs_container", "pan_inputs_container")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -99.0
+offset_top = -32.0
+offset_right = 99.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+script = ExtResource("7_1oos5")
+move_inputs_container = NodePath("HBoxContainer/VBoxContainer2/MoveInputsContainer")
+pan_inputs_container = NodePath("HBoxContainer/VBoxContainer2/PanInputsContainer")
+
+[node name="Label" type="Label" parent="Control/ControlsMenu" unique_id=452945750]
+modulate = Color(0.6745098, 0.19607843, 0.19607843, 1)
+layout_mode = 2
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/ControlsMenu" unique_id=862105415]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 60
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/ControlsMenu/HBoxContainer" unique_id=303798527]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/ControlsMenu/HBoxContainer/VBoxContainer" unique_id=1678645088]
+layout_mode = 2
+theme_override_constants/separation = 9
+
+[node name="Label2" type="Label" parent="Control/ControlsMenu/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=788515960]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Interact:"
+
+[node name="GuiInputHints" parent="Control/ControlsMenu/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=12890439 instance=ExtResource("5_fv0o7")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_fh6ay")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/ControlsMenu/HBoxContainer/VBoxContainer" unique_id=1733191076]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Label2" type="Label" parent="Control/ControlsMenu/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1919151890]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Attack:"
+
+[node name="GuiInputHints" parent="Control/ControlsMenu/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=366517655 instance=ExtResource("5_fv0o7")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_jabur")
+expand_mode = 2
+stretch_mode = 3
+hint = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/ControlsMenu/HBoxContainer/VBoxContainer" unique_id=1635217697]
+layout_mode = 2
+theme_override_constants/separation = 22
+
+[node name="Label2" type="Label" parent="Control/ControlsMenu/HBoxContainer/VBoxContainer/HBoxContainer3" unique_id=2091922299]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Shoot:"
+
+[node name="GuiInputHints" parent="Control/ControlsMenu/HBoxContainer/VBoxContainer/HBoxContainer3" unique_id=1873427317 instance=ExtResource("5_fv0o7")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_uiiip")
+expand_mode = 2
+stretch_mode = 3
+hint = 4
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/ControlsMenu/HBoxContainer" unique_id=1412872505]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Control/ControlsMenu/HBoxContainer/VBoxContainer2" unique_id=1460667652]
+layout_mode = 2
+theme_override_constants/separation = 26
+
+[node name="Label2" type="Label" parent="Control/ControlsMenu/HBoxContainer/VBoxContainer2/HBoxContainer4" unique_id=1960164376]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Jump:"
+
+[node name="GuiInputHints" parent="Control/ControlsMenu/HBoxContainer/VBoxContainer2/HBoxContainer4" unique_id=1212962428 instance=ExtResource("5_fv0o7")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_p7x7j")
+expand_mode = 2
+stretch_mode = 3
+hint = 2
+
+[node name="MoveInputsContainer" type="HBoxContainer" parent="Control/ControlsMenu/HBoxContainer/VBoxContainer2" unique_id=588430267]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Label2" type="Label" parent="Control/ControlsMenu/HBoxContainer/VBoxContainer2/MoveInputsContainer" unique_id=717852678]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Move:"
+
+[node name="PanInputsContainer" type="HBoxContainer" parent="Control/ControlsMenu/HBoxContainer/VBoxContainer2" unique_id=1639568077]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Label2" type="Label" parent="Control/ControlsMenu/HBoxContainer/VBoxContainer2/PanInputsContainer" unique_id=1993413789]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Camera:"
+
+[node name="SettingsMenu" type="VBoxContainer" parent="Control" unique_id=708588003]
+unique_name_in_owner = true
+light_mask = 0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -132.0
+offset_top = 76.0
+offset_right = 132.0
+offset_bottom = 214.0
+grow_horizontal = 2
+theme_override_constants/separation = 15
+
+[node name="Label2" type="Label" parent="Control/SettingsMenu" unique_id=1262116421]
+modulate = Color(0.6745098, 0.19607843, 0.19607843, 1)
+layout_mode = 2
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Control/SettingsMenu" unique_id=129280610]
+light_mask = 0
+layout_mode = 2
+text = "Audio Levels"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/SettingsMenu" unique_id=1767750308]
+light_mask = 0
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/SettingsMenu/HBoxContainer2" unique_id=309125892]
+light_mask = 0
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="Control/SettingsMenu/HBoxContainer2" unique_id=1598437447]
+unique_name_in_owner = true
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/SettingsMenu" unique_id=238131195]
+light_mask = 0
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/SettingsMenu/HBoxContainer3" unique_id=209394955]
+light_mask = 0
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "SFX"
+
+[node name="SFXSlider" type="HSlider" parent="Control/SettingsMenu/HBoxContainer3" unique_id=776987964]
+unique_name_in_owner = true
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Control/SettingsMenu" unique_id=148999370]
+light_mask = 0
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/SettingsMenu/HBoxContainer4" unique_id=1927716036]
+light_mask = 0
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "UI"
+
+[node name="UISlider" type="HSlider" parent="Control/SettingsMenu/HBoxContainer4" unique_id=1075850367]
+unique_name_in_owner = true
+light_mask = 0
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.05
+value = 0.5
 
 [node name="MusicAutoTrigger" type="Node" parent="." unique_id=1376764429]
 script = ExtResource("5_0m3ch")

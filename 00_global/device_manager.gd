@@ -7,7 +7,7 @@ var controller_type : String = "keyboard"
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton or event is InputEventKey:
-		controller_type = "xbox"
+		controller_type = "keyboard"
 	elif event is InputEventJoypadButton:
 		get_controller_type( event.device )
 	device_changed.emit()

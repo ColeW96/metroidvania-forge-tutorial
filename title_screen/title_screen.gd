@@ -5,9 +5,13 @@ extends CanvasLayer
 @onready var main_menu: VBoxContainer = %MainMenu
 @onready var new_game_menu: VBoxContainer = %NewGameMenu
 @onready var load_game_menu: VBoxContainer = %LoadGameMenu
+@onready var controls_menu: ControlsMenu = %ControlsMenu
+@onready var settings_menu: VBoxContainer = %SettingsMenu
 
 @onready var new_game_button: Button = %NewGameButton
 @onready var load_game_button: Button = %LoadGameButton
+@onready var controls_button: Button = %ControlsButton
+@onready var settings_button: Button = %SettingsButton
 
 @onready var new_slot_01: Button = %NewSlot01
 @onready var new_slot_02: Button = %NewSlot02
@@ -17,17 +21,20 @@ extends CanvasLayer
 @onready var load_slot_02: Button = %LoadSlot02
 @onready var load_slot_03: Button = %LoadSlot03
 
+@onready var music_slider: HSlider = %MusicSlider
+@onready var sfx_slider: HSlider = %SFXSlider
+@onready var ui_slider: HSlider = %UISlider
+
 @onready var animation_player: AnimationPlayer = $Control/MainMenu/Logo/AnimationPlayer
 #endregion
-
-@onready var controls_button: Button = %ControlsButton
-
 
 
 func _ready() -> void:
 	# connect to button signals
 	new_game_button.pressed.connect( show_new_game_menu )
 	load_game_button.pressed.connect( show_load_game_menu )
+	controls_button.pressed.connect( show_controls_menu )
+	settings_button.pressed.connect( show_settings_menu )
 	
 	new_slot_01.pressed.connect( _on_new_game_pressed.bind( 0 ) )
 	new_slot_02.pressed.connect( _on_new_game_pressed.bind( 1 ) )
@@ -37,10 +44,9 @@ func _ready() -> void:
 	load_slot_02.pressed.connect( _on_load_game_pressed.bind( 1 ) )
 	load_slot_03.pressed.connect( _on_load_game_pressed.bind( 2 ) )
 	
-	controls_button.pressed.connect( _on_controls_pressed )
-	
 	Audio.setup_button_audio( self )
 	
+	setup_sytem_menu()
 	show_main_menu()
 	animation_player.animation_finished.connect( _on_animation_finished )
 	pass
@@ -54,10 +60,24 @@ func _unhandled_input( event: InputEvent ) -> void:
 	pass
 
 
+func setup_sytem_menu() -> void:
+	music_slider.value = AudioServer.get_bus_volume_linear( 2 )
+	sfx_slider.value = AudioServer.get_bus_volume_linear( 3 )
+	ui_slider.value = AudioServer.get_bus_volume_linear( 4 )
+	
+	music_slider.value_changed.connect( _on_music_slider_changed )
+	sfx_slider.value_changed.connect( _on_sfx_slider_changed )
+	ui_slider.value_changed.connect( _on_ui_slider_changed )
+	pass
+
+
 func show_main_menu() -> void:
 	main_menu.visible = true
 	new_game_menu.visible = false
 	load_game_menu.visible = false
+	controls_menu.visible = false
+	settings_menu.visible = false
+	
 	new_game_button.grab_focus()
 	pass
 
@@ -66,6 +86,8 @@ func show_new_game_menu() -> void:
 	main_menu.visible = false
 	new_game_menu.visible = true
 	load_game_menu.visible = false
+	controls_menu.visible = false
+	settings_menu.visible = false
 	
 	new_slot_01.grab_focus()
 	
@@ -84,12 +106,33 @@ func show_load_game_menu() -> void:
 	main_menu.visible = false
 	new_game_menu.visible = false
 	load_game_menu.visible = true
+	controls_menu.visible = false
+	settings_menu.visible = false
 	
 	load_slot_01.grab_focus()
 	
 	load_slot_01.disabled = not SaveManager.save_file_exists( 0 )
 	load_slot_02.disabled = not SaveManager.save_file_exists( 1 )
 	load_slot_03.disabled = not SaveManager.save_file_exists( 2 )
+	pass
+
+
+func show_controls_menu() -> void:
+	main_menu.visible = false
+	new_game_menu.visible = false
+	load_game_menu.visible = false
+	controls_menu.visible = true
+	settings_menu.visible = false
+	pass
+
+
+func show_settings_menu() -> void:
+	main_menu.visible = false
+	new_game_menu.visible = false
+	load_game_menu.visible = false
+	controls_menu.visible = false
+	settings_menu.visible = true
+	music_slider.grab_focus()
 	pass
 
 
@@ -109,6 +152,21 @@ func _on_animation_finished( anim_name : String ) -> void:
 	pass
 
 
-func _on_controls_pressed() -> void:
-	print("Controller: ", DeviceManager.controller_type)
+func _on_music_slider_changed( value : float ) -> void:
+	AudioServer.set_bus_volume_linear( 2, value )
+	SaveManager.save_configuration()
+	pass
+
+
+func _on_sfx_slider_changed( value : float ) -> void:
+	AudioServer.set_bus_volume_linear( 3, value )
+	Audio.play_spatial_sound( Audio.ui_focus_audio, sfx_slider.global_position )
+	SaveManager.save_configuration()
+	pass
+
+
+func _on_ui_slider_changed( value : float ) -> void:
+	AudioServer.set_bus_volume_linear( 4, value )
+	Audio.ui_focus_change()
+	SaveManager.save_configuration()
 	pass

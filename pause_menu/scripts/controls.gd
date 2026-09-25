@@ -2,17 +2,26 @@ class_name ControlsMenu extends Control
 
 const GUI_INPUT_HINTS = preload("uid://doln5e7j65ibw")
 
-@onready var move_inputs_container: HBoxContainer = %MoveInputsContainer
-@onready var pan_inputs_container: HBoxContainer = %PanInputsContainer
+@export var move_inputs_container : HBoxContainer
+@export var pan_inputs_container : HBoxContainer
 
 func _ready() -> void:
 	var controller : String = DeviceManager.controller_type
 	setup_move_inputs_container( controller )
 	setup_pan_inputs_container( controller )
+	DeviceManager.device_changed.connect( _on_device_changed )
 	pass
 
 
 func setup_move_inputs_container( controller : String ) -> void:
+	for c in move_inputs_container.get_children():
+		c.queue_free()
+	
+	var move_label : Label = Label.new()
+	move_label.text = "Move:"
+	move_label.add_theme_font_size_override( "font_size", 12 )
+	move_inputs_container.add_child(move_label)
+	
 	var h_con : HBoxContainer = HBoxContainer.new()
 	if controller != "keyboard":
 		var hint1 : GuiInputHints = GUI_INPUT_HINTS.instantiate()
@@ -64,6 +73,14 @@ func setup_move_inputs_container( controller : String ) -> void:
 
 
 func setup_pan_inputs_container( controller : String ) -> void:
+	for c in pan_inputs_container.get_children():
+		c.queue_free()
+	
+	var pan_label : Label = Label.new()
+	pan_label.text = "Camera:"
+	pan_label.add_theme_font_size_override( "font_size", 12 )
+	pan_inputs_container.add_child(pan_label)
+	
 	var h_con : HBoxContainer = HBoxContainer.new()
 	if controller != "keyboard":
 		var hint1 : GuiInputHints = GUI_INPUT_HINTS.instantiate()
@@ -102,4 +119,11 @@ func setup_pan_inputs_container( controller : String ) -> void:
 		h_con.add_child( hint4 )
 	
 	pan_inputs_container.add_child( h_con )
+	pass
+
+
+func _on_device_changed() -> void:
+	var controller : String = DeviceManager.controller_type
+	setup_move_inputs_container( controller )
+	setup_pan_inputs_container( controller )
 	pass
