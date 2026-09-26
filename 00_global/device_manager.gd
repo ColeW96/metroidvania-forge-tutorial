@@ -5,6 +5,10 @@ signal device_changed
 
 var controller_type : String = "keyboard"
 
+func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	pass
+
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton or event is InputEventKey:
 		controller_type = "keyboard"
@@ -19,10 +23,9 @@ func get_controller_type( device_id : int ) -> void:
 	
 	if "xbox" in n:
 		controller_type = "xbox"
-	elif "nintendo" in n or "switch" in n:
+	elif "nintendo" in n or "switch" in n or "nsw" in n:
 		controller_type = "switch"
 	else:
 		controller_type = "playstation"
-		
-	set_process_input( false )
+	#set_process_input( false )
 	pass

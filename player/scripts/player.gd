@@ -142,6 +142,8 @@ func _unhandled_input( event: InputEvent ) -> void:
 				ground_slam = !ground_slam
 				morph_roll = !morph_roll
 				ledge_grab = !ledge_grab
+			elif event.keycode == KEY_0:
+				print(DeviceManager.controller_type)
 	# end DEBUG
 	
 	change_state( current_state.handle_input( event ) )
