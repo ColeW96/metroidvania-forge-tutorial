@@ -55,6 +55,9 @@ var max_hp : float = 20 :
 	set( value ):
 		max_hp = value
 		Messages.player_health_changed.emit( hp, max_hp )
+var attack_damage : float = 1.0 :
+	set(value):
+		attack_damage = value
 var skill_tokens : int = 0
 var dash : bool = false
 var dash_count : int = 0
@@ -109,6 +112,7 @@ func _ready() -> void:
 	damage_area.damage_taken.connect( _on_damage_taken )
 	attack_area.damage_done.connect( _on_damage_done )
 	hp = max_hp
+	attack_area.damage = attack_damage
 	pass
 
 
