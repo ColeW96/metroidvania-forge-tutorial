@@ -83,7 +83,8 @@ const HINT_MAP : Dictionary = {
 
 func _ready() -> void:
 	set_input_hint_texture()
-	DeviceManager.device_changed.connect( set_input_hint_texture )
+	if not Engine.is_editor_hint():
+		DeviceManager.device_changed.connect( set_input_hint_texture )
 	pass
 
 

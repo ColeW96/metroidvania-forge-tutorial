@@ -73,22 +73,22 @@ _data = {
 &"start": SubResource("Animation_2dq6q")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fh6ay"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1oos5"]
 resource_local_to_scene = true
 atlas = ExtResource("6_1oos5")
 region = Rect2(195, 0, 13, 13)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jabur"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fh6ay"]
 resource_local_to_scene = true
 atlas = ExtResource("6_1oos5")
 region = Rect2(273, 0, 13, 13)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uiiip"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jabur"]
 resource_local_to_scene = true
 atlas = ExtResource("6_1oos5")
 region = Rect2(286, 0, 13, 13)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_p7x7j"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_uiiip"]
 resource_local_to_scene = true
 atlas = ExtResource("6_1oos5")
 region = Rect2(208, 0, 13, 13)
@@ -333,7 +333,7 @@ text = "Interact:"
 
 [node name="GuiInputHints" parent="Control/ControlsMenu/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=12890439 instance=ExtResource("5_fv0o7")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_fh6ay")
+texture = SubResource("AtlasTexture_1oos5")
 expand_mode = 2
 stretch_mode = 3
 
@@ -348,7 +348,7 @@ text = "Attack:"
 
 [node name="GuiInputHints" parent="Control/ControlsMenu/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=366517655 instance=ExtResource("5_fv0o7")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_jabur")
+texture = SubResource("AtlasTexture_fh6ay")
 expand_mode = 2
 stretch_mode = 3
 hint = 1
@@ -364,7 +364,7 @@ text = "Shoot:"
 
 [node name="GuiInputHints" parent="Control/ControlsMenu/HBoxContainer/VBoxContainer/HBoxContainer3" unique_id=1873427317 instance=ExtResource("5_fv0o7")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_uiiip")
+texture = SubResource("AtlasTexture_jabur")
 expand_mode = 2
 stretch_mode = 3
 hint = 4
@@ -384,7 +384,7 @@ text = "Jump:"
 
 [node name="GuiInputHints" parent="Control/ControlsMenu/HBoxContainer/VBoxContainer2/HBoxContainer4" unique_id=1212962428 instance=ExtResource("5_fv0o7")]
 layout_mode = 2
-texture = SubResource("AtlasTexture_p7x7j")
+texture = SubResource("AtlasTexture_uiiip")
 expand_mode = 2
 stretch_mode = 3
 hint = 2
