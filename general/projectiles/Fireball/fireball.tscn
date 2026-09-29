@@ -69,7 +69,8 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_iqrif"]
 
 [sub_resource type="Gradient" id="Gradient_krk3m"]
-colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+offsets = PackedFloat32Array(0, 0.26814517, 0.73185486, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.76862746, 0, 1, 0.5137255, 0.09856905, 0.027450968, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_iqrif"]
 gradient = SubResource("Gradient_krk3m")

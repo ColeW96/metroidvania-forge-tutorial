@@ -1,0 +1,198 @@
+[gd_scene format=3 uid="uid://bdiu30t5psqyk"]
+
+[ext_resource type="Script" uid="uid://ds3royo5j0fwo" path="res://general/projectiles/projectile.gd" id="1_8vy7a"]
+[ext_resource type="AudioStream" uid="uid://c16kak02tuqxp" path="res://general/projectiles/Fireball/fire.wav" id="2_fhg44"]
+[ext_resource type="AudioStream" uid="uid://dry108i45i7fn" path="res://general/projectiles/Fireball/explode.wav" id="3_ck2tp"]
+[ext_resource type="Script" uid="uid://brc344c2o0cfo" path="res://00_global/visual_effects/hit_particle_settings.gd" id="4_8vy7a"]
+[ext_resource type="Script" uid="uid://bvoy8p2v1ao7i" path="res://general/scripts/hazard_area.gd" id="5_ker80"]
+[ext_resource type="Script" uid="uid://brcyuoolauc0k" path="res://general/scripts/light_flicker.gd" id="6_qnq5o"]
+
+[sub_resource type="Resource" id="Resource_xj4lu"]
+script = ExtResource("4_8vy7a")
+count = 16
+color = Color(1, 0.015686275, 0.34117648, 1)
+metadata/_custom_type_script = "uid://brc344c2o0cfo"
+
+[sub_resource type="Gradient" id="Gradient_8vy7a"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fhg44"]
+gradient = SubResource("Gradient_8vy7a")
+width = 6
+height = 6
+
+[sub_resource type="Resource" id="Resource_fhg44"]
+script = ExtResource("4_8vy7a")
+color = Color(1, 0.015686275, 0.34117648, 1)
+texture = SubResource("GradientTexture2D_fhg44")
+metadata/_custom_type_script = "uid://brc344c2o0cfo"
+
+[sub_resource type="Gradient" id="Gradient_xj4lu"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 0.015686275, 0.34117648, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2ile3"]
+gradient = SubResource("Gradient_xj4lu")
+width = 16
+height = 16
+
+[sub_resource type="Animation" id="Animation_krk3m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_iqrif"]
+resource_name = "default"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.055422213, 0.10475112, 0.16156112, 0.2109, 0.24272995, 0.30657554, 0.3661611),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(1, 1), Vector2(0.5, 0.5), Vector2(1.2, 1.2), Vector2(0.6, 0.6), Vector2(1, 1), Vector2(0.8, 0.8), Vector2(1.4, 1.4), Vector2(0.6, 0.6)]
+}
+
+[sub_resource type="Animation" id="Animation_p4p11"]
+resource_name = "destroy"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.25, 2.625)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.05, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p4p11"]
+_data = {
+&"RESET": SubResource("Animation_krk3m"),
+&"default": SubResource("Animation_iqrif"),
+&"destroy": SubResource("Animation_p4p11")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xj4lu"]
+size = Vector2(4, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8vy7a"]
+size = Vector2(4, 20)
+
+[sub_resource type="Gradient" id="Gradient_krk3m"]
+offsets = PackedFloat32Array(0, 0.5544355, 0.80846775, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0, 0.5480795, 1, 0.5137255, 0.027450968, 0.2588058, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xj4lu"]
+gradient = SubResource("Gradient_krk3m")
+width = 256
+height = 256
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Curve" id="Curve_8vy7a"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.7745545, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xj4lu"]
+curve = SubResource("Curve_8vy7a")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6drb7"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(4, 8, 1)
+inherit_velocity_ratio = 0.33
+gravity = Vector3(0, 5, 0)
+scale_max = 6.0
+color = Color(1, 0.015686275, 0.34117648, 1)
+alpha_curve = SubResource("CurveTexture_xj4lu")
+
+[node name="PinkBoxProjectile" type="CharacterBody2D" unique_id=2093208303]
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_8vy7a")
+horizontal_only = true
+move_speed = 200.0
+gravity_strength = 0.1
+spawn_audio = ExtResource("2_fhg44")
+destroy_audio = ExtResource("3_ck2tp")
+destroy_particles = Array[ExtResource("4_8vy7a")]([SubResource("Resource_xj4lu"), SubResource("Resource_fhg44")])
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1406962794]
+texture = SubResource("GradientTexture2D_2ile3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1149718962]
+libraries/ = SubResource("AnimationLibrary_p4p11")
+autoplay = &"default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=781263680]
+shape = SubResource("RectangleShape2D_xj4lu")
+debug_color = Color(0, 0.6, 0.69803923, 0)
+
+[node name="HazardArea" type="Area2D" parent="." unique_id=523791303]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("5_ker80")
+damage = 4.0
+metadata/_custom_type_script = "uid://bvoy8p2v1ao7i"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea" unique_id=184762014]
+shape = SubResource("RectangleShape2D_8vy7a")
+debug_color = Color(0.7019608, 0, 0.003921569, 0)
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=948555553]
+texture = SubResource("GradientTexture2D_xj4lu")
+script = ExtResource("6_qnq5o")
+flicker_intensity = 0.2
+flicker_frequency = 0.1
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1048744781]
+amount = 24
+process_material = SubResource("ParticleProcessMaterial_6drb7")

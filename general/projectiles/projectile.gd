@@ -9,6 +9,9 @@ class_name Projectile extends CharacterBody2D
 @export var spawn_audio : AudioStream
 @export var destroy_audio : AudioStream
 
+@export_category( "Particles" )
+@export var destroy_particles : Array[ HitParticleSettings ]
+
 var gravity : float = 980.0
 var target_position : Vector2
 var animation_player : AnimationPlayer
@@ -73,6 +76,7 @@ func _on_damage_done( _dir : Vector2 ) -> void:
 
 
 func destroy() -> void:
+	var particle_dir : Vector2 = velocity.normalized()
 	velocity = Vector2.ZERO
 	gravity_strength = 0.0
 	
@@ -86,6 +90,9 @@ func destroy() -> void:
 		if animation_player.has_animation("destroy"):
 			animation_player.play( "destroy" )
 			await animation_player.animation_finished
+	
+	for p in destroy_particles:
+		VisualEffects.hit_particles( global_position, particle_dir, p )
 	
 	queue_free()
 	pass

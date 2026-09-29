@@ -32,6 +32,8 @@
 [ext_resource type="AudioStream" uid="uid://cvajccfk2oxjq" path="res://general/audio/attack.wav" id="22_glntu"]
 [ext_resource type="Script" uid="uid://d12n40tst35rq" path="res://general/scripts/damage_modulate.gd" id="23_wyh1i"]
 [ext_resource type="PackedScene" uid="uid://owlkrmexwpwt" path="res://enemies/scripts/health_bars/enemy_health_bar.tscn" id="24_2lt81"]
+[ext_resource type="Script" uid="uid://cia8gxgxjmu5b" path="res://general/projectiles/projectile_spawner.gd" id="33_g607t"]
+[ext_resource type="PackedScene" uid="uid://bdiu30t5psqyk" path="res://general/projectiles/Fireball/pink_box_projectile.tscn" id="34_2c5fn"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1b8ss"]
 load_path = "res://.godot/imported/weapon_smears.png-5b028c5242807e06e4e06dc0196b6b25.ctex"
@@ -147,8 +149,8 @@ tracks/7/keys = {
 
 [sub_resource type="Animation" id="Animation_rai4y"]
 resource_name = "attack"
-length = 0.6
-step = 0.05
+length = 0.85
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -156,10 +158,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.20000002, 0.25000003, 0.3, 0.35000002),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.35000002, 0.5, 0.5500001, 0.6, 0.65000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [21, 22, 23, 24, 25, 26]
+"values": [0, 1, 2, 21, 22, 23, 24, 25, 26]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -168,7 +170,7 @@ tracks/1/path = NodePath("AttackArea")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.25),
+"times": PackedFloat32Array(0.55),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [0.1],
@@ -182,7 +184,7 @@ tracks/2/path = NodePath("Sprite2D/AttackSprite2D:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.25, 0.5),
+"times": PackedFloat32Array(0.55, 0.8),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -194,7 +196,7 @@ tracks/3/path = NodePath("Sprite2D/AttackSprite2D:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.24999999, 0.29999998, 0.35, 0.39999998),
+"times": PackedFloat32Array(0.55, 0.6, 0.65, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
@@ -206,7 +208,7 @@ tracks/4/path = NodePath("Sprite2D/AttackSprite2D:show_behind_parent")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0.3, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -218,7 +220,7 @@ tracks/5/path = NodePath(".")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0.3, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [ExtResource("8_ioh3j")],
@@ -229,9 +231,107 @@ tracks/5/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_2c5fn"]
+resource_name = "attack_2"
+length = 0.85
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.35000002, 0.5, 0.5500001, 0.6, 0.65000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 21, 22, 23, 24, 25, 26]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AttackArea")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.55),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.1],
+"method": &"activate"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/AttackSprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.55, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D/AttackSprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.55, 0.6, 0.65, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D/AttackSprite2D:show_behind_parent")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [ExtResource("8_ioh3j")],
+"method": &"play_audio"
+}, {
+"args": [ExtResource("22_glntu")],
+"method": &"play_audio"
+}]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ProjectileSpawner")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.56388885),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"fire_at_player"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_sp5s3"]
 resource_name = "crouch"
-length = 0.39999999999999997
+length = 0.4
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -491,6 +591,7 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_mafwj"),
 &"attack": SubResource("Animation_rai4y"),
+&"attack_2": SubResource("Animation_2c5fn"),
 &"crouch": SubResource("Animation_sp5s3"),
 &"dash_attack": SubResource("Animation_tlnbh"),
 &"death": SubResource("Animation_iyqwc"),
@@ -642,6 +743,16 @@ attack_area = NodePath("../../AttackArea")
 move_speed_curve = SubResource("Curve_bxcqb")
 metadata/_custom_type_script = "uid://dkbw4qtkft820"
 
+[node name="ESAttack2" type="Node" parent="EnemyStateMachine" unique_id=1420347877 node_paths=PackedStringArray("attack_area")]
+unique_name_in_owner = true
+script = ExtResource("11_2c5fn")
+attack_range = 500.0
+cooldown = 2.0
+attack_area = NodePath("../../AttackArea")
+move_speed = 0.0
+animation_name = "attack_2"
+metadata/_custom_type_script = "uid://dkbw4qtkft820"
+
 [node name="ESChase" type="Node" parent="EnemyStateMachine" unique_id=1611567100]
 unique_name_in_owner = true
 script = ExtResource("12_mvbhv")
@@ -748,3 +859,9 @@ offset_left = -20.0
 offset_top = -72.0
 offset_right = 20.0
 offset_bottom = -52.0
+
+[node name="ProjectileSpawner" type="Marker2D" parent="." unique_id=1226575188]
+position = Vector2(33, -22)
+script = ExtResource("33_g607t")
+projectile = ExtResource("34_2c5fn")
+metadata/_custom_type_script = "uid://cia8gxgxjmu5b"
