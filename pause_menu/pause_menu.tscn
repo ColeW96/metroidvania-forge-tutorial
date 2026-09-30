@@ -1504,7 +1504,7 @@ unique_name_in_owner = true
 light_mask = 0
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_b0obc")
-current_tab = 3
+current_tab = 0
 clip_tabs = false
 tab_0/icon = SubResource("AtlasTexture_gm4du")
 tab_1/icon = SubResource("AtlasTexture_5u3lt")
@@ -1513,7 +1513,6 @@ tab_3/icon = SubResource("AtlasTexture_cux0y")
 tab_4/icon = SubResource("AtlasTexture_nsdwt")
 
 [node name="LedgeGrab" type="Control" parent="Control/Abilities/PanelContainer/AbilitiesTab" unique_id=945541681 node_paths=PackedStringArray("upgrades", "upgrade_name", "upgrade_description", "purchase_description", "upgrade_purchased")]
-visible = false
 layout_mode = 2
 script = ExtResource("9_1nv8k")
 upgrades = [NodePath("VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer/MorphAscend")]
@@ -1970,6 +1969,7 @@ theme_override_font_sizes/font_size = 8
 text = "Purchased"
 
 [node name="GroundSlam" type="Control" parent="Control/Abilities/PanelContainer/AbilitiesTab" unique_id=342761919 node_paths=PackedStringArray("upgrades", "upgrade_name", "upgrade_description", "purchase_description", "upgrade_purchased")]
+visible = false
 layout_mode = 2
 script = ExtResource("9_1nv8k")
 upgrades = [NodePath("VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer/WaveEmitter"), NodePath("VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer/WaveEmitter2"), NodePath("VBoxContainer/HBoxContainer2/PanelContainer/VBoxContainer/HBoxContainer/WaveEmitter3")]

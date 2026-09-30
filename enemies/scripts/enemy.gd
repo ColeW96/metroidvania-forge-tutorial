@@ -147,6 +147,8 @@ func _update_face_left() -> void:
 	for c in get_children():
 		if c is Sprite2D:
 			c.flip_h = face_left_on_start
+		elif c is PlayerSensor:
+			c.scale.x *= -1
 	pass
 
 
