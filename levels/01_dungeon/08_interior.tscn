@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://dlrseuwg0hsr5" path="res://general/input_level_transition/input_level_transition.tscn" id="6_7jws0"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="7_0ynp2"]
 [ext_resource type="PackedScene" uid="uid://dj5ayp15ys2v8" path="res://enemies/gargoyle_statue/gargoyle_statue.tscn" id="8_inkcy"]
-[ext_resource type="PackedScene" uid="uid://bew5osvj6ik17" path="res://general/ability_pickup/ability_pickup.tscn" id="9_opr21"]
 
 [node name="08Interior" type="Node2D" unique_id=1222515119]
 
@@ -48,23 +47,23 @@ position = Vector2(184, 967)
 [node name="Enemies" type="Node2D" parent="." unique_id=134150869]
 
 [node name="GargoyleStatue" parent="Enemies" unique_id=488761391 instance=ExtResource("8_inkcy")]
+modulate = Color(0.99607843, 0.4392157, 0.4392157, 1)
 position = Vector2(119, 773)
 invincible = true
 
 [node name="GargoyleStatue3" parent="Enemies" unique_id=279982138 instance=ExtResource("8_inkcy")]
+modulate = Color(0.99607843, 0.4392157, 0.4392157, 1)
 position = Vector2(119, 421)
 invincible = true
 
 [node name="GargoyleStatue2" parent="Enemies" unique_id=2056647527 instance=ExtResource("8_inkcy")]
+modulate = Color(0.99607843, 0.4392157, 0.4392157, 1)
 position = Vector2(274, 613)
 invincible = true
 face_left_on_start = true
 
 [node name="GargoyleStatue4" parent="Enemies" unique_id=631895075 instance=ExtResource("8_inkcy")]
+modulate = Color(0.99607843, 0.4392157, 0.4392157, 1)
 position = Vector2(288, 261)
 invincible = true
 face_left_on_start = true
-
-[node name="AbilityPickup" parent="." unique_id=1646825791 instance=ExtResource("9_opr21")]
-position = Vector2(224, 944)
-type = 4

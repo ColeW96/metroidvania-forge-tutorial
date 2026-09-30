@@ -2,6 +2,8 @@
 @icon( "res://general/icons/level_transition.svg" )
 class_name InputLevelTransition extends Node2D
 
+const WOOSH = preload("uid://qju5hfvfn0jy")
+
 @export_file( "*.tscn" ) var target_level : String = ""
 @export var target_area_name : String = "InputLevelTransition"
 
@@ -21,6 +23,7 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("up") and player_in_area:
 		get_viewport().set_input_as_handled()
+		Audio.play_spatial_sound( WOOSH, global_position )
 		SceneManager.transition_scene( target_level, target_area_name, Vector2(0, 6), "up" )
 
 
