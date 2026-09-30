@@ -371,6 +371,7 @@ func _on_powerup_collected( message_text : String ) -> void:
 		message_label_player.play("powerup_message_ball")
 	else:
 		message_label_player.play("powerup_message_stand")
+	message_label_player.seek(0)
 	pass
 
 
