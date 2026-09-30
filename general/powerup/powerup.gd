@@ -3,7 +3,7 @@ class_name Powerup extends Node2D
 
 const HEALTH_UP_AUDIO = preload("uid://c40kvmm7j4x3h")
 
-enum Type { HEALTH, SKILL }
+enum Type { HEALTH, SKILL, ATTACK }
 
 @export var amount : float = 10
 @export var type : Type = Type.HEALTH:
@@ -39,17 +39,27 @@ func _ready() -> void:
 func _on_body_entered( n : Node2D ) -> void:
 	SaveManager.persistent_data[ _get_path() ] = "acquired"
 	var audio : AudioStream
+	var message_text : String = ""
 	match type:
 		Type.HEALTH:
 			n.max_hp += amount
 			n.hp = n.max_hp
 			audio = HEALTH_UP_AUDIO
 			Audio.play_spatial_sound( audio, n.global_position )
+			message_text = "Health Up!"
 		Type.SKILL:
 			n.skill_tokens += amount
 			# Temporary Audio
 			audio = HEALTH_UP_AUDIO
 			Audio.play_spatial_sound( audio, n.global_position )
+			message_text = "Skill Tokens +" + str(int(amount)) + "!"
+		Type.ATTACK:
+			n.attack_damage += amount
+			# Temporary Audio
+			audio = HEALTH_UP_AUDIO
+			Audio.play_spatial_sound( audio, n.global_position )
+			message_text = "Attack Up!"
+	Messages.powerup_collected.emit( message_text )
 	area_2d.body_entered.disconnect( _on_body_entered )
 	queue_free()
 	pass
@@ -68,6 +78,8 @@ func get_powerup_name() -> String:
 			return "health_powerup"
 		Type.SKILL:
 			return "skill_token"
+		Type.ATTACK:
+			return "attack_up"
 	return ""
 
 func _get_path() -> String:

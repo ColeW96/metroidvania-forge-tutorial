@@ -52,6 +52,7 @@ func create_new_game_save( slot : int ) -> void:
 		"y" : 229,
 		"hp" : 20,
 		"max_hp" : 20,
+		"attack_damage" : 1,
 		"skill_tokens" : 0,
 		"dash" : false,
 		"double_jump" : false,
@@ -82,6 +83,7 @@ func save_game() -> void:
 		"y" : player.global_position.y,
 		"hp" : player.hp,
 		"max_hp" : player.max_hp,
+		"attack_damage" : player.attack_damage,
 		"skill_tokens" : player.skill_tokens,
 		"dash" : player.dash,
 		"double_jump" : player.double_jump,
@@ -124,6 +126,7 @@ func setup_player() -> void:
 	
 	player.max_hp = save_data.get( "max_hp", 20 )
 	player.hp = save_data.get( "hp", 20 )
+	player.attack_damage = save_data.get( "attack_damage", 1 )
 	player.skill_tokens = save_data.get( "skill_tokens", 0 )
 	
 	player.dash = save_data.get( "dash", false )

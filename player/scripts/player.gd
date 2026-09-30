@@ -27,6 +27,8 @@ signal damage_taken
 @onready var ledge_floor_check: RayCast2D = %LedgeFloorCheck
 @onready var ledge_grab_point: Marker2D = %LedgeGrabPoint
 @onready var edge_sensor: RayCast2D = %EdgeSensor
+@onready var message_label: Label = %MessageLabel
+@onready var message_label_player: AnimationPlayer = %MessageLabelPlayer
 #endregion
 
 
@@ -109,6 +111,7 @@ func _ready() -> void:
 	Messages.player_healed.connect( _on_player_healed )
 	Messages.back_to_title_screen.connect( queue_free )
 	Messages.ability_acquired.connect( _on_ability_acquired )
+	Messages.powerup_collected.connect( _on_powerup_collected )
 	damage_area.damage_taken.connect( _on_damage_taken )
 	attack_area.damage_done.connect( _on_damage_done )
 	hp = max_hp
@@ -189,7 +192,6 @@ func initialize_states() -> void:
 	
 	change_state( current_state )
 	current_state.enter()
-	$Label.text = current_state.name
 	pass
 
 
@@ -208,7 +210,6 @@ func change_state( new_state : PlayerState ) -> void:
 	current_state.enter()
 	
 	states.resize( 3 )
-	$Label.text = current_state.name
 	
 	requested_state = null
 	pass
@@ -361,6 +362,12 @@ func _on_ability_acquired( ability_name : String ) -> void:
 	add_child(ability_message)
 	ability_message.set_ability_message_text(ability_name)
 	ability_message.set_action( ability_name )
+	pass
+
+
+func _on_powerup_collected( message_text : String ) -> void:
+	message_label.text = message_text
+	message_label_player.play("powerup_message")
 	pass
 
 

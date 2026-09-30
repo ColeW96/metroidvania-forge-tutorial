@@ -35,9 +35,17 @@ target_level = "uid://dkb81i711vvg8"
 position = Vector2(208, 158)
 
 [node name="Powerup" parent="." unique_id=165981682 instance=ExtResource("6_chnyq")]
-position = Vector2(218, 112)
+position = Vector2(179, 112)
+
+[node name="Powerup2" parent="." unique_id=1386110572 instance=ExtResource("6_chnyq")]
+position = Vector2(239, 112)
 amount = 3.0
 type = 1
+
+[node name="Powerup3" parent="." unique_id=1917712611 instance=ExtResource("6_chnyq")]
+position = Vector2(294, 112)
+amount = 0.5
+type = 2
 
 [node name="LivingArmor" parent="." unique_id=488761391 instance=ExtResource("7_j1wm5")]
 process_mode = 4

@@ -22,3 +22,6 @@ signal player_died
 
 @warning_ignore("unused_signal")
 signal ability_acquired( ability_name : String )
+
+@warning_ignore("unused_signal")
+signal powerup_collected( message_text : String )

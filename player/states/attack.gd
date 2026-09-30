@@ -63,8 +63,10 @@ func do_attack() -> void:
 	if combo > 0:
 		anim_name = "attack_2"
 	player.animation_player.play(anim_name)
+	player.attack_area.damage = player.attack_damage
 	player.attack_area.activate()
 	Audio.play_spatial_sound(AUDIO_ATTACK, player.global_position, false, true, 0.25, 2)
+	print(player.attack_area.damage)
 	pass
 
 
