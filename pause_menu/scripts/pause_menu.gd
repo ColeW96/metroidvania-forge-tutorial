@@ -21,6 +21,7 @@ class_name PauseMenu extends CanvasLayer
 #endregion
 
 var player_position : Vector2
+var current_button : Button
 
 
 func _ready() -> void:
@@ -55,11 +56,16 @@ func show_pause_screen() -> void:
 	system.visible = false
 	controls.visible = false
 	abilities.visible = false
-	controls_menu_button.grab_focus()
+	
+	if current_button:
+		current_button.grab_focus()
+	else:
+		abilities_menu_button.grab_focus()
 	pass
 
 
 func show_system_menu() -> void:
+	current_button = system_menu_button
 	pause_screen.visible = false
 	system.visible = true
 	controls.visible = false
@@ -69,6 +75,7 @@ func show_system_menu() -> void:
 
 
 func show_controls_menu() -> void:
+	current_button = controls_menu_button
 	pause_screen.visible = false
 	system.visible = false
 	controls.visible = true
@@ -78,6 +85,7 @@ func show_controls_menu() -> void:
 
 
 func show_abilities_menu() -> void:
+	current_button = abilities_menu_button
 	pause_screen.visible = false
 	system.visible = false
 	controls.visible = false
