@@ -49,16 +49,20 @@ position = Vector2(184, 967)
 
 [node name="GargoyleStatue" parent="Enemies" unique_id=488761391 instance=ExtResource("8_inkcy")]
 position = Vector2(119, 773)
+invincible = true
 
 [node name="GargoyleStatue3" parent="Enemies" unique_id=279982138 instance=ExtResource("8_inkcy")]
 position = Vector2(119, 421)
+invincible = true
 
 [node name="GargoyleStatue2" parent="Enemies" unique_id=2056647527 instance=ExtResource("8_inkcy")]
 position = Vector2(274, 613)
+invincible = true
 face_left_on_start = true
 
 [node name="GargoyleStatue4" parent="Enemies" unique_id=631895075 instance=ExtResource("8_inkcy")]
 position = Vector2(288, 261)
+invincible = true
 face_left_on_start = true
 
 [node name="AbilityPickup" parent="." unique_id=1646825791 instance=ExtResource("9_opr21")]

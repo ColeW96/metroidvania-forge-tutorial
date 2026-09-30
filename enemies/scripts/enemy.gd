@@ -7,6 +7,7 @@ signal was_hit( a : AttackArea )
 signal was_killed()
 
 @export var health : float = 3
+@export var invincible : bool = false
 @export var affected_by_gravity : bool = true
 @export var face_left_on_start : bool = false :
 	set( value ):
@@ -105,6 +106,8 @@ func play_animation( anim_name : String ) -> void:
 
 ## Handle taking damage here as central hub
 func _on_damage_taken( a : AttackArea ) -> void:
+	if invincible:
+		return
 	if show_hp:
 		enemy_health_bar.show_health_bar()
 	blackboard.damage_source = a

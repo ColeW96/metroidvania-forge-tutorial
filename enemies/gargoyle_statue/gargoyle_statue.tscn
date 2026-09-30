@@ -176,6 +176,7 @@ collision_layer = 0
 collision_mask = 3
 script = ExtResource("1_u277d")
 health = 5.0
+invincible = null
 show_vision = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=70568379]
