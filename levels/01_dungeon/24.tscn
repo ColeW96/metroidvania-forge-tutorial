@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://c8o0em6mqj12d" path="res://bosses/nega_pink_box/audio/nega_pink_box_boss.wav" id="6_02f1h"]
 [ext_resource type="Script" uid="uid://rwwuu7gvxywr" path="res://music/music_auto_trigger.gd" id="7_5tpny"]
 [ext_resource type="AudioStream" uid="uid://p8hxrxlmlcnc" path="res://music/dungeon_01.ogg" id="8_02f1h"]
+[ext_resource type="PackedScene" uid="uid://wdmyqu8yln5j" path="res://general/powerup/powerup.tscn" id="8_kso6q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6drb7"]
 size = Vector2(20, 237)
@@ -45,12 +46,13 @@ target_area_name = "D17-3"
 [node name="PlayerSpawn" parent="." unique_id=168231582 instance=ExtResource("5_hikmn")]
 position = Vector2(944, 704)
 
-[node name="BossBattleOrchestrator" type="Node" parent="." unique_id=1573185936 node_paths=PackedStringArray("boss", "trigger_area", "boss_tilemaps")]
+[node name="BossBattleOrchestrator" type="Node" parent="." unique_id=1573185936 node_paths=PackedStringArray("boss", "trigger_area", "boss_tilemaps", "reward")]
 script = ExtResource("5_agqoh")
 boss_name = "Death Knight"
 boss = NodePath("PlaceholderBoss")
 trigger_area = NodePath("Area2D")
 boss_tilemaps = [NodePath("TileMapLayer3")]
+reward = NodePath("Powerup")
 boss_track = ExtResource("6_02f1h")
 metadata/_custom_type_script = "uid://ch0a048ylkibq"
 
@@ -67,6 +69,11 @@ shape = SubResource("RectangleShape2D_6drb7")
 [node name="TileMapLayer3" type="TileMapLayer" parent="BossBattleOrchestrator" unique_id=1432627322]
 tile_map_data = PackedByteArray("AAAGABYAAAACAAYAAAAHABYAAAADAAYAAAAeABQAAAAAAAkAAAAeABUAAAAAAAoAAAAeABYAAAAIAAoAAAA=")
 tile_set = ExtResource("1_sywid")
+
+[node name="Powerup" parent="BossBattleOrchestrator" unique_id=165981682 instance=ExtResource("8_kso6q")]
+position = Vector2(392, 688)
+amount = 0.5
+type = 2
 
 [node name="MusicAutoTrigger" type="Node" parent="." unique_id=205975133]
 script = ExtResource("7_5tpny")

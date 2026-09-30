@@ -10,6 +10,7 @@ enum Type { HEALTH, SKILL, ATTACK }
 	set( value ):
 		type = value
 		_set_animation()
+		_set_default_amount()
 
 @export var node_to_remove : Node
 
@@ -88,4 +89,15 @@ func _get_path() -> String:
 
 func _on_tree_exited() -> void:
 	node_to_remove.queue_free()
+	pass
+
+
+func _set_default_amount() -> void:
+	match type:
+		Type.HEALTH:
+			amount = 10.0
+		Type.SKILL:
+			amount = 1.0
+		Type.ATTACK:
+			amount = 0.5
 	pass

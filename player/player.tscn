@@ -94,8 +94,48 @@ tracks/2/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_a2xo5"]
+resource_name = "powerup_message_ball"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5),
+"update": 0,
+"values": [Vector2(-55, -26), Vector2(-55, -40), Vector2(-55, -37)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 1, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_dx5ib"]
-resource_name = "powerup_message"
+resource_name = "powerup_message_stand"
 length = 1.3
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -137,7 +177,8 @@ tracks/2/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a2xo5"]
 _data = {
 &"RESET": SubResource("Animation_55jnj"),
-&"powerup_message": SubResource("Animation_dx5ib")
+&"powerup_message_ball": SubResource("Animation_a2xo5"),
+&"powerup_message_stand": SubResource("Animation_dx5ib")
 }
 
 [sub_resource type="Animation" id="Animation_rgyib"]

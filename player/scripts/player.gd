@@ -367,7 +367,10 @@ func _on_ability_acquired( ability_name : String ) -> void:
 
 func _on_powerup_collected( message_text : String ) -> void:
 	message_label.text = message_text
-	message_label_player.play("powerup_message")
+	if current_state is PlayerStateBall:
+		message_label_player.play("powerup_message_ball")
+	else:
+		message_label_player.play("powerup_message_stand")
 	pass
 
 
