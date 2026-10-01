@@ -75,11 +75,13 @@ position = Vector2(376, 624)
 
 [node name="GargoyleStatue" parent="Enemies" unique_id=488761391 instance=ExtResource("5_sn6ph")]
 position = Vector2(396, 515)
+invincible = false
 face_left_on_start = true
 show_vision = false
 
 [node name="GargoyleStatue2" parent="Enemies" unique_id=1281608562 instance=ExtResource("5_sn6ph")]
 position = Vector2(396, 323)
+invincible = false
 face_left_on_start = true
 show_vision = false
 
