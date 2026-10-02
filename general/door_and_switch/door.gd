@@ -13,7 +13,7 @@ func _ready() -> void:
 		return
 	
 	for c in get_children():
-		if c is Switch:
+		if c is Switch or c is EyeSwitch:
 			c.activated.connect( _on_switch_activated )
 			if c.is_open == true:
 				_on_switch_is_open()
@@ -33,12 +33,12 @@ func _on_switch_is_open() -> void:
 
 func _get_configuration_warnings() -> PackedStringArray:
 	if _check_for_switch() == false:
-		return [ "Requires a Switch node." ]
+		return [ "Requires a Switch or EyeSwitch node." ]
 	return []
 
 
 func _check_for_switch() -> bool:
 	for c in get_children():
-		if c is Switch:
+		if c is Switch or c is EyeSwitch:
 			return true
 	return false

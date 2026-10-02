@@ -232,6 +232,7 @@ camera_left={
 2d_physics/layer_6="Enemy"
 2d_physics/layer_7="Breakable"
 2d_physics/layer_8="SlamBreakable"
+2d_physics/layer_9="EyeSwitch"
 
 [rendering]
 

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b86vflsw7qose"]
+
+[ext_resource type="Script" uid="uid://c78bwft4ivjs" path="res://general/door_and_switch/eye_switch.gd" id="1_7bf2q"]
+[ext_resource type="Script" uid="uid://dha53eb7vo0el" path="res://general/scripts/damage_area.gd" id="1_tobh7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6drb7"]
+size = Vector2(8, 8)
+
+[node name="EyeSwitch" type="Node2D" unique_id=294992808]
+script = ExtResource("1_7bf2q")
+
+[node name="DamageArea" type="Area2D" parent="." unique_id=753760191]
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("1_tobh7")
+metadata/_custom_type_script = "uid://dha53eb7vo0el"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=957709865]
+shape = SubResource("RectangleShape2D_6drb7")
+debug_color = Color(0.70196074, 0.084519766, 0, 0.41960785)

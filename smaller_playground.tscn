@@ -4,10 +4,8 @@
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="2_83xbm"]
 [ext_resource type="PackedScene" uid="uid://dlrseuwg0hsr5" path="res://general/input_level_transition/input_level_transition.tscn" id="4_cjmus"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="4_sxnha"]
-[ext_resource type="PackedScene" uid="uid://b7gueiujn071s" path="res://levels/props/ChandelierA.tscn" id="5_cjmus"]
-[ext_resource type="PackedScene" uid="uid://wdmyqu8yln5j" path="res://general/powerup/powerup.tscn" id="6_chnyq"]
-[ext_resource type="PackedScene" uid="uid://hanqvafhvg88" path="res://enemies/living_armor/living_armor.tscn" id="7_j1wm5"]
-[ext_resource type="PackedScene" uid="uid://h20ktogdikrd" path="res://levels/props/crate_wooden.tscn" id="8_03d05"]
+[ext_resource type="PackedScene" uid="uid://cba7dqnr4ivnb" path="res://general/door_and_switch/door.tscn" id="5_cjmus"]
+[ext_resource type="PackedScene" uid="uid://b86vflsw7qose" path="res://general/door_and_switch/eye_switch.tscn" id="6_chnyq"]
 
 [node name="SmallerPlayground" type="Node2D" unique_id=775118826]
 
@@ -16,7 +14,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAHAA0AAAAAAAEAAAAHAA0AAAAAAAIAAAAHAA0
 tile_set = ExtResource("1_8du1n")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=925974475]
-tile_map_data = PackedByteArray("AAAAAAAAAAAFAA4AAAAAAAEAAAAFAAkAAAAAAAIAAAAFAAoAAAAAAAMAAAAFAAoAAAAAAAQAAAAFAAoAAAAAAAUAAAAFAAoAAAAAAAYAAAAFAAsAAAAAAAcAAAAJAAoAAAAAAAgAAAACAAkAAAABAAgAAAADAAkAAAACAAgAAAACAAkAAAADAAgAAAADAAkAAAAEAAgAAAACAAkAAAAFAAgAAAADAAkAAAAGAAgAAAACAAkAAAAHAAgAAAADAAkAAAAIAAgAAAACAAkAAAAJAAgAAAADAAkAAAAKAAgAAAACAAkAAAALAAgAAAADAAkAAAAMAAgAAAACAAkAAAANAAgAAAACAAkAAAAOAAgAAAADAAkAAAAOAAcAAAAIAAoAAAAOAAYAAAAAAAsAAAAOAAUAAAAAAAoAAAAOAAQAAAAAAAoAAAAOAAMAAAAAAAoAAAAOAAIAAAAAAAoAAAAOAAEAAAAAAAkAAAAOAAAAAAACAA4AAAANAAAAAAADAAwAAAAMAAAAAAACAAwAAAALAAAAAAACAAwAAAAKAAAAAAADAAwAAAAJAAAAAAACAAwAAAAIAAAAAAADAAwAAAAHAAAAAAACAAwAAAAGAAAAAAADAAwAAAAFAAAAAAACAAwAAAAEAAAAAAADAAwAAAADAAAAAAACAAwAAAACAAAAAAADAAwAAAABAAAAAAACAAwAAAANAAcAAAAEAAgAAAAMAAcAAAADAAgAAAALAAcAAAACAAgAAAAKAAcAAAACAAgAAAAJAAcAAAADAAgAAAAIAAcAAAACAAgAAAAHAAcAAAADAAgAAAAGAAcAAAACAAgAAAAFAAcAAAADAAgAAAAEAAcAAAACAAgAAAADAAcAAAADAAgAAAACAAcAAAACAAgAAAABAAcAAAABAAgAAAAFAAQAAAAQAAYAAAAGAAQAAAARAAYAAAAHAAQAAAASAAYAAAAIAAQAAAASAAYAAAAJAAQAAAATAAYAAAABAAMAAAAFAAgAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAAAFAA4AAAAAAAEAAAAFAAkAAAAAAAIAAAAFAAoAAAAAAAMAAAAFAAoAAAAAAAQAAAAFAAoAAAAAAAUAAAAFAAoAAAAAAAYAAAAFAAsAAAAAAAcAAAAJAAoAAAAAAAgAAAACAAkAAAABAAgAAAADAAkAAAACAAgAAAACAAkAAAADAAgAAAADAAkAAAAEAAgAAAACAAkAAAAFAAgAAAADAAkAAAAGAAgAAAACAAkAAAAHAAgAAAADAAkAAAAIAAgAAAACAAkAAAAJAAgAAAADAAkAAAAKAAgAAAACAAkAAAALAAgAAAADAAkAAAAMAAgAAAACAAkAAAANAAgAAAACAAkAAAAOAAgAAAADAAkAAAAOAAcAAAAIAAoAAAAOAAYAAAAAAAsAAAAOAAUAAAAAAAoAAAAOAAQAAAAAAAoAAAAOAAMAAAAAAAoAAAAOAAIAAAAAAAoAAAAOAAEAAAAAAAkAAAAOAAAAAAACAA4AAAANAAAAAAADAAwAAAAMAAAAAAACAAwAAAALAAAAAAACAAwAAAAKAAAAAAADAAwAAAAJAAAAAAACAAwAAAAIAAAAAAAFAA4AAAAHAAAAAAAEAA4AAAAGAAAAAAACAAoAAAAFAAAAAAADAA4AAAAEAAAAAAACAA4AAAADAAAAAAACAAwAAAACAAAAAAADAAwAAAABAAAAAAACAAwAAAANAAcAAAAEAAgAAAAMAAcAAAADAAgAAAALAAcAAAACAAgAAAAKAAcAAAACAAgAAAAJAAcAAAADAAgAAAAIAAcAAAACAAgAAAAHAAcAAAADAAgAAAAGAAcAAAACAAgAAAAFAAcAAAADAAgAAAAEAAcAAAACAAgAAAADAAcAAAADAAgAAAACAAcAAAACAAgAAAABAAcAAAABAAgAAAABAAMAAAAFAAgAAAAFAAMAAAABAAwAAAAEAAMAAAAAAAwAAAAEAAEAAAAAAAoAAAAEAAIAAAAAAAsAAAAGAAMAAAACAAwAAAAHAAMAAAAEAAwAAAAIAAMAAAAFAAwAAAAIAAEAAAAFAAoAAAAIAAIAAAAFAAsAAAAFAAIAAAABAAsAAAAHAAIAAAAEAAsAAAAGAAIAAAACAAoAAAAGAAEAAAACAAoAAAAHAAEAAAAEAAoAAAAFAAEAAAABAAoAAAA=")
 tile_set = ExtResource("1_8du1n")
 
 [node name="LevelBounds" type="Node2D" parent="." unique_id=77321716]
@@ -31,27 +29,8 @@ position = Vector2(56, 224)
 position = Vector2(368, 224)
 target_level = "uid://dkb81i711vvg8"
 
-[node name="ChandelierA" parent="." unique_id=907015132 instance=ExtResource("5_cjmus")]
-position = Vector2(208, 158)
+[node name="Door" parent="." unique_id=1464228211 instance=ExtResource("5_cjmus")]
+position = Vector2(156, 222)
 
-[node name="Powerup" parent="." unique_id=165981682 instance=ExtResource("6_chnyq")]
-position = Vector2(179, 112)
-
-[node name="Powerup2" parent="." unique_id=1386110572 instance=ExtResource("6_chnyq")]
-position = Vector2(239, 112)
-amount = 3.0
-type = 1
-
-[node name="Powerup3" parent="." unique_id=1917712611 instance=ExtResource("6_chnyq")]
-position = Vector2(294, 112)
-amount = 0.5
-type = 2
-
-[node name="LivingArmor" parent="." unique_id=488761391 instance=ExtResource("7_j1wm5")]
-process_mode = 4
-position = Vector2(240, 227)
-
-[node name="Crate" parent="." unique_id=261099677 instance=ExtResource("8_03d05")]
-position = Vector2(172, 213)
-hp = 999.0
-fixed_hit_count = false
+[node name="EyeSwitch" parent="Door" unique_id=294992808 instance=ExtResource("6_chnyq")]
+position = Vector2(-120, -79)
