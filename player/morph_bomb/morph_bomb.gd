@@ -22,3 +22,8 @@ func destroy() -> void:
 	await animation_player.animation_finished
 	queue_free()
 	pass
+
+
+func play_audio( audio : AudioStream ) -> void:
+	Audio.play_spatial_sound( audio, global_position )
+	pass

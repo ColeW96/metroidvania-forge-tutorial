@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cirxtq853t4gb" path="res://player/morph_bomb/morph_bomb.png" id="1_5x6da"]
 [ext_resource type="Script" uid="uid://mlladljtelfb" path="res://player/morph_bomb/morph_bomb.gd" id="1_d66wd"]
 [ext_resource type="Script" uid="uid://vt684ogx76fc" path="res://general/scripts/attack_area.gd" id="3_d66wd"]
+[ext_resource type="AudioStream" uid="uid://cf85is3e4o3kb" path="res://general/audio/boom.wav" id="3_q4dog"]
 
 [sub_resource type="Animation" id="Animation_hdlot"]
 length = 0.001
@@ -113,6 +114,20 @@ tracks/3/keys = {
 "values": [{
 "args": [0.2],
 "method": &"activate"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [ExtResource("3_q4dog")],
+"method": &"play_audio"
 }]
 }
 
