@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="4_sxnha"]
 [ext_resource type="PackedScene" uid="uid://cba7dqnr4ivnb" path="res://general/door_and_switch/door.tscn" id="5_cjmus"]
 [ext_resource type="PackedScene" uid="uid://b86vflsw7qose" path="res://general/door_and_switch/eye_switch.tscn" id="6_chnyq"]
+[ext_resource type="PackedScene" uid="uid://co8i6yuob0y3t" path="res://general/door_and_switch/timer_door.tscn" id="7_j1wm5"]
 
 [node name="SmallerPlayground" type="Node2D" unique_id=775118826]
 
@@ -34,6 +35,15 @@ position = Vector2(156, 222)
 
 [node name="EyeSwitch" parent="Door" unique_id=294992808 instance=ExtResource("6_chnyq")]
 position = Vector2(295, -22)
+scale = Vector2(-1, 1)
+give_timer = true
+timer = 5.0
+
+[node name="TimerDoor" parent="." unique_id=1743750972 instance=ExtResource("7_j1wm5")]
+position = Vector2(225.4368, 222.86122)
+
+[node name="EyeSwitch" parent="TimerDoor" unique_id=863396417 instance=ExtResource("6_chnyq")]
+position = Vector2(93.5632, -29.861221)
 scale = Vector2(-1, 1)
 give_timer = true
 timer = 5.0

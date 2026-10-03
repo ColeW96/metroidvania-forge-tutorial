@@ -42,7 +42,9 @@ func _on_switch_is_open() -> void:
 func _get_configuration_warnings() -> PackedStringArray:
 	if _check_for_switch() == false:
 		return [ "Requires a Switch or EyeSwitch node." ]
-	return []
+	elif name.contains("Timer"):
+		return [ "This node should be used with a timer on an EyeSwitch node." ]
+	return [ "This node should not be used with a timer on an Eyeswitch node." ]
 
 
 func _check_for_switch() -> bool:
