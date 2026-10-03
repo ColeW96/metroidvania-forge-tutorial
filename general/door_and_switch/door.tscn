@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cba7dqnr4ivnb"]
+[gd_scene format=3 uid="uid://cba7dqnr4ivnb"]
 
 [ext_resource type="Texture2D" uid="uid://c50ybfp2pu0gm" path="res://general/door_and_switch/door_and_switch.png" id="1_ar1bk"]
 [ext_resource type="Script" uid="uid://cw2mnyuhitisl" path="res://general/door_and_switch/door.gd" id="1_wis3y"]
@@ -173,18 +173,18 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ar1bk"]
 size = Vector2(30, 101)
 
-[node name="Door" type="Node2D"]
+[node name="Door" type="Node2D" unique_id=1743750972]
 process_mode = 3
 script = ExtResource("1_wis3y")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1824239697]
 position = Vector2(0, 15)
 texture = ExtResource("1_ar1bk")
 vframes = 3
 frame = 1
 region_rect = Rect2(0, 32, 32, 21)
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=354366412]
 z_index = 2
 offset_left = -16.0
 offset_top = -105.0
@@ -196,15 +196,13 @@ patch_margin_top = 15
 patch_margin_bottom = 6
 axis_stretch_horizontal = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_ut10y")
-}
-autoplay = "closed"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=609974843]
+libraries/ = SubResource("AnimationLibrary_ut10y")
+autoplay = &"closed"
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=572992550]
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=711045033]
 position = Vector2(0, -43.5)
 shape = SubResource("RectangleShape2D_ar1bk")

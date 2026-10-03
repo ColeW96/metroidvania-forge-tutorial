@@ -17,12 +17,20 @@ func _ready() -> void:
 			c.activated.connect( _on_switch_activated )
 			if c.is_open == true:
 				_on_switch_is_open()
+		if c is EyeSwitch:
+			c.deactivated.connect( _on_switch_deactivated )
 	pass
 
 
 func _on_switch_activated() -> void:
 	Audio.play_spatial_sound( DOOR_CRASH_AUDIO, global_position )
 	animation_player.play( "open" )
+	pass
+
+
+func _on_switch_deactivated() -> void:
+	Audio.play_spatial_sound( DOOR_CRASH_AUDIO, global_position )
+	animation_player.play_backwards( "open" )
 	pass
 
 

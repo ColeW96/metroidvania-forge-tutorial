@@ -2,12 +2,88 @@
 
 [ext_resource type="Script" uid="uid://c78bwft4ivjs" path="res://general/door_and_switch/eye_switch.gd" id="1_7bf2q"]
 [ext_resource type="Script" uid="uid://dha53eb7vo0el" path="res://general/scripts/damage_area.gd" id="1_tobh7"]
+[ext_resource type="Texture2D" uid="uid://ct6votdba3uhx" path="res://general/door_and_switch/eye_switch.png" id="2_cdvov"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6drb7"]
-size = Vector2(8, 8)
+size = Vector2(14, 8)
+
+[sub_resource type="Animation" id="Animation_cdvov"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_mptxx"]
+resource_name = "closed"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_tp8os"]
+resource_name = "closing"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.028125001, 0.056250002, 0.084375, 0.112500004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_hfyy3"]
+resource_name = "opened"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_om1yr"]
+_data = {
+&"RESET": SubResource("Animation_cdvov"),
+&"closed": SubResource("Animation_mptxx"),
+&"closing": SubResource("Animation_tp8os"),
+&"opened": SubResource("Animation_hfyy3")
+}
 
 [node name="EyeSwitch" type="Node2D" unique_id=294992808]
 script = ExtResource("1_7bf2q")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=245546657]
+unique_name_in_owner = true
+texture = ExtResource("2_cdvov")
+hframes = 5
 
 [node name="DamageArea" type="Area2D" parent="." unique_id=753760191]
 collision_layer = 256
@@ -18,3 +94,7 @@ metadata/_custom_type_script = "uid://dha53eb7vo0el"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=957709865]
 shape = SubResource("RectangleShape2D_6drb7")
 debug_color = Color(0.70196074, 0.084519766, 0, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=771920200]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_om1yr")
