@@ -150,7 +150,8 @@ func _unhandled_input( event: InputEvent ) -> void:
 				morph_roll = !morph_roll
 				ledge_grab = !ledge_grab
 			elif event.keycode == KEY_0:
-				print(DeviceManager.controller_type)
+				skill_tokens += 5
+				
 	# end DEBUG
 	
 	change_state( current_state.handle_input( event ) )
