@@ -60,10 +60,11 @@ original_level_bounds = NodePath("../LevelBounds")
 metadata/_custom_type_script = "uid://ch0a048ylkibq"
 
 [node name="BossTilemap" type="TileMapLayer" parent="BossBattleOrchestrator" unique_id=230411526]
-tile_map_data = PackedByteArray("AAAaABEAAAAJAAEAAAAbABEAAAAKAAEAAAAcABEAAAALAAEAAAAdABEAAAAMAAEAAAAeABEAAAALAAEAAAAfABEAAAACAAEAAAAYAAwAAAAIAAMAAAAYAA0AAAAIAAMAAAAYAA4AAAAIAAMAAAAYAA8AAAAIAAMAAAAYABAAAAAIAAMAAAAYABEAAAAIAAQAAAA=")
+tile_map_data = PackedByteArray("AAAYAAwAAAABAAIAAAAYAA0AAAABAAMAAAAYAA4AAAABAAIAAAAYAA8AAAABAAMAAAAYABAAAAABAAQAAAAYABEAAAAJAAQAAAAGAAgAAAACAAUAAAAOAAgAAAAFAAUAAAAHAAgAAAADAAUAAAAIAAgAAAAEAAUAAAAJAAgAAAADAAUAAAAKAAgAAAAEAAUAAAALAAgAAAADAAUAAAAMAAgAAAADAAUAAAANAAgAAAAEAAUAAAAFAAgAAAAOAAUAAAAEAAgAAAANAAUAAAAPAAgAAAAEAAUAAAAYABIAAAAEAAIAAAAWABIAAAADAAIAAAAXABIAAAADAAIAAAAUABIAAAADAAIAAAAVABIAAAAEAAIAAAA=")
 tile_set = ExtResource("1_l0yxd")
 
 [node name="Area2D" type="Area2D" parent="BossBattleOrchestrator" unique_id=1492174002]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossBattleOrchestrator/Area2D" unique_id=886632292]
 position = Vector2(374, 385)
@@ -80,6 +81,18 @@ position = Vector2(468, 361)
 [node name="Marker2D2" type="Marker2D" parent="BossBattleOrchestrator" unique_id=826970543]
 position = Vector2(468, 550)
 
+[node name="Marker2D3" type="Marker2D" parent="BossBattleOrchestrator" unique_id=1844350685]
+position = Vector2(275, 527)
+
+[node name="Marker2D4" type="Marker2D" parent="BossBattleOrchestrator" unique_id=531197201]
+position = Vector2(275, 265)
+
+[node name="Marker2D5" type="Marker2D" parent="BossBattleOrchestrator" unique_id=739440867]
+position = Vector2(275, 452)
+
+[node name="Marker2D6" type="Marker2D" parent="BossBattleOrchestrator" unique_id=106186207]
+position = Vector2(275, 656)
+
 [node name="LevelBounds2" type="Node2D" parent="BossBattleOrchestrator" unique_id=2140685024]
 z_index = 256
 position = Vector2(155, 265)
@@ -95,4 +108,4 @@ amount = 0.5
 type = 2
 
 [node name="PlayerSpawn" parent="." unique_id=544684349 instance=ExtResource("6_qayq2")]
-position = Vector2(312, 552)
+position = Vector2(234.31776, 72.72689)

@@ -30,6 +30,7 @@
 [ext_resource type="Script" uid="uid://vt684ogx76fc" path="res://general/scripts/attack_area.gd" id="21_byl52"]
 [ext_resource type="Script" uid="uid://bit4f04t5u17t" path="res://bosses/nega_pink_box/scripts/npbh_decision_engine.gd" id="21_tlnbh"]
 [ext_resource type="AudioStream" uid="uid://cvajccfk2oxjq" path="res://general/audio/attack.wav" id="22_glntu"]
+[ext_resource type="Script" uid="uid://dgpmjurxon7n2" path="res://bosses/nega_pink_box/scripts/npbh_es_platform_attack.gd" id="23_mvbhv"]
 [ext_resource type="Script" uid="uid://d12n40tst35rq" path="res://general/scripts/damage_modulate.gd" id="23_wyh1i"]
 [ext_resource type="PackedScene" uid="uid://owlkrmexwpwt" path="res://enemies/scripts/health_bars/enemy_health_bar.tscn" id="24_2lt81"]
 [ext_resource type="Script" uid="uid://cia8gxgxjmu5b" path="res://general/projectiles/projectile_spawner.gd" id="33_g607t"]
@@ -432,7 +433,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_4sn6g"]
 resource_name = "ground_slam"
 length = 3.0000000000000004
-step = 0.1
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -440,7 +441,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4000001, 0.5000001, 0.6000001, 0.7000001, 0.8000001, 1.2, 1.3000001, 1.4000001, 1.5000001, 2.5, 2.6, 2.625, 2.65, 2.675, 2.6999998, 2.725, 2.75, 2.7749999, 2.8, 2.8249998, 2.8600001),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4000001, 0.5000001, 0.6000001, 0.7000001, 0.8000001, 1.2, 1.3000001, 1.4000001, 1.5000001, 2.52, 2.63, 2.6550002, 2.6800003, 2.7050002, 2.73, 2.755, 2.7800002, 2.805, 2.8300002, 2.855, 2.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [49, 50, 51, 52, 14, 15, 16, 17, 18, 28, 29, 30, 31, 32, 33, 34, 35, 33, 34, 35, 33, 34, 35, 33, 0]
@@ -452,7 +453,7 @@ tracks/1/path = NodePath(".:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.3000002, 1.4000001, 1.9000001, 2, 2.6000001, 2.7, 2.8300002, 2.8600001),
+"times": PackedFloat32Array(0, 1.3000002, 1.4000001, 1.9000001, 2, 2.52, 2.63, 2.9, 3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(2.1168277, 0.07741361, 0.76057065, 1), Color(1, 1, 1, 1), Color(2.1168277, 0.07741361, 0.76057065, 1), Color(1, 1, 1, 1), Color(2.1168277, 0.07741361, 0.76057065, 1), Color(2.1168277, 0.07741361, 0.76057065, 1), Color(1, 1, 1, 1)]
@@ -552,6 +553,121 @@ tracks/0/keys = {
 "values": [14, 15, 16, 17, 18]
 }
 
+[sub_resource type="Animation" id="Animation_7goyu"]
+resource_name = "platform_attack_end"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.40000004, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [51, 50, 49, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(2.1168277, 0.07741361, 0.76057065, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [ExtResource("11_sp5s3")],
+"method": &"play_audio"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_e7nkk"]
+resource_name = "platform_attack_middle"
+length = 0.25
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(9.685755e-08, 0.025000192, 0.050000288, 0.075000145, 0.1, 0.12500009, 0.15000018, 0.17500004, 0.20000014, 0.225),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [33, 34, 35, 33, 34, 35, 33, 34, 35, 33]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(2.1168277, 0.07741361, 0.76057065, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mvbhv"]
+resource_name = "platform_attack_start"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.39999998, 0.49999994, 0.59999996, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [49, 50, 51, 17, 18, 28, 29, 30, 31, 32]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(2.1168277, 0.07741361, 0.76057065, 1)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [ExtResource("10_l4upt")],
+"method": &"play_audio"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_53kym"]
 resource_name = "stun"
 length = 0.3
@@ -598,6 +714,9 @@ _data = {
 &"ground_slam": SubResource("Animation_4sn6g"),
 &"idle": SubResource("Animation_482dd"),
 &"jump": SubResource("Animation_t1pui"),
+&"platform_attack_end": SubResource("Animation_7goyu"),
+&"platform_attack_middle": SubResource("Animation_e7nkk"),
+&"platform_attack_start": SubResource("Animation_mvbhv"),
 &"stun": SubResource("Animation_53kym"),
 &"walk": SubResource("Animation_np20x")
 }
@@ -786,10 +905,14 @@ metadata/_custom_type_script = "uid://bmupbptsu8odn"
 [node name="ESNPBHGroundSlam" type="Node" parent="EnemyStateMachine" unique_id=925273530]
 unique_name_in_owner = true
 script = ExtResource("17_4sn6g")
-tween_pos_01 = Vector2(468, 361)
-tween_pos_02 = Vector2(468, 550)
 effect_color = Color(2.117, 0.077, 0.761, 1)
 metadata/_custom_type_script = "uid://blh5pcc6ofphr"
+
+[node name="ESNPBHPlatformAttack" type="Node" parent="EnemyStateMachine" unique_id=1688054007]
+unique_name_in_owner = true
+script = ExtResource("23_mvbhv")
+effect_color = Color(1, 0.015686275, 0.34117648, 1)
+metadata/_custom_type_script = "uid://dgpmjurxon7n2"
 
 [node name="EdgeSensor" type="RayCast2D" parent="." unique_id=533344323]
 visible = false
