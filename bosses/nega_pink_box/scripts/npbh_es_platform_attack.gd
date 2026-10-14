@@ -118,3 +118,35 @@ func _change_animation() -> void:
 func _move_enemy_to_top() -> void:
 	enemy.global_position.y = y_pos_03
 	pass
+
+
+func can_attack() -> bool:
+	if not on_cooldown:
+		if _under_players_platform():
+			return true
+	return false
+
+
+func _under_players_platform() -> bool:
+	var player : Player = blackboard.target
+	if player.global_position.y <= 468.0:
+		if _within_platform_area( player.global_position.x, 1 ):
+			if _within_platform_area( enemy.global_position.x, 1 ):
+				return true
+			pass
+		elif _within_platform_area( player.global_position.x, 2 ):
+			if _within_platform_area( enemy.global_position.x, 2 ):
+				return true
+			pass
+		pass
+	return false
+
+
+func _within_platform_area( x_pos : float, i : int ) -> bool:
+	if i == 1:
+		if x_pos > 227 and x_pos < 317:
+			return true
+	elif i == 2:
+		if x_pos > 643 and x_pos < 733:
+			return true
+	return false

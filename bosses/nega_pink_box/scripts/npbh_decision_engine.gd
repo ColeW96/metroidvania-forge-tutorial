@@ -10,6 +10,7 @@ extends DecisionEngine
 @onready var es_dash_attack: ESNPBHDashAttack = %ESNPBHDashAttack
 @onready var es_jump: ESNPBHJumpState = %ESNPBHJumpState
 @onready var es_ground_slam: ESNPBHGroundSlam = %ESNPBHGroundSlam
+@onready var es_platform_attack: ESNPBHPlatformAttack = %ESNPBHPlatformAttack
 
 var regular_attacks_executed : float = 0.0
 
@@ -41,6 +42,9 @@ func decide() -> EnemyState:
 		if es_attack.can_attack():
 			regular_attacks_executed += 1
 			return es_attack
+		
+		if es_platform_attack.can_attack():
+			return es_platform_attack
 		
 		if es_attack_2.can_attack():
 			regular_attacks_executed += 1

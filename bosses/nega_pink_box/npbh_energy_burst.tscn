@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://domj6yk8l1t8x"]
 
 [ext_resource type="Texture2D" uid="uid://dhlmohtweyqa2" path="res://bosses/nega_pink_box/sprites/pink_box_effects.png" id="2_h7o37"]
+[ext_resource type="Script" uid="uid://vt684ogx76fc" path="res://general/scripts/attack_area.gd" id="2_lvnbu"]
 
 [sub_resource type="Animation" id="Animation_crasx"]
 length = 0.001
@@ -32,6 +33,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_ohbaf"]
 resource_name = "default"
 length = 0.5
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -70,6 +72,20 @@ tracks/2/keys = {
 "method": &"queue_free"
 }]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AttackArea")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.066136256),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.15],
+"method": &"activate"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_crasx"]
 _data = {
@@ -87,6 +103,9 @@ height = 128
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.5, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6drb7"]
+size = Vector2(104, 94)
 
 [node name="NpbhEnergyBurst" type="Node2D" unique_id=1562364470]
 z_index = 2
@@ -106,3 +125,15 @@ position = Vector2(0, -40)
 scale = Vector2(1.671875, 1.6093751)
 color = Color(1, 0.015686275, 0.34117648, 1)
 texture = SubResource("GradientTexture2D_6drb7")
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=1843657232]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("2_lvnbu")
+damage = 3.0
+metadata/_custom_type_script = "uid://vt684ogx76fc"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1476699118]
+position = Vector2(0, -37)
+shape = SubResource("RectangleShape2D_6drb7")
+debug_color = Color(0.7019608, 0, 0.19607843, 0)

@@ -88,7 +88,7 @@ position = Vector2(275, 527)
 position = Vector2(275, 265)
 
 [node name="Marker2D5" type="Marker2D" parent="BossBattleOrchestrator" unique_id=739440867]
-position = Vector2(275, 452)
+position = Vector2(643, 469)
 
 [node name="Marker2D6" type="Marker2D" parent="BossBattleOrchestrator" unique_id=106186207]
 position = Vector2(275, 656)

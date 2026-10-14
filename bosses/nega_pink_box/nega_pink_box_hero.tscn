@@ -905,6 +905,8 @@ metadata/_custom_type_script = "uid://bmupbptsu8odn"
 [node name="ESNPBHGroundSlam" type="Node" parent="EnemyStateMachine" unique_id=925273530]
 unique_name_in_owner = true
 script = ExtResource("17_4sn6g")
+tween_pos_01 = Vector2(468, 361)
+tween_pos_02 = Vector2(468, 550)
 effect_color = Color(2.117, 0.077, 0.761, 1)
 metadata/_custom_type_script = "uid://blh5pcc6ofphr"
 
