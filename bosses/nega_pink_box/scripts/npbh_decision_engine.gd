@@ -30,9 +30,9 @@ func decide() -> EnemyState:
 		return null
 	
 	if blackboard.target:
-		if PlayerHud.boss_hp_bar.value < 0.5:
-			if not es_ground_slam.on_cooldown:
-				return es_ground_slam
+		#if PlayerHud.boss_hp_bar.value < 0.5:
+		if not es_ground_slam.on_cooldown:
+			return es_ground_slam
 		
 		if regular_attacks_executed > 3:
 			if es_dash_attack.can_attack():

@@ -432,8 +432,8 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_4sn6g"]
 resource_name = "ground_slam"
-length = 3.0000000000000004
-step = 0.01
+length = 7.0
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -441,10 +441,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4000001, 0.5000001, 0.6000001, 0.7000001, 0.8000001, 1.2, 1.3000001, 1.4000001, 1.5000001, 2.52, 2.63, 2.6550002, 2.6800003, 2.7050002, 2.73, 2.755, 2.7800002, 2.805, 2.8300002, 2.855, 2.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.45, 0.55, 0.65, 0.75, 0.84999996, 0.9000001, 1.0000002, 1.1000004, 1.2000003, 1.3000002, 1.4300003, 1.4550004, 1.4800005, 1.5050004, 1.5300002, 1.5550003, 1.5800004, 1.6050003, 1.6300004, 1.6550002, 1.7000003, 1.7500005, 1.8000002, 2, 2.1, 2.2, 2.3, 2.4, 2.45, 2.5500002, 2.6500003, 2.7500002, 2.8500001, 2.9800003, 3.0050004, 3.0300004, 3.0550003, 3.0800002, 3.1050003, 3.1300004, 3.1550002, 3.1800003, 3.2050002, 3.2500002, 3.3000004, 3.3500001, 3.55, 3.65, 3.75, 3.8500004, 3.9499998, 4.08, 4.1050005, 4.13, 4.155, 4.1800003, 4.205, 4.2300005, 4.255, 4.28, 4.3050003, 4.3500004, 4.4000006, 4.45, 4.4750004, 6.6, 6.7000003, 6.8, 6.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [49, 50, 51, 52, 14, 15, 16, 17, 18, 28, 29, 30, 31, 32, 33, 34, 35, 33, 34, 35, 33, 34, 35, 33, 0]
+"values": [49, 50, 51, 52, 14, 15, 16, 17, 18, 28, 29, 30, 31, 32, 33, 34, 35, 33, 34, 35, 33, 34, 35, 33, 0, 50, 51, 14, 15, 16, 17, 18, 28, 29, 30, 31, 32, 33, 34, 35, 33, 34, 35, 33, 34, 35, 33, 0, 50, 51, 28, 29, 30, 31, 32, 33, 34, 35, 33, 34, 35, 33, 34, 35, 33, 0, 50, 51, 52, 52, 51, 50, 49]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -453,10 +453,10 @@ tracks/1/path = NodePath(".:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.3000002, 1.4000001, 1.9000001, 2, 2.52, 2.63, 2.9, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1.15, 1.4000001, 1.7, 1.8, 2.75, 3, 3.3, 3.3999999, 3.95, 4.2, 4.5, 4.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(2.1168277, 0.07741361, 0.76057065, 1), Color(1, 1, 1, 1), Color(2.1168277, 0.07741361, 0.76057065, 1), Color(1, 1, 1, 1), Color(2.1168277, 0.07741361, 0.76057065, 1), Color(2.1168277, 0.07741361, 0.76057065, 1), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(2.1168277, 0.07741361, 0.76057065, 1), Color(2.1168277, 0.07741361, 0.76057065, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(2.1168277, 0.07741361, 0.76057065, 1), Color(2.1168277, 0.07741361, 0.76057065, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(2.1168277, 0.07741361, 0.76057065, 1), Color(2.1168277, 0.07741361, 0.76057065, 1), Color(1, 1, 1, 1)]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -465,10 +465,19 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1.2, 1.8000001, 2.4, 2.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(1.25, 1.7, 2.8500001, 3.25, 4.05, 4.15, 4.35),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "values": [{
 "args": [ExtResource("10_l4upt")],
+"method": &"play_audio"
+}, {
+"args": [ExtResource("11_sp5s3")],
+"method": &"play_audio"
+}, {
+"args": [ExtResource("10_l4upt")],
+"method": &"play_audio"
+}, {
+"args": [ExtResource("11_sp5s3")],
 "method": &"play_audio"
 }, {
 "args": [ExtResource("10_l4upt")],
@@ -488,7 +497,7 @@ tracks/3/path = NodePath("Sprite2D/ChargeSprite:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.2, 1.5000001, 1.8000001, 2.1000001, 2.4, 2.7),
+"times": PackedFloat32Array(0, 1.2, 1.5000001, 2.8, 3.1000001, 4, 4.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [false, true, false, true, false, true, false]
@@ -500,7 +509,7 @@ tracks/4/path = NodePath("Sprite2D/ChargeSprite:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(1.2, 1.5000001, 1.8000001, 2.1000001, 2.4, 2.7000003),
+"times": PackedFloat32Array(1.2, 1.5000001, 2.8, 3.1000001, 4, 4.3),
 "transitions": PackedFloat32Array(0.5, 1, 0.5, 1, 0.5, 1),
 "update": 0,
 "values": [Vector2(2, 2), Vector2(1, 1), Vector2(2, 2), Vector2(1, 1), Vector2(2, 2), Vector2(1, 1)]
@@ -512,7 +521,7 @@ tracks/5/path = NodePath("Sprite2D/ChargeSprite:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(1.2, 1.5000001, 1.8000001, 2.1000001, 2.4, 2.7000003),
+"times": PackedFloat32Array(1.2, 1.5000001, 2.8, 3.1000001, 4, 4.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(1.8247963, 0.059608817, 0.6509062, 0), Color(1.8247963, 0.059608817, 0.6509062, 1), Color(1.8247963, 0.059608817, 0.6509062, 0), Color(1.8247963, 0.059608817, 0.6509062, 1), Color(1.8247963, 0.059608817, 0.6509062, 0), Color(1.8247963, 0.059608817, 0.6509062, 1)]
@@ -905,6 +914,7 @@ metadata/_custom_type_script = "uid://bmupbptsu8odn"
 [node name="ESNPBHGroundSlam" type="Node" parent="EnemyStateMachine" unique_id=925273530]
 unique_name_in_owner = true
 script = ExtResource("17_4sn6g")
+cooldown = 1.0
 tween_pos_01 = Vector2(468, 361)
 tween_pos_02 = Vector2(468, 550)
 effect_color = Color(2.117, 0.077, 0.761, 1)

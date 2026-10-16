@@ -27,12 +27,36 @@ func enter() -> void:
 	
 	damage_shape.disabled = true
 	
+	var player : Player = enemy.blackboard.target
 	var t : Tween = create_tween()
 	t.set_ease(Tween.EASE_IN_OUT)
 	t.set_trans(Tween.TRANS_EXPO)
 	
 	t.tween_interval(0.4)
 	
+	# Slam 1
+	t.tween_property( enemy, "global_position",
+			Vector2( player.global_position.x, tween_pos_01.y ),
+			1.0 )
+	
+	t.tween_property( enemy, "global_position",
+			Vector2( enemy.global_position.x, tween_pos_02.y ),
+			0.25 )
+	
+	t.tween_interval(0.35)
+	
+		# Slam 2 - 2.0 seconds into animation
+	t.tween_property( enemy, "global_position",
+			Vector2( player.global_position.x, tween_pos_01.y ),
+			1.0 )
+	
+	t.tween_property( enemy, "global_position",
+			Vector2( enemy.global_position.x, tween_pos_02.y ),
+			0.25 )
+	
+	t.tween_interval(0.35)
+	
+	# Slam 3
 	t.tween_property( enemy, "global_position", tween_pos_01, 1.0 )
 	
 	t.tween_interval(1.2)
