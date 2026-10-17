@@ -14,6 +14,8 @@ var on_cooldown : bool = false
 var effect_time : float = 0.0
 var effect_delay : float = 0.05
 
+var target_x_pos : float = 0.0
+
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 @onready var damage_shape: CollisionShape2D = $"../../DamageArea/CollisionShape2D2"
 @onready var sprite_2d: PlayerSprite = $"../../Sprite2D"
@@ -27,7 +29,8 @@ func enter() -> void:
 	
 	damage_shape.disabled = true
 	
-	var player : Player = enemy.blackboard.target
+	_update_target_x_pos()
+	
 	var t : Tween = create_tween()
 	t.set_ease(Tween.EASE_IN_OUT)
 	t.set_trans(Tween.TRANS_EXPO)
@@ -35,40 +38,38 @@ func enter() -> void:
 	t.tween_interval(0.4)
 	
 	# Slam 1
-	t.tween_property( enemy, "global_position",
-			Vector2( player.global_position.x, tween_pos_01.y ),
-			1.0 )
-	
-	t.tween_property( enemy, "global_position",
-			Vector2( enemy.global_position.x, tween_pos_02.y ),
-			0.25 )
-	
-	t.tween_interval(0.35)
-	
-		# Slam 2 - 2.0 seconds into animation
-	t.tween_property( enemy, "global_position",
-			Vector2( player.global_position.x, tween_pos_01.y ),
-			1.0 )
-	
-	t.tween_property( enemy, "global_position",
-			Vector2( enemy.global_position.x, tween_pos_02.y ),
-			0.25 )
+	t.tween_callback( _slam_tween )
+	#t.tween_property( enemy, "global_position",
+			#Vector2( target_x_pos, tween_pos_01.y ),
+			#1.0 )
+	#
+	#t.tween_property( enemy, "global_position",
+			#Vector2( target_x_pos, tween_pos_02.y ),
+			#0.25 )
 	
 	t.tween_interval(0.35)
+	t.tween_callback( _update_target_x_pos )
 	
+	# Slam 2 - 2.0 seconds into animation
+	t.tween_callback( _slam_tween )
+	#t.tween_property( enemy, "global_position",
+			#Vector2( target_x_pos, tween_pos_01.y ),
+			#1.0 )
+	#
+	#t.tween_property( enemy, "global_position",
+			#Vector2( target_x_pos, tween_pos_02.y ),
+			#0.25 )
+	# 3.25s
+	t.tween_interval(0.35)
+	# 3.6s
 	# Slam 3
-	t.tween_property( enemy, "global_position", tween_pos_01, 1.0 )
-	
-	t.tween_interval(1.2)
-	
-	t.set_ease(Tween.EASE_OUT)
-	t.set_trans(Tween.TRANS_CUBIC)
-	t.tween_property( enemy, "global_position", tween_pos_02, 0.25 )
-	
+	t.tween_property( enemy, "global_position", tween_pos_01, 0.5 )
+	# 4.1s
+	t.tween_property( enemy, "global_position", tween_pos_02, 0.2 )
 	t.tween_callback( _emit_waves )
-	
-	t.tween_interval( 0.12 )
-	
+	# 4.3s
+	t.tween_interval( 2.7 )
+	#7.0s
 	t.tween_callback( _on_tween_finished )
 	pass
 
@@ -120,4 +121,23 @@ func _emit_waves() -> void:
 	e2.global_position = enemy.global_position
 	
 	VisualEffects.camera_shake(10)
+	pass
+
+
+func _update_target_x_pos() -> void:
+	target_x_pos = blackboard.target.global_position.x
+	pass
+
+
+func _slam_tween() -> void:
+	var t : Tween = create_tween()
+	_update_target_x_pos()
+	
+	t.tween_property( enemy, "global_position",
+			Vector2( target_x_pos, tween_pos_01.y ),
+			1.0 )
+	
+	t.tween_property( enemy, "global_position",
+			Vector2( target_x_pos, tween_pos_02.y ),
+			0.25 )
 	pass
