@@ -13,6 +13,7 @@ const ENERGY_BURST = preload("uid://domj6yk8l1t8x")
 var on_cooldown : bool = false
 var effect_time : float = 0.0
 var effect_delay : float = 0.05
+var effect_on : bool = true
 
 var target_x_pos : float = 0.0
 
@@ -28,48 +29,37 @@ func enter() -> void:
 	enemy.affected_by_gravity = false
 	
 	damage_shape.disabled = true
+	effect_on = true
 	
 	_update_target_x_pos()
 	
 	var t : Tween = create_tween()
-	t.set_ease(Tween.EASE_IN_OUT)
-	t.set_trans(Tween.TRANS_EXPO)
+	t.set_trans(Tween.TRANS_CUBIC)
 	
 	t.tween_interval(0.4)
 	
 	# Slam 1
 	t.tween_callback( _slam_tween )
-	#t.tween_property( enemy, "global_position",
-			#Vector2( target_x_pos, tween_pos_01.y ),
-			#1.0 )
-	#
-	#t.tween_property( enemy, "global_position",
-			#Vector2( target_x_pos, tween_pos_02.y ),
-			#0.25 )
 	
-	t.tween_interval(0.35)
-	t.tween_callback( _update_target_x_pos )
+	t.tween_interval(1.2)
 	
-	# Slam 2 - 2.0 seconds into animation
+	# Slam 2
 	t.tween_callback( _slam_tween )
-	#t.tween_property( enemy, "global_position",
-			#Vector2( target_x_pos, tween_pos_01.y ),
-			#1.0 )
-	#
-	#t.tween_property( enemy, "global_position",
-			#Vector2( target_x_pos, tween_pos_02.y ),
-			#0.25 )
-	# 3.25s
-	t.tween_interval(0.35)
-	# 3.6s
+	
+	t.tween_interval(1.2)
+	
 	# Slam 3
+	t.set_ease(Tween.EASE_OUT)
 	t.tween_property( enemy, "global_position", tween_pos_01, 0.5 )
-	# 4.1s
-	t.tween_property( enemy, "global_position", tween_pos_02, 0.2 )
+	
+	t.set_ease(Tween.EASE_IN)
+	t.tween_property( enemy, "global_position", tween_pos_02, 0.25 )
+	
 	t.tween_callback( _emit_waves )
-	# 4.3s
-	t.tween_interval( 2.7 )
-	#7.0s
+	t.tween_callback( _make_vulnerable )
+	
+	t.tween_interval( 3.0 )
+	
 	t.tween_callback( _on_tween_finished )
 	pass
 
@@ -87,10 +77,11 @@ func exit() -> void:
 
 
 func physics_update( delta : float ) -> void:
-	effect_time -= delta
-	if effect_time < 0:
-		effect_time = effect_delay
-		sprite_2d.ghost( effect_color, Color( .5, .5, 2, 0 ) )
+	if effect_on:
+		effect_time -= delta
+		if effect_time < 0:
+			effect_time = effect_delay
+			sprite_2d.ghost( effect_color, Color( .5, .5, 2, 0 ) )
 	pass
 
 
@@ -107,9 +98,7 @@ func _on_tween_finished() -> void:
 
 
 func _emit_waves() -> void:
-	var b : Node2D = ENERGY_BURST.instantiate()
-	enemy.add_sibling(b)
-	b.global_position = enemy.global_position
+	_emit_burst()
 	
 	var e : NPBHEnergyWave = ENERGY_WAVE.instantiate()
 	enemy.add_sibling(e)
@@ -120,7 +109,20 @@ func _emit_waves() -> void:
 	enemy.add_sibling(e2)
 	e2.global_position = enemy.global_position
 	
+	pass
+
+
+func _emit_burst() -> void:
+	var b : Node2D = ENERGY_BURST.instantiate()
+	enemy.add_sibling(b)
+	b.global_position = enemy.global_position
+	
 	VisualEffects.camera_shake(10)
+	pass
+
+func _make_vulnerable() -> void:
+	damage_shape.disabled = false
+	effect_on = false
 	pass
 
 
@@ -130,14 +132,21 @@ func _update_target_x_pos() -> void:
 
 
 func _slam_tween() -> void:
-	var t : Tween = create_tween()
 	_update_target_x_pos()
+	
+	var t : Tween = create_tween()
+	t.set_ease(Tween.EASE_OUT)
+	t.set_trans(Tween.TRANS_CUBIC)
 	
 	t.tween_property( enemy, "global_position",
 			Vector2( target_x_pos, tween_pos_01.y ),
-			1.0 )
+			0.5 )
+	
+	t.set_ease(Tween.EASE_IN)
 	
 	t.tween_property( enemy, "global_position",
 			Vector2( target_x_pos, tween_pos_02.y ),
 			0.25 )
+	
+	t.tween_callback( _emit_burst )
 	pass
