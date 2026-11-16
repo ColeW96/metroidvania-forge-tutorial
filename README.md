@@ -6,9 +6,9 @@ This project is for the sole purpose of learning game development from the offic
 The majority of pixel art in this project was provided by Michael Games from the [Metroidvania-Forge](https://michaelgames.itch.io/metroidvania-forge) itch.io page.
 
 ## Other pixel-art from creators: ##
-- Demon Chest asset by Harmless Trust: (https://harmlesstrust.itch.io/demon-chest)
-- Doom Scribe asset by Dr. Dullsville: (https://drdullsville.itch.io/doom-scribe)
-- Living Armor asset by Robzon: (https://robzon.itch.io/metroidvania-forge-living-armor)
+- Demon Chest asset by HarmlessTrust: (https://harmlesstrust.itch.io/demon-chest)
+- Doom Scribe asset by Dr.Dullsville: (https://drdullsville.itch.io/doom-scribe)
+- Living Armor asset by Robson_Asura: (https://robson-asura.itch.io/metroidvania-forge-living-armor)
 - Corrupted Tree assets by Alex_Oner: (https://alex-oner.itch.io/corrupted-tree-boss)
 
 All other pixel-art was my own creation or adaptation from Michael Games and are free to use for any project.
