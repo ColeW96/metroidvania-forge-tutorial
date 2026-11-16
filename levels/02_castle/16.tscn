@@ -63,4 +63,5 @@ metadata/_custom_type_script = "uid://rwwuu7gvxywr"
 
 [node name="GargoyleStatue" parent="Enemies" unique_id=488761391 instance=ExtResource("7_w7r7c")]
 position = Vector2(425, 163)
+invincible = false
 face_left_on_start = true

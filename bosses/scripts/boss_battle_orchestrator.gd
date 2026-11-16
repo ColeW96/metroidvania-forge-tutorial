@@ -1,5 +1,5 @@
 @icon("res://general/icons/boss_orchestrator.svg")
-class_name BossBattleOrchestrator extends Node
+class_name BossBattleOrchestrator extends Node2D
 
 signal battle_started
 signal battle_ended
