@@ -11,6 +11,12 @@
 [ext_resource type="AudioStream" uid="uid://cxhdqvhc0jk57" path="res://music/forest_01.ogg" id="6_3er3g"]
 [ext_resource type="Texture2D" uid="uid://cdmiustpfpugh" path="res://bosses/corrupted_tree/sprites/arm_idol.png" id="6_f15pu"]
 [ext_resource type="Texture2D" uid="uid://c4ykmodkuaxmt" path="res://bosses/corrupted_tree/sprites/mushroom.png" id="7_yp1ed"]
+[ext_resource type="Script" uid="uid://dha53eb7vo0el" path="res://general/scripts/damage_area.gd" id="8_5xqv4"]
+[ext_resource type="AudioStream" uid="uid://krg2nqtxwvxe" path="res://enemies/slime/slime_hit.wav" id="9_bts07"]
+[ext_resource type="Script" uid="uid://cawilyvlawwsm" path="res://enemies/scripts/enemy_hit_particles.gd" id="10_6qvi4"]
+[ext_resource type="Script" uid="uid://brc344c2o0cfo" path="res://00_global/visual_effects/hit_particle_settings.gd" id="11_hqx1v"]
+[ext_resource type="Script" uid="uid://d12n40tst35rq" path="res://general/scripts/damage_modulate.gd" id="12_se3ac"]
+[ext_resource type="Script" uid="uid://oogevbo6smrr" path="res://bosses/corrupted_tree/scripts/corrupted_tree_boss_brain.gd" id="13_nflnq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6drb7"]
 size = Vector2(47.5, 72)
@@ -20,6 +26,32 @@ size = Vector2(86.5, 350)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8rp51"]
 size = Vector2(39, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_blb37"]
+size = Vector2(30, 27)
+
+[sub_resource type="Gradient" id="Gradient_se3ac"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hqx1v"]
+gradient = SubResource("Gradient_se3ac")
+width = 3
+height = 3
+
+[sub_resource type="Resource" id="Resource_6qvi4"]
+script = ExtResource("11_hqx1v")
+color = Color(0.99981505, 0.56110215, 0.5367292, 1)
+texture = SubResource("GradientTexture2D_hqx1v")
+metadata/_custom_type_script = "uid://brc344c2o0cfo"
+
+[sub_resource type="Resource" id="Resource_hqx1v"]
+script = ExtResource("11_hqx1v")
+color = Color(0.58961684, 0.2895515, 1, 1)
+metadata/_custom_type_script = "uid://brc344c2o0cfo"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_phca4"]
+size = Vector2(83, 461)
 
 [node name="11" type="Node2D" unique_id=1247034308]
 
@@ -94,51 +126,98 @@ shape = SubResource("RectangleShape2D_rv7fp")
 tile_map_data = PackedByteArray("AAAfAAoAAAAHAAAAAAAfAAkAAAAIAAEAAAAgAAoAAAAIAAAAAAAhAAoAAAAIAAAAAAAiAAsAAAAHAAAAAAAiAAoAAAAIAAEAAAAgAAkAAAACAAIAAAAhAAkAAAACAAIAAAAiAAkAAAACAAIAAAA=")
 tile_set = ExtResource("1_48bxg")
 
-[node name="BossBattleOrchestrator" type="Node2D" parent="." unique_id=1771114940]
+[node name="BossBattleOrchestrator" type="Node2D" parent="." unique_id=1771114940 node_paths=PackedStringArray("trigger_area", "boss_level_bounds", "original_level_bounds")]
+position = Vector2(1000, 670)
 script = ExtResource("3_3er3g")
+boss_name = "Corrupted Tree"
+trigger_area = NodePath("TriggerArea")
+boss_level_bounds = NodePath("BossLevelBounds")
+original_level_bounds = NodePath("../LevelBounds")
 metadata/_custom_type_script = "uid://ch0a048ylkibq"
 
 [node name="Sprites" type="Node2D" parent="BossBattleOrchestrator" unique_id=1658388493]
 
 [node name="TreeBG" type="Sprite2D" parent="BossBattleOrchestrator/Sprites" unique_id=2105752454]
 z_index = -1
-position = Vector2(880, 590)
+position = Vector2(-120, -80)
 texture = ExtResource("3_u4nb0")
 hframes = 3
 vframes = 3
 frame = 1
 
 [node name="ArmIdle" type="Sprite2D" parent="BossBattleOrchestrator/Sprites" unique_id=1068354462]
-position = Vector2(895, 726)
+position = Vector2(-106, 59)
 texture = ExtResource("6_f15pu")
 hframes = 4
 vframes = 2
 
 [node name="TreeBase" type="Sprite2D" parent="BossBattleOrchestrator/Sprites" unique_id=654607327]
-position = Vector2(1000, 670)
 texture = ExtResource("4_rv7fp")
 hframes = 9
 vframes = 3
 
 [node name="Mushroom" type="Sprite2D" parent="BossBattleOrchestrator/Sprites" unique_id=285242136]
-position = Vector2(1006, 593)
+position = Vector2(9, -74)
 texture = ExtResource("7_yp1ed")
 hframes = 6
 vframes = 2
 
 [node name="ScreamEffect" type="Sprite2D" parent="BossBattleOrchestrator/Sprites" unique_id=1469072945]
-position = Vector2(1000, 670)
 texture = ExtResource("4_rv7fp")
 hframes = 9
 vframes = 3
 frame = 14
 
-[node name="StaticBody2D" type="StaticBody2D" parent="BossBattleOrchestrator" unique_id=1990924061]
-position = Vector2(1043, 706)
+[node name="ExitBlocker" type="StaticBody2D" parent="BossBattleOrchestrator" unique_id=1990924061]
+unique_name_in_owner = true
+position = Vector2(43, 36)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BossBattleOrchestrator/StaticBody2D" unique_id=1570997124]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossBattleOrchestrator/ExitBlocker" unique_id=1570997124]
 position = Vector2(9.5, 26)
 shape = SubResource("RectangleShape2D_8rp51")
+
+[node name="DamageArea" type="Area2D" parent="BossBattleOrchestrator" unique_id=830717710]
+visible = false
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("8_5xqv4")
+audio = ExtResource("9_bts07")
+metadata/_custom_type_script = "uid://dha53eb7vo0el"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossBattleOrchestrator/DamageArea" unique_id=699345308]
+position = Vector2(2, -78.5)
+shape = SubResource("RectangleShape2D_blb37")
+debug_color = Color(0.7019608, 0.06666667, 0, 0)
+
+[node name="EnemyHitParticles" type="Marker2D" parent="BossBattleOrchestrator" unique_id=1060854958]
+position = Vector2(2, -79)
+script = ExtResource("10_6qvi4")
+hit_particles = Array[ExtResource("11_hqx1v")]([SubResource("Resource_6qvi4"), SubResource("Resource_hqx1v")])
+metadata/_custom_type_script = "uid://cawilyvlawwsm"
+
+[node name="DamageModulate" type="Node" parent="BossBattleOrchestrator" unique_id=2018616669 node_paths=PackedStringArray("damage_area", "modulate_targets")]
+script = ExtResource("12_se3ac")
+damage_area = NodePath("../DamageArea")
+modulate_targets = [NodePath("../Sprites"), NodePath("../../BossDefeated")]
+metadata/_custom_type_script = "uid://d12n40tst35rq"
+
+[node name="BossBrain" type="Node" parent="BossBattleOrchestrator" unique_id=380401976]
+script = ExtResource("13_nflnq")
+hp = 3.0
+
+[node name="TriggerArea" type="Area2D" parent="BossBattleOrchestrator" unique_id=2112698932]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossBattleOrchestrator/TriggerArea" unique_id=2116630940]
+position = Vector2(-31.5, -129.5)
+shape = SubResource("RectangleShape2D_phca4")
+
+[node name="BossLevelBounds" type="Node2D" parent="BossBattleOrchestrator" unique_id=1061763173]
+z_index = 256
+position = Vector2(-360, -254)
+script = ExtResource("2_7hdxd")
+height = 430
+set_on_ready = false
+metadata/_custom_type_script = "uid://drqun7tewik8i"
 
 [node name="F11-1" parent="." unique_id=389267975 instance=ExtResource("3_7hdxd")]
 position = Vector2(0, 768)
@@ -152,6 +231,7 @@ target_level = "uid://dej5bbd1qb077"
 target_area_name = "F07-1"
 
 [node name="F11-3" parent="." unique_id=1868032524 instance=ExtResource("3_7hdxd")]
+visible = false
 position = Vector2(1040, 768)
 size = 3
 location = 1
@@ -159,7 +239,7 @@ target_level = "uid://dkw1v71dtlut4"
 target_area_name = "F10-1"
 
 [node name="PlayerSpawn" parent="." unique_id=1360166879 instance=ExtResource("4_cknd7")]
-position = Vector2(952, 768)
+position = Vector2(824, 768)
 
 [node name="MusicAutoTrigger" type="Node" parent="." unique_id=251677465]
 script = ExtResource("5_oljpp")

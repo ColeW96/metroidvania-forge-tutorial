@@ -2,7 +2,7 @@
 class_name EnemyHitParticles extends Marker2D
 
 @export var hit_particles : Array[ HitParticleSettings ]
-@export var death_particels : Array[ HitParticleSettings ]
+@export var death_particles : Array[ HitParticleSettings ]
 
 var enemy_was_killed : bool = false
 
@@ -23,7 +23,7 @@ func _on_hit( a : AttackArea ) -> void:
 	dir.x *= -1.0
 	var particles = hit_particles
 	if enemy_was_killed:
-		particles = death_particels
+		particles = death_particles
 	
 	for p in particles:
 		VisualEffects.hit_particles( global_position, dir, p )

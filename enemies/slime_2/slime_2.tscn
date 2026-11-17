@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://cdqw3u4u16lgo" path="res://general/scripts/loot_dropper.gd" id="16_uucha"]
 [ext_resource type="Script" uid="uid://bfkq1vksotjux" path="res://general/scripts/loot_data.gd" id="17_qpicr"]
 [ext_resource type="PackedScene" uid="uid://owlkrmexwpwt" path="res://enemies/scripts/health_bars/enemy_health_bar.tscn" id="18_vpnvx"]
+[ext_resource type="Script" uid="uid://d12n40tst35rq" path="res://general/scripts/damage_modulate.gd" id="19_7lkcl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ptp6l"]
 radius = 8.0
@@ -142,16 +143,6 @@ color = Color(0, 0.6435714, 1, 1)
 texture = SubResource("GradientTexture2D_uucha")
 metadata/_custom_type_script = "uid://brc344c2o0cfo"
 
-[sub_resource type="Resource" id="Resource_qpicr"]
-script = ExtResource("15_dq0sk")
-count = 24
-color = Color(0, 0.6435714, 1, 1)
-metadata/_custom_type_script = "uid://brc344c2o0cfo"
-
-[sub_resource type="Resource" id="Resource_vpnvx"]
-script = ExtResource("15_dq0sk")
-metadata/_custom_type_script = "uid://brc344c2o0cfo"
-
 [sub_resource type="Resource" id="Resource_7lkcl"]
 script = ExtResource("17_qpicr")
 item = "uid://3c8hg2lctadd"
@@ -259,7 +250,6 @@ script = SubResource("GDScript_3jlja")
 position = Vector2(0, -7)
 script = ExtResource("14_0nqm1")
 hit_particles = Array[ExtResource("15_dq0sk")]([SubResource("Resource_uucha")])
-death_particels = Array[ExtResource("15_dq0sk")]([SubResource("Resource_qpicr"), SubResource("Resource_vpnvx")])
 metadata/_custom_type_script = "uid://cawilyvlawwsm"
 
 [node name="LootDropper" type="Marker2D" parent="." unique_id=834688629]
@@ -274,3 +264,7 @@ offset_left = -20.0
 offset_top = -36.0
 offset_right = 20.0
 offset_bottom = -16.0
+
+[node name="DamageModulate" type="Node" parent="." unique_id=223310192]
+script = ExtResource("19_7lkcl")
+metadata/_custom_type_script = "uid://d12n40tst35rq"
