@@ -12,17 +12,512 @@
 [ext_resource type="Texture2D" uid="uid://cdmiustpfpugh" path="res://bosses/corrupted_tree/sprites/arm_idol.png" id="6_f15pu"]
 [ext_resource type="Texture2D" uid="uid://c4ykmodkuaxmt" path="res://bosses/corrupted_tree/sprites/mushroom.png" id="7_yp1ed"]
 [ext_resource type="Script" uid="uid://dha53eb7vo0el" path="res://general/scripts/damage_area.gd" id="8_5xqv4"]
+[ext_resource type="Texture2D" uid="uid://dal1uvbdmb6ji" path="res://bosses/corrupted_tree/sprites/hand.png" id="8_74uha"]
+[ext_resource type="AudioStream" uid="uid://cyrxip1r87cg0" path="res://bosses/corrupted_tree/audio/corrupted_tree_start.wav" id="8_apa0b"]
+[ext_resource type="Texture2D" uid="uid://bwukea60t4g71" path="res://bosses/corrupted_tree/sprites/roots.png" id="8_qiiqb"]
 [ext_resource type="AudioStream" uid="uid://krg2nqtxwvxe" path="res://enemies/slime/slime_hit.wav" id="9_bts07"]
+[ext_resource type="Texture2D" uid="uid://bprjdg4bkfnnj" path="res://bosses/corrupted_tree/sprites/arm.png" id="9_htfcb"]
+[ext_resource type="AudioStream" uid="uid://bysdi8qxaaoiw" path="res://bosses/corrupted_tree/audio/rumble.wav" id="9_kt5g0"]
+[ext_resource type="Script" uid="uid://bvoy8p2v1ao7i" path="res://general/scripts/hazard_area.gd" id="9_w6va3"]
 [ext_resource type="Script" uid="uid://cawilyvlawwsm" path="res://enemies/scripts/enemy_hit_particles.gd" id="10_6qvi4"]
 [ext_resource type="Script" uid="uid://brc344c2o0cfo" path="res://00_global/visual_effects/hit_particle_settings.gd" id="11_hqx1v"]
 [ext_resource type="Script" uid="uid://d12n40tst35rq" path="res://general/scripts/damage_modulate.gd" id="12_se3ac"]
 [ext_resource type="Script" uid="uid://oogevbo6smrr" path="res://bosses/corrupted_tree/scripts/corrupted_tree_boss_brain.gd" id="13_nflnq"]
+[ext_resource type="AudioStream" uid="uid://dpjdqxntf0kbk" path="res://bosses/corrupted_tree/audio/corrupted_tree_destroy.wav" id="14_3pnhs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6drb7"]
 size = Vector2(47.5, 72)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rv7fp"]
 size = Vector2(86.5, 350)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnio7"]
+size = Vector2(48.000015, 450.2838)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oi0od"]
+size = Vector2(48.464874, 337.2838)
+
+[sub_resource type="Animation" id="Animation_nflnq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/TreeBase:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprites/ScreamEffect:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [14]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprites/Mushroom:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RootBarrier/RootBarrierSprite:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RootBarrier/StaticBody2D/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RootBarrier/HazardArea/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprites/ArmIdle:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprites/TreeBG:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("%HandSprite:frame")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("%HandSprite:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("%ArmGrabSprite:frame")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("%ArmGrabSprite:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_apa0b"]
+resource_name = "battle_start"
+length = 2.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/TreeBase:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.70000005, 0.8, 0.90000004, 1, 1.1000001, 1.2, 1.3000001, 1.4000001, 1.5000002, 1.6000001, 1.7, 1.8000001, 1.9000002, 2, 2.1000001, 2.2000003, 2.3000002, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprites/ScreamEffect:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.70000005, 0.8, 0.90000004, 1, 1.1000001, 1.2, 1.3000001, 1.4000001, 1.5000002, 1.6000001, 1.7, 1.8000001, 1.9000002, 2, 2.1000001, 2.2000003, 2.3000002, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [14, 5, 6, 7, 8, 5, 6, 7, 8, 5, 6, 7, 8, 5, 6, 7, 8, 5, 6, 7, 8, 5, 6, 7, 14]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioEffects/AudioTree")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.50015163,
+"start_offset": 0.0,
+"stream": ExtResource("8_apa0b")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioEffects/AudioRumble")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 2.1001022,
+"start_offset": 1.4491438,
+"stream": ExtResource("9_kt5g0")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprites/Mushroom:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.70000005, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4000001, 1.5, 1.6, 1.6999999, 1.8000001, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RootBarrier/RootBarrierSprite:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.90000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("RootBarrier/StaticBody2D/CollisionShape2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("RootBarrier/HazardArea/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("BossBrain")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.5, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"values": [{
+"args": [10.0],
+"method": &"shake_screen"
+}, {
+"args": [5.0],
+"method": &"shake_screen"
+}, {
+"args": [5.0],
+"method": &"shake_screen"
+}, {
+"args": [3.0],
+"method": &"shake_screen"
+}, {
+"args": [2.0],
+"method": &"shake_screen"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_htfcb"]
+resource_name = "defeat"
+length = 4.0
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/TreeBase:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.70000005, 0.8, 0.90000004, 1, 1.2, 1.4, 1.6, 1.8000001, 2, 2.2, 2.6, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 1, 2, 3, 4, 0, 18, 19, 20, 21, 22, 23, 24, 25, 26]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprites/ScreamEffect:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.70000005, 0.8, 0.90000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [14, 5, 6, 7, 8, 5, 6, 7, 8, 14]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprites/TreeBG:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 1.2, 1.4, 1.6, 1.7999998, 2, 2.1999998, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprites/Mushroom:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.70000005, 0.8, 0.9, 1, 1.1, 1.2, 1.4, 1.6, 1.8000001, 2, 2.2, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 6, 7, 8, 9, 10, 11, 5]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%HandSprite:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1, 1.2, 1.4, 1.6, 1.8000001, 2, 2.2, 2.4, 2.6000001, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("%HandSprite:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("%ArmGrabSprite:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.8000001, 2, 2.2, 2.4, 2.6000001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 5, 6, 7, 8, 9]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("%ArmGrabSprite:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 2.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("RootBarrier/RootBarrierSprite:frame")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1.2, 1.4, 1.6, 1.8000001, 2, 2.2, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [9, 9, 10, 11, 12, 13, 14, 15]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("RootBarrier/HazardArea/CollisionShape2D:disabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("RootBarrier/StaticBody2D/CollisionShape2D:disabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(1.8000001),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "audio"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("AudioEffects/AudioTree")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"clips": [{
+"end_offset": 0.36738306,
+"start_offset": 0.0,
+"stream": ExtResource("14_3pnhs")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/11/use_blend = true
+
+[sub_resource type="Animation" id="Animation_74uha"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/TreeBase:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [10, 11, 12]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprites/Mushroom:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15351981, 0.30944467, 0.4590731),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprites/ArmIdle:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15351981, 0.31018785, 0.4637077),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kt5g0"]
+_data = {
+&"RESET": SubResource("Animation_nflnq"),
+&"battle_start": SubResource("Animation_apa0b"),
+&"defeat": SubResource("Animation_htfcb"),
+&"idle": SubResource("Animation_74uha")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8rp51"]
 size = Vector2(39, 72)
@@ -145,6 +640,34 @@ hframes = 3
 vframes = 3
 frame = 1
 
+[node name="ArmGrab" type="Node2D" parent="BossBattleOrchestrator/Sprites" unique_id=146951180]
+unique_name_in_owner = true
+position = Vector2(-3, 1)
+
+[node name="ArmGrabSprite" type="Sprite2D" parent="BossBattleOrchestrator/Sprites/ArmGrab" unique_id=1927121723]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-155, 51)
+texture = ExtResource("9_htfcb")
+hframes = 5
+vframes = 2
+
+[node name="HandSprite" type="Sprite2D" parent="BossBattleOrchestrator/Sprites/ArmGrab" unique_id=24672216]
+unique_name_in_owner = true
+visible = false
+z_index = 2
+position = Vector2(-155, 51)
+texture = ExtResource("8_74uha")
+hframes = 5
+vframes = 2
+
+[node name="ArmAttackSprite" type="Sprite2D" parent="BossBattleOrchestrator/Sprites/ArmGrab" unique_id=1207673300]
+unique_name_in_owner = true
+position = Vector2(-103, 58)
+texture = ExtResource("6_f15pu")
+hframes = 4
+vframes = 2
+
 [node name="ArmIdle" type="Sprite2D" parent="BossBattleOrchestrator/Sprites" unique_id=1068354462]
 position = Vector2(-106, 59)
 texture = ExtResource("6_f15pu")
@@ -168,8 +691,54 @@ hframes = 9
 vframes = 3
 frame = 14
 
+[node name="RootBarrier" type="Node2D" parent="BossBattleOrchestrator" unique_id=348611855]
+position = Vector2(-332.4649, 100.28381)
+
+[node name="RootBarrierSprite" type="Sprite2D" parent="BossBattleOrchestrator/RootBarrier" unique_id=1822637930]
+position = Vector2(14.464905, -122.28381)
+texture = ExtResource("8_qiiqb")
+hframes = 8
+vframes = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="BossBattleOrchestrator/RootBarrier" unique_id=306260764]
+position = Vector2(5, 0)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossBattleOrchestrator/RootBarrier/StaticBody2D" unique_id=283318435]
+position = Vector2(-2.5350952, -215.1419)
+shape = SubResource("RectangleShape2D_qnio7")
+disabled = true
+
+[node name="HazardArea" type="Area2D" parent="BossBattleOrchestrator/RootBarrier" unique_id=1755561557]
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+script = ExtResource("9_w6va3")
+damage = 2.0
+metadata/_custom_type_script = "uid://bvoy8p2v1ao7i"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossBattleOrchestrator/RootBarrier/HazardArea" unique_id=1327607582]
+position = Vector2(14.232483, -158.6419)
+shape = SubResource("RectangleShape2D_oi0od")
+disabled = true
+debug_color = Color(0.7019608, 0, 0.023529412, 0.09019608)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BossBattleOrchestrator" unique_id=741545034]
+libraries/ = SubResource("AnimationLibrary_kt5g0")
+
+[node name="AudioEffects" type="Node2D" parent="BossBattleOrchestrator" unique_id=745738012]
+
+[node name="AudioTree" type="AudioStreamPlayer2D" parent="BossBattleOrchestrator/AudioEffects" unique_id=264538581]
+position = Vector2(42, 23)
+bus = &"SFX"
+
+[node name="AudioRumble" type="AudioStreamPlayer2D" parent="BossBattleOrchestrator/AudioEffects" unique_id=1569973946]
+position = Vector2(42, 23)
+bus = &"SFX"
+
 [node name="ExitBlocker" type="StaticBody2D" parent="BossBattleOrchestrator" unique_id=1990924061]
 unique_name_in_owner = true
+visible = false
 position = Vector2(43, 36)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossBattleOrchestrator/ExitBlocker" unique_id=1570997124]
@@ -206,6 +775,7 @@ script = ExtResource("13_nflnq")
 hp = 3.0
 
 [node name="TriggerArea" type="Area2D" parent="BossBattleOrchestrator" unique_id=2112698932]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossBattleOrchestrator/TriggerArea" unique_id=2116630940]
 position = Vector2(-31.5, -129.5)
