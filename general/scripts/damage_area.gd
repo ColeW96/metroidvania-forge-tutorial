@@ -4,12 +4,17 @@ class_name DamageArea extends Area2D
 signal damage_taken( attack_area )
 
 @export var audio : AudioStream
+@export var affected_by_bullet : bool = true
 
 
 func take_damage( attack_area: AttackArea ) -> void:
-	damage_taken.emit( attack_area )
 	if audio:
 		Audio.play_spatial_sound( audio, global_position )
+	
+	if attack_area.owner is Bullet:
+		if not affected_by_bullet:
+			return
+	damage_taken.emit( attack_area )
 	pass
 
 

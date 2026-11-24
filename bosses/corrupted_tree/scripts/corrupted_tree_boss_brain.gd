@@ -61,6 +61,9 @@ func _on_animation_finish( a : String ) -> void:
 
 
 func _on_damage_taken( a : AttackArea ) -> void:
+	if a.owner is Bullet:
+		return
+	
 	hp -= a.damage
 	
 	if hp <= 0:

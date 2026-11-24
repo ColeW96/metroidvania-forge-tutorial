@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://drqun7tewik8i" path="res://general/scripts/level_bounds.gd" id="2_83xbm"]
 [ext_resource type="PackedScene" uid="uid://ja8lc0n3awhh" path="res://enemies/slime_2/slime_2.tscn" id="4_cjmus"]
 [ext_resource type="PackedScene" uid="uid://stjldw1t7ovk" path="res://general/player_spawn/player_spawn.tscn" id="4_sxnha"]
-[ext_resource type="PackedScene" uid="uid://hanqvafhvg88" path="res://enemies/living_armor/living_armor.tscn" id="5_cjmus"]
 
 [node name="SmallerPlayground" type="Node2D" unique_id=775118826]
 
@@ -25,8 +24,4 @@ metadata/_custom_type_script = "uid://drqun7tewik8i"
 position = Vector2(284, 229)
 
 [node name="Slime2" parent="." unique_id=488761391 instance=ExtResource("4_cjmus")]
-process_mode = 4
 position = Vector2(171, 225)
-
-[node name="LivingArmor" parent="." unique_id=311169386 instance=ExtResource("5_cjmus")]
-position = Vector2(109.004616, 228.22884)

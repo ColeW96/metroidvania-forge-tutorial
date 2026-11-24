@@ -1151,6 +1151,7 @@ collision_layer = 32
 collision_mask = 0
 script = ExtResource("8_5xqv4")
 audio = ExtResource("9_bts07")
+affected_by_bullet = false
 metadata/_custom_type_script = "uid://dha53eb7vo0el"
 
 [node name="DamageAreaCollisionShape2D" type="CollisionShape2D" parent="BossBattleOrchestrator/DamageArea" unique_id=699345308]
