@@ -78,10 +78,7 @@ func process( _delta: float ) -> PlayerState:
 # What happens each physics process tick in this state?
 func physics_process( _delta: float ) -> PlayerState:
 	if player.can_grab_ledge():
-		player.ledge_floor_check.force_raycast_update()
-		player.ledge_floor_check.force_raycast_update()
-		if player.ledge_floor_check.is_colliding():
-			return ledge_grab
+		return ledge_grab
 	
 	if player.is_on_floor():
 		return idle

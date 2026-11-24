@@ -11,15 +11,18 @@ func enter() -> void:
 	gravity = player.gravity
 	player.gravity = 0
 	
-	player.ledge_floor_check.force_raycast_update()
-	if player.ledge_floor_check.is_colliding():
-		var ledge_point : Vector2 = player.ledge_floor_check.get_collision_point()
-		var snap_offset : Vector2 = ledge_point - player.ledge_grab_point.global_position
-		var target_pos : Vector2 = player.global_position + snap_offset
-		var tween : Tween = player.create_tween()
-		tween.set_trans(Tween.TRANS_SINE)
-		tween.set_ease(Tween.EASE_OUT)
-		tween.tween_property( player, "global_position", target_pos, 0.05 )
+	var ledge_point : Vector2 = player.detected_ledge_point
+
+	var snap_offset : Vector2 = (
+		ledge_point - player.ledge_grab_point.global_position
+	)
+
+	var target_pos : Vector2 = player.global_position + snap_offset
+
+	var tween : Tween = player.create_tween()
+	tween.set_trans( Tween.TRANS_SINE )
+	tween.set_ease( Tween.EASE_OUT )
+	tween.tween_property( player, "global_position", target_pos, 0.05 )
 	pass
 
 func handle_input( event : InputEvent ) -> PlayerState:

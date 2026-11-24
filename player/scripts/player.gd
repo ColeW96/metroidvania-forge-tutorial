@@ -96,6 +96,9 @@ var last_position : Vector2
 var last_floor_dir : Vector2 = Vector2.RIGHT
 var edge_detected : bool = false
 var edge_sensor_pos : Vector2
+var previous_physics_position : Vector2
+var detected_ledge_point : Vector2
+@export var ledge_check_step : float = 2.0
 #endregion
 
 
@@ -168,12 +171,18 @@ func _process( _delta: float ) -> void:
 func _physics_process( delta: float ) -> void:
 	velocity.y += gravity * delta * gravity_multiplier
 	velocity.y = clampf( velocity.y, -1000.0, max_fall_velocity )
+	
+	previous_physics_position = global_position
+	
 	move_and_slide()
 	change_state( current_state.physics_process( delta ) )
+	
 	# add recoil velocity
 	velocity += recoil
+	
 	# reduce recoil velocity
 	recoil = recoil.lerp( Vector2.ZERO, 1.0 - exp( delta * -50 ) )
+	
 	get_last_position() # may need to move this above recoil
 	pass
 
@@ -333,15 +342,52 @@ func can_morph() -> bool:
 func can_grab_ledge() -> bool:
 	if ledge_grab == false:
 		return false
-	
+
 	if Input.is_action_pressed("jump"):
 		return false
-	
-	top_check.force_raycast_update()
-	wall_check.force_raycast_update()
-	ledge_floor_check.force_raycast_update()
-	
-	return not top_check.is_colliding() and wall_check.is_colliding()
+
+	if is_on_floor():
+		return false
+
+	var movement : Vector2 = global_position - previous_physics_position
+
+	# Determine how many intermediate checks are needed.
+	var steps : int = maxi(
+		1,
+		ceili( movement.length() / ledge_check_step )
+	)
+
+	for i in range( steps + 1 ):
+		var weight : float = float( i ) / float( steps )
+
+		var check_position : Vector2 = previous_physics_position.lerp(
+			global_position,
+			weight
+		)
+
+		var offset : Vector2 = check_position - global_position
+
+		# Top check must be clear.
+		if not check_ledge_ray( top_check, offset ).is_empty():
+			continue
+
+		# Wall check must be colliding.
+		if check_ledge_ray( wall_check, offset ).is_empty():
+			continue
+
+		# Confirm that a ledge surface exists.
+		var floor_hit : Dictionary = check_ledge_ray(
+			ledge_floor_check,
+			offset
+		)
+
+		if floor_hit.is_empty():
+			continue
+
+		detected_ledge_point = floor_hit["position"]
+		return true
+
+	return false
 
 
 func get_last_position() -> void:
@@ -390,3 +436,24 @@ func has_ability( ability : String ) -> bool:
 		"morph_roll":
 			return morph_roll
 	return false
+
+func check_ledge_ray(
+	ray : RayCast2D,
+	offset : Vector2
+) -> Dictionary:
+
+	var from : Vector2 = ray.global_position + offset
+	var to : Vector2 = ray.to_global( ray.target_position ) + offset
+
+	var query := PhysicsRayQueryParameters2D.create(
+		from,
+		to,
+		ray.collision_mask,
+		[get_rid()]
+	)
+
+	query.collide_with_bodies = ray.collide_with_bodies
+	query.collide_with_areas = ray.collide_with_areas
+	query.hit_from_inside = ray.hit_from_inside
+
+	return get_world_2d().direct_space_state.intersect_ray( query )
