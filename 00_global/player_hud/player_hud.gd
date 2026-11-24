@@ -35,6 +35,8 @@ func update_health_bar( hp : float, max_hp : float ) -> void:
 
 
 func show_game_over() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	
 	load_button.visible = false
 	quit_button.visible = false
 	

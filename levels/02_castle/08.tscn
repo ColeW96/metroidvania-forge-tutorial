@@ -47,7 +47,7 @@ script = ExtResource("4_egrrs")
 track = ExtResource("5_gut50")
 metadata/_custom_type_script = "uid://rwwuu7gvxywr"
 
-[node name="BossBattleOrchestrator" type="Node" parent="." unique_id=365039576 node_paths=PackedStringArray("boss", "trigger_area", "boss_tilemaps", "reward", "boss_level_bounds", "original_level_bounds")]
+[node name="BossBattleOrchestrator" type="Node2D" parent="." unique_id=1604439233 node_paths=PackedStringArray("boss", "trigger_area", "boss_tilemaps", "reward", "boss_level_bounds", "original_level_bounds")]
 script = ExtResource("5_l3j2w")
 boss_name = "Nega Pink Box Hero"
 boss = NodePath("NegaPinkBoxHero")

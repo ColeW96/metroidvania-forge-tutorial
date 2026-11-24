@@ -119,6 +119,8 @@ func _on_damage_taken( a : AttackArea ) -> void:
 		hazard_area.queue_free()
 		was_killed.emit()
 	was_hit.emit( a )
+	if a.owner is not Bullet:
+		VisualEffects.camera_shake( 0.75 )
 	pass
 
 

@@ -28,6 +28,7 @@ func _ready() -> void:
 	if PlayerHud.in_boss_battle:
 		PlayerHud.boss_hp.visible = false
 	show_pause_screen()
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	system_menu_button.pressed.connect( show_system_menu )
 	controls_menu_button.pressed.connect( show_controls_menu )
 	abilities_menu_button.pressed.connect( show_abilities_menu )
@@ -47,6 +48,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_tree().paused = false
 		if PlayerHud.in_boss_battle:
 			PlayerHud.boss_hp.visible = true
+		Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 		queue_free()
 	pass
 

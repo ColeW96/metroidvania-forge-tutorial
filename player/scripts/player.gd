@@ -116,6 +116,7 @@ func _ready() -> void:
 	attack_area.damage_done.connect( _on_damage_done )
 	hp = max_hp
 	attack_area.damage = attack_damage
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	pass
 
 
